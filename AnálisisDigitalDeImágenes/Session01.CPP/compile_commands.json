@@ -1,0 +1,3 @@
+[ {
+"command": "gcc HolaMundo -IC:/opencv/build/install/include -IC:/opencv/build/install/include/opencv2",
+} ] 
