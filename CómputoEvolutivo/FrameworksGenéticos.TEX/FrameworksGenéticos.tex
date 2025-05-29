@@ -1,12 +1,73 @@
-\documentclass[10pt]{article}
+%! TeX program = xelatex
+%! TeX TS-program = xelatex
+\documentclass[10pt,dvipsnames]{beamer}
 \usepackage{fontspec}
-\usepackage{xcolor}
 \setmainfont{QTBookmann}
+\setsansfont{QTFrizQuad}
 \usepackage{polyglossia}
-\usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage{dirtytalk}
+\usepackage{graphicx}
 \setdefaultlanguage[variant=mexican]{spanish}
 \usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage[most]{tcolorbox}
+\usepackage[backend=biber]{biblatex}
+\usetheme{Copenhagen}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\definecolor{mypurple}{RGB}{044,040,028}                              %
+%\setbeamercolor*{palette primary}{use=structure,fg=white,bg=mypurple} %
+%\definecolor{mypurple}{RGB}{195,084,023}                              %
+\definecolor{mypurple}{RGB}{104,020,108}
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=mypurple}
+\setbeamercolor{normal text}{fg=white, bg=black}
+\setbeamercolor{tcolorbox text}{fg=white, bg=black}
+\setbeamertemplate{navigation symbols}{}                              %
+%\setbeamercolor{itemize item}{fg=PineGreen}
+\newcommand{\colouredcircle}{%
+  \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em);
+        \draw[ball color=PineGreen!7!Plum!90!Red,shading=ball,line width=0.03em] (0,0) circle(0.18em);}}
+\newcommand{\colouredcircledis}{%
+  \tikz{\useasboundingbox (-0.2em,-0.32em) rectangle(0.2em,0.32em);
+        \draw[ball color=PineGreen!7!Plum!20!Black,shading=ball,line width=0.03em] (0,0) circle(0.18em);}}
+\setbeamertemplate{itemize item}{\colouredcircle}
+%\renewcommand{\labelitemi}{\colouredcircle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikzpagenodes}
+\setbeamertemplate{background canvas}{%
+  \begin{tikzpicture}[inner sep=0pt,remember picture,overlay]
+    \node at (current page.center) {\includegraphics[height=\paperheight,width=\paperwidth]{fondo}};
+  \end{tikzpicture}
+}
+
+\makeatletter
+\newtcolorbox{blur}[1][]{%
+  #1,
+  enhanced,
+  remember,
+  frame hidden,
+  interior hidden,
+  fonttitle=\bfseries\centering, 
+  fontupper=\rmfamily\selectfont,
+  coltext=white,
+  underlay={
+    \begin{tcbclipframe}
+      \begin{scope}[inner sep=0pt,remember picture,overlay]
+        \fill[white] (current page.south west) rectangle (current page.north east);
+        \node[opacity=1] at (current page.center) {\includegraphics[height=\paperheight, width=\paperwidth]{blured}};
+      \end{scope}
+    \end{tcbclipframe}
+   }
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\separador}[1]{
+  \vskip-4pt
+  \begin{center}
+    \rule{0.9\linewidth}{#1}
+  \end{center}
+}
+
 \bibliography{bibliografia}
 \nocite{*}
 
@@ -18,31 +79,79 @@ Brandon Marquez Salazar
 }
 \begin{document}
 \maketitle
+\justifying
 
-  \section*{Introduccióno}
+  \section*{Introducción}
+  \begin{frame}
+    \only<1>{
+      \begin{blur}
 
-  Los algoritmos genéticos son algoritmos heurísticos que permiten la
-  optimización de problemas, a fin de encontrar una solución óptima ante
-  la situación planteada. Consisten, principalmente, en una implementación
-  simplificada del proceso evolutivo natural. Existen diferentes
-  frameworks para la implementación de algoritmos genéticos, generalmente
-  en Python y en Matlab.
+        Los algoritmos genéticos pertenecen a la categoría de eurísticos,
+        permiten encontrar soluciones óptimas para un problema.
+        \separador{2pt}
 
-  \section*{DEAP}
+        Consisten, principalmente, en una implementación simplificada del
+        proceso evolutivo natural.
+        \separador{1pt}
+  
+        Existen diferentes frameworks para la implementación de algoritmos
+        genéticos, generalmente en Python y en Matlab.
+  
+      \end{blur}
+    }
+    \only<2,3>{
+      \begin{blur}
+    \onslide*<2,3> {
+        Existen diferentes frameworks para la implementación de algoritmos
+        genéticos, generalmente en Python y en Matlab.
 
-  DEAP significa \textit{Distributed Evolutionary Algorithms in Python},
-  y es un módulo que implementa algoritmos evolutivos distribuidos. DEAP
-  permite ejecutar procesos paralelos, lo que permite agilizar la búsqueda
-  de soluciones óptimas a un problema. Tiene un conjunto de herramientas
-  para la abstracción del individuo y métodos para selección y cruza.
+        En este documento se discutirán dos de ellos.
+    }
+    \onslide*<2>{
+      \begin{itemize}
+        \item DEAP \textit{Distributed Evolutionary Algorithms in Python},
+          y es un módulo que implementa algoritmos evolutivos distribuidos. DEAP
+          permite ejecutar procesos paralelos.
+        \item [\colouredcircledis] \textcolor{Gray}{GAFT}
+      \end{itemize}
+    }
+    \onslide*<3>{
+      \begin{itemize}
+        \item [\colouredcircledis] \textcolor{Gray}{DEAP}
+        \item GAFT \textit{Genetic Algorithm Framework in Python}
+          permite la implementación de algoritmos genéticos y la definición
+          de individuos de manera flexible
+      \end{itemize}
+    }
+      \end{blur}
+    }
+  \end{frame}
 
-  \section*{GAFT}
 
-  \textit{Genetic Algorithm Framework in Python}, es un framework que
-  permite la implementación de algoritmos genéticos de forma flexible,
-  procurando ajustarse a las necesidades del usuario, permitiendo al
-  usuario definir a los individuos de manera personalizable. Estas
-  características prometen que el framework ofrezca soluciones específicas
-  a problemas puntuales.
+  \begin{frame} \section*{DEAP}
+    \begin{blur}[title={DEAP}]
+
+      DEAP permite agilizar la búsqueda
+      de soluciones óptimas a un problema. Tiene un conjunto de herramientas
+      para la abstracción del individuo y métodos para selección y cruza.
+
+    \end{blur}
+  \end{frame}
+
+
+  \begin{frame} \section*{GAFT}
+    \begin{blur}[title={GAFT}]
+
+    Promete la capacidad de ajustarse a la creación de soluciones específicas
+    para problemas puntuales.
+
+    \end{blur}
+  \end{frame}
+
+  \begin{frame}
+    \begin{blur}
+      \printbibliography
+    \end{blur}
+  \end{frame}
 
 \end{document}
