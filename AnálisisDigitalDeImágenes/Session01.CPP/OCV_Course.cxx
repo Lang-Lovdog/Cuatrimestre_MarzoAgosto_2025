@@ -1,7 +1,8 @@
-#include "OCV_Course.hxx"
 #include <iostream>
 #include <core.hpp>
+#include <imgproc.hpp>
 #include <highgui.hpp>
+#include "OCV_Course.hxx"
 
 int mainHolaMundo (int argc,char* argv[]){
   if(argc<2) { std::cout << "Requires an argument (image)"; return 1; }
@@ -132,5 +133,140 @@ int ImaGenesisDos(){
   cv::imshow("Degradado A",ImagenNueva);
 
   cv::waitKey();
+  return 0;
+}
+
+int mainDatos(int argc, char** argv){
+  if(argc<2) { std::cout << "Requires an argument (image)"; return 1; }
+  std::cout << "Checking OpenCV installation in PC /opencv/ \n";
+  cv::Mat InputOne, InputTwo, InputDri, InputFur;
+
+  InputOne      = cv::imread(argv[1],cv::IMREAD_COLOR);
+  cv::cvtColor(InputOne,InputTwo,cv::COLOR_BGR2GRAY);
+  cv::cvtColor(InputTwo,InputDri,cv::COLOR_GRAY2BGR);
+
+  if(InputOne.empty()) { std::cout << "Image reading error"; return 1; }
+  cv::namedWindow("L'imageUn",cv::WINDOW_NORMAL);
+  ImagData(InputOne);
+  ImagData(InputTwo);
+  ImagData(InputDri);
+
+  cv::line(
+      InputDri,
+      cv::Point(0,0), cv::Point(20,50),
+      cv::Scalar(0,255,0), 2, cv::LINE_8,0
+  );
+  cv::circle(
+      InputDri,
+      cv::Point(InputDri.cols/2,InputDri.rows/2),InputDri.rows/2,
+      cv::Scalar(120,040,200),1, cv::LINE_8,0
+  );
+
+  cv::imshow("L'imageUn",InputOne);
+  cv::imshow("L'imageDoux",InputTwo);
+  cv::imshow("L'imageTrois",InputDri);
+
+  cv::waitKey(0);
+  return 0;
+}
+
+int ImagData(const cv::Mat& imagen){
+  coutSEPARATOR
+  std::cout << "The Image Has " << imagen.cols << " cols"
+            << " And " << imagen.rows << " rows With Type"
+  ;
+  switch (imagen.type()){
+    case CV_8UC1:
+      std::cout << " 1 Channel | unsigned char\n";
+      break;
+    case CV_8UC3:
+      std::cout << " 3 Channels | unsgned char\n";
+      break;
+    default:
+      std::cout << " Undefined type\n";
+      break;
+  }
+  coutSEPARATOR
+  return 0;
+}
+
+int videoStreaming(void){
+  cv::VideoCapture cam(0);
+  if(!cam.isOpened()){ std::cout << "Camera Inaccessible!"; return 1; }
+
+  // Image Capture Loop
+  cv::Mat Frame;
+  while(cam.read(Frame)){
+    imshow("TheCam", Frame);
+    if(cv::waitKey(30) > -1) break;
+  }
+  cv::destroyAllWindows();
+  return 0;
+}
+
+int frameProcess(void){
+  cv::VideoCapture cam(0);
+  if(!cam.isOpened()){ std::cout << "Camera Inaccessible!"; return 1; }
+
+  // Image Capture Loop
+  cv::Mat Frame, Output;
+  while(cam.read(Frame)){
+    Frame.copyTo(Output);
+    negateColour(Frame,Output);
+    negateColour(Output);
+    imshow("TheCam In",  Frame);
+    imshow("TheCam Out", Output);
+    if(cv::waitKey(30) > -1) break;
+  }
+  std::cout << "Resta uwu" << cv::sum(Frame-Output);
+  cv::destroyAllWindows();
+  return 0;
+}
+
+int negateColour(const cv::Mat& in, cv::Mat& out){
+  out = cv::Scalar::all(255) - in;
+  return 0;
+}
+
+int negateColour(cv::Mat& out){
+  out = cv::Scalar::all(255) - out;
+  return 0;
+}
+
+int frameROI(void){
+  cv::VideoCapture cam(0);
+  if(!cam.isOpened()){ std::cout << "Camera Inaccessible!"; return 1; }
+
+  // Image Capture Loop
+  cv::Mat Frame, Output, ROI;
+  while(cam.read(Frame)){
+    Frame.copyTo(Output);
+    
+    ROI = 
+      Frame(
+          cv::Range(0.25*Frame.rows, 0.75*Frame.rows),
+          cv::Range(0.25*Frame.cols, 0.75*Frame.cols)
+      );
+
+    negateColour(ROI);
+
+    imshow("TheCam In",  Frame);
+
+    //ROI.copyTo(Output(cv::Rect(
+    //        Output.cols/4 , Output.rows/4,
+    //        Output.cols/2 , Output.rows/2
+    //)));
+    //
+    ROI.copyTo(Output(cv::Rect(
+            cv::Size(Output.cols/4 , Output.rows/4),
+            cv::Size(Output.cols/2 , Output.rows/2)
+    )));
+
+    imshow("TheCam Out", Output);
+    imshow("TheCam ROI", ROI);
+
+    if(cv::waitKey(30) > -1) break;
+  }
+  cv::destroyAllWindows();
   return 0;
 }
