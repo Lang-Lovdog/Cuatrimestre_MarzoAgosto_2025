@@ -19,6 +19,34 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{ffmmdeap}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=28162aee95a6049ec8e6416ead35bec2}{%
+           family={Gagné},
+           familyi={G\bibinitperiod},
+           given={Félix-Antoine\bibnamedelimb Fortin;\bibnamedelimb François-Michel\bibnamedelimb De\bibnamedelimb Rainville;\bibnamedelimb Marc-André\bibnamedelimb Gardner;\bibnamedelimb Marc\bibnamedelimb Parizeau;\bibnamedelima Christian},
+           giveni={F\bibinithyphendelim A\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim F\bibinithyphendelim M\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim M\bibinithyphendelim A\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Universit\´e Laval}%
+      }
+      \strng{namehash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{fullhash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{fullhashraw}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{bibnamehash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{authorbibnamehash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{authornamehash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{authorfullhash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{authorfullhashraw}{28162aee95a6049ec8e6416ead35bec2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{abstract}{DEAP is a novel evolutionary computation framework for rapid prototyping and testing of ideas. Its design departs from most other existing frameworks in that it seeks to make algorithms explicit and data structures transparent, as opposed to the more common black-box frameworks. Freely available with extensive documentation at http://deap.gel.ulaval.ca, DEAP is an open source project under an LGPL license.}
+      \field{edition}{13}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{number}{2171-2175}
+      \field{year}{2012}
+    \endentry
     \entry{nash51}{article}{}{}
       \name{author}{1}{}{%
         {{hash=a41a31693bcb7bc6670db7f977f7cae0}{%
@@ -44,7 +72,6 @@
       \field{journaltitle}{Congreso Internacional de Mecatrónica, Control e Inteligencia Artificial, UNAM}
       \field{title}{Comparativa de frameworks para cómputo evolutivo implementados en Python}
       \field{year}{2023}
-      \true{nocite}
     \endentry
   \enddatalist
 \endrefsection

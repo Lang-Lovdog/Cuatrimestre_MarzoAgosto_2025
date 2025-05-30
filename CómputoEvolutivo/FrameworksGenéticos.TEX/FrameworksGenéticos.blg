@@ -1,0 +1,14 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is 'FrameworksGenéticos.blg'
+[153] biber:340> INFO - === vie may 30, 2025, 07:21:00
+[240] Biber.pm:420> INFO - Reading './FrameworksGenéticos.bcf'
+[399] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[428] Biber.pm:4463> INFO - Processing section 0
+[450] Biber.pm:4654> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[452] bibtex.pm:1713> INFO - LaTeX decoding ...
+[461] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[535] Utils.pm:410> ERROR - BibTeX subsystem: /tmp/biber_tmp_ZpTc/499af1e6906591d6961f19d66c065a09_6765.utf8, line 21, syntax error: found ",", expected one of: number, name (entry type, key, field, or macro name) or quoted string ({...} or "...")
+[535] Biber.pm:131> WARN - Invalid or undefined BibTeX entry key in file '/tmp/biber_tmp_ZpTc/499af1e6906591d6961f19d66c065a09_6765.utf8', skipping ...
+[536] Biber.pm:131> WARN - manual entry 'gaftdoc' (bibliografia.bib): Invalid format 'Dec. 23 2018' of date field 'date' - ignoring
+[536] Biber.pm:133> INFO - WARNINGS: 2
+[536] Biber.pm:136> INFO - ERRORS: 1

@@ -4,12 +4,14 @@
 \usepackage{fontspec}
 \setmainfont{QTBookmann}
 \setsansfont{QTFrizQuad}
+\setmonofont{VictorMono Nerd Font Mono}
 \usepackage{polyglossia}
 \usepackage{xcolor}
 \usepackage{dirtytalk}
 \usepackage{graphicx}
-\setdefaultlanguage[variant=mexican]{spanish}
+\setdefaultlanguage{spanish}
 \usepackage{multirow}
+\usepackage{listings}
 \usepackage{ragged2e}
 \usepackage[most]{tcolorbox}
 \usepackage[backend=biber]{biblatex}
@@ -68,6 +70,11 @@
   \end{center}
 }
 
+\lstset{
+  basicstyle=\ttfamily,
+  showstringspaces=false,
+  breaklines=true
+}
 \bibliography{bibliografia}
 \nocite{*}
 
@@ -111,7 +118,7 @@ Brandon Marquez Salazar
       \begin{itemize}
         \item DEAP \textit{Distributed Evolutionary Algorithms in Python},
           y es un módulo que implementa algoritmos evolutivos distribuidos. DEAP
-          permite ejecutar procesos paralelos.
+          permite ejecutar procesos paralelos. \cite{nash51}
         \item [\colouredcircledis] \textcolor{Gray}{GAFT}
       \end{itemize}
     }
@@ -132,18 +139,35 @@ Brandon Marquez Salazar
     \begin{blur}[title={DEAP}]
 
       DEAP permite agilizar la búsqueda
-      de soluciones óptimas a un problema. Tiene un conjunto de herramientas
-      para la abstracción del individuo y métodos para selección y cruza.
+      de soluciones óptimas a un problema. Tiene un conjunto de
+      herramientas para la abstracción del individuo y métodos para
+      selección y cruza. \cite{nash51}
+
+      A nivel de codificación, se concibe como una implementación
+      explícita (comparándose con un pseudocódigo) en pos de la
+      legibilidad. Así mismo, dando importancia a la sencillez y limpieza
+      del código. \cite{ffmmdeap}
 
     \end{blur}
   \end{frame}
 
+  \begin{frame}[fragile]
+    \begin{blur}[title={Una demostración con DEAP}]
+
+      Función de evaluación:
+\begin{center} \begin{lstlisting}[language=python]
+    def eval_func(individual):
+      return sum(individual)
+\end{lstlisting} \end{center}
+
+    \end{blur}
+  \end{frame}
 
   \begin{frame} \section*{GAFT}
     \begin{blur}[title={GAFT}]
 
-    Promete la capacidad de ajustarse a la creación de soluciones específicas
-    para problemas puntuales.
+    Promete la capacidad de ajustarse a la creación de soluciones
+    específicas para problemas puntuales. 
 
     \end{blur}
   \end{frame}
