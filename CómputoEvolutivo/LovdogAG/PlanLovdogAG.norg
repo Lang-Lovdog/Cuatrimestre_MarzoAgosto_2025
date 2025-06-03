@@ -1,0 +1,15 @@
+* Algoritmos genéticos
+
+** Problema del agente viajero
+
+Este problema modela el caso en que un agente deba visitar ciertas ciudades a fin de pasar a cada unareduciendo el costo total del viaje, y regresando a la ciudad de inicio.
+
+*** Consideraciones del problema
+
+Para resolver el problema del *agente viajero* utilizando *algoritmos genéticos* se requieren ciertas consideraciones.
+
+- Cada ciudad se representará con un nodo
+- Las conexiónes entre nodos serán caminos ponderados
+- Cada camino se recorrerá una vez
+- Debe tenerse un mínimo coste al finalizar el recorrido
+- El viajero deberá regresar al nodo donde inició
