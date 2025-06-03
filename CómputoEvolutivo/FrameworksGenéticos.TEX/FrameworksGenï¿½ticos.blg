@@ -1,12 +1,14 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'FrameworksGen�ticos.blg'
-[248] biber-MSWIN64:340> INFO - === 
-[306] Biber.pm:420> INFO - Reading 'FrameworksGenéticos.bcf'
-[417] Biber.pm:991> INFO - Using all citekeys in bib section 0
-[430] Biber.pm:4463> INFO - Processing section 0
-[443] Biber.pm:4654> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
-[518] bibtex.pm:1713> INFO - LaTeX decoding ...
-[523] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
-[550] Utils.pm:410> ERROR - Name "Félix-Antoine Fortin, François-Michel De Rainville, Marc-André Gardner, Marc Parizeau, Christian Gagné" has too many commas, skipping entry 'ffmmdeap'
-[550] Utils.pm:410> ERROR - BibTeX subsystem: C:\Users\LANGLO~1\AppData\Local\Temp\biber_tmp_sh4K\499af1e6906591d6961f19d66c065a09_23516.utf8, line 15, syntax error: found "year", expected end of entry ("}" or ")") (skipping to next "@")
-[550] Biber.pm:136> INFO - ERRORS: 2
+[132] biber-MSWIN64:340> INFO - === 
+[209] Biber.pm:420> INFO - Reading 'FrameworksGenéticos.bcf'
+[325] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[340] Biber.pm:4463> INFO - Processing section 0
+[353] Biber.pm:4654> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[431] bibtex.pm:1713> INFO - LaTeX decoding ...
+[438] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliografia.bib'
+[468] Utils.pm:410> ERROR - BibTeX subsystem: C:\Users\LANGLO~1\AppData\Local\Temp\biber_tmp_AFhm\499af1e6906591d6961f19d66c065a09_20056.utf8, line 21, syntax error: found ",", expected one of: number, name (entry type, key, field, or macro name) or quoted string ({...} or "...")
+[468] Biber.pm:131> WARN - Invalid or undefined BibTeX entry key in file 'C:\Users\LANGLO~1\AppData\Local\Temp\biber_tmp_AFhm\499af1e6906591d6961f19d66c065a09_20056.utf8', skipping ...
+[468] Biber.pm:131> WARN - manual entry 'gaftdoc' (bibliografia.bib): Invalid format 'Dec. 23 2018' of date field 'date' - ignoring
+[468] Biber.pm:133> INFO - WARNINGS: 2
+[468] Biber.pm:136> INFO - ERRORS: 1
