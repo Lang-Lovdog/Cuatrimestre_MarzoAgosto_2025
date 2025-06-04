@@ -13,3 +13,11 @@ Para resolver el problema del *agente viajero* utilizando *algoritmos genéticos
 - Cada camino se recorrerá una vez
 - Debe tenerse un mínimo coste al finalizar el recorrido
 - El viajero deberá regresar al nodo donde inició
+
+*** Consideraciónes importantes
+
+- Para el proceso de cruza, los algoritos genéticos requerirán un método que evite la repetición de nodos en el nuevo individuo.
+
+#+begin_src plantuml :results verbatim
+Bob -> Alice : Hello World!
+#+end_src
