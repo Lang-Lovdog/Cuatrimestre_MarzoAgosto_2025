@@ -14,13 +14,15 @@ else
   set shortmess=aoO
 endif
 badd +9 Makefile
-badd +8 OCV_Course.hxx
-badd +129 OCV_Course.cxx
-badd +10 OCV_Course.cpp
+badd +18 ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course.hxx
+badd +1 ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course.cxx
+badd +15 ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course-main.cpp
+badd +1 oil:///C/Users/Lang\ Lovdog/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/
+badd +1 ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course-.cpp
 argglobal
 %argdel
-$argadd .
-edit OCV_Course.cxx
+$argadd oil:///C/Users/Lang\ Lovdog/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/
+edit ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course.cxx
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -41,13 +43,12 @@ set winminheight=0
 set winheight=1
 set winminwidth=0
 set winwidth=1
-exe 'vert 1resize ' . ((&columns * 86 + 101) / 203)
-exe '2resize ' . ((&lines * 28 + 34) / 68)
-exe 'vert 2resize ' . ((&columns * 116 + 101) / 203)
-exe '3resize ' . ((&lines * 36 + 34) / 68)
-exe 'vert 3resize ' . ((&columns * 116 + 101) / 203)
+exe 'vert 1resize ' . ((&columns * 116 + 116) / 232)
+exe '2resize ' . ((&lines * 19 + 20) / 41)
+exe 'vert 2resize ' . ((&columns * 115 + 116) / 232)
+exe '3resize ' . ((&lines * 18 + 20) / 41)
+exe 'vert 3resize ' . ((&columns * 115 + 116) / 232)
 argglobal
-balt OCV_Course.hxx
 setlocal foldmethod=expr
 setlocal foldexpr=nvim_treesitter#foldexpr()
 setlocal foldmarker={{{,}}}
@@ -56,25 +57,19 @@ setlocal foldlevel=0
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldenable
-120
-sil! normal! zo
-128
-sil! normal! zo
-129
-sil! normal! zo
-let s:l = 127 - ((126 * winheight(0) + 32) / 65)
+let s:l = 236 - ((0 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 127
+keepjumps 236
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("OCV_Course.hxx", ":p")) | buffer OCV_Course.hxx | else | edit OCV_Course.hxx | endif
+if bufexists(fnamemodify("~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course.hxx", ":p")) | buffer ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course.hxx | else | edit ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course.hxx | endif
 if &buftype ==# 'terminal'
-  silent file OCV_Course.hxx
+  silent file ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course.hxx
 endif
-balt OCV_Course.cpp
+balt ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course.cxx
 setlocal foldmethod=expr
 setlocal foldexpr=nvim_treesitter#foldexpr()
 setlocal foldmarker={{{,}}}
@@ -83,21 +78,19 @@ setlocal foldlevel=0
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldenable
-1
-sil! normal! zo
-let s:l = 10 - ((9 * winheight(0) + 14) / 28)
+let s:l = 18 - ((17 * winheight(0) + 9) / 19)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 10
-normal! 0
+keepjumps 18
+normal! 01|
 wincmd w
 argglobal
-if bufexists(fnamemodify("OCV_Course.cpp", ":p")) | buffer OCV_Course.cpp | else | edit OCV_Course.cpp | endif
+if bufexists(fnamemodify("~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course-main.cpp", ":p")) | buffer ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course-main.cpp | else | edit ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course-main.cpp | endif
 if &buftype ==# 'terminal'
-  silent file OCV_Course.cpp
+  silent file ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course-main.cpp
 endif
-balt OCV_Course.hxx
+balt ~/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/src/OCV_Course-.cpp
 setlocal foldmethod=expr
 setlocal foldexpr=nvim_treesitter#foldexpr()
 setlocal foldmarker={{{,}}}
@@ -106,20 +99,19 @@ setlocal foldlevel=0
 setlocal foldminlines=1
 setlocal foldnestmax=20
 setlocal foldenable
-6
-sil! normal! zo
-let s:l = 10 - ((9 * winheight(0) + 18) / 36)
+let s:l = 1 - ((0 * winheight(0) + 9) / 18)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 10
-normal! 03|
+keepjumps 1
+normal! 0
 wincmd w
-exe 'vert 1resize ' . ((&columns * 86 + 101) / 203)
-exe '2resize ' . ((&lines * 28 + 34) / 68)
-exe 'vert 2resize ' . ((&columns * 116 + 101) / 203)
-exe '3resize ' . ((&lines * 36 + 34) / 68)
-exe 'vert 3resize ' . ((&columns * 116 + 101) / 203)
+3wincmd w
+exe 'vert 1resize ' . ((&columns * 116 + 116) / 232)
+exe '2resize ' . ((&lines * 19 + 20) / 41)
+exe 'vert 2resize ' . ((&columns * 115 + 116) / 232)
+exe '3resize ' . ((&lines * 18 + 20) / 41)
+exe 'vert 3resize ' . ((&columns * 115 + 116) / 232)
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
