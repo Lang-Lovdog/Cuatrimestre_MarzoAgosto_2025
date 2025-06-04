@@ -1,0 +1,7 @@
+@startuml{individuo_struct.png}
+  abstract individuo
+  individuo : size_t* path
+  individuo : float   fitness
+  individuo : float   weight
+  individuo : float   i_size
+@enduml
