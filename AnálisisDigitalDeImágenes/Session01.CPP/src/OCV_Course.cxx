@@ -1,6 +1,7 @@
 #include <iostream>
 #include <core.hpp>
 #include <imgproc.hpp>
+#include <opencv.hpp>
 #include <highgui.hpp>
 #include "OCV_Course.hxx"
 
@@ -268,5 +269,193 @@ int frameROI(void){
     if(cv::waitKey(30) > -1) break;
   }
   cv::destroyAllWindows();
+  return 0;
+}
+
+int mainHistograma(int argc, char** argv){
+  if(argc < 2) {std::cout << "No file given" << std::endl; return 1;}
+
+  std::cout << "Histograma" << std::endl;
+  cv::Mat Input;
+  Input = cv::imread(argv[1],cv::IMREAD_GRAYSCALE);
+  if(Input.empty()) { std::cout << "Error File not Found" << std::endl; return 1; }
+
+  cv::imshow("L'image gray",Input);
+  lovdog_Histograma("L'image histograme",Input);
+
+  cv::waitKey(0);
+  return 0;
+}
+
+int lovdog_Histograma(const char* title, const cv::Mat& input){
+  if(input.channels() != 1){ std::cout << "One Channel Images Only Here" << std::endl; return 1;}
+  int histSize = 256;
+  int histWidth = 512, histHeight = 200;
+  cv::Scalar
+    colorBack(20,0,0),
+    colorBars(155,155,155),
+    colorLines(255,0,255)
+  ;
+
+  float range[] = {0.0, (float)histSize};
+  const float* histRange[] = { range };
+  cv::Mat Histograma;
+
+  cv::calcHist(&input, 1, 0, cv::Mat(), Histograma, 1, &histSize, histRange);
+  cv::normalize(Histograma, Histograma, 0, histHeight, cv::NORM_MINMAX);
+  std::cout << "Histogram Size" << Histograma.size();
+  std::cout << " that is " << Histograma.rows << " rows, "
+            << Histograma.cols << " columns. ";
+
+  int binWidth = cvRound((double) histWidth/histSize);
+  cv::Mat histogramaImg(histHeight, histWidth, CV_8UC3, colorBack);
+
+  for( unsigned int i = 1 ; i < histSize ; ++i)
+    line(
+        histogramaImg,
+        cv::Point(binWidth*(i), histHeight - cvRound(Histograma.at<float>(i)) ),
+        cv::Point(binWidth*(i), histHeight ),
+        colorBars, 2, 8, 0
+    );
+
+  for( unsigned int i = 1 ; i < histSize ; ++i)
+    line(
+        histogramaImg,
+        cv::Point(binWidth*(i-1), histHeight - cvRound(Histograma.at<float>(i-1)) ),
+        cv::Point(binWidth*(i), histHeight - cvRound(Histograma.at<float>(i)) ),
+        colorLines, 2, 8, 0
+    );
+
+  imshow(title,histogramaImg);
+  return 0;
+}
+
+int mainHistograma2(int argc, char** argv){
+  if(argc < 2) {std::cout << "No file given" << std::endl; return 1;}
+
+  std::cout << "Histograma" << std::endl;
+  cv::Mat Input;
+  Input = cv::imread(argv[1],cv::IMREAD_GRAYSCALE);
+  if(Input.empty()) { std::cout << "Error File not Found" << std::endl; return 1; }
+
+  cv::imshow("L'image gray",Input);
+  lovdog_Histograma2("L'image histograme",Input);
+
+  cv::waitKey(0);
+  return 0;
+}
+
+int lovdog_Histograma2(const char* title, const cv::Mat& input){
+  if(input.channels() != 1){ std::cout << "One Channel Images Only Here" << std::endl; return 1;}
+  int histSize = 256;
+  int histWidth = 512, histHeight = 200;
+  cv::Scalar
+    colorBack(20,0,0),
+    colorBars(155,155,155),
+    colorLines(255,0,255)
+  ;
+
+  float range[] = {0.0, (float)histSize};
+  const float* histRange[] = { range };
+  cv::Mat Histograma;
+
+  if(!lovdogCalcHist(input, Histograma, 0, 0)){
+    std::cout << "Histogram Error" << std::endl;
+    return 1;
+  }
+  std::cout << Histograma << std::endl;
+  //cv::calcHist(&i
+  //cv::normalize(Histograma, Histograma, 0, histHeight, cv::NORM_MINMAX);
+  //std::cout << "Histogram Size" << Histograma.size();
+  //std::cout << " that is " << Histograma.rows << " rows, "
+  //          << Histograma.cols << " columns. ";
+
+  //int binWidth = cvRound((double) histWidth/histSize);
+  //cv::Mat histogramaImg(histHeight, histWidth, CV_8UC3, colorBack);
+
+  //for( unsigned int i = 1 ; i < histSize ; ++i)
+  //  line(
+  //      histogramaImg,
+  //      cv::Point(binWidth*(i), histHeight - cvRound(Histograma.at<float>(i)) ),
+  //      cv::Point(binWidth*(i), histHeight ),
+  //      colorBars, 2, 8, 0
+  //  );
+
+  //for( unsigned int i = 1 ; i < histSize ; ++i)
+  //  line(
+  //      histogramaImg,
+  //      cv::Point(binWidth*(i-1), histHeight - cvRound(Histograma.at<float>(i-1)) ),
+  //      cv::Point(binWidth*(i), histHeight - cvRound(Histograma.at<float>(i)) ),
+  //      colorLines, 2, 8, 0
+  //  );
+
+  //imshow(title,histogramaImg);
+  return 0;
+}
+
+/* 
+ * First argument is a Matrix which calculate the histogram from,
+ * Second argument is the Matrix which will contain the histogram values
+ * Third  argument, true for Probability Distribution, False for count
+ * Fourth argument true for cumulative, false for standard
+ * Return the bin number used by the histogram
+ */
+int lovdogCalcHist(const cv::Mat& src, cv::Mat &histogram1D, bool cnt_pdf, bool std_cum){
+  if(src.empty()){
+    std::cout << "\nlovdogCalcHist(): Empty Image" << std::endl;
+    return 0;
+  }
+  if(src.channels() != 1){
+    std::cout << "\nlovdogCalcHist(): Input must be 1 Channel" << std::endl;
+    return 0;
+  }
+  if(histogram1D.empty())
+    histogram1D = cv::Mat::zeros(1,HISTOGRAM_SIZE,CV_32FC1);
+  switch(src.type()){
+    case CV_8UC1:
+      for(size_t theRow=0; theRow < src.rows ; ++theRow)
+        for(size_t theCol=0; theCol<src.cols; ++theCol)
+          ++histogram1D.at<float>(0, (int)src.at<uchar>(theRow,theCol) );
+      break;
+
+    case CV_32FC1:
+      for(size_t theRow=0; theRow < src.rows ; ++theRow)
+        for(size_t theCol=0; theCol<src.cols; ++theCol)
+          ++histogram1D.at<float>(0, (int)src.at<float>(theRow,theCol) );
+      break;
+
+    default:
+      std::cout << "\nlovdogCalcHist(): Unsupported Matrix Type" << std::endl;
+  }
+
+  // For Probability Distribution
+  if(cnt_pdf) histogram1D/=(src.rows * src.cols);
+
+  if(std_cum) for(int level=1; level < histogram1D.cols ; ++level)
+    histogram1D.at<float>(0,level) += histogram1D.at<float>(0,level-1);
+
+  return histogram1D.cols;
+}
+
+int lovdogShowHist(const cv::Mat& histogram, cv::Mat& ploutput, size_t width, size_t height){
+  if(histogram.empty())         {std::cout<< "\nlovdogShowHist(): No Histogram to plot" <<std::endl; return 1 }
+  if(histogram.channels() != 1) {std::cout<< "\nlovdogShowHist(): Histogram must be one channel matrix" <<std::endl; return 1;}
+  if(histogram.type != CV_32FC1){std::cout<< "\nlovdogShowHist(): Histogram must be float type" <<std::endl; return 1;}
+  if(ploutput.data)             {std::cout<< "\nlovdogShowHist(): Plot matrix must be empty" <<std::endl; return 1;}
+
+  cv::Scalar
+    ColorBackground =cv::Scalar(20,0,0),
+    ColorBar        =cv::Scalar(160,10,150),
+    ColorEdge       =cv::Scalar(200,0,200)
+  ;
+
+  int MaximumPosition = 0;
+  float MaximumValue  = 0;
+  for(size_t theCol=1; theCol<histogram.cols; ++theCol)
+    if(histogram.at<float>(0,theCol) > MaximumValue)
+      MaximumValue = histogram.at<float>(0,(MaximumPosition=theCol)); // Ahorro una línea, asignación y uso al mismo tiempo
+
+  ploutput = cv::Mat::zeros(height,width,CV_8UC3);
+  ploutput += ColorBackground;
   return 0;
 }

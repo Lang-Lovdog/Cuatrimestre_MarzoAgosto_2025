@@ -1,0 +1,77 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{Ayala-Ramirez2006-bp}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=8f413ac6134d4522af421b1fe2fce386}{%
+           family={Ayala-Ramirez},
+           familyi={A\bibinithyphendelim R\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=c73d1843ffc979442dd3fa5020561083}{%
+           family={Garcia-Capulin},
+           familyi={G\bibinithyphendelim C\bibinitperiod},
+           given={Carlos\bibnamedelima H},
+           giveni={C\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=0b7c0c494405f14aca51dd77c38e24da}{%
+           family={Perez-Garcia},
+           familyi={P\bibinithyphendelim G\bibinitperiod},
+           given={Arturo},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d40b665ef40688f1723e76152557b68f}{%
+           family={Sanchez-Yanez},
+           familyi={S\bibinithyphendelim Y\bibinitperiod},
+           given={Raul\bibnamedelima E},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {en}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{9e9915c635fd7bf75171e0651350cf08}
+      \strng{fullhash}{0be86bac00a642a3721d7376b1bf2f88}
+      \strng{fullhashraw}{0be86bac00a642a3721d7376b1bf2f88}
+      \strng{bibnamehash}{9e9915c635fd7bf75171e0651350cf08}
+      \strng{authorbibnamehash}{9e9915c635fd7bf75171e0651350cf08}
+      \strng{authornamehash}{9e9915c635fd7bf75171e0651350cf08}
+      \strng{authorfullhash}{0be86bac00a642a3721d7376b1bf2f88}
+      \strng{authorfullhashraw}{0be86bac00a642a3721d7376b1bf2f88}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, we present a circle detection method based on genetic algorithms. Our genetic algorithm uses the encoding of three edge points as the chromosome of candidate circles (x, y, r) in the edge image of the scene. Fitness function evaluates if these candidate circles are really present in the edge image. Our encoding scheme reduces the search space by avoiding trying unfeasible individuals, this results in a fast circle detector. Our approach detects circles with sub-pixellic accuracy on synthetic images. Our method can also detect circles on natural images with sub-pixellic precision. Partially occluded circles can be located in both synthetic and natural images. Examples of the application of our method to the recognition of hand-drawn circles are also shown. Detection of several circles in a single image is also handled by our method.}
+      \field{journaltitle}{Pattern Recognit. Lett.}
+      \field{month}{4}
+      \field{number}{6}
+      \field{title}{Circle detection on images using genetic algorithms}
+      \field{volume}{27}
+      \field{year}{2006}
+      \true{nocite}
+      \field{pages}{652\bibrangedash 657}
+      \range{pages}{6}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

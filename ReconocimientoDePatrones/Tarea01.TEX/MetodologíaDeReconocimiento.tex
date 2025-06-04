@@ -1,27 +1,34 @@
 %! TeX program = xelatex
 %! TEX TS-program = xelatex
-\documentclass[10pt]{beamer}
+\documentclass[12pt]{beamer}
 \usepackage{fontspec}
-\setmainfont{QTBookmann}
+\setsansfont{QTBookmann}
 \usepackage{polyglossia}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{dirtytalk}
 \usepackage{graphicx}
-\setdefaultlanguage[variant=mexican]{spanish}
+\setdefaultlanguage{spanish}
 \usepackage{multirow}
+\usepackage[backend=biber]{biblatex}
 %\usetheme{Copenhagen}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\definecolor{mypurple}{RGB}{044,040,028}                              %
 %\setbeamercolor*{palette primary}{use=structure,fg=white,bg=mypurple} %
-%\definecolor{mypurple}{RGB}{195,084,023}                              %
-%\setbeamercolor*{palette primary}{use=structure,fg=white,bg=mypurple} %
-%\setbeamercolor{normal text}{fg=white}                                %
-%\setbeamertemplate{navigation symbols}{}                              %
+\definecolor{mypurple}{RGB}{195,084,023}                              %
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=mypurple} %
+\setbeamercolor{normal text}{fg=white}                                %
+\setbeamercolor{titlelike}{fg=GreenYellow!80!White}
+\setbeamercolor{bibliography entry author}{fg=Cyan!90!White}
+\setbeamercolor{bibliography entry note}{fg=Maroon!20!White}
+\setbeamercolor{bibliography item}{fg=Cyan!90!White}
+\setbeamertemplate{navigation symbols}{}                              %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\setbeamertemplate{background}{%
-%  \includegraphics[width=\paperwidth]{fondo}
-%}
+\setbeamertemplate{background}{%
+  \includegraphics[width=\paperwidth]{fondo}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{bibliography}
+\nocite{*}
 \author{%
 Brandon Marquez Salazar
 }
@@ -32,12 +39,24 @@ Brandon Marquez Salazar
 \begin{document}
   \frame{\titlepage}
   \begin{frame}
-    {Objetivo}
+    {\Large Objetivo}
+
+    El objetivo de este estudio es el reconocimiento de círculos y elipses a partir de
+    métodos de optimización e inteligencia artificial.
+
   \end{frame}
   \begin{frame}
-    {Herramientas utilizadas}
+    {\Large Herramientas utilizadas}
+
+    Se utilizaron algoritmos genéticos para la detección de tres puntos específicos,
+    suficientes para la caracterización del círculo o elipse.
+    \begin{center}
+    \includegraphics{example}
+    \end{center}
+
   \end{frame}
   \begin{frame}
-    {Algoritmo; Lugar (institución) y año de realización (En caso de basarse en un artículo)}
+  {\Large Recurso}
+  \printbibliography
   \end{frame}
 \end{document}

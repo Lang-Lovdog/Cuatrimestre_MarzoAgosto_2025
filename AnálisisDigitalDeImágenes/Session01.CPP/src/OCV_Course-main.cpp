@@ -11,6 +11,8 @@ int main (int argc, char* argv[]){
   //std::cout << "Image Data " << std::endl; mainDatos(argc, argv);
   //std::cout << "Camera capturing\n\nI can see you"; videoStreaming();
   //std::cout << "Camera capturing\n\nI can see you by 2"; frameProcess();
-  std::cout << "Camera capturing\n\nI can see you by 2 and kinda one"; frameROI();
+  //std::cout << "Camera capturing\n\nI can see you by 2 and kinda one"; frameROI();
+  //std::cout << "La vie en gris" << std::endl; mainHistograma(argc,argv);
+  std::cout << "La vie en gris 2 el histograma, regresa" << std::endl; mainHistograma2(argc,argv);
   return 0;
 }

@@ -13,15 +13,15 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 OCV_Course.hxx
-badd +163 OCV_Course.cxx
+badd +1 src/OCV_Course.hxx
+badd +163 src/OCV_Course.cxx
 badd +9 Makefile
-badd +1 OCV_Course.cpp
+badd +1 src/OCV_Course-.cpp
 badd +0 oil:///C/Users/Lang\ Lovdog/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/
 argglobal
 %argdel
 $argadd oil:///C/Users/Lang\ Lovdog/Documents/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/AnálisisDigitalDeImágenes/Session01.CPP/
-edit OCV_Course.cpp
+edit src/OCV_Course-.cpp
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -45,7 +45,7 @@ exe '1resize ' . ((&lines * 13 + 54) / 109)
 exe '2resize ' . ((&lines * 78 + 54) / 109)
 exe '3resize ' . ((&lines * 13 + 54) / 109)
 argglobal
-balt OCV_Course.cxx
+balt src/OCV_Course.cxx
 setlocal foldmethod=expr
 setlocal foldexpr=nvim_treesitter#foldexpr()
 setlocal foldmarker={{{,}}}
@@ -62,11 +62,11 @@ keepjumps 12
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("OCV_Course.cxx", ":p")) | buffer OCV_Course.cxx | else | edit OCV_Course.cxx | endif
+if bufexists(fnamemodify("src/OCV_Course.cxx", ":p")) | buffer OCV_Course.cxx | else | edit OCV_Course.cxx | endif
 if &buftype ==# 'terminal'
-  silent file OCV_Course.cxx
+  silent file src/OCV_Course.cxx
 endif
-balt OCV_Course.cpp
+balt src/OCV_Course-.cpp
 setlocal foldmethod=expr
 setlocal foldexpr=nvim_treesitter#foldexpr()
 setlocal foldmarker={{{,}}}
@@ -103,11 +103,11 @@ keepjumps 191
 normal! 0
 wincmd w
 argglobal
-if bufexists(fnamemodify("OCV_Course.hxx", ":p")) | buffer OCV_Course.hxx | else | edit OCV_Course.hxx | endif
+if bufexists(fnamemodify("src/OCV_Course.hxx", ":p")) | buffer OCV_Course.hxx | else | edit OCV_Course.hxx | endif
 if &buftype ==# 'terminal'
-  silent file OCV_Course.hxx
+  silent file src/OCV_Course.hxx
 endif
-balt OCV_Course.cxx
+balt src/OCV_Course.cxx
 setlocal foldmethod=expr
 setlocal foldexpr=nvim_treesitter#foldexpr()
 setlocal foldmarker={{{,}}}
