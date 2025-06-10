@@ -1,4 +1,4 @@
-CXX=g++.exe
+CXX=g++.exe -Wall
 #OCV_I1PATH=/opencv/build/install/include
 #OCV_I2PATH=$(OCV_I1PATH)/opencv2
 #OCV_lPATH=/opencv/build/install/x64/mingw/bin
