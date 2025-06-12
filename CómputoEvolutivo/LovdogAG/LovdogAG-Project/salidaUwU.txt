@@ -1,0 +1,452 @@
+Iniciando proceso genérico
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 1
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 0. [ 65  46  42  81  24  77  70  63  8  51  92  80  12  1  14  39  16  29  98  86  58  21  50  3  52  13  68  97  67  94  66  32  11  36  34  35  55  57  85  74  40  95  96  43  44  30  83  99  9  71  10  48  76  82  75  2  27  73  49  19  60  90  62  38  6  0  15  88  26  59  37  33  84  61  56  64  23  91  18  79  4  89  45  31  78  7  69  87  25  93  41  47  53  17  28  54  22  20  5  72  ]
+Peso: 0
+Aptitud: 50874.1
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 2
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 3
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 4
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 5
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 6
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 7
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 8
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 9
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 10
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 11
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 12
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 13
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 14
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 15
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 16
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 17
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 18
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 19
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 20
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 21
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 22
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 0. [ 73  63  35  44  52  96  55  17  84  25  92  80  37  43  71  45  89  70  18  49  26  74  0  77  72  33  79  27  93  68  2  32  4  36  31  1  61  78  42  29  40  6  58  57  90  46  64  99  85  48  20  56  82  81  75  19  94  14  5  41  66  88  76  38  95  10  15  12  60  59  24  91  69  51  98  30  8  11  50  54  23  9  22  3  13  16  83  39  7  67  28  47  53  62  65  87  21  97  34  86  ]
+Peso: 0
+Aptitud: 45335.3
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 23
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 0. [ 49  63  35  44  52  96  55  75  84  72  92  80  37  43  71  45  89  70  18  7  26  74  0  77  25  33  79  27  93  68  2  32  4  36  31  66  61  78  42  29  40  6  58  57  90  46  64  99  85  48  20  56  82  81  17  19  94  14  5  41  1  88  76  38  95  10  15  12  60  59  24  91  69  51  98  30  8  11  50  54  23  9  22  3  13  16  83  39  73  67  28  47  53  62  65  87  21  97  34  86  ]
+Peso: 0
+Aptitud: 46620.1
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 24
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 25
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 26
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 27
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 28
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 29
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 30
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 31
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 32
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 33
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 34
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 35
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 36
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 37
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 38
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 39
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 40
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 41
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 42
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 43
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 44
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 45
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 46
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 47
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 48
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 49
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Cantidad de individuos por generación: 120
+Cantidad de generaciones: 50
+Número de generación: 50
+Número de cruces por generación: 0
+Mejor rendimiento histórico: -4.6636e-14
+Mejor individuo de la generación: 25. [ 69  71  51  80  86  99  72  41  90  9  4  10  38  83  14  37  35  16  42  60  79  26  22  0  88  89  44  75  74  29  21  49  34  91  92  62  68  19  39  5  15  67  2  17  8  55  93  47  66  94  50  84  52  20  12  81  98  28  58  33  53  54  64  6  61  11  32  46  36  25  56  87  96  73  59  27  76  95  43  7  65  57  45  1  23  40  3  70  31  78  30  18  63  82  24  48  85  97  13  77  ]
+Peso: 0
+Aptitud: 45521.6
+Cardinalidad: 100
+Fin del proceso

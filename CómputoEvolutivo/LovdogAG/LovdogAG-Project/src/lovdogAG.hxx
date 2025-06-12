@@ -14,6 +14,7 @@ public:
   Individuo();
   Individuo(size_t* nucleo, size_t n);
   Individuo(Individuo& ente);
+  Individuo(size_t n, bool);
  ~Individuo();
   /*--------------*/
   size_t* cromosoma;
@@ -22,9 +23,11 @@ public:
   float   coste;
   bool    vivo;
   /*--------------*/
-
+  static bool existe(const Individuo* ente, size_t* nucleotido);
   /*--------------*/
   friend std::ostream& operator<< (std::ostream& os, const Individuo& ente);
+  /*--------------*/
+  Individuo& operator=(const Individuo& ente);
   /*--------------*/
 };
 
@@ -76,7 +79,8 @@ private:
 };
 
 typedef lovdogListaNodos Grafo;
-typedef unsigned int uint_t;
+typedef unsigned int  uint_t;
+typedef unsigned char uchar_t;
 
 class Geneticos {
 public:
@@ -92,12 +96,53 @@ public:
   size_t numGeneraciones;
   size_t cantidadIndividuos;
   uint_t tipoCruce;
+  uint_t tipoSeleccion;
   uint_t tipoIndividuo;
+  uint_t mutacionesPorGeneracion;
+  size_t generacionActual;
+  char   verbose;
+
+  //// Estáticos
+  const static uchar_t
+    // Opciones de población
+    AG_NUM_GENERACIONES=0,
+    AG_TIPO_CRUCE=1,
+    AG_CANTIDAD_MUTACIONES=2,
+    AG_CANTIDAD_INDIVIDUOS=3,
+    AG_CANTIDAD_CRUCES=4,
+    AG_TIPO_INDIVIDUO=5,
+    AG_TIPO_SELECCION=6,
+    AG_VERBOSITY=7,
+    /*--------------*/
+    AG_PRIMERA_GENERACION=0,
+    AG_CRUCE=1,
+    AG_DEPREDADOR=2,
+    AG_REEMPLAZO=3,
+    AG_EVALUACION=4,
+    AG_SELECCION=5,
+    AG_MUTACION=6,
+    AG_INICIA=250
+  ;
+  const static uint_t
+    // Opciones de tipo de cruce
+    CRUCE_OX_CROSS = 0,
+    CRUCE_PERMLANG_CROSS = 1,
+    // Opciones de tipo de individuo
+    INDIVIDUO_BINARIO=0,
+    INDIVIDUO_PERMUTACION=1,
+    // Opciones de tipo de seleccion
+    SELECCION_ELITISMO=0,
+    // Verbosity level
+    VERBOSITY_NADA=0,
+    VERBOSITY_GENERACIONES=1,
+    VERBOSITY_RESUMEN=2
+  ;
 
 
   // Métodos de la clase
   //// Mutación
-  void define(const char campo, const void* valor);
+  void define(const char campo, uint_t valor);
+  void define(const char campo, size_t valor);
   void estableceEvaluador(float (*evalFn)(size_t*,Grafo*));
 
   //// Acceso
@@ -107,25 +152,10 @@ public:
 
   //// Auxiliares
   bool guardaNodos(const char* archivo, const char formato);
-  void evaluar(void);
+  void ejecuta(uchar_t evento);
 
-  //// Estáticos
-  const static char 
-    // Opciones de población
-    AG_NUM_GENERACIONES=0,
-    AG_TIPO_CRUCE=1,
-    AG_CANTIDAD_INDIVIDUOS=2,
-    AG_CANTIDAD_CRUCES=3,
-    AG_TIPO_INDIVIDUO=4
-  ;
-  const static uint_t
-    // Opciones de tipo de cruce
-    OX_CROSS = 0,
-    PERMLANG_CROSS = 1,
-    // Opciones de tipo de individuo
-    INDIVIDUO_BINARIO=0,
-    INDIVIDUO_PERMUTACION=1
-  ;
+  // Funciones de evaluación predefinidas
+  static float TSPEvaluador(size_t*,Grafo*);
 
 private:
   // Atributos
@@ -134,34 +164,45 @@ private:
   Individuo*        nPoblacion;
   size_t*           posiblesval;
   size_t            mejorIndividuo;
+  float             mejorRendimiento;
   size_t            crucesPorPoblacion;
   float*            probabilidadIndividuo;
+  float             mejorRendimientoHistorico;
 
   // Métodos
   //// Control de población
-  bool creaPoblacion(void);
-  bool creaIndividuo(Individuo* nuevoIndividuo);
-  bool iniciaPoblacion(void);
-  bool mejorRendimientoEncuentra(void);
+  void temporadaApareamiento(void);
+  void depredadorMatadorAtak(Individuo*);
+  void palChoqueGeneracional(Individuo*,Individuo*);
 
   //// Funciones de individuo
-  static void cruceOx(const Individuo& padre, const Individuo& madre, Individuo* hijos);
-  static void crucePermLang(const Individuo& padre, const Individuo& madre, Individuo* hijos);
+  static void cruceOx(const Individuo& padre, const Individuo& madre, Individuo* hijos, size_t ndh);
+  static void crucePermLang(const Individuo& padre, const Individuo& madre, Individuo* hijos, size_t ndh);
+  static void reiniciadorDIndividuo(const Individuo*, size_t);
+  static void reiniciadorDIndividuo(Individuo&);
   void depredadorMatador(void);
+  void evaluar(void);
 
   //// Contenedores genéricos
   float (*aptitudEvalFn)(size_t*,Grafo*);
-  void  (*generador)(Individuo*, size_t);
-  void  (*cruce)(const Individuo&, const Individuo&, Individuo*);
+  void  (*generador)(Individuo**, size_t, const Grafo*);
+  void  (*cruce)(const Individuo&, const Individuo&, Individuo*, size_t);
+  void  (*seleccion)(const Individuo*, size_t*, size_t*);
+  void  (*mutacion)(const Individuo*, size_t);
 
   //// Funciones de configuración
   void cambiaTipoCruce(void);
   void cambiaTipoGenerador(void);
+  void cambiaTipoSeleccion(void);
 
   //// Auxiliares
-  static void generadorPermutado(Individuo*, size_t);
-  static void generadorBinario(Individuo*, size_t);
+  static void generadorPermutado(Individuo**, size_t, const Grafo*);
+  static void generadorBinario(Individuo**, size_t, const Grafo*);
+  static void elitismo(const Individuo* poblacion, size_t* seleccionados, size_t* opciones);
   float  celdaAleatoriaRestringida(void);
+
+  // Ciclos de evolución
+  void cicloSimple(void);
 
   //// Amigos
   friend std::ostream& operator<< (std::ostream& os, const Geneticos& g);

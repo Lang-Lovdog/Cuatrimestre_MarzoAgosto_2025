@@ -1,6 +1,8 @@
 #include "lovdogAG.hxx"
 #include <algorithm>
+#include <cstddef>
 #include <cstdlib>
+#include <ctime>
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -14,7 +16,7 @@ Individuo::Individuo(){
   this->tamanno=0;
   this->aptitud=0;
   this->coste=0;
-  this->vivo=true;
+  this->vivo=false;
   this->cromosoma=nullptr;
 }
 
@@ -29,15 +31,26 @@ Individuo::Individuo(size_t* nucleo, size_t n){
   while(idx<n){ *(this->cromosoma+idx) = *(nucleo+idx); ++idx; }
 }
 
+Individuo::Individuo(size_t n, bool numerado=false){
+  size_t idx;
+  this->aptitud=0;
+  this->coste=0;
+  this->tamanno=n;
+  this->vivo=false;
+  this->cromosoma= new size_t[n];
+  idx=0; if(numerado) while(idx<n){ *(this->cromosoma+idx) = idx; ++idx;}
+         else while(idx<n) *(this->cromosoma+(idx++)) = 0;
+}
+
 Individuo::Individuo(Individuo& ente){
   if(!(ente.tamanno && ente.cromosoma)) return;
-  size_t idx; idx=0;
+  size_t idx;
   this->tamanno=ente.tamanno;
   this->aptitud=ente.aptitud;
   this->coste=ente.coste;
   this->vivo=ente.vivo;
   this->cromosoma=new size_t[this->tamanno];
-  while(idx<this->tamanno){ *(this->cromosoma+idx) = *(ente.cromosoma+idx); ++idx; }
+  idx=0; while(idx<this->tamanno){ *(this->cromosoma+idx) = *(ente.cromosoma+idx); ++idx; }
 }
 
 Individuo::~Individuo(){
@@ -46,13 +59,34 @@ Individuo::~Individuo(){
   this->vivo=false;
 }
 
+bool Individuo::existe(const Individuo* ente, size_t* nucleotido){
+  size_t idx;
+  idx=0; while(idx < ente->tamanno) if(*(ente->cromosoma+(idx++)) == *nucleotido) return true;
+  return false;
+}
+
+Individuo& Individuo::operator=(const Individuo& ente) {
+  if(!(ente.tamanno && ente.cromosoma)) return *this;
+  if(this->cromosoma) delete []  this->cromosoma;
+  size_t idx;
+  this->cromosoma=nullptr;
+  this->tamanno=ente.tamanno;
+  this->aptitud=ente.aptitud;
+  this->coste=ente.coste;
+  this->vivo=ente.vivo;
+  this->cromosoma=new size_t[this->tamanno];
+  idx=0; while(idx<this->tamanno){ *(this->cromosoma+idx) = *(ente.cromosoma+idx); ++idx; }
+  return *this;
+}
+
 std::ostream& operator<< (std::ostream& os, const Individuo& ente){
   size_t idx;
   os << "[ ";
   idx=0; while(idx<ente.tamanno) os << *(ente.cromosoma+(idx++)) << "  ";
   os << "]" << std::endl
      << "Peso: " << ente.coste << std::endl
-     << "Aptitud: " << ente.aptitud
+     << "Aptitud: " << ente.aptitud << std::endl
+     << "Cardinalidad: " << ente.tamanno
   ;
   return os;
 }
@@ -62,38 +96,77 @@ Geneticos::Geneticos(){
   this->numGeneraciones=0;
   this->cantidadIndividuos=0;
   this->tipoCruce=0;
+  this->tipoSeleccion=0;
   this->mejorIndividuo=0;
+  this->mejorRendimiento=0;
+  this->generacionActual=0;
+  this->verbose=0;
+  this->mejorRendimientoHistorico=0;
+  this->aptitudEvalFn=nullptr;
   this->posiblesval=nullptr;
   this->poblacion=nullptr;
   this->nodos=nullptr;
   this->generador=nullptr;
   this->cruce=nullptr;
+  std::srand(std::time(0));
 }
 
 Geneticos::Geneticos(Geneticos& poblacion){
   this->numGeneraciones=poblacion.numGeneraciones;
   this->cantidadIndividuos=poblacion.cantidadIndividuos;
   this->tipoCruce=poblacion.tipoCruce;
+  this->tipoSeleccion=poblacion.tipoSeleccion;
   this->mejorIndividuo=poblacion.mejorIndividuo;
   this->posiblesval=nullptr;
+  this->mejorRendimientoHistorico=poblacion.mejorRendimientoHistorico;
+  this->aptitudEvalFn=poblacion.aptitudEvalFn;
+  this->generacionActual=poblacion.generacionActual;
+  this->verbose=poblacion.verbose;
   this->generador=poblacion.generador;
+  this->mejorRendimiento=poblacion.mejorRendimiento;
   this->cruce=poblacion.cruce;
   if(poblacion.nodos && poblacion.poblacion) {
     this->poblacion=new Individuo[this->cantidadIndividuos];
     *this->poblacion=*poblacion.poblacion;
     this->nodos=new lovdogListaNodos;
   }
+  std::srand(std::time(0));
 }
 
 Geneticos::Geneticos(const char* archivo){
   this->nodos = new lovdogListaNodos(archivo);
-  this->poblacion=new Individuo[this->nodos->cardinalidad()];
+  this->poblacion=nullptr;
   this->posiblesval=nullptr;
   this->cruce=nullptr;
   this->generador=nullptr;
+  this->aptitudEvalFn=nullptr;
+  this->mejorRendimientoHistorico=0;
   this->mejorIndividuo=0;
+  this->generacionActual=0;
+  this->verbose=0;
   this->numGeneraciones=0;
   this->tipoCruce=0;
+  this->tipoSeleccion=0;
+  this->mejorRendimiento=0;
+  std::srand(std::time(0));
+}
+
+Geneticos::Geneticos(const char* archivo, const char tipo){
+  this->nodos = new lovdogListaNodos(archivo,tipo);
+  this->poblacion=nullptr;
+  this->posiblesval=nullptr;
+  this->cruce=nullptr;
+  this->generador=nullptr;
+  this->aptitudEvalFn=nullptr;
+  this->mejorRendimientoHistorico=0;
+  this->mejorIndividuo=0;
+  this->generacionActual=0;
+  this->verbose=0;
+  this->numGeneraciones=0;
+  this->tipoCruce=0;
+  this->tipoSeleccion=0;
+  this->mejorRendimiento=0;
+  std::srand(std::time(0));
 }
 
 Geneticos::Geneticos(const lovdogListaNodos* listaNodos){
@@ -102,56 +175,261 @@ Geneticos::Geneticos(const lovdogListaNodos* listaNodos){
   this->posiblesval=nullptr;
   this->cruce=nullptr;
   this->generador=nullptr;
+  this->aptitudEvalFn=nullptr;
+  this->mejorRendimientoHistorico=0;
   this->mejorIndividuo=0;
+  this->generacionActual=0;
+  this->verbose=0;
   this->numGeneraciones=0;
   this->tipoCruce=0;
+  this->tipoSeleccion=0;
+  this->mejorRendimiento=0;
+  std::srand(std::time(0));
 }
 
 Geneticos::~Geneticos(){
   this->numGeneraciones=0;
   this->cantidadIndividuos=0;
   this->tipoCruce=0;
+  this->mejorRendimientoHistorico=0;
+  this->generacionActual=0;
+  this->verbose=0;
+  this->tipoSeleccion=0;
   this->mejorIndividuo=0;
   this->cruce=nullptr;
   this->generador=nullptr;
+  this->aptitudEvalFn=nullptr;
   if(this->posiblesval) {delete[] this->posiblesval; this->posiblesval=nullptr;}
   if(this->poblacion) {delete[] this->poblacion; this->poblacion=nullptr;}
   if(this->nodos) {delete this->nodos; this->nodos=nullptr;}
 }
 
+
+void Geneticos::ejecuta (uchar_t evento){
+  switch(evento){
+    case AG_PRIMERA_GENERACION:
+      if(!generador) {std::cerr << "Sin generador definido"; return;}
+      generador(&this->poblacion,this->cantidadIndividuos, this->nodos);
+      break;
+    case AG_CRUCE:
+      if(!this->poblacion && !this->crucesPorPoblacion) { std::cerr << "Sin población o cantidad de cruces definido"; return; }
+      if(!this->cruce){ std::cerr << "Sin función de cruce definida"; return; }
+      temporadaApareamiento();
+      break;
+    case AG_DEPREDADOR:
+      if(!this->poblacion && !this->crucesPorPoblacion) { std::cerr << "Sin población o cantidad de cruces definido"; return; }
+      depredadorMatadorAtak(poblacion);
+      break;
+    case AG_REEMPLAZO:
+      if(!this->poblacion && !this->crucesPorPoblacion) { std::cerr << "Sin población o cantidad de cruces definido"; return; }
+      if(!this->nPoblacion) { std::cerr << "Sin población nueva"; return; }
+      palChoqueGeneracional(poblacion,nPoblacion);
+      break;
+    case AG_EVALUACION:
+      if(!this->poblacion) { std::cerr << "Sin población definida"; return; }
+      if(!this->nodos) { std::cerr << "Sin nodos definidos"; return; }
+      evaluar();
+      break;
+    case AG_MUTACION:
+      if(!this->poblacion) { std::cerr << "Sin población definida"; return; }
+      if(!this->nodos) { std::cerr << "Sin nodos definidos"; return; }
+      mutacion(this->poblacion,this->mutacionesPorGeneracion);
+      break;
+    case AG_INICIA:
+      this->cicloSimple();
+      break;
+  }
+}
+
+void Geneticos::define(const char campo, uint_t valor){
+  switch(campo){
+    case AG_TIPO_CRUCE:
+      this->tipoCruce=valor;
+      this->cambiaTipoCruce();
+      break;
+    case AG_TIPO_SELECCION:
+      this->tipoSeleccion=valor;
+      this->cambiaTipoSeleccion();
+      break;
+    case AG_TIPO_INDIVIDUO:
+      this->tipoIndividuo=valor;
+      cambiaTipoGenerador();
+      break;
+    case AG_VERBOSITY:
+      this->verbose=valor;
+      break;
+  }
+}
+void Geneticos::define(const char campo, size_t valor){
+  switch(campo){
+    case AG_NUM_GENERACIONES:
+      this->numGeneraciones=valor;
+      break;
+    case AG_CANTIDAD_INDIVIDUOS:
+      this->cantidadIndividuos=valor;
+      break;
+    case AG_CANTIDAD_CRUCES:
+      this->crucesPorPoblacion=
+        valor>(this->cantidadIndividuos/2)?
+        (this->cantidadIndividuos/2):valor;
+      break;
+    case AG_CANTIDAD_MUTACIONES:
+      this->mutacionesPorGeneracion=(size_t)valor;
+      break;
+  }
+}
+
 void Geneticos::estableceEvaluador(float (*evalFn)(size_t*,Grafo*)){ this->aptitudEvalFn=evalFn; }
 
+
 void Geneticos::evaluar(void){
+  if(!this->aptitudEvalFn){ std::cerr << "Función de evaluación no definida" << std::endl; return; }
   size_t idx; idx=0;
+  this->mejorRendimiento = (this->poblacion+idx)->aptitud;
   while(idx<this->cantidadIndividuos){
     (this->poblacion+idx)->aptitud = this->aptitudEvalFn((this->poblacion+idx)->cromosoma,this->nodos);
+    if((this->poblacion+idx)->aptitud < this->mejorRendimiento){
+      this->mejorRendimiento = (this->poblacion+idx)->aptitud;
+      this->mejorIndividuo=idx;
+    }
+    if((this->poblacion+idx)->aptitud < this->mejorRendimientoHistorico )
+      this->mejorRendimientoHistorico = (this->poblacion+idx)->aptitud;
     ++idx;
   }
 }
 
-void Geneticos::define(const char campo, const void* valor){
-  switch(campo){
-    case AG_NUM_GENERACIONES:
-      this->numGeneraciones=*((size_t*)valor);
-      break;
-    case AG_CANTIDAD_INDIVIDUOS:
-      this->cantidadIndividuos=*((size_t*)valor);
-      break;
-    case AG_TIPO_CRUCE:
-      this->tipoCruce=*((uint_t*)valor);
-      break;
-    case AG_CANTIDAD_CRUCES:
-      this->crucesPorPoblacion=(size_t)valor;
-      break;
+void Geneticos::temporadaApareamiento(void){
+  size_t  numeroHijos = this->crucesPorPoblacion << 1;
+  size_t* seleccionados = new size_t[2];
+  this->nPoblacion=new Individuo[numeroHijos];
+  size_t opciones[4];
+  size_t contador=0;
+  opciones[0]= this->cantidadIndividuos; opciones[1]= 2;
+  while((contador++) < this->crucesPorPoblacion){
+    opciones[2]= (size_t)std::rand()%2;
+    opciones[3]= (size_t)std::rand()%(this->cantidadIndividuos-2);
+    this->seleccion(this->poblacion, seleccionados, opciones);
+    this->cruce(
+      *(this->poblacion+*(seleccionados)),
+      *(this->poblacion+*(seleccionados+1)),
+      this->nPoblacion,
+      numeroHijos
+    );
   }
 }
 
-void Geneticos::cambiaTipoCruce(){
+void Geneticos::depredadorMatadorAtak(Individuo* poblacion){
+  size_t idx; idx=0;
+  reiniciadorDIndividuo(*(poblacion+idx));
+  return;
+}
+
+void Geneticos::palChoqueGeneracional(Individuo* poblacion,Individuo* nPoblacion){
+  size_t contador, ndh, idx, idh; char *idb;
+  idb=new char[this->cantidadIndividuos];
+  contador=0; while(contador < this->cantidadIndividuos ) *(idb+(contador++)) = 0;
+  idh=contador=0; ndh=this->crucesPorPoblacion<<1;
+  while( (contador++) < this->crucesPorPoblacion && idh < ndh ){
+    idx=(size_t)std::rand()%this->cantidadIndividuos;
+    if(*(idb+idx)) continue;
+    if((this->nPoblacion+*(idb+idx))->vivo) // Si está vivo, se continúa con la asignación
+      *(this->poblacion+idx)=*(this->nPoblacion+idh);
+    ++idh; // Siguiente hijo
+    ++*(idb+idx); // Se cuenta como usado
+  } 
+  delete[] idb;
+  delete[] this->nPoblacion;
+  this->nPoblacion=nullptr;
+}
+
+void Geneticos::reiniciadorDIndividuo(const Individuo* ente, size_t mutaciones){
+  size_t contador,idx,idy;
+  if(mutaciones > ente->tamanno) mutaciones = ente->tamanno;
+  contador=0; while(contador < mutaciones ){
+    idx=(std::rand()+std::rand())%ente->tamanno;
+    idy=(std::rand()+std::rand())%ente->tamanno;
+    if(idx==idy) continue;
+    *(ente->cromosoma+idx)^=
+    *(ente->cromosoma+idy);
+    *(ente->cromosoma+idy)^=
+    *(ente->cromosoma+idx);
+    *(ente->cromosoma+idx)^=
+    *(ente->cromosoma+idy);
+    ++contador;
+  }
+}
+
+void Geneticos::reiniciadorDIndividuo(Individuo& ente){
+  size_t contador,idx,idy;
+  contador=0;
+  while(contador < ente.tamanno ){
+    idx=(std::rand()+std::rand())%ente.tamanno;
+    idy=(std::rand()+std::rand())%ente.tamanno;
+    if(idx==idy) continue;
+    *(ente.cromosoma+idx)^=
+    *(ente.cromosoma+idy);
+    *(ente.cromosoma+idy)^=
+    *(ente.cromosoma+idx);
+    *(ente.cromosoma+idx)^=
+    *(ente.cromosoma+idy);
+    ++contador;
+  }
+}
+
+void Geneticos::elitismo(const Individuo* poblacion, size_t* seleccionados, size_t* opciones){
+  // Las opciones de esta función son
+  //// [0]=> cantidad de individuos en la población;
+  //// [1]=> cantidad de individuos a seleccionar;
+  //// [2]=> 0/1 ascendente/descendente;
+  //// [3]=> punto partida
+  if(!*(opciones+1) || !*(opciones+0)) return;
+  size_t* auxiliar;
+  size_t idx,idy,limitx;
+  if(*(opciones+1)+*(opciones+3) > *(opciones+0))
+    *(opciones+3) = *(opciones+0) - *(opciones+1);
+  auxiliar = new size_t[*(opciones)];
+  idy=0; while(idy<*(opciones)) { *(auxiliar+idy)=idy; ++idy; }
+  // Ordenamiento de elementos (índices)
+  idx=0; limitx=*(opciones)-1;
+  while(idx<limitx){
+    idy=idx+1;
+    while(idy<*(opciones)){
+      if((poblacion+*(auxiliar+idx))->aptitud < (poblacion+*(auxiliar+idy))->aptitud ){
+        *(auxiliar+idx)^=*(auxiliar+idy);
+        *(auxiliar+idy)^=*(auxiliar+idx);
+        *(auxiliar+idx)^=*(auxiliar+idy);
+      } ++idy;
+    } ++idx;
+  }
+  if(!seleccionados){
+    std::cerr << "Array \"seleccionados\" sin inicialización" << std::endl;
+    delete[] auxiliar;
+    return;
+  }
+  if(*(opciones+2)==0){
+    idx=0; while(idx<*(opciones+1)){
+      *(seleccionados+idx) = *(auxiliar+idx+*(opciones+3));
+      ++idx;
+    }
+    delete [] auxiliar;
+    return;
+  }
+  limitx+=*(opciones+3);
+  idx=0; while(idx<*(opciones+1)){
+    *(seleccionados+idx) = *(auxiliar+limitx-idx);
+    ++idx;
+  }
+  delete [] auxiliar;
+  return;
+}
+
+
+void Geneticos::cambiaTipoCruce(void){
   switch(this->tipoCruce){
-    case OX_CROSS:
+    case CRUCE_OX_CROSS:
       cruce = this->cruceOx;
       break;
-    case PERMLANG_CROSS:
+    case CRUCE_PERMLANG_CROSS:
       cruce = this->crucePermLang;
       break;
   }
@@ -164,48 +442,113 @@ void Geneticos::cambiaTipoGenerador(void){
       break;
     case INDIVIDUO_PERMUTACION:
       this->generador = generadorPermutado;
+      this->mutacion = reiniciadorDIndividuo;
       break;
   }
 }
 
-void Geneticos::generadorPermutado(Individuo* poblacion, size_t cantidadIndividuos){
+void Geneticos::cambiaTipoSeleccion(void){
+  switch(this->tipoSeleccion){
+    case SELECCION_ELITISMO:
+      seleccion=elitismo;
+      break;
+  }
+}
+
+
+void Geneticos::generadorPermutado(Individuo** Poblacion, size_t cantidadIndividuos, const Grafo* nodos){
+  if(*Poblacion) { std::cerr << "Población ya creada" << std::endl; return; }
+  size_t idx;
+  // Reserva memoria
+  *Poblacion = new Individuo[cantidadIndividuos];
   // Genera individuos
-  size_t idx,idy; idy=idx=0; while(idx<cantidadIndividuos){
-    while (idy<(poblacion+idx)->tamanno)
-      { *((poblacion+idx)->cromosoma+idy)=idy; idy++; }
-    // Semilla aleatoria
-    // Aleatorizando posiciones
-    std::random_shuffle(
-         (poblacion+idx)->cromosoma+idy, // Primer elemento
-        ((poblacion+idx)->cromosoma+idy)+(poblacion+idx)->tamanno // Último elemento
-    );
+  idx=0; while(idx<cantidadIndividuos){
+    // Inicialización del individuo
+    *(*Poblacion+idx) = Individuo(nodos->cardinalidad(),true);
+    // Aleatorizando elementos del individuo
+    reiniciadorDIndividuo(*(*Poblacion+idx));
     ++idx;
   }
 }
 
-void Geneticos::generadorBinario(Individuo* poblacion, size_t cantidadIndividuos){
+void Geneticos::generadorBinario(Individuo** poblacion, size_t cantidadIndividuos, const Grafo* nodos){
   return;
 }
 
-void Geneticos::cruceOx(const Individuo& padre, const Individuo& madre, Individuo* hijos){
+
+void Geneticos::cruceOx(const Individuo& padre, const Individuo& madre, Individuo* hijos, size_t ndh){
+  size_t puntoCruce, idx,idh,idi,idj;
+  puntoCruce = std::rand()%padre.tamanno;
+  idx=idh=idj=0; idi=puntoCruce;
+  while(idh<ndh && (hijos+(idh++))->vivo ); //Búsqueda del individuo aún no inicializado
+  if(idh > ndh-2) {std::cerr << "Imposible realizar cruza" << std::endl; return;}
+  while(idx<puntoCruce)    { *((hijos+idh  )->cromosoma+idx) = *(padre.cromosoma+idx); ++idx; }
+  while(idx<padre.tamanno) { *((hijos+idh+1)->cromosoma+idx) = *(padre.cromosoma+idx); ++idx; }
+  while((idx--) > 0){
+    if(Individuo::existe(hijos+idh, madre.cromosoma+idx)){
+      *((hijos+idh+1)->cromosoma+(idj++)) = *(madre.cromosoma+idx); continue;
+    } *((hijos+idh  )->cromosoma+(idi++)) = *(madre.cromosoma+idx);
+  }
+  (hijos+idh+1)->vivo=true;
+  (hijos+idh  )->vivo=true;
   return;
 }
 
-void Geneticos::crucePermLang(const Individuo& padre, const Individuo& madre, Individuo* hijos){
+void Geneticos::crucePermLang(const Individuo& padre, const Individuo& madre, Individuo* hijos, size_t ndh){
   return;
 }
+
+
+void Geneticos::cicloSimple(void){
+  std::cout << "Iniciando proceso genérico\n";
+  this->generacionActual=0;
+  this->ejecuta(this->AG_PRIMERA_GENERACION);
+  if(this->verbose) while((this->generacionActual++)<this->numGeneraciones){
+    this->ejecuta(AG_EVALUACION);
+    this->ejecuta(AG_CRUCE);
+    this->ejecuta(AG_REEMPLAZO);
+    this->ejecuta(AG_MUTACION);
+    std::cout << *this;
+  }
+  else while((this->generacionActual++)<this->numGeneraciones){
+    std::cout << "Iteración " << this->generacionActual << std::endl;
+    this->ejecuta(AG_EVALUACION);
+    this->ejecuta(AG_CRUCE);
+    this->ejecuta(AG_REEMPLAZO);
+  }
+  std::cout << "Fin del proceso"<<std::endl;
+}
+
+float Geneticos::TSPEvaluador(size_t* camino,Grafo* nodos){
+  float sum; size_t idx;
+  sum=0; idx=nodos->cardinalidad()-1;
+  while(idx--) sum+=*nodos->celdaMatrizAdyacencias(*(camino+idx),*(camino+idx+1));
+  return sum;
+}
+
+Individuo Geneticos::elIndividuo(size_t indice){
+  if(indice>this->cantidadIndividuos-1) indice%=this->cantidadIndividuos;
+  return *(this->poblacion+indice);
+}
+
 
 std::ostream& operator<< (std::ostream& os, const Geneticos& g){
   size_t idx;
-  os << "Cantidad de individuos por generación: " << std::endl
-     << "Cantidad de generaciones: " << std::endl
-     << "Número de generación: " << std::endl
-     << "Número de cruces por generación: " << std::endl
-     << "Mejor individuo de la generación: " << std::endl
-     << "===Otros individuos===" << std::endl
-  ;
-  idx=0;while(idx < g.mejorIndividuo){ os << idx << ". " << *(g.poblacion+idx) << std::endl;
-  } while((++idx) < g.mejorIndividuo)  os << idx << ". " << *(g.poblacion+idx) << std::endl;
+  os << "Cantidad de individuos por generación: " << g.cantidadIndividuos << std::endl
+     << "Cantidad de generaciones: " << g.numGeneraciones << std::endl
+     << "Número de generación: " << g.generacionActual << std::endl
+     << "Número de cruces por generación: " << g.crucesPorPoblacion << std::endl;
+  if(g.poblacion){
+    os << "Mejor rendimiento histórico: " << g.mejorRendimientoHistorico << std::endl
+       << "Mejor individuo de la generación: " << g.mejorIndividuo << ". "  // ↴
+                                               << *(g.poblacion+g.mejorIndividuo) << std::endl
+    ;
+    if(g.verbose == g.VERBOSITY_GENERACIONES){
+      os << "===Otros individuos===" << std::endl;
+      idx=0;while(idx < g.mejorIndividuo    ){ os << idx << ". " << *(g.poblacion+idx) << std::endl;
+      } while((++idx) < g.cantidadIndividuos)  os << idx << ". " << *(g.poblacion+idx) << std::endl;
+    }
+  }
   return os;
 }
 
