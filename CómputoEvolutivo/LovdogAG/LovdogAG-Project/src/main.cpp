@@ -18,7 +18,7 @@ void mainAGLOVDOG(const char* Archivo){
   TSP100.define(lovdog::Geneticos::AG_TIPO_CRUCE,          lovdog::Geneticos::CRUCE_OX_CROSS);
   TSP100.define(lovdog::Geneticos::AG_VERBOSITY,           lovdog::Geneticos::VERBOSITY_RESUMEN);
   TSP100.define(lovdog::Geneticos::AG_CANTIDAD_CRUCES,     (size_t)4);
-  TSP100.define(lovdog::Geneticos::AG_NUM_GENERACIONES,    (size_t)50);
+  TSP100.define(lovdog::Geneticos::AG_NUM_GENERACIONES,    (size_t)500);
   TSP100.define(lovdog::Geneticos::AG_CANTIDAD_INDIVIDUOS, (size_t)120);
   TSP100.define(lovdog::Geneticos::AG_CANTIDAD_MUTACIONES, (size_t)5);
   TSP100.estableceEvaluador(lovdog::Geneticos::TSPEvaluador);

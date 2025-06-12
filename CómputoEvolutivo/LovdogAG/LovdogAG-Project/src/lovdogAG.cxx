@@ -102,6 +102,7 @@ Geneticos::Geneticos(){
   this->generacionActual=0;
   this->verbose=0;
   this->mejorRendimientoHistorico=0;
+  this->mejorRendimientoHistoricoUsado=false;;
   this->aptitudEvalFn=nullptr;
   this->posiblesval=nullptr;
   this->poblacion=nullptr;
@@ -119,9 +120,11 @@ Geneticos::Geneticos(Geneticos& poblacion){
   this->mejorIndividuo=poblacion.mejorIndividuo;
   this->posiblesval=nullptr;
   this->mejorRendimientoHistorico=poblacion.mejorRendimientoHistorico;
+  this->mejorRendimientoHistoricoUsado=poblacion.mejorRendimientoHistoricoUsado;
   this->aptitudEvalFn=poblacion.aptitudEvalFn;
   this->generacionActual=poblacion.generacionActual;
   this->verbose=poblacion.verbose;
+  this->mejorhst=poblacion.mejorhst;
   this->generador=poblacion.generador;
   this->mejorRendimiento=poblacion.mejorRendimiento;
   this->cruce=poblacion.cruce;
@@ -141,6 +144,7 @@ Geneticos::Geneticos(const char* archivo){
   this->generador=nullptr;
   this->aptitudEvalFn=nullptr;
   this->mejorRendimientoHistorico=0;
+  this->mejorRendimientoHistoricoUsado=false;
   this->mejorIndividuo=0;
   this->generacionActual=0;
   this->verbose=0;
@@ -159,6 +163,7 @@ Geneticos::Geneticos(const char* archivo, const char tipo){
   this->generador=nullptr;
   this->aptitudEvalFn=nullptr;
   this->mejorRendimientoHistorico=0;
+  this->mejorRendimientoHistoricoUsado=false;
   this->mejorIndividuo=0;
   this->generacionActual=0;
   this->verbose=0;
@@ -177,6 +182,7 @@ Geneticos::Geneticos(const lovdogListaNodos* listaNodos){
   this->generador=nullptr;
   this->aptitudEvalFn=nullptr;
   this->mejorRendimientoHistorico=0;
+  this->mejorRendimientoHistoricoUsado=false;
   this->mejorIndividuo=0;
   this->generacionActual=0;
   this->verbose=0;
@@ -192,6 +198,7 @@ Geneticos::~Geneticos(){
   this->cantidadIndividuos=0;
   this->tipoCruce=0;
   this->mejorRendimientoHistorico=0;
+  this->mejorRendimientoHistoricoUsado=false;
   this->generacionActual=0;
   this->verbose=0;
   this->tipoSeleccion=0;
@@ -284,6 +291,10 @@ void Geneticos::estableceEvaluador(float (*evalFn)(size_t*,Grafo*)){ this->aptit
 
 void Geneticos::evaluar(void){
   if(!this->aptitudEvalFn){ std::cerr << "Función de evaluación no definida" << std::endl; return; }
+  if(!this->mejorRendimientoHistoricoUsado){
+    this->mejorRendimientoHistorico=this->aptitudEvalFn((this->poblacion)->cromosoma,this->nodos);
+    this->mejorRendimientoHistoricoUsado=true;
+  }
   size_t idx; idx=0;
   this->mejorRendimiento = (this->poblacion+idx)->aptitud;
   while(idx<this->cantidadIndividuos){
@@ -292,8 +303,10 @@ void Geneticos::evaluar(void){
       this->mejorRendimiento = (this->poblacion+idx)->aptitud;
       this->mejorIndividuo=idx;
     }
-    if((this->poblacion+idx)->aptitud < this->mejorRendimientoHistorico )
+    if((this->poblacion+idx)->aptitud < this->mejorRendimientoHistorico ) {
       this->mejorRendimientoHistorico = (this->poblacion+idx)->aptitud;
+      this->mejorhst = Individuo(*(this->poblacion+idx));
+    }
     ++idx;
   }
 }
@@ -535,11 +548,11 @@ Individuo Geneticos::elIndividuo(size_t indice){
 std::ostream& operator<< (std::ostream& os, const Geneticos& g){
   size_t idx;
   os << "Cantidad de individuos por generación: " << g.cantidadIndividuos << std::endl
-     << "Cantidad de generaciones: " << g.numGeneraciones << std::endl
-     << "Número de generación: " << g.generacionActual << std::endl
-     << "Número de cruces por generación: " << g.crucesPorPoblacion << std::endl;
+     << "Cantidad de generaciones: "              << g.numGeneraciones    << std::endl
+     << "Número de generación: "                  << g.generacionActual-1 << std::endl
+     << "Número de cruces por generación: "       << g.crucesPorPoblacion << std::endl;
   if(g.poblacion){
-    os << "Mejor rendimiento histórico: " << g.mejorRendimientoHistorico << std::endl
+    os << "Mejor rendimiento histórico: "      << g.mejorhst << std::endl
        << "Mejor individuo de la generación: " << g.mejorIndividuo << ". "  // ↴
                                                << *(g.poblacion+g.mejorIndividuo) << std::endl
     ;

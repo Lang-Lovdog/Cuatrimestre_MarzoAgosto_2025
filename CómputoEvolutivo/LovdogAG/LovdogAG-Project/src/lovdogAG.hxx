@@ -160,6 +160,7 @@ public:
 private:
   // Atributos
   lovdogListaNodos* nodos;
+  Individuo         mejorhst;
   Individuo*        poblacion;
   Individuo*        nPoblacion;
   size_t*           posiblesval;
@@ -168,6 +169,7 @@ private:
   size_t            crucesPorPoblacion;
   float*            probabilidadIndividuo;
   float             mejorRendimientoHistorico;
+  bool              mejorRendimientoHistoricoUsado;
 
   // Métodos
   //// Control de población
