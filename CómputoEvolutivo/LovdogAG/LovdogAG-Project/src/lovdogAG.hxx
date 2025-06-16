@@ -40,7 +40,7 @@ public:
   lovdogListaNodos(lovdogListaNodos& lln);
   ~lovdogListaNodos();
   /*--------------*/
-  bool        imprimeMatrizAdyacencias(void);
+  bool        imprimeMatrizAdyacencias(void) const;
   float*      celdaMatrizAdyacencias(size_t x, size_t y);
   float       distanciaEuclideana(size_t indexA, size_t indexB);
   size_t*     rutaAleatoria(void);
@@ -57,7 +57,8 @@ public:
     CSV_CABECERA_INDICES = 0b11,
     CSV_INDICE_TAG = 0b01,
     CSV_HEAD_TAG = 0b10,
-    CSV_TAG = 0b11
+    CSV_TAG = 0b11,
+    CSV_ADYACENCIAS_INPUT = 0b100
   ;
   /*--------------*/
   float  operator [](size_t idx) const;
@@ -70,9 +71,12 @@ private:
   size_t  dimensiones;
   char*   i;
   char    tagged;
+  bool    soloAdyacencias;
   /*--------------*/
   void inicializaX(void);
+  void inicializaM(void);
   bool creaMatrizAdyacencias(void);
+  bool creaMatrizAdyacencias(std::string nombreArchivo, const char headers_indexes);
   /*--------------*/
   friend std::ostream& operator << (std::ostream& os, const lovdogListaNodos& grafo);
   /*--------------*/
