@@ -289,14 +289,11 @@ bool lovdogListaNodos::creaMatrizAdyacencias(std::string nombreArchivo, const ch
   switch(headers_indexes & CSV_CABECERA){
     case CSV_CABECERA:
       --this->tamanno;
-      while(std::getline(token, linea, ','))
-        ++this->dimensiones;
       break;
     case CSV_SOLO_DATOS:
       while(std::getline(token, linea, ','))
         if(!linea.empty() )
           valores.push_back(atof(linea.c_str()));
-      this->dimensiones=valores.size();
       break;
   }
   token.str("");
