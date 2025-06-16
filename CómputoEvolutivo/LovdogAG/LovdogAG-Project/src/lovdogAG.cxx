@@ -340,10 +340,10 @@ void lovdogListaNodos::inicializaX(void){
 void lovdogListaNodos::inicializaM(void){
   size_t idx, total;
   idx = 0;
-  total = (this->dimensiones)*(this->tamanno);
-  this->x = new float[total];
-  if(this->x == nullptr){  this->tamanno = this->dimensiones = 0; return; }
-  while(idx < total) *(this->x+(idx++)) = 0;
+  total = (this->tamanno)*(this->tamanno);
+  this->Adyacencias = new float[total];
+  if(this->Adyacencias == nullptr){  this->tamanno = this->dimensiones = 0; return; }
+  while(idx < total) *(this->Adyacencias+(idx++)) = 0;
 }
 
 float* lovdogListaNodos::nodoEn(size_t idx)      const { return  (this->x+(idx*this->dimensiones)); }
