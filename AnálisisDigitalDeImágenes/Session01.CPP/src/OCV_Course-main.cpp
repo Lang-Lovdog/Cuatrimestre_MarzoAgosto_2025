@@ -13,6 +13,8 @@ int main (int argc, char* argv[]){
   //std::cout << "Camera capturing\n\nI can see you by 2"; frameProcess();
   //std::cout << "Camera capturing\n\nI can see you by 2 and kinda one"; frameROI();
   //std::cout << "La vie en gris" << std::endl; mainHistograma(argc,argv);
-  std::cout << "La vie en gris 2 el histograma, regresa" << std::endl; mainHistograma2(argc,argv);
+  //std::cout << "La vie en gris 2 el histograma, regresa" << std::endl; mainHistograma2(argc,argv);
+  //std::cout << "Binarización :O" << std::endl; mainNewHolaMundo(argc,argv);
+  std::cout << "Pasa altas >:C" <<std::endl; lovdogPasaAltas01(argc,argv);
   return 0;
 }

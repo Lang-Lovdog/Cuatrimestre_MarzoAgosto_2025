@@ -1,9 +1,14 @@
-#include <iostream>
-#include <core.hpp>
-#include <imgproc.hpp>
-#include <opencv.hpp>
-#include <highgui.hpp>
 #include "OCV_Course.hxx"
+#include "core.hpp"
+#include "highgui.hpp"
+#include "imgcodecs.hpp"
+#include "imgproc.hpp"
+#include "opencv2/core/base.hpp"
+#include "opencv2/core/hal/interface.h"
+#include "opencv2/core/mat.hpp"
+#include "opencv2/core/types.hpp"
+#include <cstdlib>
+#include <iostream>
 
 int mainHolaMundo (int argc,char* argv[]){
   if(argc<2) { std::cout << "Requires an argument (image)"; return 1; }
@@ -323,7 +328,7 @@ int lovdog_Histograma(const char* title, const cv::Mat& input){
         histogramaImg,
         cv::Point(binWidth*(i-1), histHeight - cvRound(Histograma.at<float>(i-1)) ),
         cv::Point(binWidth*(i), histHeight - cvRound(Histograma.at<float>(i)) ),
-        colorLines, 2, 8, 0
+        colorLines, 1, 8, 0
     );
 
   imshow(title,histogramaImg);
@@ -339,7 +344,9 @@ int mainHistograma2(int argc, char** argv){
   if(Input.empty()) { std::cout << "Error File not Found" << std::endl; return 1; }
 
   cv::imshow("L'image gray",Input);
-  lovdog_Histograma2("L'image histograme",Input);
+  //lovdog_Histograma2("L'image histograme",Input);
+  lovdogImagen2Histograma("Holis A", Input, true, 800, 600);
+  lovdogImagen2Histograma("Holis B", Input, true, 800, 600);
 
   cv::waitKey(0);
   return 0;
@@ -400,6 +407,7 @@ int lovdog_Histograma2(const char* title, const cv::Mat& input){
  * Fourth argument true for cumulative, false for standard
  * Return the bin number used by the histogram
  */
+
 int lovdogCalcHist(const cv::Mat& src, cv::Mat &histogram1D, bool cnt_pdf, bool std_cum){
   if(src.empty()){
     std::cout << "\nlovdogCalcHist(): Empty Image" << std::endl;
@@ -438,10 +446,10 @@ int lovdogCalcHist(const cv::Mat& src, cv::Mat &histogram1D, bool cnt_pdf, bool 
 }
 
 int lovdogShowHist(const cv::Mat& histogram, cv::Mat& ploutput, size_t width, size_t height){
-  if(histogram.empty())         {std::cout<< "\nlovdogShowHist(): No Histogram to plot" <<std::endl; return 1 }
-  if(histogram.channels() != 1) {std::cout<< "\nlovdogShowHist(): Histogram must be one channel matrix" <<std::endl; return 1;}
-  if(histogram.type != CV_32FC1){std::cout<< "\nlovdogShowHist(): Histogram must be float type" <<std::endl; return 1;}
-  if(ploutput.data)             {std::cout<< "\nlovdogShowHist(): Plot matrix must be empty" <<std::endl; return 1;}
+  if(histogram.empty())           {std::cout<< "\nlovdogShowHist(): No Histogram to plot" <<std::endl; return 1; }
+  if(histogram.channels() != 1)   {std::cout<< "\nlovdogShowHist(): Histogram must be one channel matrix" <<std::endl; return 1;}
+  if(histogram.type() != CV_32FC1){std::cout<< "\nlovdogShowHist(): Histogram must be float type" <<std::endl; return 1;}
+  if(ploutput.data)               {std::cout<< "\nlovdogShowHist(): Plot matrix must be empty" <<std::endl; return 1;}
 
   cv::Scalar
     ColorBackground =cv::Scalar(20,0,0),
@@ -455,7 +463,174 @@ int lovdogShowHist(const cv::Mat& histogram, cv::Mat& ploutput, size_t width, si
     if(histogram.at<float>(0,theCol) > MaximumValue)
       MaximumValue = histogram.at<float>(0,(MaximumPosition=theCol)); // Ahorro una línea, asignación y uso al mismo tiempo
 
+  size_t histHeight = height/MaximumValue;
+  size_t binWidth = width/histogram.cols;
+
   ploutput = cv::Mat::zeros(height,width,CV_8UC3);
   ploutput += ColorBackground;
+
+  for( unsigned int i = 1 ; i < histogram.cols ; ++i)
+    line(
+        ploutput,
+        cv::Point(binWidth*(i), histHeight - cvRound(histogram.at<float>(i)) ),
+        cv::Point(binWidth*(i), histHeight ),
+        ColorBar, 2, 8, 0
+    );
+
+  for( unsigned int i = 1 ; i < histogram.cols ; ++i)
+    line(
+        ploutput,
+        cv::Point(binWidth*(i-1), histHeight - cvRound(histogram.at<float>(i-1)) ),
+        cv::Point(binWidth*(i), histHeight - cvRound(histogram.at<float>(i)) ),
+        ColorEdge, 2, 8, 0
+    );
+
+  return 0;
+}
+
+int lovdogImagen2Histograma(const char* title, const cv::Mat& src, bool std_cum, size_t height, size_t width){
+  cv::Mat histogram,ploutput;
+  lovdogCalcHist(src, histogram, false, std_cum);
+  lovdogShowHist(histogram, ploutput, width, height);
+  cv::namedWindow(title,cv::WINDOW_NORMAL);
+  cv::imshow(title,ploutput);
+  return 0;
+}
+
+
+int mainNewHolaMundo (int argc,char* argv[]){
+  if(argc<2) { std::cout << "Requires an argument (image)"; return 1; }
+  std::cout << "Checking OpenCV installation in PC /opencv/ \n";
+  cv::Mat Input;
+
+  Input = cv::imread(argv[1],cv::IMREAD_GRAYSCALE);
+
+  if(Input.empty()) { std::cout << "Image reading error"; return 1; }
+
+  cv::namedWindow("Imagen Original", cv::WINDOW_NORMAL);
+  cv::imshow("Imagen Original", Input);
+
+  lovdogStretchIt(Input);
+  lovdogEqualizeIt(Input);
+
+  //if(argc>4)
+  //  lovdogBinarizacion(Input,atoi(argv[2]),atoi(argv[3]),atoi(argv[4]));
+  //else if(argc>3)
+  //  lovdogBinarizacion(Input,atoi(argv[2]),atoi(argv[3]),0);
+  //else if(argc>2)
+  //  lovdogBinarizacion(Input,atoi(argv[2]),255,0);
+  //else
+  //  lovdogBinarizacion(Input, 128, 255,0);
+  
+  cv::waitKey(0);
+  cv::destroyAllWindows();
+  return 0;
+}
+
+// Umbralización
+int lovdogBinarizacion(const cv::Mat& src, int threshValue, int threshCut, int thresholdType){
+  // Threshold
+  // THRESH_BINARY   THRESH_BINARY_INV THRESH_TRUNK THRESH_TOZERO
+  // THRESH_TRIANGLE THRESH_TOZERO_INV THRESH_MASK  THRESH_OTSU
+  cv::Mat dst;
+  cv::threshold(src, dst, threshValue, threshCut, cv::THRESH_OTSU);
+  cv::namedWindow("Threshold Binary");
+
+  lovdog_Histograma("Imagen binarizada", dst);
+  lovdog_Histograma("Imagen normal", src);
+
+  cv::imshow("Threshold Binary",dst);
+
+  return 0;
+}
+
+// Normalización
+int lovdogStretchIt(const cv::Mat& src){
+  double minVal, maxVal;
+  cv:: Mat dst;
+
+  cv::minMaxLoc(src, &minVal, &maxVal);
+  std::cout << "Valores [min, max] = [" << minVal <<", "<< maxVal  << "]"<< std::endl;
+
+  cv::normalize(src,dst,0,255,cv::NORM_MINMAX);
+
+  cv::minMaxLoc(dst, &minVal, &maxVal);
+  std::cout << "Valores Norm [min, max] = [" << minVal <<", "<< maxVal  << "]"<< std::endl;
+
+  lovdog_Histograma("Normalización Histograma", dst);
+
+  cv::namedWindow("Imagen normalizada", cv::WINDOW_NORMAL);
+  cv::imshow("Imagen normalizada",dst);
+  return 0;
+}
+
+// Igualación en histograma
+int lovdogEqualizeIt(const cv::Mat& src){
+  double minVal, maxVal;
+  cv:: Mat dst;
+
+  cv::minMaxLoc(src, &minVal, &maxVal);
+  std::cout << "Valores [min, max] = [" << minVal <<", "<< maxVal  << "]"<< std::endl;
+
+  cv::equalizeHist(src,dst);
+
+  cv::minMaxLoc(dst, &minVal, &maxVal);
+  std::cout << "Valores Norm [min, max] = [" << minVal <<", "<< maxVal  << "]"<< std::endl;
+
+  lovdog_Histograma("Equalización Histograma", dst);
+
+  cv::namedWindow("Imagen equalizada", cv::WINDOW_NORMAL);
+  cv::imshow("Imagen equalizada",dst);
+  return 0;
+}
+
+
+// Filtros
+
+/* Aplicación de filter2D */
+int lovdogPasaAltas01(int argc,char** argv){
+  if(argc<2){std::cerr << "No image to process" << std::endl; return 1;}
+  cv::Mat lImage, lImage_f, lImage_o,Kernel;
+  lImage = cv::imread(argv[1],CV_8UC1);
+  if(lImage.empty()){std::cerr << "Error opening the image" << std::endl; return 1;}
+  cv::namedWindow("Original Image", cv::WINDOW_NORMAL);
+  cv::namedWindow("Filtered Image K1", cv::WINDOW_NORMAL);
+  cv::namedWindow("Normalized F Image K1", cv::WINDOW_NORMAL);
+  cv::namedWindow("Equalized N F Image K1", cv::WINDOW_NORMAL);
+  cv::namedWindow("Filtered Image K2", cv::WINDOW_NORMAL);
+  cv::namedWindow("Normalized F Image K2", cv::WINDOW_NORMAL);
+  cv::namedWindow("Equalized N F Image K2", cv::WINDOW_NORMAL);
+
+  lImage.convertTo(lImage_f, CV_32F);
+  
+  Kernel = (cv::Mat_<double>(3,3) <<
+      -1, -1, -1,
+      -1,  9, -1,
+      -1, -1, -1
+  );
+
+
+  cv::imshow("Original Image",lImage);
+
+  cv::filter2D(lImage_f, lImage_o, -1, Kernel, cv::Point(-1,-1), 0, cv::BORDER_DEFAULT);
+  cv::imshow("Filtered Image K1",lImage_o);
+  cv::normalize(lImage_o, lImage_o,0,255,cv::NORM_MINMAX,CV_8UC1);
+  cv::imshow("Normalized F Image K1",lImage_o);
+  cv::equalizeHist(lImage_o, lImage_o);
+  cv::imshow("Equalized N F Image K1",lImage_o);
+  /* -- -- --- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+  Kernel = (cv::Mat_<double>(3,3) <<
+       0, -1,  0,
+      -1,  5, -1,
+       0, -1,  0
+  );
+  cv::filter2D(lImage_f, lImage_o, -1, Kernel, cv::Point(-1,-1), 0, cv::BORDER_DEFAULT);
+  cv::imshow("Filtered Image K2",lImage_o);
+  cv::normalize(lImage_o, lImage_o,0,255,cv::NORM_MINMAX,CV_8UC1);
+  cv::imshow("Normalized F Image K2",lImage_o);
+  cv::equalizeHist(lImage_o, lImage_o);
+  cv::imshow("Equalized N F Image K2",lImage_o);
+
+  cv::waitKey(0);
   return 0;
 }

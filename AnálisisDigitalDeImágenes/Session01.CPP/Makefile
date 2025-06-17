@@ -10,8 +10,6 @@ BINDIR=$(BUILDDIR)/bin
 CXXFILES=$(wildcard $(SRCDIR)/*.cxx)
 
 analisis:
-#	cd $(BUILDDIR); \
-#		$(CXX) $(SRCDIR)/OCV_Course-main.cpp $(CXXFILES) $(CXXFLAGS) -c
-#		$(CXX) ../$(SRCDIR)/OCV_Course-main.cpp $(subst $(SRCDIR),../$(SRCDIR),$(CXXFILES)) $(CXXFLAGS) -c
-#	$(CXX) $(wildcard $(BULDDIR)/*.o)  $(CXXLINKS) $(CXXFLAGS) -o $(BINDIR)/OCVCourse
+#	cd $(BUILDDIR) && $(CXX) ../$(SRCDIR)/OCV_Course-main.cpp $(subst $(SRCDIR),../$(SRCDIR),$(CXXFILES)) $(CXXFLAGS) -c
+#	$(CXX) $(wildcard $(BULDDIR)/*.o) $(CXXLINKS) -o $(BINDIR)/OCVCourse
 	$(CXX) $(SRCDIR)/OCV_Course-main.cpp $(CXXFILES)  $(CXXLINKS) $(CXXFLAGS) -o $(BINDIR)/OCVCourse
