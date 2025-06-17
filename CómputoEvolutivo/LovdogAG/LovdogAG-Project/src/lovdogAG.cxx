@@ -98,6 +98,7 @@ lovdogListaNodos::lovdogListaNodos(){
   this->tamanno=0;
   this->dimensiones=0;
   this->tagged=0;
+  this->soloAdyacencias=false;
 }
 
 lovdogListaNodos::lovdogListaNodos(const char* archivoCSV){
@@ -107,6 +108,7 @@ lovdogListaNodos::lovdogListaNodos(const char* archivoCSV){
   this->dimensiones=0;
   this->tagged=false;
   this->leeCSV(archivoCSV, CSV_SOLO_DATOS);
+  this->soloAdyacencias=false;
   this->creaMatrizAdyacencias();
 }
 
@@ -116,41 +118,48 @@ lovdogListaNodos::lovdogListaNodos(const char* archivoCSV, const char tipo){
   this->tamanno=0;
   this->dimensiones=0;
   this->tagged=false;
+  this->soloAdyacencias=false;
+  if(tipo & this->CSV_ADYACENCIAS_INPUT ){
+    this->creaMatrizAdyacencias(archivoCSV,tipo);
+    return;
+  }
   this->leeCSV(archivoCSV, tipo);
   this->creaMatrizAdyacencias();
 }
 
 lovdogListaNodos::lovdogListaNodos(lovdogListaNodos& lln){
-  if(!(lln.dimensiones & lln.tamanno)) return;
+  if(!(lln.tamanno)) return;
   size_t idx,total;
-  this->dimensiones = lln.dimensiones;
-  this->tamanno     = lln.tamanno;
-  this->tagged      = lln.tagged;
-  this->x           = new float[this->dimensiones * this->tamanno];
-  this->Adyacencias = new float[this->tamanno*this->tamanno];
-  idx = 0; total = this->tamanno * this->dimensiones;
+  this->dimensiones     = lln.dimensiones;
+  this->tamanno         = lln.tamanno;
+  this->tagged          = lln.tagged;
+  this->soloAdyacencias = lln.soloAdyacencias;
+  this->x               = new float[this->dimensiones * this->tamanno];
+  this->Adyacencias     = new float[this->tamanno*this->tamanno];
+  idx = 0; total        = this->tamanno * this->dimensiones;
   while(idx < total) { *(this->x+idx) = *(lln.x+idx); ++idx; };
-  idx = 0; total = this->tamanno * this->tamanno;
+  idx = 0; total        = this->tamanno * this->tamanno;
   while(idx < total) { *(this->Adyacencias+idx) = *(lln.Adyacencias+idx); ++idx; }
 }
 
 lovdogListaNodos::lovdogListaNodos(const lovdogListaNodos& lln){
-  if(!(lln.dimensiones & lln.tamanno)) return;
+  if(!(lln.tamanno)) return;
   size_t idx,total;
-  this->dimensiones = lln.dimensiones;
-  this->tamanno     = lln.tamanno;
-  this->tagged      = lln.tagged;
-  this->x           = new float[this->dimensiones * this->tamanno];
-  this->Adyacencias = new float[this->tamanno*this->tamanno];
-  idx = 0; total = this->tamanno * this->dimensiones;
+  this->dimensiones     = lln.dimensiones;
+  this->tamanno         = lln.tamanno;
+  this->tagged          = lln.tagged;
+  this->soloAdyacencias = lln.soloAdyacencias;
+  this->x               = new float[this->dimensiones * this->tamanno];
+  this->Adyacencias     = new float[this->tamanno*this->tamanno];
+  idx = 0; total        = this->tamanno * this->dimensiones;
   while(idx < total) { *(this->x+idx) = *(lln.x+idx); ++idx; };
-  idx = 0; total = this->tamanno * this->tamanno;
+  idx = 0; total        = this->tamanno * this->tamanno;
   while(idx < total) { *(this->Adyacencias+idx) = *(lln.Adyacencias+idx); ++idx; }
 }
 
 lovdogListaNodos::~lovdogListaNodos(){
-  delete[] this->x;
-  delete[] this->Adyacencias;
+  if(this->x) delete[] this->x;
+  if(this->Adyacencias) delete[] this->Adyacencias;
 }
 
 bool lovdogListaNodos::creaMatrizAdyacencias(void){
@@ -269,7 +278,7 @@ bool lovdogListaNodos::creaMatrizAdyacencias(std::string nombreArchivo, const ch
   std::stringstream token;
   std::string linea;
   std::vector<float> valores;
-  size_t idx, xidx, moduloBase;
+  size_t idx, xidx, moduloBase,total;
   this->soloAdyacencias=true;
 
   csvEnCuestion.open(nombreArchivo, std::ios::in);
@@ -289,37 +298,66 @@ bool lovdogListaNodos::creaMatrizAdyacencias(std::string nombreArchivo, const ch
   switch(headers_indexes & CSV_CABECERA){
     case CSV_CABECERA:
       --this->tamanno;
+      while(std::getline(token, linea, ','))
+        if(!linea.empty() ) valores.push_back(0); /*Keep count of every column*/
+      if(valores.size() < this->tamanno) this->tamanno = valores.size();
+      /*If there are inconsistent dims, go for the smallest one*/
+      valores.clear(); std::vector<float>().swap(valores);
+      /*Full cleaning the vector, this might be too much computational cost
+       * but needed being a control variable in the next section*/
       break;
     case CSV_SOLO_DATOS:
       while(std::getline(token, linea, ','))
         if(!linea.empty() )
           valores.push_back(atof(linea.c_str()));
+      if(valores.size() < this->tamanno) this->tamanno = valores.size();
       break;
   }
   token.str("");
   token.clear();
+  /*Those two above are for cleaning the token container and restarting its iterator
+   * yeah, too much, not that clear what or why. Could do it more understandable?*/
 
+  /* Well, we are here now, there's a part where everything seems like some noodle
+   * without a little bit of common sense, in my defense, it was my first attempt
+   * maybe the methods should be more efficient.*/
+  /* --> For context, here is the part where the data is stored, but it's 
+   * mixed with the indexes headers control flow, I don't want any useless stacking
+   * however, maybe I'll reconsider it for the sake of clearness and less redundant code */
   switch(headers_indexes & CSV_INDICES){
-    case CSV_INDICES:
-      --this->dimensiones;
-      inicializaM();
-      if(!valores.empty()) {x[0]=valores[1]; x[1]=valores[2];}
-      valores.clear();
-      idx=xidx=0; moduloBase = this->dimensiones+1;
-      while(std::getline(csvEnCuestion,linea)){ 
-        token.str(""); token.clear(); token << linea ;
-        while(std::getline(token,linea,',')) if((idx++)%moduloBase) *(this->x+(xidx++))=atof(linea.c_str());
+    case CSV_INDICES: // This part is when the file is known to have an index column
+      if(!(this->CSV_CABECERA & headers_indexes)) --this->tamanno;
+      inicializaM(); // Create matrix, because the size is clearly good calculated by now
+      if(!valores.empty()) { /* Remember the clearing of this variable, here's the why */
+        idx=0; while(idx < this->tamanno){
+          *(this->Adyacencias+idx)=valores[idx]; /*Storing data gotten in the last section*/
+          ++idx;
+        }
       }
-      break;
-    case CSV_SOLO_DATOS:
-      inicializaM();
-      if(!valores.empty()) {x[0]=valores[0]; x[1]=valores[1];}
+      valores.clear();
+      idx=xidx=0; moduloBase = this->tamanno+1; total = this->tamanno*this->tamanno;
+      while(std::getline(csvEnCuestion,linea)){ 
+        token.str(""); token.clear(); token << linea; /*Limpieza del token*/
+        while(std::getline(token,linea,',')&&xidx<total){
+          if((idx++)%moduloBase) *(this->Adyacencias+(xidx++))=atof(linea.c_str()); /*Asignación de valores de matriz*/
+      }}
+      break; // At this point, here's the ending
+    case CSV_SOLO_DATOS: // This part is when the file is known to not to have an index column
+      inicializaM();// Déjà vu !, est-ce que vous ne pensez pas comme ça ?
+      if(!valores.empty()) { /* Remember the clearing of this variable, here's the why */
+        idx=0; while(idx < this->tamanno){
+          *(this->Adyacencias+idx)=valores[idx]; /*Storing data gotten in the last section*/
+          ++idx;
+        }
+      }
+      valores.clear();
       xidx=0;
       while(std::getline(csvEnCuestion,linea)){
-        token.str(""); token.clear(); token << linea ;
-        while(std::getline(token,linea,',')) *(this->x+(xidx++))=atof(linea.c_str());
+        token.str(""); token.clear(); token << linea; /*Limpieza del token*/
+        while(std::getline(token,linea,',')&&xidx<this->tamanno)
+          *(this->Adyacencias+(xidx++))=atof(linea.c_str()); // Here's the storing, do you remember?
       }
-      break;
+      break; // Well, here's the alternative ending, tho
   }
   csvEnCuestion.close();
   return true;

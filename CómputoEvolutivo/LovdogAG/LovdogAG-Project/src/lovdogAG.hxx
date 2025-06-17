@@ -55,10 +55,10 @@ public:
     CSV_CABECERA = 0b01,
     CSV_INDICES = 0b10,
     CSV_CABECERA_INDICES = 0b11,
-    CSV_INDICE_TAG = 0b01,
-    CSV_HEAD_TAG = 0b10,
-    CSV_TAG = 0b11,
-    CSV_ADYACENCIAS_INPUT = 0b100
+    CSV_INDICE_TAG = 0b0100,
+    CSV_HEAD_TAG = 0b1000,
+    CSV_TAG = 0b1100,
+    CSV_ADYACENCIAS_INPUT = 0b10000
   ;
   /*--------------*/
   float  operator [](size_t idx) const;
