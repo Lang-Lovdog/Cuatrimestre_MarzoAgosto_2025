@@ -1,0 +1,9 @@
+\begin{blur}[title={Una demostración con DEAP}]
+
+      Función de evaluación:
+\begin{center} \begin{lstlisting}[language=python]
+    def eval_func(individual):
+      return sum(individual)
+\end{lstlisting} \end{center}
+
+    \end{blur}
