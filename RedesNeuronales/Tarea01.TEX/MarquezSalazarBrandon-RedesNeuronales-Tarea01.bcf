@@ -2376,9 +2376,6 @@
     <bcf:citekey order="2" intorder="1">MCCULLOCH199099</bcf:citekey>
     <bcf:citekey order="3" intorder="1">PARULAMUSTREAD</bcf:citekey>
     <bcf:citekey order="4" intorder="1">PARULAMUSTREAD</bcf:citekey>
-    <bcf:citekey order="5" intorder="1">QUARTOWELCOME</bcf:citekey>
-    <bcf:citekey order="5" intorder="2">QUARTOGUIDE</bcf:citekey>
-    <bcf:citekey order="5" intorder="3">QUARTODOCUMENTATION</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

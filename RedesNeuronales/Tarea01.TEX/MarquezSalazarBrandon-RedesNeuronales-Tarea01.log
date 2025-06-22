@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.5.22)  16 JUN 2025 03:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2025.5.22)  18 JUN 2025 02:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -103,21 +103,21 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEPARstartletwidth=\dimen169
 \c@IEEEbiography=\count286
 \@IEEEtranrubishbin=\box54
-) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2024/11/05 v2.17t AMS math features
+) (c:/texlive/2025/texmf-dist/tex/latex-dev/amsmath/amsmath.sty
+Package: amsmath 2025/05/18 v2.17x AMS math features
 \@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
-(c:/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty
-Package: amstext 2021/08/26 v2.01 AMS text
- (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty
+(c:/texlive/2025/texmf-dist/tex/latex-dev/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+ (c:/texlive/2025/texmf-dist/tex/latex-dev/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen170
-)) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty
+)) (c:/texlive/2025/texmf-dist/tex/latex-dev/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen171
-) (c:/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty
+) (c:/texlive/2025/texmf-dist/tex/latex-dev/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
 \inf@bad=\count287
@@ -165,14 +165,14 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \multlinegap=\skip53
 \multlinetaggap=\skip54
 \mathdisplay@stack=\toks22
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
+LaTeX Info: Redefining \[ on input line 2949.
+LaTeX Info: Redefining \] on input line 2950.
 ) (c:/texlive/2025/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks23
 \inpenc@posthook=\toks24
 ) (c:/texlive/2025/texmf-dist/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
 ) (c:/texlive/2025/texmf-dist/tex/latex/dirtytalk/dirtytalk.sty
 Package: dirtytalk 2010/11/21 A package making "quoting" easier
  (c:/texlive/2025/texmf-dist/tex/latex/kvoptions/kvoptions.sty
@@ -416,13 +416,35 @@ File: biblatex.cfg
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Document encoding is UTF8 ....
  (c:/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty
-Package: expl3 2025-04-29 L3 programming layer (loader) 
- (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2025-04-14 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count427
-))
+Package: expl3 2025-05-26 L3 programming layer (loader) 
+
+
+c:/texlive/2025/texmf-dist/tex/latex/l3kernel/expl3.sty:78: LaTeX Error: Mismatched LaTeX support files detected.
+(LaTeX)        Loading 'expl3.sty' aborted!
+(LaTeX)        
+(LaTeX)        The L3 programming layer in the LaTeX format
+(LaTeX)        is dated 2025-04-29, but in your TeX tree the files require
+(LaTeX)        at least 2025-05-26.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.78      \ExplLoaderFileDate{expl3.sty}}
+                                         %
+
+The most likely causes are:
+ - A recent format generation failed;
+ - A stray format file in the user tree which needs to be removed or rebuilt;
+ - You are running a manually installed version of expl3.sty
+   which is incompatible with the version in LaTeX.
+
+LaTeX will abort loading the incompatible support files but this may lead to
+later errors. Please ensure that your LaTeX format is correctly regenerated.
+
+
+)
 Package biblatex Info: ... and expl3
-(biblatex)             2025-04-29 L3 programming layer (loader) 
+(biblatex)             2025-05-26 L3 programming layer (loader) 
 (biblatex)             is new enough (at least 2020/04/06),
 (biblatex)             setting 'casechanger=expl3'.
  (c:/texlive/2025/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty (c:/texlive/2025/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
@@ -431,8 +453,7 @@ Package: xparse 2024-08-16 L3 Experimental document command parser
 Package: blx-case-expl3 2024/03/21 v3.20 expl3 case changing code for biblatex
 )) (c:/texlive/2025/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
-
-(c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+ (c:/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
@@ -458,15 +479,15 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks26
 \XKV@tempa@toks=\toks27
 )
-\XKV@depth=\count428
+\XKV@depth=\count427
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 )) (c:/texlive/2025/texmf-dist/tex/latex/oberdiek/centernot.sty
 Package: centernot 2016/05/16 v1.4 Centers the not symbol horizontally (HO)
 )
-\tx@cntz=\count429
+\tx@cntz=\count428
  (c:/texlive/2025/texmf-dist/tex/generic/kastrup/binhex.tex)
-\tx@Isdigit=\count430
-\tx@IsAlNum=\count431
+\tx@Isdigit=\count429
+\tx@IsAlNum=\count430
 \tx@tA=\toks28
 \tx@tB=\toks29
 \tx@su=\read3
@@ -578,7 +599,7 @@ Package: pgfrcs 2023-01-15 v3.1.10 (3.1.10)
 ))
 Package: pgf 2023-01-15 v3.1.10 (3.1.10)
  (c:/texlive/2025/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
  (c:/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
  (c:/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty
@@ -610,14 +631,14 @@ Package: pgfsys 2023-01-15 v3.1.10 (3.1.10)
 \pgf@yd=\dimen192
 \w@pgf@writea=\write4
 \r@pgf@reada=\read4
-\c@pgf@counta=\count432
-\c@pgf@countb=\count433
-\c@pgf@countc=\count434
-\c@pgf@countd=\count435
+\c@pgf@counta=\count431
+\c@pgf@countb=\count432
+\c@pgf@countc=\count433
+\c@pgf@countd=\count434
 \t@pgf@toka=\toks35
 \t@pgf@tokb=\toks36
 \t@pgf@tokc=\toks37
-\pgf@sys@id@count=\count436
+\pgf@sys@id@count=\count435
  (c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2023-01-15 v3.1.10 (3.1.10)
 )
@@ -628,22 +649,22 @@ File: pgfsys-pdftex.def 2023-01-15 v3.1.10 (3.1.10)
 File: pgfsys-common-pdf.def 2023-01-15 v3.1.10 (3.1.10)
 ))) (c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfsyssoftpath@smallbuffer@items=\count437
-\pgfsyssoftpath@bigbuffer@items=\count438
+\pgfsyssoftpath@smallbuffer@items=\count436
+\pgfsyssoftpath@bigbuffer@items=\count437
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
  (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen193
-\pgfmath@count=\count439
+\pgfmath@count=\count438
 \pgfmath@box=\box58
 \pgfmath@toks=\toks38
 \pgfmath@stack@operand=\toks39
 \pgfmath@stack@operation=\toks40
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex)
 (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count440
+\c@pgfmathroundto@lastzeros=\count439
 )) (c:/texlive/2025/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@picminx=\dimen194
@@ -673,7 +694,7 @@ File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfpic=\box59
 \pgf@hbox=\box60
 \pgf@layerbox@main=\box61
-\pgf@picture@serial@count=\count441
+\pgf@picture@serial@count=\count440
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgflinewidth=\dimen268
@@ -694,8 +715,8 @@ File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgf@max=\dimen273
-\pgf@sys@shading@range@num=\count442
-\pgf@shadingcount=\count443
+\pgf@sys@shading@range@num=\count441
+\pgf@shadingcount=\count442
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -731,7 +752,7 @@ Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
 Package: tikz 2023-01-15 v3.1.10 (3.1.10)
  (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgf@plot@mark@count=\count444
+\pgf@plot@mark@count=\count443
 \pgfplotmarksize=\dimen278
 )
 \tikz@lastx=\dimen279
@@ -746,28 +767,50 @@ File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@figbox@bg=\box65
 \tikz@tempbox=\box66
 \tikz@tempbox@bg=\box67
-\tikztreelevel=\count445
-\tikznumberofchildren=\count446
-\tikznumberofcurrentchild=\count447
-\tikz@fig@count=\count448
+\tikztreelevel=\count444
+\tikznumberofchildren=\count445
+\tikznumberofcurrentchild=\count446
+\tikz@fig@count=\count447
  (c:/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfmatrixcurrentrow=\count449
-\pgfmatrixcurrentcolumn=\count450
-\pgf@matrix@numberofcolumns=\count451
+\pgfmatrixcurrentrow=\count448
+\pgfmatrixcurrentcolumn=\count449
+\pgf@matrix@numberofcolumns=\count450
 )
-\tikz@expandcount=\count452
+\tikz@expandcount=\count451
  (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ))) (c:/texlive/2025/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box68
-\sift@deathcycles=\count453
+\sift@deathcycles=\count452
 \@vwid@loff=\dimen287
 \@vwid@roff=\dimen288
 ) (c:/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
-) (./Macros.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+)
+./MarquezSalazarBrandon-RedesNeuronales-Tarea01.tex:16: Undefined control sequence.
+l.16 \import
+            {perceptronPreamble}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./MarquezSalazarBrandon-RedesNeuronales-Tarea01.tex:16: LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.16 \import{p
+              erceptronPreamble}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+(./Macros.tex (c:/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \pgfarrowinset=\dimen289
 \pgfarrowlength=\dimen290
@@ -785,65 +828,68 @@ File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 Package: tikz-flowchart 2019/08/20 v1.0.01 draw flowchart using TikZ
  (c:/texlive/2025/texmf-dist/tex/latex/xifthen/xifthen.sty
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
-
-(c:/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
+ (c:/texlive/2025/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count454
-\calc@Bcount=\count455
+\calc@Acount=\count453
+\calc@Bcount=\count454
 \calc@Adimen=\dimen293
 \calc@Bdimen=\dimen294
 \calc@Askip=\skip77
 \calc@Bskip=\skip78
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count456
+\calc@Ccount=\count455
 \calc@Cskip=\skip79
 ) (c:/texlive/2025/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
 Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
 ))))
-\@quotelevel=\count457
-\@quotereset=\count458
- (./MarquezSalazarBrandon-RedesNeuronales-Tarea01.aux)
+\@quotelevel=\count456
+\@quotereset=\count457
+ (c:/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-04-14 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count458
+)
+No file MarquezSalazarBrandon-RedesNeuronales-Tarea01.aux.
 \openout1 = `MarquezSalazarBrandon-RedesNeuronales-Tarea01.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 29.
-LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 29.
- (c:/texlive/2025/texmf-dist/tex/latex/newtx/omlntxmi.fd
+LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 30.
+LaTeX Font Info:    Trying to load font information for OML+ntxmi on input line 30.
+(c:/texlive/2025/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
 )
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 29.
-LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 29.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/ntxexa/m/n on input line 30.
+LaTeX Font Info:    Trying to load font information for U+ntxexa on input line 30.
  (c:/texlive/2025/texmf-dist/tex/latex/newtx/untxexa.fd
 File: untxexa.fd 2012/04/16 Fontinst v1.933 font definitions for U/ntxexa.
 )
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 29.
-LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 29.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for LMS/ntxsy/m/n on input line 30.
+LaTeX Font Info:    Trying to load font information for LMS+ntxsy on input line 30.
  (c:/texlive/2025/texmf-dist/tex/latex/newtx/lmsntxsy.fd
 File: lmsntxsy.fd 2016/07/02 Fontinst v1.933 font definitions for LMS/ntxsy.
 )
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 29.
-LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 29.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for LMX/ntxexx/m/n on input line 30.
+LaTeX Font Info:    Trying to load font information for LMX+ntxexx on input line 30.
  (c:/texlive/2025/texmf-dist/tex/latex/newtx/lmxntxexx.fd
 File: lmxntxexx.fd 2016/07/03 Fontinst v1.933 font definitions for LMX/ntxexx.
 )
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    ... okay on input line 30.
 
 -- Lines per column: 58 (exact).
-LaTeX Info: Command `\dddot' is already robust on input line 29.
-LaTeX Info: Command `\ddddot' is already robust on input line 29.
+LaTeX Info: Command `\dddot' is already robust on input line 30.
+LaTeX Info: Command `\ddddot' is already robust on input line 30.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 (c:/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -857,8 +903,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'MarquezSalazarBrandon-RedesNeuronales-Tarea01.bbl' found.
  (./MarquezSalazarBrandon-RedesNeuronales-Tarea01.bbl)
-Package biblatex Info: Reference section=0 on input line 29.
-Package biblatex Info: Reference segment=0 on input line 29.
+Package biblatex Info: Reference section=0 on input line 30.
+Package biblatex Info: Reference segment=0 on input line 30.
  (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count459
@@ -878,142 +924,2805 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (c:/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for OT1+minntx on input line 52.
- (c:/texlive/2025/texmf-dist/tex/latex/newtx/ot1minntx.fd
-File: ot1minntx.fd 2023/09/09 v1.1 font definition file for OT1/minntx
-)
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 52.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 52.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 52.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 10.0pt on input line 52.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 7.3pt on input line 52.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 5.5pt on input line 52.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 10.0pt on input line 52.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 7.3pt on input line 52.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 5.5pt on input line 52.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 10.0pt on input line 52.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 7.3pt on input line 52.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 5.5pt on input line 52.
-LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 52.
- (c:/texlive/2025/texmf-dist/tex/latex/newtx/untxmia.fd
-File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
-)
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 10.0pt on input line 52.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 7.3pt on input line 52.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 5.5pt on input line 52.
-LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 52.
- (c:/texlive/2025/texmf-dist/tex/latex/newtx/untxsym.fd
-File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
-)
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 10.0pt on input line 52.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 7.3pt on input line 52.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 5.5pt on input line 52.
-LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 52.
- (c:/texlive/2025/texmf-dist/tex/latex/newtx/untxsyc.fd
-File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
-)
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 10.0pt on input line 52.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 7.3pt on input line 52.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 5.5pt on input line 52.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 10.0pt on input line 52.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 7.3pt on input line 52.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 5.5pt on input line 52.
-<img/PerceptronRosenblatt.jpg, id=4, 770.88pt x 433.62pt>
-File: img/PerceptronRosenblatt.jpg Graphic file (type jpg)
-<use img/PerceptronRosenblatt.jpg>
-Package pdftex.def Info: img/PerceptronRosenblatt.jpg  used on input line 100.
-(pdftex.def)             Requested size: 201.60077pt x 113.40019pt.
 
-
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 9.0pt on input line 130.
-LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 130.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 9.0pt on input line 130.
-LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
-(Font)              scaled to size 6.6pt on input line 130.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 9.0pt on input line 130.
-LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
-(Font)              scaled to size 6.6pt on input line 130.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 9.0pt on input line 130.
-LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
-(Font)              scaled to size 6.6pt on input line 130.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 9.0pt on input line 130.
-LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
-(Font)              scaled to size 6.6pt on input line 130.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 9.0pt on input line 130.
-LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
-(Font)              scaled to size 6.6pt on input line 130.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 9.0pt on input line 130.
-LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
-(Font)              scaled to size 6.6pt on input line 130.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 9.0pt on input line 130.
-LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
-(Font)              scaled to size 6.6pt on input line 130.
 
 
 [1{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
-{c:/texlive/2025/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc} <./img/PerceptronRosenblatt.jpg>]
+]
+LaTeX Font Info:    Trying to load font information for OT1+minntx on input line 53.
+ (c:/texlive/2025/texmf-dist/tex/latex/newtx/ot1minntx.fd
+File: ot1minntx.fd 2023/09/09 v1.1 font definition file for OT1/minntx
+)
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 10.0pt on input line 53.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 53.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 5.5pt on input line 53.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 10.0pt on input line 53.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 7.3pt on input line 53.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 5.5pt on input line 53.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 10.0pt on input line 53.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 7.3pt on input line 53.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 5.5pt on input line 53.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 10.0pt on input line 53.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 7.3pt on input line 53.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 5.5pt on input line 53.
+LaTeX Font Info:    Trying to load font information for U+ntxmia on input line 53.
+ (c:/texlive/2025/texmf-dist/tex/latex/newtx/untxmia.fd
+File: untxmia.fd 2024/04/09 Fontinst v1.933 font definitions for U/ntxmia.
+)
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 10.0pt on input line 53.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 7.3pt on input line 53.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 5.5pt on input line 53.
+LaTeX Font Info:    Trying to load font information for U+ntxsym on input line 53.
+ (c:/texlive/2025/texmf-dist/tex/latex/newtx/untxsym.fd
+File: untxsym.fd 2023/08/16 Fontinst v1.933 font definitions for U/ntxsym.
+)
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 10.0pt on input line 53.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 7.3pt on input line 53.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 5.5pt on input line 53.
+LaTeX Font Info:    Trying to load font information for U+ntxsyc on input line 53.
+ (c:/texlive/2025/texmf-dist/tex/latex/newtx/untxsyc.fd
+File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
+)
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 10.0pt on input line 53.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 7.3pt on input line 53.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 5.5pt on input line 53.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 10.0pt on input line 53.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 7.3pt on input line 53.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 5.5pt on input line 53.
+<img/PerceptronRosenblatt.jpg, id=10, 770.88pt x 433.62pt>
+File: img/PerceptronRosenblatt.jpg Graphic file (type jpg)
+<use img/PerceptronRosenblatt.jpg>
+Package pdftex.def Info: img/PerceptronRosenblatt.jpg  used on input line 101.
+(pdftex.def)             Requested size: 201.60077pt x 113.40019pt.
 
+
+
+LaTeX Warning: Reference `eqnOut' on page 2 undefined on input line 121.
+
+
+LaTeX Warning: Reference `eqnErr' on page 2 undefined on input line 121.
+
+
+LaTeX Warning: Reference `eqnWei' on page 2 undefined on input line 122.
+
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 9.0pt on input line 131.
+LaTeX Font Info:    Font shape `OT1/minntx/m/n' will be
+(Font)              scaled to size 6.6pt on input line 131.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 9.0pt on input line 131.
+LaTeX Font Info:    Font shape `OML/ntxmi/m/it' will be
+(Font)              scaled to size 6.6pt on input line 131.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 9.0pt on input line 131.
+LaTeX Font Info:    Font shape `LMS/ntxsy/m/n' will be
+(Font)              scaled to size 6.6pt on input line 131.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 9.0pt on input line 131.
+LaTeX Font Info:    Font shape `LMX/ntxexx/m/n' will be
+(Font)              scaled to size 6.6pt on input line 131.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 9.0pt on input line 131.
+LaTeX Font Info:    Font shape `U/ntxmia/m/it' will be
+(Font)              scaled to size 6.6pt on input line 131.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 9.0pt on input line 131.
+LaTeX Font Info:    Font shape `U/ntxsym/m/n' will be
+(Font)              scaled to size 6.6pt on input line 131.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 9.0pt on input line 131.
+LaTeX Font Info:    Font shape `U/ntxsyc/m/n' will be
+(Font)              scaled to size 6.6pt on input line 131.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 9.0pt on input line 131.
+LaTeX Font Info:    Font shape `U/ntxexa/m/n' will be
+(Font)              scaled to size 6.6pt on input line 131.
 
 
 [2
 
-] (./MarquezSalazarBrandon-RedesNeuronales-Tarea01.aux)
+{c:/texlive/2025/texmf-dist/fonts/enc/dvips/newtx/ntx-ot1-tlf.enc} <./img/PerceptronRosenblatt.jpg>]
+
+
+
+[3
+
+]
+\openout2 = `perceptronBody.aux'.
+
+ (./perceptronBody.tex
+
+./perceptronBody.tex:215: LaTeX Error: Environment Shaded undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.215 \begin{Shaded}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:216: LaTeX Error: Environment Highlighting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.216 \begin{Highlighting}
+                          []
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./perceptronBody.tex:217: Undefined control sequence.
+l.217 \CommentTok
+                 {\#!pip install scikit{-}learn}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:218: Undefined control sequence.
+l.218 \ImportTok
+                {import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:218: Undefined control sequence.
+l.218 \ImportTok{import}\NormalTok
+                                  { numpy }\ImportTok{as}\NormalTok{ np}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:218: Undefined control sequence.
+l.218 ...tTok{import}\NormalTok{ numpy }\ImportTok
+                                                  {as}\NormalTok{ np}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:218: Undefined control sequence.
+l.218 ...ormalTok{ numpy }\ImportTok{as}\NormalTok
+                                                  { np}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:219: Undefined control sequence.
+l.219 \ImportTok
+                {from}\NormalTok{ sklearn.datasets }\ImportTok{import}\Norma...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:219: Undefined control sequence.
+l.219 \ImportTok{from}\NormalTok
+                                { sklearn.datasets }\ImportTok{import}\Norma...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:219: Undefined control sequence.
+l.219 ...}\NormalTok{ sklearn.datasets }\ImportTok
+                                                  {import}\NormalTok{ make\_...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:219: Undefined control sequence.
+l.219 ...rn.datasets }\ImportTok{import}\NormalTok
+                                                  { make\_blobs}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:220: Undefined control sequence.
+l.220 \ImportTok
+                {import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\Normal...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:220: Undefined control sequence.
+l.220 \ImportTok{import}\NormalTok
+                                  { matplotlib.pyplot }\ImportTok{as}\Normal...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:220: Undefined control sequence.
+l.220 ...\NormalTok{ matplotlib.pyplot }\ImportTok
+                                                  {as}\NormalTok{ plt}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:220: Undefined control sequence.
+l.220 ...tplotlib.pyplot }\ImportTok{as}\NormalTok
+                                                  { plt}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./perceptronBody.tex:221: LaTeX Error: \begin{document} ended by \end{Highlighting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.221 \end{Highlighting}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:222: LaTeX Error: \begin{document} ended by \end{Shaded}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.222 \end{Shaded}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:234: LaTeX Error: Environment Shaded undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.234 \begin{Shaded}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:235: LaTeX Error: Environment Highlighting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.235 \begin{Highlighting}
+                          []
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./perceptronBody.tex:236: Undefined control sequence.
+l.236 \KeywordTok
+                 {def}\NormalTok{ perceptronOutput(W,X,bias,ActivationFuncti...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:236: Undefined control sequence.
+l.236 \KeywordTok{def}\NormalTok
+                                { perceptronOutput(W,X,bias,ActivationFuncti...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:237: Undefined control sequence.
+l.237 \NormalTok
+                {  WeighedInputs }\OperatorTok{=}\NormalTok{ np.dot(W,X)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:237: Undefined control sequence.
+l.237 \NormalTok{  WeighedInputs }\OperatorTok
+                                              {=}\NormalTok{ np.dot(W,X)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:237: Undefined control sequence.
+l.237 ... WeighedInputs }\OperatorTok{=}\NormalTok
+                                                  { np.dot(W,X)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:238: Undefined control sequence.
+l.238 \NormalTok
+                {  Net }\OperatorTok{=}\NormalTok{ WeighedInputs }\OperatorT...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:238: Undefined control sequence.
+l.238 \NormalTok{  Net }\OperatorTok
+                                    {=}\NormalTok{ WeighedInputs }\OperatorT...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:238: Undefined control sequence.
+l.238 \NormalTok{  Net }\OperatorTok{=}\NormalTok
+                                                 { WeighedInputs }\OperatorT...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:238: Undefined control sequence.
+l.238 ...=}\NormalTok{ WeighedInputs }\OperatorTok
+                                                  {{-}}\NormalTok{ bias}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:238: Undefined control sequence.
+l.238 ...eighedInputs }\OperatorTok{{-}}\NormalTok
+                                                  { bias}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:239: Undefined control sequence.
+l.239 \NormalTok
+                {  O }\OperatorTok{=}\NormalTok{ ActivationFunction(Net)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:239: Undefined control sequence.
+l.239 \NormalTok{  O }\OperatorTok
+                                  {=}\NormalTok{ ActivationFunction(Net)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:239: Undefined control sequence.
+l.239 \NormalTok{  O }\OperatorTok{=}\NormalTok
+                                               { ActivationFunction(Net)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:240: Undefined control sequence.
+l.240   \ControlFlowTok
+                       {return}\NormalTok{ O}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:240: Undefined control sequence.
+l.240   \ControlFlowTok{return}\NormalTok
+                                         { O}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./perceptronBody.tex:241: LaTeX Error: \begin{document} ended by \end{Highlighting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.241 \end{Highlighting}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:242: LaTeX Error: \begin{document} ended by \end{Shaded}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.242 \end{Shaded}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 235--243
+[]\OT1/ptm/m/n/10 [] def per-cep-tronOut-put(W,X,bias,ActivationFunction):
+ []
+
+
+./perceptronBody.tex:251: LaTeX Error: Environment Shaded undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.251 \begin{Shaded}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:252: LaTeX Error: Environment Highlighting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.252 \begin{Highlighting}
+                          []
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./perceptronBody.tex:253: Undefined control sequence.
+l.253 \KeywordTok
+                 {def}\NormalTok{ computeError(Y,O,N):}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:253: Undefined control sequence.
+l.253 \KeywordTok{def}\NormalTok
+                                { computeError(Y,O,N):}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:254: Undefined control sequence.
+l.254 \NormalTok
+                {  DeltaSum }\OperatorTok{=}\NormalTok{ np.}\BuiltInTok{sum}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:254: Undefined control sequence.
+l.254 \NormalTok{  DeltaSum }\OperatorTok
+                                         {=}\NormalTok{ np.}\BuiltInTok{sum}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:254: Undefined control sequence.
+l.254 ...Tok{  DeltaSum }\OperatorTok{=}\NormalTok
+                                                  { np.}\BuiltInTok{sum}\Nor...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:254: Undefined control sequence.
+l.254 ...OperatorTok{=}\NormalTok{ np.}\BuiltInTok
+                                                  {sum}\NormalTok{(np.}\Buil...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:254: Undefined control sequence.
+l.254 ...NormalTok{ np.}\BuiltInTok{sum}\NormalTok
+                                                  {(np.}\BuiltInTok{abs}\Nor...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:254: Undefined control sequence.
+l.254 ...uiltInTok{sum}\NormalTok{(np.}\BuiltInTok
+                                                  {abs}\NormalTok{(Y}\Operat...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:254: Undefined control sequence.
+l.254 ...NormalTok{(np.}\BuiltInTok{abs}\NormalTok
+                                                  {(Y}\OperatorTok{{-}}\Norm...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:254: Undefined control sequence.
+l.254 ...BuiltInTok{abs}\NormalTok{(Y}\OperatorTok
+                                                  {{-}}\NormalTok{O))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:254: Undefined control sequence.
+l.254 ...\NormalTok{(Y}\OperatorTok{{-}}\NormalTok
+                                                  {O))}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:255: Undefined control sequence.
+l.255 \NormalTok
+                {  Err }\OperatorTok{=}\NormalTok{ DeltaSum}\OperatorTok{/}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:255: Undefined control sequence.
+l.255 \NormalTok{  Err }\OperatorTok
+                                    {=}\NormalTok{ DeltaSum}\OperatorTok{/}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:255: Undefined control sequence.
+l.255 \NormalTok{  Err }\OperatorTok{=}\NormalTok
+                                                 { DeltaSum}\OperatorTok{/}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:255: Undefined control sequence.
+l.255 ...orTok{=}\NormalTok{ DeltaSum}\OperatorTok
+                                                  {/}\NormalTok{N}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:255: Undefined control sequence.
+l.255 ...alTok{ DeltaSum}\OperatorTok{/}\NormalTok
+                                                  {N}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:256: Undefined control sequence.
+l.256   \ControlFlowTok
+                       {return}\NormalTok{ Err}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:256: Undefined control sequence.
+l.256   \ControlFlowTok{return}\NormalTok
+                                         { Err}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./perceptronBody.tex:257: LaTeX Error: \begin{document} ended by \end{Highlighting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.257 \end{Highlighting}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:258: LaTeX Error: \begin{document} ended by \end{Shaded}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.258 \end{Shaded}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:266: LaTeX Error: Environment Shaded undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.266 \begin{Shaded}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:267: LaTeX Error: Environment Highlighting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.267 \begin{Highlighting}
+                          []
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./perceptronBody.tex:268: Undefined control sequence.
+l.268 \KeywordTok
+                 {def}\NormalTok{ updateWeights(Y,O,W,X,r):}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:268: Undefined control sequence.
+l.268 \KeywordTok{def}\NormalTok
+                                { updateWeights(Y,O,W,X,r):}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 \NormalTok
+                {  NewWeights }\OperatorTok{=}\NormalTok{ W }\OperatorTok{{-...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 \NormalTok{  NewWeights }\OperatorTok
+                                           {=}\NormalTok{ W }\OperatorTok{{-...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 ...k{  NewWeights }\OperatorTok{=}\NormalTok
+                                                  { W }\OperatorTok{{-}}\Nor...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 ...OperatorTok{=}\NormalTok{ W }\OperatorTok
+                                                  {{-}}\NormalTok{ (Y}\Opera...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 ...NormalTok{ W }\OperatorTok{{-}}\NormalTok
+                                                  { (Y}\OperatorTok{{-}}\Nor...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 ...eratorTok{{-}}\NormalTok{ (Y}\OperatorTok
+                                                  {{-}}\NormalTok{O)}\Operat...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 ...NormalTok{ (Y}\OperatorTok{{-}}\NormalTok
+                                                  {O)}\OperatorTok{*}\Normal...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 ...peratorTok{{-}}\NormalTok{O)}\OperatorTok
+                                                  {*}\NormalTok{X}\OperatorT...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 ...}}\NormalTok{O)}\OperatorTok{*}\NormalTok
+                                                  {X}\OperatorTok{*}\NormalT...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 ...}\OperatorTok{*}\NormalTok{X}\OperatorTok
+                                                  {*}\NormalTok{r}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:269: Undefined control sequence.
+l.269 ...{*}\NormalTok{X}\OperatorTok{*}\NormalTok
+                                                  {r}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:270: Undefined control sequence.
+l.270   \ControlFlowTok
+                       {return}\NormalTok{  NewWeights}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:270: Undefined control sequence.
+l.270   \ControlFlowTok{return}\NormalTok
+                                         {  NewWeights}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./perceptronBody.tex:271: LaTeX Error: \begin{document} ended by \end{Highlighting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.271 \end{Highlighting}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:272: LaTeX Error: \begin{document} ended by \end{Shaded}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.272 \end{Shaded}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:284: LaTeX Error: Environment Shaded undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.284 \begin{Shaded}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:285: LaTeX Error: Environment Highlighting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.285 \begin{Highlighting}
+                          []
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./perceptronBody.tex:286: Undefined control sequence.
+l.286 \KeywordTok
+                 {def}\NormalTok{ S(Net):}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:286: Undefined control sequence.
+l.286 \KeywordTok{def}\NormalTok
+                                { S(Net):}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:287: Undefined control sequence.
+l.287   \ControlFlowTok
+                       {if}\NormalTok{ Net}\OperatorTok{\textless{}}\DecValT...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:287: Undefined control sequence.
+l.287   \ControlFlowTok{if}\NormalTok
+                                     { Net}\OperatorTok{\textless{}}\DecValT...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:287: Undefined control sequence.
+l.287 ...olFlowTok{if}\NormalTok{ Net}\OperatorTok
+                                                  {\textless{}}\DecValTok{1}...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 287.
+(c:/texlive/2025/texmf-dist/tex/latex/psnfss/omlptm.fd
+File: omlptm.fd 
+)
+LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 287.
+
+./perceptronBody.tex:287: Undefined control sequence.
+l.287 ...{ Net}\OperatorTok{\textless{}}\DecValTok
+                                                  {1}\NormalTok{ :}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:287: Undefined control sequence.
+l.287 ...orTok{\textless{}}\DecValTok{1}\NormalTok
+                                                  { :}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:288: Undefined control sequence.
+l.288     \ControlFlowTok
+                         {return} \DecValTok{0}\OperatorTok{;}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:288: Undefined control sequence.
+l.288     \ControlFlowTok{return} \DecValTok
+                                            {0}\OperatorTok{;}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:288: Undefined control sequence.
+l.288 ...FlowTok{return} \DecValTok{0}\OperatorTok
+                                                  {;}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:289: Undefined control sequence.
+l.289   \ControlFlowTok
+                       {return} \DecValTok{1}\OperatorTok{;}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:289: Undefined control sequence.
+l.289   \ControlFlowTok{return} \DecValTok
+                                          {1}\OperatorTok{;}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:289: Undefined control sequence.
+l.289 ...FlowTok{return} \DecValTok{1}\OperatorTok
+                                                  {;}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./perceptronBody.tex:290: LaTeX Error: \begin{document} ended by \end{Highlighting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.290 \end{Highlighting}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:291: LaTeX Error: \begin{document} ended by \end{Shaded}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.291 \end{Shaded}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:300: LaTeX Error: Environment Shaded undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.300 \begin{Shaded}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:301: LaTeX Error: Environment Highlighting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.301 \begin{Highlighting}
+                          []
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./perceptronBody.tex:302: Undefined control sequence.
+l.302 \CommentTok
+                 {\# This one is to get 3000 elements to classify}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:303: Undefined control sequence.
+l.303 \NormalTok
+                {N}\OperatorTok{=}\DecValTok{3000}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:303: Undefined control sequence.
+l.303 \NormalTok{N}\OperatorTok
+                               {=}\DecValTok{3000}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:303: Undefined control sequence.
+l.303 \NormalTok{N}\OperatorTok{=}\DecValTok
+                                            {3000}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:304: Undefined control sequence.
+l.304 \CommentTok
+                 {\# Two features to input the perceptron}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:305: Undefined control sequence.
+l.305 \NormalTok
+                {nFeatures}\OperatorTok{=}\DecValTok{2}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:305: Undefined control sequence.
+l.305 \NormalTok{nFeatures}\OperatorTok
+                                       {=}\DecValTok{2}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:305: Undefined control sequence.
+l.305 ...alTok{nFeatures}\OperatorTok{=}\DecValTok
+                                                  {2}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:306: Undefined control sequence.
+l.306 \NormalTok
+                {X,Y }\OperatorTok{=}\NormalTok{ make\_blobs(}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:306: Undefined control sequence.
+l.306 \NormalTok{X,Y }\OperatorTok
+                                  {=}\NormalTok{ make\_blobs(}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:306: Undefined control sequence.
+l.306 \NormalTok{X,Y }\OperatorTok{=}\NormalTok
+                                               { make\_blobs(}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:307: Undefined control sequence.
+l.307   \CommentTok
+                   {\# Number of elements  \# Number of features}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:308: Undefined control sequence.
+l.308 \NormalTok
+                {  n\_samples}\OperatorTok{=}\NormalTok{N,          n\_featu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:308: Undefined control sequence.
+l.308 \NormalTok{  n\_samples}\OperatorTok
+                                          {=}\NormalTok{N,          n\_featu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:308: Undefined control sequence.
+l.308 ...ok{  n\_samples}\OperatorTok{=}\NormalTok
+                                                  {N,          n\_features}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:308: Undefined control sequence.
+l.308 ...lTok{N,          n\_features}\OperatorTok
+                                                  {=}\NormalTok{nFeatures,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:308: Undefined control sequence.
+l.308 ...    n\_features}\OperatorTok{=}\NormalTok
+                                                  {nFeatures,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:309: Undefined control sequence.
+l.309   \CommentTok
+                   {\# Two classes         \# Standard deviation}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:310: Undefined control sequence.
+l.310 \NormalTok
+                {  centers}\OperatorTok{=}\DecValTok{2}\NormalTok{,         ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:310: Undefined control sequence.
+l.310 \NormalTok{  centers}\OperatorTok
+                                       {=}\DecValTok{2}\NormalTok{,         ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:310: Undefined control sequence.
+l.310 ...alTok{  centers}\OperatorTok{=}\DecValTok
+                                                  {2}\NormalTok{,           ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:310: Undefined control sequence.
+l.310 ...rs}\OperatorTok{=}\DecValTok{2}\NormalTok
+                                                  {,            cluster\_std...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:310: Undefined control sequence.
+l.310 ...ok{,            cluster\_std}\OperatorTok
+                                                  {=}\FloatTok{1.9}\NormalTo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:310: Undefined control sequence.
+l.310 ...    cluster\_std}\OperatorTok{=}\FloatTok
+                                                  {1.9}\NormalTok{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:310: Undefined control sequence.
+l.310 ...d}\OperatorTok{=}\FloatTok{1.9}\NormalTok
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:311: Undefined control sequence.
+l.311   \CommentTok
+                   {\# Only to get randomly positioned}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:312: Undefined control sequence.
+l.312 \NormalTok
+                {  shuffle}\OperatorTok{=}\VariableTok{True}\NormalTok{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:312: Undefined control sequence.
+l.312 \NormalTok{  shuffle}\OperatorTok
+                                       {=}\VariableTok{True}\NormalTok{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:312: Undefined control sequence.
+l.312 ...Tok{  shuffle}\OperatorTok{=}\VariableTok
+                                                  {True}\NormalTok{,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:312: Undefined control sequence.
+l.312 ...peratorTok{=}\VariableTok{True}\NormalTok
+                                                  {,}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:313: Undefined control sequence.
+l.313   \CommentTok
+                   {\# Random Seed}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:314: Undefined control sequence.
+l.314 \NormalTok
+                {  random\_state}\OperatorTok{=}\DecValTok{1201931}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:314: Undefined control sequence.
+l.314 \NormalTok{  random\_state}\OperatorTok
+                                             {=}\DecValTok{1201931}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:314: Undefined control sequence.
+l.314 ...  random\_state}\OperatorTok{=}\DecValTok
+                                                  {1201931}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:315: Undefined control sequence.
+l.315 \NormalTok
+                {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 \NormalTok
+                {plt.scatter(X[:,}\DecValTok{0}\NormalTok{],X[:,}\DecValTok{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 \NormalTok{plt.scatter(X[:,}\DecValTok
+                                            {0}\NormalTok{],X[:,}\DecValTok{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...{plt.scatter(X[:,}\DecValTok{0}\NormalTok
+                                                  {],X[:,}\DecValTok{1}\Norm...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...\DecValTok{0}\NormalTok{],X[:,}\DecValTok
+                                                  {1}\NormalTok{],c}\Operato...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...\NormalTok{],X[:,}\DecValTok{1}\NormalTok
+                                                  {],c}\OperatorTok{=}\Norma...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...}\DecValTok{1}\NormalTok{],c}\OperatorTok
+                                                  {=}\NormalTok{Y,cmap}\Oper...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...}\NormalTok{],c}\OperatorTok{=}\NormalTok
+                                                  {Y,cmap}\OperatorTok{=}\St...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...ratorTok{=}\NormalTok{Y,cmap}\OperatorTok
+                                                  {=}\StringTok{\textquotesi...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...ormalTok{Y,cmap}\OperatorTok{=}\StringTok
+                                                  {\textquotesingle{}magma\t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 316.
+(c:/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...ingle{}magma\textquotesingle{}}\NormalTok
+                                                  {,s}\OperatorTok{=}\DecVal...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...tquotesingle{}}\NormalTok{,s}\OperatorTok
+                                                  {=}\DecValTok{5}\NormalTok{)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...}}\NormalTok{,s}\OperatorTok{=}\DecValTok
+                                                  {5}\NormalTok{)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:316: Undefined control sequence.
+l.316 ...,s}\OperatorTok{=}\DecValTok{5}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:317: Undefined control sequence.
+l.317 \NormalTok
+                {plt.xlabel(}\StringTok{\textquotesingle{}Feature 1\textquot...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:317: Undefined control sequence.
+l.317 \NormalTok{plt.xlabel(}\StringTok
+                                       {\textquotesingle{}Feature 1\textquot...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:317: Undefined control sequence.
+l.317 ...e{}Feature 1\textquotesingle{}}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:318: Undefined control sequence.
+l.318 \NormalTok
+                {plt.xlabel(}\StringTok{\textquotesingle{}Feature 2\textquot...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:318: Undefined control sequence.
+l.318 \NormalTok{plt.xlabel(}\StringTok
+                                       {\textquotesingle{}Feature 2\textquot...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:318: Undefined control sequence.
+l.318 ...e{}Feature 2\textquotesingle{}}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:319: Undefined control sequence.
+l.319 \NormalTok
+                {plt.title(}\StringTok{\textquotesingle{}Sample space\textqu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:319: Undefined control sequence.
+l.319 \NormalTok{plt.title(}\StringTok
+                                      {\textquotesingle{}Sample space\textqu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:319: Undefined control sequence.
+l.319 ...Sample space\textquotesingle{}}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:320: Undefined control sequence.
+l.320 \NormalTok
+                {plt.colorbar(label}\OperatorTok{=}\StringTok{"Classes"}\Nor...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:320: Undefined control sequence.
+l.320 \NormalTok{plt.colorbar(label}\OperatorTok
+                                                {=}\StringTok{"Classes"}\Nor...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:320: Undefined control sequence.
+l.320 ....colorbar(label}\OperatorTok{=}\StringTok
+                                                  {"Classes"}\NormalTok{)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:320: Undefined control sequence.
+l.320 ...atorTok{=}\StringTok{"Classes"}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:321: Undefined control sequence.
+l.321 \NormalTok
+                {plt.show()}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./perceptronBody.tex:322: LaTeX Error: \begin{document} ended by \end{Highlighting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.322 \end{Highlighting}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:323: LaTeX Error: \begin{document} ended by \end{Shaded}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.323 \end{Shaded}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 2277) in paragraph at lines 301--324
+[]\OT1/ptm/m/n/10 [] # This one is to get 3000 el-e-ments to clas-sify
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--324
+\OT1/ptm/m/n/10 N=3000 # Two fea-tures to in-put the per-cep-tron
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--324
+\OT1/ptm/m/n/10 # Two classes # Stan-dard de-vi-a-tion  cen-ters=2,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--324
+\OT1/ptm/m/n/10 clus-ter[]std=1.9, # Only to get ran-domly po-si-tioned
+ []
+
+
+Underfull \hbox (badness 5203) in paragraph at lines 301--324
+\OT1/ptm/m/n/10 shuf-fle=True, # Ran-dom Seed  ran-dom[]state=1201931
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--324
+\OT1/ptm/m/n/10 ) plt.scatter(X[:,0],X[:,1],c=Y,cmap=\TS1/ptm/m/n/10 '\OT1/ptm/m/n/10 magma\TS1/ptm/m/n/10 '\OT1/ptm/m/n/10 ,s=5)
+ []
+
+./perceptronBody.tex:325: Undefined control sequence.
+l.325 \pandocbounded
+                    {\includegraphics[keepaspectratio]{perceptron_files/figu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: File `perceptron_files/figure-latex/cell-7-output-1.png' not found on input line 325.
+
+
+./perceptronBody.tex:325: Package pdftex.def Error: File `perceptron_files/figure-latex/cell-7-output-1.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.325 ...n_files/figure-latex/cell-7-output-1.png}
+                                                  }
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 325.
+(c:/texlive/2025/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+
+
+./perceptronBody.tex:330: LaTeX Error: Environment Shaded undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.330 \begin{Shaded}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:331: LaTeX Error: Environment Highlighting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.331 \begin{Highlighting}
+                          []
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./perceptronBody.tex:332: Undefined control sequence.
+l.332 \NormalTok
+                {bias }\OperatorTok{=} \OperatorTok{{-}}\FloatTok{0.2}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:332: Undefined control sequence.
+l.332 \NormalTok{bias }\OperatorTok
+                                   {=} \OperatorTok{{-}}\FloatTok{0.2}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:332: Undefined control sequence.
+l.332 ...malTok{bias }\OperatorTok{=} \OperatorTok
+                                                  {{-}}\FloatTok{0.2}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:332: Undefined control sequence.
+l.332 ...OperatorTok{=} \OperatorTok{{-}}\FloatTok
+                                                  {0.2}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:333: Undefined control sequence.
+l.333 \NormalTok
+                {learnRate }\OperatorTok{=} \FloatTok{0.6}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:333: Undefined control sequence.
+l.333 \NormalTok{learnRate }\OperatorTok
+                                        {=} \FloatTok{0.6}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:333: Undefined control sequence.
+l.333 ...lTok{learnRate }\OperatorTok{=} \FloatTok
+                                                  {0.6}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:334: Undefined control sequence.
+l.334 \NormalTok
+                {W}\OperatorTok{=}\NormalTok{np.zeros(nFeatures)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:334: Undefined control sequence.
+l.334 \NormalTok{W}\OperatorTok
+                               {=}\NormalTok{np.zeros(nFeatures)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:334: Undefined control sequence.
+l.334 \NormalTok{W}\OperatorTok{=}\NormalTok
+                                            {np.zeros(nFeatures)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:335: Undefined control sequence.
+l.335 \ControlFlowTok
+                     {for}\NormalTok{ i }\KeywordTok{in} \BuiltInTok{range}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:335: Undefined control sequence.
+l.335 \ControlFlowTok{for}\NormalTok
+                                    { i }\KeywordTok{in} \BuiltInTok{range}\...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:335: Undefined control sequence.
+l.335 ...rolFlowTok{for}\NormalTok{ i }\KeywordTok
+                                                  {in} \BuiltInTok{range}\No...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:335: Undefined control sequence.
+l.335 ...NormalTok{ i }\KeywordTok{in} \BuiltInTok
+                                                  {range}\NormalTok{(}\Built...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:335: Undefined control sequence.
+l.335 ...ywordTok{in} \BuiltInTok{range}\NormalTok
+                                                  {(}\BuiltInTok{len}\Normal...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:335: Undefined control sequence.
+l.335 ...BuiltInTok{range}\NormalTok{(}\BuiltInTok
+                                                  {len}\NormalTok{(X)):}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:335: Undefined control sequence.
+l.335 ...e}\NormalTok{(}\BuiltInTok{len}\NormalTok
+                                                  {(X)):}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:336: Undefined control sequence.
+l.336 \NormalTok
+                {  Xi }\OperatorTok{=}\NormalTok{ X[i]}\OperatorTok{;}\Norma...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:336: Undefined control sequence.
+l.336 \NormalTok{  Xi }\OperatorTok
+                                   {=}\NormalTok{ X[i]}\OperatorTok{;}\Norma...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:336: Undefined control sequence.
+l.336 \NormalTok{  Xi }\OperatorTok{=}\NormalTok
+                                                { X[i]}\OperatorTok{;}\Norma...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:336: Undefined control sequence.
+l.336 ...eratorTok{=}\NormalTok{ X[i]}\OperatorTok
+                                                  {;}\NormalTok{ Yi }\Operat...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:336: Undefined control sequence.
+l.336 ...NormalTok{ X[i]}\OperatorTok{;}\NormalTok
+                                                  { Yi }\OperatorTok{=}\Norm...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:336: Undefined control sequence.
+l.336 ...peratorTok{;}\NormalTok{ Yi }\OperatorTok
+                                                  {=}\NormalTok{ Y[i]}\Opera...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:336: Undefined control sequence.
+l.336 ...\NormalTok{ Yi }\OperatorTok{=}\NormalTok
+                                                  { Y[i]}\OperatorTok{;}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:336: Undefined control sequence.
+l.336 ...eratorTok{=}\NormalTok{ Y[i]}\OperatorTok
+                                                  {;}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:337: Undefined control sequence.
+l.337 \NormalTok
+                {  Oi}\OperatorTok{=}\NormalTok{perceptronOutput(Xi,W,bias,S)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:337: Undefined control sequence.
+l.337 \NormalTok{  Oi}\OperatorTok
+                                  {=}\NormalTok{perceptronOutput(Xi,W,bias,S)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:337: Undefined control sequence.
+l.337 \NormalTok{  Oi}\OperatorTok{=}\NormalTok
+                                               {perceptronOutput(Xi,W,bias,S)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:338: Undefined control sequence.
+l.338 \NormalTok
+                {  Err}\OperatorTok{=}\NormalTok{computeError(Yi,Oi,N)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:338: Undefined control sequence.
+l.338 \NormalTok{  Err}\OperatorTok
+                                   {=}\NormalTok{computeError(Yi,Oi,N)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:338: Undefined control sequence.
+l.338 \NormalTok{  Err}\OperatorTok{=}\NormalTok
+                                                {computeError(Yi,Oi,N)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:339: Undefined control sequence.
+l.339 \NormalTok
+                {  W}\OperatorTok{=}\NormalTok{updateWeights(Yi,Oi,W,Xi,lear...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:339: Undefined control sequence.
+l.339 \NormalTok{  W}\OperatorTok
+                                 {=}\NormalTok{updateWeights(Yi,Oi,W,Xi,lear...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:339: Undefined control sequence.
+l.339 \NormalTok{  W}\OperatorTok{=}\NormalTok
+                                              {updateWeights(Yi,Oi,W,Xi,lear...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./perceptronBody.tex:340: LaTeX Error: \begin{document} ended by \end{Highlighting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.340 \end{Highlighting}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:341: LaTeX Error: \begin{document} ended by \end{Shaded}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.341 \end{Shaded}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--342
+\OT1/ptm/m/n/10 for i in range(len(X)):  Xi = X[i]; Yi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--342
+\OT1/ptm/m/n/10 = Y[i];  Oi=perceptronOutput(Xi,W,bias,S)
+ []
+
+
+Overfull \hbox (32.09476pt too wide) in paragraph at lines 331--342
+\OT1/ptm/m/n/10 Err=computeError(Yi,Oi,N)  W=updateWeights(Yi,Oi,W,Xi,learnRate)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 331--342
+
+ []
+
+
+./perceptronBody.tex:345: LaTeX Error: Environment Shaded undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.345 \begin{Shaded}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:346: LaTeX Error: Environment Highlighting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.346 \begin{Highlighting}
+                          []
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+./perceptronBody.tex:347: Undefined control sequence.
+l.347 \NormalTok
+                {m}\OperatorTok{={-}}\NormalTok{W[}\DecValTok{0}\NormalTok{]...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:347: Undefined control sequence.
+l.347 \NormalTok{m}\OperatorTok
+                               {={-}}\NormalTok{W[}\DecValTok{0}\NormalTok{]...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:347: Undefined control sequence.
+l.347 \NormalTok{m}\OperatorTok{={-}}\NormalTok
+                                               {W[}\DecValTok{0}\NormalTok{]...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:347: Undefined control sequence.
+l.347 ...OperatorTok{={-}}\NormalTok{W[}\DecValTok
+                                                  {0}\NormalTok{]}\OperatorT...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:347: Undefined control sequence.
+l.347 ...{-}}\NormalTok{W[}\DecValTok{0}\NormalTok
+                                                  {]}\OperatorTok{/}\NormalT...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:347: Undefined control sequence.
+l.347 ...W[}\DecValTok{0}\NormalTok{]}\OperatorTok
+                                                  {/}\NormalTok{W[}\DecValTo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:347: Undefined control sequence.
+l.347 ...{0}\NormalTok{]}\OperatorTok{/}\NormalTok
+                                                  {W[}\DecValTok{1}\NormalTo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:347: Undefined control sequence.
+l.347 ...]}\OperatorTok{/}\NormalTok{W[}\DecValTok
+                                                  {1}\NormalTok{]}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:347: Undefined control sequence.
+l.347 ...k{/}\NormalTok{W[}\DecValTok{1}\NormalTok
+                                                  {]}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 \NormalTok
+                {Po}\OperatorTok{=}\NormalTok{[ }\BuiltInTok{min}\NormalTok{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 \NormalTok{Po}\OperatorTok
+                                {=}\NormalTok{[ }\BuiltInTok{min}\NormalTok{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 \NormalTok{Po}\OperatorTok{=}\NormalTok
+                                             {[ }\BuiltInTok{min}\NormalTok{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 ...}\OperatorTok{=}\NormalTok{[ }\BuiltInTok
+                                                  {min}\NormalTok{(X[:,}\Dec...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 ...}\NormalTok{[ }\BuiltInTok{min}\NormalTok
+                                                  {(X[:,}\DecValTok{0}\Norma...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 ...uiltInTok{min}\NormalTok{(X[:,}\DecValTok
+                                                  {0}\NormalTok{]) , }\Built...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 ...}\NormalTok{(X[:,}\DecValTok{0}\NormalTok
+                                                  {]) , }\BuiltInTok{max}\No...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 ...\DecValTok{0}\NormalTok{]) , }\BuiltInTok
+                                                  {max}\NormalTok{(X[:,}\Dec...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 ...ormalTok{]) , }\BuiltInTok{max}\NormalTok
+                                                  {(X[:,}\DecValTok{1}\Norma...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 ...uiltInTok{max}\NormalTok{(X[:,}\DecValTok
+                                                  {1}\NormalTok{]) ]}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:348: Undefined control sequence.
+l.348 ...}\NormalTok{(X[:,}\DecValTok{1}\NormalTok
+                                                  {]) ]}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:349: Undefined control sequence.
+l.349 \NormalTok
+                {Pf}\OperatorTok{=}\NormalTok{np.multiply(Po,m)}\OperatorTok...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:349: Undefined control sequence.
+l.349 \NormalTok{Pf}\OperatorTok
+                                {=}\NormalTok{np.multiply(Po,m)}\OperatorTok...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:349: Undefined control sequence.
+l.349 \NormalTok{Pf}\OperatorTok{=}\NormalTok
+                                             {np.multiply(Po,m)}\OperatorTok...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:349: Undefined control sequence.
+l.349 ...\NormalTok{np.multiply(Po,m)}\OperatorTok
+                                                  {+}\NormalTok{np.divide(bi...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:349: Undefined control sequence.
+l.349 ....multiply(Po,m)}\OperatorTok{+}\NormalTok
+                                                  {np.divide(bias,W[}\DecVal...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:349: Undefined control sequence.
+l.349 ...+}\NormalTok{np.divide(bias,W[}\DecValTok
+                                                  {1}\NormalTok{])}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:349: Undefined control sequence.
+l.349 ...np.divide(bias,W[}\DecValTok{1}\NormalTok
+                                                  {])}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 4846) in paragraph at lines 346--350
+[]\OT1/ptm/m/n/10 [] m=-W[0]/W[1] Po=[ min(X[:,0]) , max(X[:,1]) ]
+ []
+
+./perceptronBody.tex:351: Undefined control sequence.
+l.351 \NormalTok
+                {plt.plot(Po,Pf,}\StringTok{\textquotesingle{}g{-}\textquote...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:351: Undefined control sequence.
+l.351 \NormalTok{plt.plot(Po,Pf,}\StringTok
+                                           {\textquotesingle{}g{-}\textquote...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:351: Undefined control sequence.
+l.351 ...single{}g{-}\textquotesingle{}}\NormalTok
+                                                  {,linewidth}\OperatorTok{=...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:351: Undefined control sequence.
+l.351 ...ngle{}}\NormalTok{,linewidth}\OperatorTok
+                                                  {=}\FloatTok{0.8}\NormalTo...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:351: Undefined control sequence.
+l.351 ...alTok{,linewidth}\OperatorTok{=}\FloatTok
+                                                  {0.8}\NormalTok{)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:351: Undefined control sequence.
+l.351 ...h}\OperatorTok{=}\FloatTok{0.8}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 \NormalTok
+                {plt.scatter(X[:,}\DecValTok{0}\NormalTok{],X[:,}\DecValTok{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 \NormalTok{plt.scatter(X[:,}\DecValTok
+                                            {0}\NormalTok{],X[:,}\DecValTok{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...{plt.scatter(X[:,}\DecValTok{0}\NormalTok
+                                                  {],X[:,}\DecValTok{1}\Norm...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...\DecValTok{0}\NormalTok{],X[:,}\DecValTok
+                                                  {1}\NormalTok{],c}\Operato...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...\NormalTok{],X[:,}\DecValTok{1}\NormalTok
+                                                  {],c}\OperatorTok{=}\Norma...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...}\DecValTok{1}\NormalTok{],c}\OperatorTok
+                                                  {=}\NormalTok{Y,cmap}\Oper...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...}\NormalTok{],c}\OperatorTok{=}\NormalTok
+                                                  {Y,cmap}\OperatorTok{=}\St...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...ratorTok{=}\NormalTok{Y,cmap}\OperatorTok
+                                                  {=}\StringTok{\textquotesi...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...ormalTok{Y,cmap}\OperatorTok{=}\StringTok
+                                                  {\textquotesingle{}magma\t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...ingle{}magma\textquotesingle{}}\NormalTok
+                                                  {,s}\OperatorTok{=}\DecVal...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...tquotesingle{}}\NormalTok{,s}\OperatorTok
+                                                  {=}\DecValTok{5}\NormalTok{)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...}}\NormalTok{,s}\OperatorTok{=}\DecValTok
+                                                  {5}\NormalTok{)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:352: Undefined control sequence.
+l.352 ...,s}\OperatorTok{=}\DecValTok{5}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:353: Undefined control sequence.
+l.353 \NormalTok
+                {plt.xlabel(}\StringTok{\textquotesingle{}Feature 1\textquot...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:353: Undefined control sequence.
+l.353 \NormalTok{plt.xlabel(}\StringTok
+                                       {\textquotesingle{}Feature 1\textquot...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:353: Undefined control sequence.
+l.353 ...e{}Feature 1\textquotesingle{}}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:354: Undefined control sequence.
+l.354 \NormalTok
+                {plt.xlabel(}\StringTok{\textquotesingle{}Feature 2\textquot...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:354: Undefined control sequence.
+l.354 \NormalTok{plt.xlabel(}\StringTok
+                                       {\textquotesingle{}Feature 2\textquot...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:354: Undefined control sequence.
+l.354 ...e{}Feature 2\textquotesingle{}}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:355: Undefined control sequence.
+l.355 \NormalTok
+                {plt.title(}\StringTok{\textquotesingle{}Sample space\textqu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:355: Undefined control sequence.
+l.355 \NormalTok{plt.title(}\StringTok
+                                      {\textquotesingle{}Sample space\textqu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:355: Undefined control sequence.
+l.355 ...Sample space\textquotesingle{}}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:356: Undefined control sequence.
+l.356 \NormalTok
+                {plt.colorbar(label}\OperatorTok{=}\StringTok{"Classes"}\Nor...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:356: Undefined control sequence.
+l.356 \NormalTok{plt.colorbar(label}\OperatorTok
+                                                {=}\StringTok{"Classes"}\Nor...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:356: Undefined control sequence.
+l.356 ....colorbar(label}\OperatorTok{=}\StringTok
+                                                  {"Classes"}\NormalTok{)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:356: Undefined control sequence.
+l.356 ...atorTok{=}\StringTok{"Classes"}\NormalTok
+                                                  {)}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./perceptronBody.tex:357: Undefined control sequence.
+l.357 \NormalTok
+                {plt.show()}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+./perceptronBody.tex:358: LaTeX Error: \begin{document} ended by \end{Highlighting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.358 \end{Highlighting}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./perceptronBody.tex:359: LaTeX Error: \begin{document} ended by \end{Shaded}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.359 \end{Shaded}
+                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 351--360
+[]\OT1/ptm/m/n/10 plt.plot(Po,Pf,\TS1/ptm/m/n/10 '\OT1/ptm/m/n/10 g-\TS1/ptm/m/n/10 '\OT1/ptm/m/n/10 ,linewidth=0.8)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 351--360
+\OT1/ptm/m/n/10 plt.scatter(X[:,0],X[:,1],c=Y,cmap=\TS1/ptm/m/n/10 '\OT1/ptm/m/n/10 magma\TS1/ptm/m/n/10 '\OT1/ptm/m/n/10 ,s=5)
+ []
+
+./perceptronBody.tex:361: Undefined control sequence.
+l.361 \pandocbounded
+                    {\includegraphics[keepaspectratio]{perceptron_files/figu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: File `perceptron_files/figure-latex/cell-9-output-1.png' not found on input line 361.
+
+
+./perceptronBody.tex:361: Package pdftex.def Error: File `perceptron_files/figure-latex/cell-9-output-1.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.361 ...n_files/figure-latex/cell-9-output-1.png}
+                                                  }
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+)
+
+[4
+
+]
+
+
+
+[5
+
+
+
+] (./MarquezSalazarBrandon-RedesNeuronales-Tarea01.aux (./perceptronBody.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-04-29>
+L3 programming layer <2025-05-26>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                MarquezSalazarBrandon-RedesNeuronales-Tarea01
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'MarquezSalazarBrandon-RedesNeuronales-Tarea01.run.xml'.
 \openout1 = `MarquezSalazarBrandon-RedesNeuronales-Tarea01.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26286 strings out of 470776
- 508604 string characters out of 5504254
- 1288252 words of memory out of 5000000
- 52524 multiletter control sequences out of 15000+600000
- 686394 words of font info for 152 fonts, out of 8000000 for 9000
+ 26466 strings out of 470776
+ 514373 string characters out of 5504254
+ 1289426 words of memory out of 5000000
+ 52688 multiletter control sequences out of 15000+600000
+ 687223 words of font info for 155 fonts, out of 8000000 for 9000
  525 hyphenation exceptions out of 8191
  102i,12n,107p,928b,1618s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/txexs.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/txsys.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb>
-Output written on MarquezSalazarBrandon-RedesNeuronales-Tarea01.pdf (2 pages, 178744 bytes).
+<c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/NewTXMI.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/NewTXMI7.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/txexs.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/txmiaX.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/txsys.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/newtx/ztmr.pfb>
+Output written on MarquezSalazarBrandon-RedesNeuronales-Tarea01.pdf (5 pages, 204202 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 81 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 

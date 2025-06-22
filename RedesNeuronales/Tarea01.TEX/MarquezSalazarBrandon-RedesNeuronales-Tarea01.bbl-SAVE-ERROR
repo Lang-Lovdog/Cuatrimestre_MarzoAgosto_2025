@@ -183,7 +183,6 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Guide}
-      \true{nocite}
       \verb{urlraw}
       \verb https://quarto.org/docs/guide/
       \endverb
@@ -211,7 +210,6 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{PDF Options}
-      \true{nocite}
       \verb{urlraw}
       \verb https://quarto.org/docs/reference/formats/pdf.html
       \endverb
@@ -239,7 +237,6 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Welcome Page}
-      \true{nocite}
       \verb{urlraw}
       \verb https://quarto.org
       \endverb

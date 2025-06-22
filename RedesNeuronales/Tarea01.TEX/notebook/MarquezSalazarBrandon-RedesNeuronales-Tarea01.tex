@@ -1,35 +1,3 @@
-%! TeX program = pdflatex
-%! TeX TS-program = pdflatex
-
-\documentclass[10pt]{IEEEtran}
-\usepackage{amsmath}
-\usepackage[utf8]{inputenc}
-\usepackage{fontenc}
-\usepackage{dirtytalk}
-\usepackage{biblatex}
-\usepackage[dvipsnames]{xcolor}
-\usepackage[cmintegrals]{newtxmath}
-\usepackage{tikz}
-\usepackage{varwidth}
-\usepackage{graphicx}
-\usetikzlibrary{positioning}
-\import{perceptronPreamble}
-\tikzset{
-  x=1em,
-  y=1em,
-}
-\bibliography{bibliography}
-\nocite{*}
-
-\title{Brief history of neural networks and a perceptron implementation}
-
-\author{ Brandon Marquez Salazar }
-
-\input{Macros}
-
-\begin{document}
-\maketitle
-
 \section{Introduction}
 
 There are several applications for Neural Networks nowadays and seems to
@@ -171,7 +139,6 @@ activation functions such as \textbf{ReLU}.
 
 \section{A perceptrion implementation}
 
-\include{perceptronBody}
 
 %The implementation will be reported in the complement implemented by
 %Quarto \cite{QUARTOWELCOME,QUARTOGUIDE,QUARTODOCUMENTATION}, which you can
@@ -181,6 +148,4 @@ activation functions such as \textbf{ReLU}.
 %part described here.
 
 
-\printbibliography%
-
-\end{document}
+%\printbibliography%

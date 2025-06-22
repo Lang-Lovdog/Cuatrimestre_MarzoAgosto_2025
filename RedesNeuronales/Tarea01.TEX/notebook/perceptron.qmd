@@ -1,30 +1,57 @@
 ---
 title: "Perceptron implementation"
+execute:
+   enabled: true
+   python: 'C:/Users/Lang Lovdog/AppData/Local/Programs/Python/Python311/python.exe'
 format:
    pdf:
-     title: A perceptron implementation
-     subtitle: Brief history of neural networks and a perceptron implementation report complement
+     title: Brief history of neural networks and a perceptron implementation
      author: Brandon Marquez Salazar
      pdf-engine: pdflatex
      documentclass: IEEEtran
      number-sections: true
+     bibliography: bibliography.bib
+     bibliographystyle: ieee
+     nocite: |
+      @*
+     cite-method: biblatex
+     include-in-header:
+       - text: |
+           \usepackage{dirtytalk}
+           \usepackage{tikz}
+           \usetikzlibrary{positioning}
+           \tikzset{
+             x=1em,
+             y=1em,
+           }
+           \input{Macros}
 #  html: 
 #    code-fold: true
 #    theme: cyborg
 jupyter: redesneuronales
 ---
 
-# Code implementation
+```{=latex}
+\input{MarquezSalazarBrandon-RedesNeuronales-Tarea01}
+\section{A perceptrion implementation}
+```
 
+## Perceptron algorithm implementation
 
-We'll use numpy as a very common package used for scientific computation.
+I'll use numpy as a very common package used for scientific computation,
+**make_blobs** from Sci-kit learn for data generation and pyplot from
+matplotlib for data visualization.
 
 ```{python}
+#!pip install scikit-learn
 import numpy as np
+from sklearn.datasets import make_blobs
+import matplotlib.pyplot as plt
 
 ```
 
 Now, in order to implement a perceptron we have to define the three steps needed
+and the evaluation function
 
 
 ## Neuron Model
@@ -63,6 +90,87 @@ output vectors $O_j$ and $Y_j$ and learning rate $r$. Then returns the new weigh
 
 ```{python}
 def updateWeights(Y,O,W,X,r):
-  NewWeights = W - (Y-O)*r
+  NewWeights = W - (Y-O)*X*r
   return  NewWeights
 ```
+
+
+## Evaluation function
+
+For this one, I'll create my own evaluation function based on a normalized [0,1]
+sign function.
+
+$S(X) = \begin{cases}
+  1, &X >     0\\
+  0, &X \leq  0\\
+\end{cases}$
+
+```{python}
+def S(Net):
+  if Net<1 :
+    return 0;
+  return 1;
+
+```
+
+## Creating input data
+
+Using Scikit-Learn I'll create a new dataset of inputs and its desired
+output (classification) in order to train our perceptron.
+
+```{python}
+# This one is to get 3000 elements to classify
+N=3000
+# Two features to input the perceptron
+nFeatures=2
+X,Y = make_blobs(
+  # Number of elements  # Number of features
+  n_samples=N,          n_features=nFeatures,
+  # Two classes         # Standard deviation
+  centers=2,            cluster_std=1.9,
+  # Only to get randomly positioned
+  shuffle=True,
+  # Random Seed
+  random_state=1201931
+)
+plt.scatter(X[:,0],X[:,1],c=Y,cmap='magma',s=5)
+plt.xlabel('Feature 1')
+plt.xlabel('Feature 2')
+plt.title('Sample space')
+plt.colorbar(label="Classes")
+plt.show()
+```
+
+## Perceptron training and results
+
+Then I'll derived of the features quantity, I'll create a weights vetor
+$W$. And create a function which will process a datum.
+
+```{python}
+bias = -0.2
+learnRate = 0.6
+W=np.zeros(nFeatures)
+for i in range(len(X)):
+  Xi = X[i]; Yi = Y[i];
+  Oi=perceptronOutput(Xi,W,bias,S)
+  Err=computeError(Yi,Oi,N)
+  W=updateWeights(Yi,Oi,W,Xi,learnRate)
+```
+
+Then I'll plot the sample space with a frontier made by the weights
+
+```{python}
+m=-W[0]/W[1]
+Po=[ min(X[:,0]) , max(X[:,1]) ]
+Pf=np.multiply(Po,m)+np.divide(bias,W[1])
+
+plt.plot(Po,Pf,'g-',linewidth=0.8)
+plt.scatter(X[:,0],X[:,1],c=Y,cmap='magma',s=5)
+plt.xlabel('Feature 1')
+plt.xlabel('Feature 2')
+plt.title('Sample space')
+plt.colorbar(label="Classes")
+plt.show()
+```
+
+# Conclusiones

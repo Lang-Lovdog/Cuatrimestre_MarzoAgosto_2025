@@ -65,10 +65,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="perceptron_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="perceptron_files/libs/quarto-html/anchor.min.js"></script>
 <link href="perceptron_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="perceptron_files/libs/quarto-html/quarto-syntax-highlighting-dark-8ef56b68f8fa1e9d2ba328e99e439f80.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="perceptron_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="perceptron_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="perceptron_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="perceptron_files/libs/bootstrap/bootstrap-0d2dcb580ab50e29fb07dd4b1ec3ce1f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<link href="perceptron_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -102,10 +102,11 @@ window.Quarto = {
 
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="perceptron.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -127,15 +128,21 @@ window.Quarto = {
 </header>
 
 
-<p>This notebook uses an implementation of the perceptron for a classifier</p>
-<div id="6cd4e2c7" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="perceptron-algorithm-implementation" class="level2">
+<h2 class="anchored" data-anchor-id="perceptron-algorithm-implementation">Perceptron algorithm implementation</h2>
+<p>I’ll use numpy as a very common package used for scientific computation, <strong>make_blobs</strong> from Sci-kit learn for data generation and pyplot from matplotlib for data visualization.</p>
+<div id="36e81d40" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install scikit-learn</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_blobs</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>In order to implement a perceptron we have to define the three steps needed</p>
+<p>Now, in order to implement a perceptron we have to define the three steps needed and the evaluation function</p>
+</section>
 <section id="neuron-model" class="level2">
 <h2 class="anchored" data-anchor-id="neuron-model">Neuron Model</h2>
 <p>First the perceptron output, which is the most important element, it’s the neuron model. It will receive a vector of inputs <span class="math inline">\(X_{jk}\)</span> a vector of weights <span class="math inline">\(W_{jk}\)</span> and a reference for the activation function <span class="math inline">\(S(\cdot)\)</span>.</p>
-<div id="12cffe95" class="cell" data-execution_count="2">
+<div id="f1defb83" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> perceptronOutput(W,X,bias,ActivationFunction):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  WeighedInputs <span class="op">=</span> np.dot(W,X)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  Net <span class="op">=</span> WeighedInputs <span class="op">-</span> bias</span>
@@ -146,7 +153,7 @@ window.Quarto = {
 <section id="error-equation" class="level2">
 <h2 class="anchored" data-anchor-id="error-equation">Error equation</h2>
 <p>This function computes the error of the perceptron based on its output compared to the desired output. It receives the perceptron output vector <span class="math inline">\(O_j\)</span>, the desired output vector <span class="math inline">\(Y_j\)</span> and the number of patterns <span class="math inline">\(N\)</span>.</p>
-<div id="b5df6d98" class="cell" data-execution_count="3">
+<div id="e79b82fc" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> computeError(Y,O,N):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  DeltaSum <span class="op">=</span> np.<span class="bu">sum</span>(np.<span class="bu">abs</span>(Y<span class="op">-</span>O))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  Err <span class="op">=</span> DeltaSum<span class="op">/</span>N</span>
@@ -155,11 +162,97 @@ window.Quarto = {
 </section>
 <section id="weights-update-function" class="level2">
 <h2 class="anchored" data-anchor-id="weights-update-function">Weights update function</h2>
-<p>This function receives the current weights vector <span class="math inline">\(W_j\)</span>, the perceptron and desired output vectors <span class="math inline">\(O_j\)</span> and <span class="math inline">\(Y_j\)</span> and learning rate. Then returns the new weights vector.</p>
-<div id="a9c0f039" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> updateWeights(Err):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This function receives the current weights vector <span class="math inline">\(W_j\)</span>, the perceptron and desired output vectors <span class="math inline">\(O_j\)</span> and <span class="math inline">\(Y_j\)</span> and learning rate <span class="math inline">\(r\)</span>. Then returns the new weights vector.</p>
+<div id="12c1c8c0" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> updateWeights(Y,O,W,X,r):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  NewWeights <span class="op">=</span> W <span class="op">-</span> (Y<span class="op">-</span>O)<span class="op">*</span>X<span class="op">*</span>r</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span>  NewWeights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="evaluation-function" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation-function">Evaluation function</h2>
+<p>For this one, I’ll create my own evaluation function based on a normalized [0,1] sign function.</p>
+<p><span class="math inline">\(S(X) = \begin{cases}
+  1, &amp;X &gt;     0\\
+  0, &amp;X \leq  0\\
+\end{cases}\)</span></p>
+<div id="312ac38f" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> S(Net):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> Net<span class="op">&lt;</span><span class="dv">1</span> :</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="creating-input-data" class="level2">
+<h2 class="anchored" data-anchor-id="creating-input-data">Creating input data</h2>
+<p>Using Scikit-Learn I’ll create a new dataset of inputs and its desired output (classification) in order to train our perceptron.</p>
+<div id="161ada81" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This one is to get 3000 elements to classify</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>N<span class="op">=</span><span class="dv">3000</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Two features to input the perceptron</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>nFeatures<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>X,Y <span class="op">=</span> make_blobs(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Number of elements  # Number of features</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  n_samples<span class="op">=</span>N,          n_features<span class="op">=</span>nFeatures,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Two classes         # Standard deviation</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  centers<span class="op">=</span><span class="dv">2</span>,            cluster_std<span class="op">=</span><span class="fl">1.9</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Only to get randomly positioned</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  shuffle<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Random Seed</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  random_state<span class="op">=</span><span class="dv">1201931</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:,<span class="dv">0</span>],X[:,<span class="dv">1</span>],c<span class="op">=</span>Y,cmap<span class="op">=</span><span class="st">'magma'</span>,s<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Feature 1'</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Feature 2'</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Sample space'</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">"Classes"</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="perceptron_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="perceptron-training-and-results" class="level2">
+<h2 class="anchored" data-anchor-id="perceptron-training-and-results">Perceptron training and results</h2>
+<p>Then I’ll derived of the features quantity, I’ll create a weights vetor <span class="math inline">\(W\)</span>. And create a function which will process a datum.</p>
+<div id="7f7fdf7f" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bias <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>learnRate <span class="op">=</span> <span class="fl">0.6</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>W<span class="op">=</span>np.zeros(nFeatures)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(X)):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  Xi <span class="op">=</span> X[i]<span class="op">;</span> Yi <span class="op">=</span> Y[i]<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  Oi<span class="op">=</span>perceptronOutput(Xi,W,bias,S)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  Err<span class="op">=</span>computeError(Yi,Oi,N)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  W<span class="op">=</span>updateWeights(Yi,Oi,W,Xi,learnRate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then I’ll plot the sample space with a frontier made by the weights</p>
+<div id="c16ca638" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>m<span class="op">=-</span>W[<span class="dv">0</span>]<span class="op">/</span>W[<span class="dv">1</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Po<span class="op">=</span>[ <span class="bu">min</span>(X[:,<span class="dv">0</span>]) , <span class="bu">max</span>(X[:,<span class="dv">1</span>]) ]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>Pf<span class="op">=</span>np.multiply(Po,m)<span class="op">+</span>np.divide(bias,W[<span class="dv">1</span>])</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.plot(Po,Pf,<span class="st">'g-'</span>,linewidth<span class="op">=</span><span class="fl">0.8</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.scatter(X[:,<span class="dv">0</span>],X[:,<span class="dv">1</span>],c<span class="op">=</span>Y,cmap<span class="op">=</span><span class="st">'magma'</span>,s<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Feature 1'</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Feature 2'</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Sample space'</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.colorbar(label<span class="op">=</span><span class="st">"Classes"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="perceptron_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="conclusiones" class="level1">
+<h1>Conclusiones</h1>
 </section>
 
 </main>
