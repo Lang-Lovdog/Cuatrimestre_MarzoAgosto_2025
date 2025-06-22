@@ -45,5 +45,6 @@ int lovdogShowHist(const cv::Mat& histogram, cv::Mat& ploutput, size_t width, si
 
 // Filtros
 int lovdogPasaAltas01(int argc,char** argv);
+int CannyMain(int argc, char** argv);
 
 #endif

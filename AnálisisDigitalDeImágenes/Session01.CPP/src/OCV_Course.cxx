@@ -594,43 +594,138 @@ int lovdogPasaAltas01(int argc,char** argv){
   lImage = cv::imread(argv[1],CV_8UC1);
   if(lImage.empty()){std::cerr << "Error opening the image" << std::endl; return 1;}
   cv::namedWindow("Original Image", cv::WINDOW_NORMAL);
-  cv::namedWindow("Filtered Image K1", cv::WINDOW_NORMAL);
-  cv::namedWindow("Normalized F Image K1", cv::WINDOW_NORMAL);
+//  cv::namedWindow("Filtered Image K1", cv::WINDOW_NORMAL);
+//  cv::namedWindow("Normalized F Image K1", cv::WINDOW_NORMAL);
   cv::namedWindow("Equalized N F Image K1", cv::WINDOW_NORMAL);
-  cv::namedWindow("Filtered Image K2", cv::WINDOW_NORMAL);
-  cv::namedWindow("Normalized F Image K2", cv::WINDOW_NORMAL);
   cv::namedWindow("Equalized N F Image K2", cv::WINDOW_NORMAL);
 
   lImage.convertTo(lImage_f, CV_32F);
   
+
+  cv::imshow("Original Image",lImage);
+
+
   Kernel = (cv::Mat_<double>(3,3) <<
       -1, -1, -1,
       -1,  9, -1,
       -1, -1, -1
   );
-
-
-  cv::imshow("Original Image",lImage);
-
-  cv::filter2D(lImage_f, lImage_o, -1, Kernel, cv::Point(-1,-1), 0, cv::BORDER_DEFAULT);
-  cv::imshow("Filtered Image K1",lImage_o);
-  cv::normalize(lImage_o, lImage_o,0,255,cv::NORM_MINMAX,CV_8UC1);
-  cv::imshow("Normalized F Image K1",lImage_o);
-  cv::equalizeHist(lImage_o, lImage_o);
-  cv::imshow("Equalized N F Image K1",lImage_o);
-  /* -- -- --- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+//  cv::filter2D(lImage_f, lImage_o, -1, Kernel, cv::Point(-1,-1), 0, cv::BORDER_DEFAULT);
+//  cv::imshow("Filtered Image K1",lImage_o);
+//  cv::normalize(lImage_o, lImage_o,0,255,cv::NORM_MINMAX,CV_8UC1);
+//  cv::imshow("Normalized F Image K1",lImage_o);
+//  cv::equalizeHist(lImage_o, lImage_o);
+//  cv::imshow("Equalized N F Image K1",lImage_o);
+//  //cv::imwrite("res/salidas/pasa_altas/", InputArray img);
+//  /* -- -- --- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+//  Kernel = (cv::Mat_<double>(3,3) <<
+//       0, -1,  0,
+//      -1,  5, -1,
+//       0, -1,  0
+//  );
+//  cv::filter2D(lImage_f, lImage_o, -1, Kernel, cv::Point(-1,-1), 0, cv::BORDER_DEFAULT);
+//  cv::imshow("Filtered Image K2",lImage_o);
+//  cv::normalize(lImage_o, lImage_o,0,255,cv::NORM_MINMAX,CV_8UC1);
+//  cv::imshow("Normalized F Image K2",lImage_o);
+//  cv::equalizeHist(lImage_o, lImage_o);
+//  cv::imshow("Equalized N F Image K2",lImage_o);
+//  /* -- -- --- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+//  Kernel = (cv::Mat_<double>(3,3) <<
+//       0, -1,  0,
+//      -1,  8, -1,
+//       0, -1,  0
+//  );
+//  cv::filter2D(lImage_f, lImage_o, -1, Kernel, cv::Point(-1,-1), 0, cv::BORDER_DEFAULT);
+//  cv::imshow("Filtered Image K2",lImage_o);
+//  cv::normalize(lImage_o, lImage_o,0,255,cv::NORM_MINMAX,CV_8UC1);
+//  cv::imshow("Normalized F Image K2",lImage_o);
+//  cv::equalizeHist(lImage_o, lImage_o);
+//  cv::imshow("Equalized N F Image K2",lImage_o);
+//  /* -- -- --- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
   Kernel = (cv::Mat_<double>(3,3) <<
        0, -1,  0,
-      -1,  5, -1,
+      -1,  4, -1,
        0, -1,  0
   );
   cv::filter2D(lImage_f, lImage_o, -1, Kernel, cv::Point(-1,-1), 0, cv::BORDER_DEFAULT);
-  cv::imshow("Filtered Image K2",lImage_o);
+//  cv::imshow("Filtered Image K1",lImage_o);
   cv::normalize(lImage_o, lImage_o,0,255,cv::NORM_MINMAX,CV_8UC1);
-  cv::imshow("Normalized F Image K2",lImage_o);
-  cv::equalizeHist(lImage_o, lImage_o);
+//  cv::imshow("Normalized F Image K1",lImage_o);
+  cv::threshold(lImage_o, lImage_o,16,255,cv::THRESH_BINARY);
+  cv::imshow("Equalized N F Image K1",lImage_o);
+//  /* -- -- --- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+  Kernel = (cv::Mat_<double>(3,3) <<
+      -2, -1,  0,
+      -1,  0, -1,
+       0, -1,  2
+  );
+  cv::filter2D(lImage_f, lImage_o, -1, Kernel, cv::Point(-1,-1), 0, cv::BORDER_DEFAULT);
+//  cv::imshow("Filtered Image K1",lImage_o);
+  lImage_o=cv::abs(lImage_o);
+  cv::normalize(lImage_o, lImage_o,0,255,cv::NORM_MINMAX,CV_8UC1);
+//  cv::imshow("Normalized F Image K2",lImage_o);
+  cv::threshold(lImage_o, lImage_o,20,255,cv::THRESH_BINARY);
   cv::imshow("Equalized N F Image K2",lImage_o);
+//  /* -- -- --- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+//  Kernel = (cv::Mat_<double>(3,3) <<
+//       0, -1, -2,
+//      -1,  0, -1,
+//       2, -1,  0
+//  );
+//  cv::filter2D(lImage_f, lImage_o, -1, Kernel, cv::Point(-1,-1), 0, cv::BORDER_DEFAULT);
+//  cv::imshow("Filtered Image K1",lImage_o);
+//  lImage_o=cv::abs(lImage_o);
+//  cv::normalize(lImage_o, lImage_o,0,255,cv::NORM_MINMAX,CV_8UC1);
+//  cv::imshow("Normalized F Image K1",lImage_o);
+//  cv::threshold(lImage_o, lImage_o,20,255,cv::THRESH_BINARY);
+//  cv::imshow("Equalized N F Image K2",lImage_o);
+  /* -- -- --- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+//  cv::addWeighted(InputArray src1, double alpha, InputArray src2, double beta, double gamma, OutputArray dst);
+  /* -- -- --- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+//  Kernel = (cv::Mat_<double>(3,3) <<
+//      -2, -2,  0,
+//      -2,  0, -2,
+//       0, -2, -2
+//  );
+//  cv::filter2D(lImage_f, lImage_o, -1, Kernel, cv::Point(-1,-1), 0, cv::BORDER_DEFAULT);
+//  cv::imshow("Filtered Image K1",lImage_o);
+//  lImage_o=cv::abs(lImage_o);
+//  cv::normalize(lImage_o, lImage_o,0,255,cv::NORM_MINMAX,CV_8UC1);
+//  cv::imshow("Normalized F Image K1",lImage_o);
+//  cv::threshold(lImage_o, lImage_o,20,255,cv::THRESH_BINARY);
+//  cv::imshow("Equalized N F Image K2",lImage_o);
 
+  cv::waitKey(0);
+  return 0;
+}
+
+
+int CannyMain(int argc, char** argv){
+  if(argc<2){std::cerr << "No image to process" << std::endl; return 1;}
+  cv::Mat lImage, lImage_f, lImage_o;
+  size_t i;
+  lImage = cv::imread(argv[1],CV_8UC1);
+  if(lImage.empty()){std::cerr << "Error opening the image" << std::endl; return 1;}
+  cv::namedWindow("Original Image", cv::WINDOW_NORMAL);
+  cv::namedWindow("Gauss Blur Image", cv::WINDOW_NORMAL);
+  cv::namedWindow("Canny Edges Image", cv::WINDOW_NORMAL);
+  int
+    blurKernelSize   =  5,
+    SobelKernelSize  =  3,
+    hysterLowThresh  = 70,
+    hysterHighThresh = 150,
+    stdDeviation     =  -2
+  ;
+  cv::imshow("Original Image",lImage);
+  cv::GaussianBlur(lImage, lImage_o, cv::Size(blurKernelSize,blurKernelSize), stdDeviation);
+  cv::Canny(lImage_o,lImage_f,hysterLowThresh,hysterHighThresh, SobelKernelSize);
+  cv::cvtColor(lImage_f,lImage_f,cv::COLOR_GRAY2BGR);
+  cv::imshow("Gauss Blur Image",lImage_o);
+  i=0;
+  while(i < (  lImage_f.rows*lImage_f.cols)) {i+=lImage_f.channels(); *(lImage_f.data+i)=i%256;}
+  while(i < (2*lImage_f.rows*lImage_f.cols)) {i+=lImage_f.channels(); *(lImage_f.data+i+1)=i%256;}
+  while(i < (3*lImage_f.rows*lImage_f.cols)) {i+=lImage_f.channels(); *(lImage_f.data+i+2)=i%256;}
+  cv::imshow("Canny Edges Image",lImage_f);
   cv::waitKey(0);
   return 0;
 }
