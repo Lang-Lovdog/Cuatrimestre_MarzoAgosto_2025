@@ -1,0 +1,17 @@
+---
+title: Nube de puntos
+---
+
+```{python}
+!pip install matplotlib
+!pip install pandas
+import matplotlib.pyplot as plt
+import pandas as pd
+
+puntosNormaL2 = pd('./matrizXYZ.txt')
+print(puntosNormaL2)
+
+plt.plot(puntosNormaL2)
+plt.show()
+
+```
