@@ -84,9 +84,9 @@ std::ostream& operator<< (std::ostream& os, const Individuo& ente){
   os << "[ ";
   idx=0; while(idx<ente.tamanno) os << *(ente.cromosoma+(idx++)) << "  ";
   os << "]" << std::endl
-     << "Peso: " << ente.coste << std::endl
-     << "Aptitud: " << ente.aptitud << std::endl
-     << "Cardinalidad: " << ente.tamanno
+     << "Peso: "         LDP << ente.coste   << std::endl
+     << "Aptitud: "      LDP << ente.aptitud << std::endl
+     << "Cardinalidad: " LDP << ente.tamanno
   ;
   return os;
 }
@@ -360,6 +360,7 @@ bool lovdogListaNodos::creaMatrizAdyacencias(std::string nombreArchivo, const ch
       break; // Well, here's the alternative ending, tho
   }
   csvEnCuestion.close();
+  this->penalizacionMatriz();
   return true;
 }
 
@@ -381,6 +382,17 @@ void lovdogListaNodos::inicializaM(void){
   while(idx < total) *(this->Adyacencias+(idx++)) = 0;
 }
 
+void lovdogListaNodos::penalizacionMatriz(void){
+  // Here now, for each one, the penalization will be the 50% of the sum of all values
+  size_t idx,total;
+  float sum;
+  total = this->tamanno*this->tamanno;
+  sum=(float)(idx=0);
+  while(idx<total) sum += (int)*(this->Adyacencias+(idx++)) << 1;
+  sum/=total; idx=0;
+  while(idx<total){ if(!*(this->Adyacencias+idx)) *(this->Adyacencias+idx)=sum; ++idx; };
+}
+
 float* lovdogListaNodos::nodoEn(size_t idx)      const { return  (this->x+(idx*this->dimensiones)); }
 float* lovdogListaNodos::operator ()(size_t idx) const { return  (this->x+(idx*this->dimensiones)); }
 float  lovdogListaNodos::Xa(size_t idx)          const { return *(this->x+idx); }
@@ -398,7 +410,7 @@ std::ostream& operator <<(std::ostream& os, const lovdogListaNodos& grafo){
   xidx=0;
   total=grafo.cardinalidad()*grafo.dimensionPorNodo();
   os << "[";
-  while(xidx < total) (xidx)%grafo.dimensionPorNodo() ? os << grafo[xidx++] << "\t" : os << "\n" << grafo[xidx++] << "\t";
+  while(xidx < total) (xidx)%grafo.dimensionPorNodo() ? os LDP << grafo[xidx++] << "\t" : os << "\n" LDP << grafo[xidx++] << "\t";
   os << "\n]";
   return os;
 }
@@ -870,14 +882,17 @@ Individuo Geneticos::elIndividuo(size_t indice){
 
 std::ostream& operator<< (std::ostream& os, const Geneticos& g){
   size_t idx;
-  os << "Cantidad de individuos por generación: " << g.cantidadIndividuos << std::endl
-     << "Cantidad de generaciones: "              << g.numGeneraciones    << std::endl
-     << "Número de generación: "                  << g.generacionActual-1 << std::endl
-     << "Número de cruces por generación: "       << g.crucesPorPoblacion << std::endl;
+  os
+     << "<Descripción de Población>"                                          << std::endl
+     << "Número de generación: "                  LDP << g.generacionActual-1 << std::endl
+     << "Cantidad de individuos por generación: " LDP << g.cantidadIndividuos << std::endl
+     << "Cantidad de generaciones: "              LDP << g.numGeneraciones    << std::endl
+     << "Número de cruces por generación: "       LDP << g.crucesPorPoblacion << std::endl
+  ;
   if(g.poblacion){
-    os << "Mejor rendimiento histórico: "      << g.mejorhst << std::endl
-       << "Mejor individuo de la generación: " << g.mejorIndividuo << ". "  // ↴
-                                               << *(g.poblacion+g.mejorIndividuo) << std::endl
+    os << "Mejor rendimiento histórico: "      LDP << g.mejorhst << std::endl
+       << "Mejor individuo de la generación: " LDP << g.mejorIndividuo << ". "  // ↴
+                                               LDP << *(g.poblacion+g.mejorIndividuo) << std::endl
     ;
     if(g.verbose == g.VERBOSITY_GENERACIONES){
       os << "===Otros individuos===" << std::endl;

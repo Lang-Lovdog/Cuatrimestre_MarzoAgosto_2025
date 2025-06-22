@@ -1,0 +1,114 @@
+@document.meta
+title: PlanLovdogAG
+description: 
+authors: Lang Lovdog
+categories: 
+created: 2025-06-05T14:27:22-0600
+updated: 2025-06-07T13:00:06-0600
+version: 1.1.1
+@end
+
+* Algoritmos genéticos
+
+** Problema del agente viajero
+
+   Este problema modela el caso en que un agente deba visitar ciertas ciudades a fin de pasar a cada unareduciendo el costo total del viaje, y regresando a la ciudad de inicio.
+
+*** Consideraciones del problema
+
+    Para resolver el problema del *agente viajero* utilizando *algoritmos genéticos* se requieren ciertas consideraciones.
+
+    - Cada ciudad se representará con un nodo
+    - Las conexiones entre nodos serán caminos ponderados
+    - Cada camino se recorrerá una vez
+    - Debe tenerse un mínimo coste al finalizar el recorrido
+    - El viajero deberá regresar al nodo donde inició
+
+*** Consideraciónes importantes
+
+    - Para el algoritmo será necesario optar por permutaciones al generar los primeros individuos.
+    - Para el proceso de cruza, los algoritmos genéticos requerirán un método que evite la repetición de nodos en el nuevo individuo.
+    -- La cruza puede realizarse de distintas formas siempre que se 
+
+---
+
+** Definición de las estructuras Individuo y Población
+   Para este proyecto, definiré un individuo como una estructura, dicha estructura se define en el siguiente diagrama.
+
+   {Diagramas/individuoStruct.png}[Ver diagrama de la estructura individuo]
+   @code plantuml
+   @startuml{./Diagramas/individuoStruct.png}
+     abstract individuo
+     individuo : size_t* path
+     individuo : float   fitness
+     individuo : float   weight
+     individuo : float   i_size
+   @enduml
+   @end
+
+   Para almacenar la información que se recibe de los nodos del grafo, se creará una estructura.
+
+   {Diagramas/listaNodosStruct.png}[Ver diagrama de la estructura listaNodos]
+   @code plantuml
+   @startuml{./Diagramas/listaNodosStruct.png}
+     abstract listaNodos{
+       float* x
+       float* y
+       float* Adyaacencias
+       size_t tamanno
+       boool  adyacenciasCSV
+       ---
+       bool    creaMatrizAdyacencias(void);
+       float*  celdaMatrizAdyacencias(size_t x, size_t y);
+       float   distanciaEucliedana(size_t indexA, size_t indexB);
+       size_t* rutaAleatoria(void);
+     }
+   @enduml
+   @end
+   /Se planea la creación de una estructura con comportamiento de listas enlazadas para extender los nodos
+   en diferentes dimensiones, y mejorando la modularidad de la clase. Razón por la cual tanto x, y, como
+   tamanno serán elementos ocultos./
+
+   En este diagrama se pueden observar 4 atributos:
+   - Vector x:
+     Define las posiciones en x de los nodos
+   - Vector y:
+     Define las posiciones en y de los nodos
+   - Vector Adyacencias:
+     Almacenará la matriz de adyacencias
+   - Escalar tamanno:
+     Nos dirá cuantos nodos hay
+   - Lógico  adyacenciasCSV:
+     Nos dirá si la matriz de adyacencias se creará a partir de la entrada (usualmente un CSV).
+
+   También podemos encontrar los siguientes métodos:
+   - creaMatrizAdyacencias(void):
+     Se encarga de calcular los pesos que hay en las conexiones entre nodos
+   - celdaMatrizAdyacencias(x,y):
+     Regresa el valor de la matriz de adyacencias que corresponde al nodo x de inicio y el nodo y de destino
+
+
+   {Diagramas/poblacionStruct.png}[Ver diagrama de la clase población]
+   @code plantuml
+   @startuml{./Diagramas/poblacionStruct.png}
+     abstract poblacion {
+       individuoStruct* individuo
+       size_t  populationSize
+       size_t  generations
+       size_t  adjMat
+       size_t *fitnessHistory
+       char    options
+       ---
+       bool startPopulation(void);
+       bool mutation(void);
+       bool mating(void);
+       bool recombination(void);
+       bool getFitness(size_t position);
+       bool getInvidual(size_t position);
+       bool set(const char* field, const void* value);
+     }
+   @enduml
+   @end
+
+# Journal
+   {:journaling:}[My Journal, comments and thoughts]

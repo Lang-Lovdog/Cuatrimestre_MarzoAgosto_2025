@@ -3,9 +3,12 @@
 #include <cstddef>
 #include <cmath>
 #include <cstdio>
+#include <iomanip>
 #include <iostream>
 #include <ostream>
 #include <string>
+
+#define LDP << std::setprecision(19)
 
 namespace lovdog {
 
@@ -77,6 +80,7 @@ private:
   void inicializaM(void);
   bool creaMatrizAdyacencias(void);
   bool creaMatrizAdyacencias(std::string nombreArchivo, const char headers_indexes);
+  void penalizacionMatriz(void);
   /*--------------*/
   friend std::ostream& operator << (std::ostream& os, const lovdogListaNodos& grafo);
   /*--------------*/
