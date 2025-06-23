@@ -4,7 +4,7 @@ description:
 authors: Lang Lovdog
 categories: 
 created: 2025-06-05T14:27:22-0600
-updated: 2025-06-07T13:00:06-0600
+updated: 2025-06-23T00:44:07-0600
 version: 1.1.1
 @end
 
@@ -36,6 +36,7 @@ version: 1.1.1
    Para este proyecto, definiré un individuo como una estructura, dicha estructura se define en el siguiente diagrama.
 
    {Diagramas/individuoStruct.png}[Ver diagrama de la estructura individuo]
+   .Image Diagramas/individuoStruct.png
    @code plantuml
    @startuml{./Diagramas/individuoStruct.png}
      abstract individuo
@@ -49,6 +50,7 @@ version: 1.1.1
    Para almacenar la información que se recibe de los nodos del grafo, se creará una estructura.
 
    {Diagramas/listaNodosStruct.png}[Ver diagrama de la estructura listaNodos]
+   .Image Diagramas/listaNodosStruct.png
    @code plantuml
    @startuml{./Diagramas/listaNodosStruct.png}
      abstract listaNodos{
@@ -109,6 +111,12 @@ version: 1.1.1
      }
    @enduml
    @end
+
+   @math
+   $\sum_{i=1}^n i = \frac{n(n+1)}{2} \omega$
+   @end
+
+   $|\sum_{i=1}^n i = \frac{n(n+1)}{2} \omega \lambda|$
 
 # Journal
    {:journaling:}[My Journal, comments and thoughts]
