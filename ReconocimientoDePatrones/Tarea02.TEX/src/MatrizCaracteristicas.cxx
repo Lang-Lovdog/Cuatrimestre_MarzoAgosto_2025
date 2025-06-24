@@ -1,4 +1,5 @@
-#include "MatrizCaracterísticas.hxx"
+#include "MatrizCaracteristicas.hxx"
+#include "core/hal/interface.h"
 #include <opencv2/opencv.hpp>
 #include <iostream>
 
@@ -9,9 +10,9 @@ namespace lovdog{
       cv::Mat **dst,
       size_t radius
   ){
-    if( (src.dims | mask.dims) > 1){
-      std::cerr << "Images must be on gray scale" << std::endl
-                << "Converting..." << std::endl;
+    if( (src.type() | mask.type()) & CV_8UC1){
+      std::cerr << "Images must be on gray scale" << std::endl;
+        return;
     }
     *dst = new cv::Mat[5];
     // Here the program will search the white pixel
@@ -103,7 +104,7 @@ namespace lovdog{
     // First crop of radius x radius will be centered
     // at the topLeft corner
     **dst = 
-      src(cv::Range(topLeft[1] - radius, topLeft[1] + radius),
+      src(cv::Rect(topLeft[1] - radius, topLeft[1] + radius),
           cv::Range(topLeft[0] - radius, topLeft[0] + radius));
     // Then crop of radius x radius will be centered
     // at the topRight corner
@@ -124,6 +125,7 @@ namespace lovdog{
     *(*dst+4) = 
       src(cv::Range(center[1] - radius, center[1] + radius),
           cv::Range(center[0] - radius, center[0] + radius));
+    std::cout << "End Crop time";
   }
 
 };

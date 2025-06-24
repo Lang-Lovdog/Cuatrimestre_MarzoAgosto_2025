@@ -1,6 +1,6 @@
 #include <core.hpp>
 #include <highgui.hpp>
-#include "MatrizCaracterísticas.hxx"
+#include "MatrizCaracteristicas.hxx"
 
 int main(int argv,char** argc){
   if(argv != 3){
