@@ -331,6 +331,45 @@ int lovdog_Histograma(const char* title, const cv::Mat& input){
         colorLines, 1, 8, 0
     );
 
+  cv::namedWindow(title,cv::WINDOW_NORMAL);
+  imshow(title,histogramaImg);
+  return 0;
+}
+
+int lovdog_HHistograma(const char* title, const cv::Mat& input){
+  if(input.channels() != 1){ std::cout << "One Channel Images Only Here" << std::endl; return 1;}
+  int histSize = 180;
+  int histWidth = 512, histHeight = 200;
+  cv::Scalar
+    colorBack(20,0,0),
+    colorBars(0,200,200),
+    colorLines(255,0,255)
+  ;
+
+  float range[] = {0.0, (float)histSize};
+  const float* histRange[] = { range };
+  cv::Mat Histograma;
+
+  cv::calcHist(&input, 1, 0, cv::Mat(), Histograma, 1, &histSize, histRange);
+  cv::normalize(Histograma, Histograma, 0, histHeight, cv::NORM_MINMAX);
+  std::cout << "Histogram Size" << Histograma.size();
+  std::cout << " that is " << Histograma.rows << " rows, "
+            << Histograma.cols << " columns. ";
+
+  int binWidth = cvRound((double) histWidth/histSize);
+  cv::Mat histogramaImg(histHeight, histWidth, CV_8UC3, colorBack);
+  cv::cvtColor(histogramaImg, histogramaImg, cv::COLOR_BGR2HSV);
+
+  for( unsigned int i = 1 ; i < histSize ; ++i)
+    line(
+        histogramaImg,
+        cv::Point(binWidth*(i), histHeight - cvRound(Histograma.at<float>(i)) ),
+        cv::Point(binWidth*(i), histHeight ),
+        colorBars+cv::Scalar(i,0,0), 2, 8, 0
+    );
+
+  cv::cvtColor(histogramaImg, histogramaImg, cv::COLOR_HSV2BGR);
+  cv::namedWindow(title,cv::WINDOW_NORMAL);
   imshow(title,histogramaImg);
   return 0;
 }
@@ -726,6 +765,40 @@ int CannyMain(int argc, char** argv){
   while(i < (2*lImage_f.rows*lImage_f.cols)) {i+=lImage_f.channels(); *(lImage_f.data+i+1)=i%256;}
   while(i < (3*lImage_f.rows*lImage_f.cols)) {i+=lImage_f.channels(); *(lImage_f.data+i+2)=i%256;}
   cv::imshow("Canny Edges Image",lImage_f);
+  cv::waitKey(0);
+  return 0;
+}
+
+// HSV
+int lovdogHSV (int argc,char* argv[]){
+  if(argc<2) { std::cout << "Requires an argument (image)"; return 1; }
+  std::cout << "Checking OpenCV installation in PC /opencv/ \n";
+  cv::Mat Input,hsv;
+  std::vector<cv::Mat> canal;
+
+  //cv::namedWindow("Input image", cv::WINDOW_NORMAL);
+  //cv::namedWindow("HSV", cv::WINDOW_NORMAL);
+  cv::namedWindow("H", cv::WINDOW_NORMAL);
+  //cv::namedWindow("S", cv::WINDOW_NORMAL);
+  //cv::namedWindow("V", cv::WINDOW_NORMAL);
+
+  Input      = cv::imread(argv[1],cv::IMREAD_COLOR_BGR);
+
+  if(Input.empty()) { std::cout << "Image reading error"; return 1; }
+
+
+  cv::cvtColor(Input, hsv, cv::COLOR_BGR2HSV);
+
+
+  cv::split(hsv, canal);
+  //imshow("Input image", Input);
+  //imshow("HSV", hsv);
+  imshow("H", canal[0]*255/180);
+  //imshow("S", canal[1]);
+  //imshow("V", canal[2]);
+
+  lovdog_HHistograma("H hist", canal[0]); 
+
   cv::waitKey(0);
   return 0;
 }

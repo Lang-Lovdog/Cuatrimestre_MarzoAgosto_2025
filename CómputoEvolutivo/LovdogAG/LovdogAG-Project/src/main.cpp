@@ -41,6 +41,7 @@ void mainAGRestrictedLOVDOG(const char* Archivo){
   M10.define(lovdog::Geneticos::AG_CANTIDAD_INDIVIDUOS, (size_t)120);
   M10.define(lovdog::Geneticos::AG_CANTIDAD_MUTACIONES, (size_t)5);
   M10.estableceEvaluador(lovdog::Geneticos::TSPEvaluador);
+  //std::cout << M10.grafo();
   M10.ejecuta(lovdog::Geneticos::AG_INICIA);
   std::cerr << M10;
   std::cout << "TSP Restricted terminated";
@@ -57,9 +58,9 @@ void mainAGLOVDOG(const char* Archivo){
   TSP100.define(lovdog::Geneticos::AG_CANTIDAD_INDIVIDUOS, (size_t)120);
   TSP100.define(lovdog::Geneticos::AG_CANTIDAD_MUTACIONES, (size_t)5);
   TSP100.estableceEvaluador(lovdog::Geneticos::TSPEvaluador);
-  TSP100.ejecuta(lovdog::Geneticos::AG_INICIA);
-  std::cerr << TSP100;
-  std::cout << "TSP terminated";
+  //TSP100.ejecuta(lovdog::Geneticos::AG_INICIA);
+  //std::cerr << TSP100;
+  //std::cout << "TSP terminated";
 }
 
 void mainDemoGaafo(void){

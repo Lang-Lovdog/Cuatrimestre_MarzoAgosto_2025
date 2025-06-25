@@ -162,30 +162,6 @@ lovdogListaNodos::~lovdogListaNodos(){
   if(this->Adyacencias) delete[] this->Adyacencias;
 }
 
-bool lovdogListaNodos::creaMatrizAdyacencias(void){
-  float* matriz;
-  size_t  auxIdx, auxIdy, mSize, *n ;
-
-  n=&this->tamanno; mSize=(*n)*(*n);
-  matriz = new float[mSize]; if(matriz==nullptr) return false;
-
-  auxIdx = auxIdy = 0;
-  while(auxIdy < *n){
-    auxIdx=0;
-    while(auxIdx < *n){
-      *(matriz+auxIdx+(*n*auxIdy)) = this->distanciaEuclideana(auxIdx, auxIdy);
-      ++auxIdx;
-    }
-    ++auxIdy;
-  }
-
-  if(this->Adyacencias != nullptr) delete[] this->Adyacencias;
-
-  this->Adyacencias = matriz; matriz = nullptr;
-
-  return true;
-}
-
 float lovdogListaNodos::distanciaEuclideana(size_t indexA, size_t indexB){
   if( indexA > this->tamanno ) indexA = indexA % this->tamanno;
   if( indexB > this->tamanno ) indexB = indexB % this->tamanno;
@@ -271,6 +247,30 @@ void lovdogListaNodos::leeCSV(std::string nombreArchivo, const char headers_inde
       break;
   }
   csvEnCuestion.close();
+}
+
+bool lovdogListaNodos::creaMatrizAdyacencias(void){
+  float* matriz;
+  size_t  auxIdx, auxIdy, mSize, *n ;
+
+  n=&this->tamanno; mSize=(*n)*(*n);
+  matriz = new float[mSize]; if(matriz==nullptr) return false;
+
+  auxIdx = auxIdy = 0;
+  while(auxIdy < *n){
+    auxIdx=0;
+    while(auxIdx < *n){
+      *(matriz+auxIdx+(*n*auxIdy)) = this->distanciaEuclideana(auxIdx, auxIdy);
+      ++auxIdx;
+    }
+    ++auxIdy;
+  }
+
+  if(this->Adyacencias != nullptr) delete[] this->Adyacencias;
+
+  this->Adyacencias = matriz; matriz = nullptr;
+
+  return true;
 }
 
 bool lovdogListaNodos::creaMatrizAdyacencias(std::string nombreArchivo, const char headers_indexes){
@@ -389,7 +389,7 @@ void lovdogListaNodos::penalizacionMatriz(void){
   total = this->tamanno*this->tamanno;
   sum=(float)(idx=0);
   while(idx<total) sum += (int)*(this->Adyacencias+(idx++)) << 1;
-  sum/=total; idx=0;
+  idx=0;
   while(idx<total){ if(!*(this->Adyacencias+idx)) *(this->Adyacencias+idx)=sum; ++idx; };
 }
 
@@ -410,7 +410,7 @@ std::ostream& operator <<(std::ostream& os, const lovdogListaNodos& grafo){
   xidx=0;
   total=grafo.cardinalidad()*grafo.dimensionPorNodo();
   os << "[";
-  while(xidx < total) (xidx)%grafo.dimensionPorNodo() ? os LDP << grafo[xidx++] << "\t" : os << "\n" LDP << grafo[xidx++] << "\t";
+  while(xidx < total) (xidx)%grafo.dimensionPorNodo() ? os LDP << grafo[xidx++] << "\t" : os << "\n" LDP << grafo[xidx++] << "\t|\t";
   os << "\n]";
   return os;
 }
@@ -422,8 +422,24 @@ bool lovdogListaNodos::imprimeMatrizAdyacencias(void) const{
   total = this->tamanno * this->tamanno;
   dims  = this->tamanno;
   while(index < total)
-    index%dims? std::cout << *(this->Adyacencias+(index++)) << "\t" : std::cout << std::endl << *(this->Adyacencias+(index++)) << "\t";
+    index%dims? std::cout << *(this->Adyacencias+(index++)) << "\t" : std::cout << std::endl << *(this->Adyacencias+(index++)) << "\t|\t";
   return true;
+}
+
+lovdogListaNodos& lovdogListaNodos::operator=(const lovdogListaNodos& lln){
+  if(!(this->tamanno)) return *this;
+  size_t idx,total;
+  this->dimensiones     = lln.dimensiones;
+  this->tamanno         = lln.tamanno;
+  this->tagged          = lln.tagged;
+  this->soloAdyacencias = lln.soloAdyacencias;
+  this->x               = new float[this->dimensiones * this->tamanno];
+  this->Adyacencias     = new float[this->tamanno*this->tamanno];
+  idx = 0; total        = this->tamanno * this->dimensiones;
+  while(idx < total) { *(this->x+idx) = *(lln.x+idx); ++idx; };
+  idx = 0; total        = this->tamanno * this->tamanno;
+  while(idx < total) { *(this->Adyacencias+idx) = *(lln.Adyacencias+idx); ++idx; }
+  return *this;
 }
 
 // Lovdog Población
@@ -550,32 +566,46 @@ Geneticos::~Geneticos(){
 void Geneticos::ejecuta (uchar_t evento){
   switch(evento){
     case AG_PRIMERA_GENERACION:
+      std::cout << "Primera Generación"<<std::endl;
       if(!generador) {std::cerr << "Sin generador definido"; return;}
       generador(&this->poblacion,this->cantidadIndividuos, this->nodos);
+      std::cout << "Primera Generación"<<std::endl;
       break;
     case AG_CRUCE:
+      std::cout << "Cruce"<<std::endl;
       if(!this->poblacion && !this->crucesPorPoblacion) { std::cerr << "Sin población o cantidad de cruces definido"; return; }
       if(!this->cruce){ std::cerr << "Sin función de cruce definida"; return; }
       temporadaApareamiento();
+      std::cout << "Cruce"<<std::endl;
       break;
     case AG_DEPREDADOR:
+      std::cout << "Depredador"<<std::endl;
       if(!this->poblacion && !this->crucesPorPoblacion) { std::cerr << "Sin población o cantidad de cruces definido"; return; }
       depredadorMatadorAtak(poblacion);
+      std::cout << "Depredador"<<std::endl;
+      break;
+    case AG_SELECCION:
       break;
     case AG_REEMPLAZO:
+      std::cout << "Reemplazo de individuos"<<std::endl;
       if(!this->poblacion && !this->crucesPorPoblacion) { std::cerr << "Sin población o cantidad de cruces definido"; return; }
       if(!this->nPoblacion) { std::cerr << "Sin población nueva"; return; }
       palChoqueGeneracional(poblacion,nPoblacion);
+      std::cout << "Reemplazo de individuos"<<std::endl;
       break;
     case AG_EVALUACION:
+      std::cout << "Evaluación de individuos"<<std::endl;
       if(!this->poblacion) { std::cerr << "Sin población definida"; return; }
       if(!this->nodos) { std::cerr << "Sin nodos definidos"; return; }
       evaluar();
+      std::cout << "Evaluación de individuos"<<std::endl;
       break;
     case AG_MUTACION:
+      std::cout << "Mutación de individuos"<<std::endl;
       if(!this->poblacion) { std::cerr << "Sin población definida"; return; }
       if(!this->nodos) { std::cerr << "Sin nodos definidos"; return; }
       mutacion(this->poblacion,this->mutacionesPorGeneracion);
+      std::cout << "Mutación de individuos"<<std::endl;
       break;
     case AG_INICIA:
       this->cicloSimple();
@@ -650,19 +680,24 @@ void Geneticos::temporadaApareamiento(void){
   size_t  numeroHijos = this->crucesPorPoblacion << 1;
   size_t* seleccionados = new size_t[2];
   this->nPoblacion=new Individuo[numeroHijos];
-  size_t opciones[4];
+  size_t opciones[4] = { 0,0,0,0 };
   size_t contador=0;
   opciones[0]= this->cantidadIndividuos; opciones[1]= 2;
+  printf("\b/");
   while((contador++) < this->crucesPorPoblacion){
+    printf("\b|");
     opciones[2]= (size_t)std::rand()%2;
     opciones[3]= (size_t)std::rand()%(this->cantidadIndividuos-2);
+    printf("\b\\");
     this->seleccion(this->poblacion, seleccionados, opciones);
+    printf("\b-");
     this->cruce(
-      *(this->poblacion+*(seleccionados)),
+      *(this->poblacion+*(seleccionados  )),
       *(this->poblacion+*(seleccionados+1)),
       this->nPoblacion,
       numeroHijos
     );
+    printf("\b/");
   }
 }
 
@@ -674,14 +709,18 @@ void Geneticos::depredadorMatadorAtak(Individuo* poblacion){
 
 void Geneticos::palChoqueGeneracional(Individuo* poblacion,Individuo* nPoblacion){
   size_t contador, ndh, idx, idh; char *idb;
+  // idh se usará como contador para los índices de la nueva generación
+  // idx se usará como contador para los índices de la generación actual
+  // La actualización se hará siempre y cuando sea para mejorar la raza
   idb=new char[this->cantidadIndividuos];
   contador=0; while(contador < this->cantidadIndividuos ) *(idb+(contador++)) = 0;
   idh=contador=0; ndh=this->crucesPorPoblacion<<1;
   while( (contador++) < this->crucesPorPoblacion && idh < ndh ){
     idx=(size_t)std::rand()%this->cantidadIndividuos;
-    if(*(idb+idx)) continue;
-    if((this->nPoblacion+*(idb+idx))->vivo) // Si está vivo, se continúa con la asignación
-      *(this->poblacion+idx)=*(this->nPoblacion+idh);
+    if(*(idb+idx)) {std::cout << "."; continue; }
+    if((this->nPoblacion+idh)->vivo) // Si está vivo, se continúa con la asignación
+      if((this->nPoblacion+idh)->aptitud < (this->poblacion+idx)->aptitud)
+        *(this->poblacion+idx)=*(this->nPoblacion+idh);
     ++idh; // Siguiente hijo
     ++*(idb+idx); // Se cuenta como usado
   } 
@@ -748,6 +787,11 @@ void Geneticos::elitismo(const Individuo* poblacion, size_t* seleccionados, size
         *(auxiliar+idx)^=*(auxiliar+idy);
       } ++idy;
     } ++idx;
+  }
+  idx=0;
+  while(idy<*(opciones)){
+    std::cout << std::endl << *(poblacion+*(auxiliar+idx)) << std::endl;
+    ++idx;
   }
   if(!seleccionados){
     std::cerr << "Array \"seleccionados\" sin inicialización" << std::endl;
@@ -828,7 +872,7 @@ void Geneticos::cruceOx(const Individuo& padre, const Individuo& madre, Individu
   size_t puntoCruce, idx,idh,idi,idj;
   puntoCruce = std::rand()%padre.tamanno;
   idx=idh=idj=0; idi=puntoCruce;
-  while(idh<ndh && (hijos+(idh++))->vivo ); //Búsqueda del individuo aún no inicializado
+  while(idh<ndh && (hijos+idh)->vivo ) ++idh; //Búsqueda del individuo aún no inicializado
   if(idh > ndh-2) {std::cerr << "Imposible realizar cruza" << std::endl; return;}
   while(idx<puntoCruce)    { *((hijos+idh  )->cromosoma+idx) = *(padre.cromosoma+idx); ++idx; }
   while(idx<padre.tamanno) { *((hijos+idh+1)->cromosoma+idx) = *(padre.cromosoma+idx); ++idx; }
@@ -874,6 +918,11 @@ float Geneticos::TSPEvaluador(size_t* camino,Grafo* nodos){
   return sum;
 }
 
+lovdogListaNodos Geneticos::grafo(void) const{
+  lovdogListaNodos salida = lovdogListaNodos(*(this->nodos));
+  return salida;
+}
+
 Individuo Geneticos::elIndividuo(size_t indice){
   if(indice>this->cantidadIndividuos-1) indice%=this->cantidadIndividuos;
   return *(this->poblacion+indice);
@@ -900,6 +949,7 @@ std::ostream& operator<< (std::ostream& os, const Geneticos& g){
       } while((++idx) < g.cantidadIndividuos)  os << idx << ". " << *(g.poblacion+idx) << std::endl;
     }
   }
+  //os << "Matriz Adyacencias: " << *(g.nodos);
   return os;
 }
 

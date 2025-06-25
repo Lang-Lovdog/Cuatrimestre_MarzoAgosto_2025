@@ -84,6 +84,8 @@ private:
   /*--------------*/
   friend std::ostream& operator << (std::ostream& os, const lovdogListaNodos& grafo);
   /*--------------*/
+  lovdogListaNodos& operator=(const lovdogListaNodos& lln);
+  /*--------------*/
 };
 
 typedef lovdogListaNodos Grafo;
@@ -157,6 +159,7 @@ public:
   Individuo elIndividuo(size_t indice);
   Individuo elMejorIndividuo(void);
   bool imprimeResultados(void);
+  lovdogListaNodos grafo(void) const;
 
   //// Auxiliares
   bool guardaNodos(const char* archivo, const char formato);

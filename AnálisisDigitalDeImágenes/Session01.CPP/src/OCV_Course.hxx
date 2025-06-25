@@ -23,6 +23,7 @@ int frameROI(void);
 int mainHistograma(int argc, char** argv);
 int mainHistograma2(int argc, char** argv);
 int lovdog_Histograma(const char*, const cv::Mat&);
+int lovdog_HHistograma(const char*, const cv::Mat&);
 int lovdogImagen2Histograma(const char* title, const cv::Mat& src, bool std_cum, size_t height, size_t width);
 int lovdog_Histograma2(const char*, const cv::Mat&);
 
@@ -46,5 +47,8 @@ int lovdogShowHist(const cv::Mat& histogram, cv::Mat& ploutput, size_t width, si
 // Filtros
 int lovdogPasaAltas01(int argc,char** argv);
 int CannyMain(int argc, char** argv);
+
+// hsv
+int lovdogHSV(int argc, char** argv);
 
 #endif

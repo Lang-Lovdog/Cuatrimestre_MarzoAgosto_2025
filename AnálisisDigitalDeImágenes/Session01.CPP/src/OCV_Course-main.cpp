@@ -16,6 +16,7 @@ int main (int argc, char* argv[]){
   //std::cout << "La vie en gris 2 el histograma, regresa" << std::endl; mainHistograma2(argc,argv);
   //std::cout << "Binarización :O" << std::endl; mainNewHolaMundo(argc,argv);
   //std::cout << "Pasa altas >:C" <<std::endl; lovdogPasaAltas01(argc,argv);
-  std::cout << "Canny" <<std::endl; CannyMain(argc,argv);
+  //std::cout << "Canny" <<std::endl; CannyMain(argc,argv);
+  std::cout<< "HSV DOMAIN :0"<<std::endl; lovdogHSV(argc, argv);
   return 0;
 }

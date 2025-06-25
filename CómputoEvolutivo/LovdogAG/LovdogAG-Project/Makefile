@@ -14,3 +14,7 @@ genetics:
 	cd $(BUILDDIR) && $(CXX) $(subst $(SRCDIR),../$(SRCDIR),$(CXXFILES)) $(CXXFLAGS) ../$(SRCDIR)/main.cpp -c
 	$(CXX) $(wildcard $(BUILDDIR)/*.o) -o $(BINDIR)/Genetics
 
+geneticsRun:
+	cd $(BUILDDIR) && $(CXX) $(subst $(SRCDIR),../$(SRCDIR),$(CXXFILES)) $(CXXFLAGS) ../$(SRCDIR)/main.cpp -c
+	$(CXX) $(wildcard $(BUILDDIR)/*.o) -o $(BINDIR)/Genetics
+	$(BINDIR)\Genetics r M10.csv
