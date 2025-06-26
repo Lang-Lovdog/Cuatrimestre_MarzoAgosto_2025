@@ -35,13 +35,15 @@ void mainAGRestrictedLOVDOG(const char* Archivo){
   M10.define(lovdog::Geneticos::AG_TIPO_SELECCION,      lovdog::Geneticos::SELECCION_ELITISMO);
   M10.define(lovdog::Geneticos::AG_TIPO_INDIVIDUO,      lovdog::Geneticos::INDIVIDUO_PERMUTACION);
   M10.define(lovdog::Geneticos::AG_TIPO_CRUCE,          lovdog::Geneticos::CRUCE_OX_CROSS);
-  M10.define(lovdog::Geneticos::AG_VERBOSITY,           lovdog::Geneticos::VERBOSITY_RESUMEN);
+  M10.define(lovdog::Geneticos::AG_TIPO_REEMPLAZO,      lovdog::Geneticos::REEMPLAZO_ELITISMO);
+  //M10.define(lovdog::Geneticos::AG_VERBOSITY,           lovdog::Geneticos::VERBOSITY_RESUMEN);
+  M10.define(lovdog::Geneticos::AG_VERBOSITY,           lovdog::Geneticos::VERBOSITY_NADA);
   M10.define(lovdog::Geneticos::AG_CANTIDAD_CRUCES,     (size_t)4);
-  M10.define(lovdog::Geneticos::AG_NUM_GENERACIONES,    (size_t)500);
+  M10.define(lovdog::Geneticos::AG_NUM_GENERACIONES,    (size_t)5000);
   M10.define(lovdog::Geneticos::AG_CANTIDAD_INDIVIDUOS, (size_t)120);
   M10.define(lovdog::Geneticos::AG_CANTIDAD_MUTACIONES, (size_t)5);
   M10.estableceEvaluador(lovdog::Geneticos::TSPEvaluador);
-  //std::cout << M10.grafo();
+  std::cout << M10.grafo();
   M10.ejecuta(lovdog::Geneticos::AG_INICIA);
   std::cerr << M10;
   std::cout << "TSP Restricted terminated";

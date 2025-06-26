@@ -4,7 +4,7 @@ CXX=g++.exe -Wall
 #OCV_lPATH=/opencv/build/install/x64/mingw/bin
 #CXXFLAGS=-I$(OCV_I1PATH) -I$(OCV_I2PATH)
 #CXXLINKS=$(wildcard $(OCV_lPATH)/*.dll)
-CXXFLAGS= -lm -std=c++11
+CXXFLAGS= -lm -std=c++11 -g
 SRCDIR=src
 BUILDDIR=build
 BINDIR=$(BUILDDIR)/bin

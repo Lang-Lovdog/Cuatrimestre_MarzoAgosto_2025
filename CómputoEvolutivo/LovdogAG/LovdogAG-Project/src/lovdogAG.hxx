@@ -107,6 +107,7 @@ public:
   size_t cantidadIndividuos;
   uint_t tipoCruce;
   uint_t tipoSeleccion;
+  uint_t tipoReemplazo;
   uint_t tipoIndividuo;
   uint_t mutacionesPorGeneracion;
   size_t generacionActual;
@@ -122,7 +123,8 @@ public:
     AG_CANTIDAD_CRUCES=4,
     AG_TIPO_INDIVIDUO=5,
     AG_TIPO_SELECCION=6,
-    AG_VERBOSITY=7,
+    AG_TIPO_REEMPLAZO=7,
+    AG_VERBOSITY=8,
     /*--------------*/
     AG_PRIMERA_GENERACION=0,
     AG_CRUCE=1,
@@ -137,6 +139,9 @@ public:
     // Opciones de tipo de cruce
     CRUCE_OX_CROSS = 0,
     CRUCE_PERMLANG_CROSS = 1,
+    // Opciones de tipo de reemplazo
+    REEMPLAZO_ALEATORIO = 0,
+    REEMPLAZO_ELITISMO = 1,
     // Opciones de tipo de individuo
     INDIVIDUO_BINARIO=0,
     INDIVIDUO_PERMUTACION=1,
@@ -186,11 +191,13 @@ private:
   //// Control de población
   void temporadaApareamiento(void);
   void depredadorMatadorAtak(Individuo*);
-  void palChoqueGeneracional(Individuo*,Individuo*);
+  static void choqueGeneracionalElitista(Individuo*,Individuo*, size_t, size_t);
+  //static void choqueGeneracionalAleatorio(Individuo*,Individuo*,size_t, size_t);
+  static void choqueGeneracional(Individuo*,Individuo*,size_t, size_t);
 
   //// Funciones de individuo
-  static void cruceOx(const Individuo& padre, const Individuo& madre, Individuo* hijos, size_t ndh);
-  static void crucePermLang(const Individuo& padre, const Individuo& madre, Individuo* hijos, size_t ndh);
+  static void cruceOx(const Individuo* padre, const Individuo* madre, Individuo* hijos, size_t ndh);
+  static void crucePermLang(const Individuo* padre, const Individuo* madre, Individuo* hijos, size_t ndh);
   static void reiniciadorDIndividuo(const Individuo*, size_t);
   static void reiniciadorDIndividuo(Individuo&);
   void depredadorMatador(void);
@@ -199,14 +206,16 @@ private:
   //// Contenedores genéricos
   float (*aptitudEvalFn)(size_t*,Grafo*);
   void  (*generador)(Individuo**, size_t, const Grafo*);
-  void  (*cruce)(const Individuo&, const Individuo&, Individuo*, size_t);
+  void  (*cruce)(const Individuo*, const Individuo*, Individuo*, size_t);
   void  (*seleccion)(const Individuo*, size_t*, size_t*);
   void  (*mutacion)(const Individuo*, size_t);
+  void  (*reemplazo)(Individuo* poblacion, Individuo* hijos, size_t n, size_t h);
 
   //// Funciones de configuración
   void cambiaTipoCruce(void);
   void cambiaTipoGenerador(void);
   void cambiaTipoSeleccion(void);
+  void cambiaTipoReemplazo(void);
 
   //// Auxiliares
   static void generadorPermutado(Individuo**, size_t, const Grafo*);
