@@ -1,0 +1,39 @@
+%! TeX program = pdflatex
+%! TeX TS-program = pdflatex
+
+\documentclass[10pt]{IEEEtran}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{fontenc}
+\usepackage{dirtytalk}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[cmintegrals]{newtxmath}
+\usepackage{tikz}
+\usepackage{varwidth}
+\usepackage{graphicx}
+\usetikzlibrary{positioning}
+\tikzset{
+  x=1em,
+  y=1em,
+}
+
+\title{Encontrando el \say{esqueleto} de un dibujo}
+
+\author{ Brandon Marquez Salazar }
+
+\begin{document}
+  \maketitle
+  \section{Introducción}
+  En este documento se muestra el procedimiento en el que se pueden encontrar los trazos básicos de un dibujo o su "esqueleto". Este es un problema típico que se puede encontrar en el área de artes digitales
+  el momento de querer digitalizar, esbozar o mejorar una imagen.
+
+  \section{Procedimiento}
+  Para realizar este proceso se propuso el uso de un kernel de 3x3 de la forma
+  \begin{tabular}{ c c c }
+    -2 & -2 &  0\\
+    -2 &  0 & -2\\
+     0 & -2 & -2
+  \end{tabular}
+  
+\end{document}
+
