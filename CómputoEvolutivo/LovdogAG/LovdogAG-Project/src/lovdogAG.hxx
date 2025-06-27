@@ -27,6 +27,8 @@ public:
   bool    vivo;
   /*--------------*/
   static bool existe(const Individuo* ente, size_t* nucleotido);
+  static Individuo max();
+  static Individuo min();
   /*--------------*/
   friend std::ostream& operator<< (std::ostream& os, const Individuo& ente);
   /*--------------*/
@@ -52,6 +54,7 @@ public:
   void        leeCSV(std::string nombreArchivo, const char headers_indexes);
   float*      nodoEn(size_t idx) const;
   float       Xa(size_t idx) const;
+  float       MaxPossible(void) const;
   /*--------------*/
   static const char
     CSV_SOLO_DATOS = 0b00,
@@ -68,6 +71,7 @@ public:
   float* operator ()(size_t idx) const;
   /*--------------*/
 private:
+  float   m;
   float*  x;
   float*  Adyacencias;
   size_t  tamanno;

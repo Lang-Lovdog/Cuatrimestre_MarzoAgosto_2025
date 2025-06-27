@@ -95,6 +95,7 @@ std::ostream& operator<< (std::ostream& os, const Individuo& ente){
 lovdogListaNodos::lovdogListaNodos(){
   this->Adyacencias=nullptr;
   this->x=nullptr;
+  this->m=0;
   this->tamanno=0;
   this->dimensiones=0;
   this->tagged=0;
@@ -104,6 +105,7 @@ lovdogListaNodos::lovdogListaNodos(){
 lovdogListaNodos::lovdogListaNodos(const char* archivoCSV){
   this->Adyacencias=nullptr;
   this->x=nullptr;
+  this->m=0;
   this->tamanno=0;
   this->dimensiones=0;
   this->tagged=false;
@@ -115,6 +117,7 @@ lovdogListaNodos::lovdogListaNodos(const char* archivoCSV){
 lovdogListaNodos::lovdogListaNodos(const char* archivoCSV, const char tipo){
   this->Adyacencias=nullptr;
   this->x=nullptr;
+  this->m=0;
   this->tamanno=0;
   this->dimensiones=0;
   this->tagged=false;
@@ -135,6 +138,7 @@ lovdogListaNodos::lovdogListaNodos(lovdogListaNodos& lln){
   this->tagged          = lln.tagged;
   this->soloAdyacencias = lln.soloAdyacencias;
   this->x               = new float[this->dimensiones * this->tamanno];
+  this->m=0;
   this->Adyacencias     = new float[this->tamanno*this->tamanno];
   idx = 0; total        = this->tamanno * this->dimensiones;
   while(idx < total) { *(this->x+idx) = *(lln.x+idx); ++idx; };
@@ -150,6 +154,7 @@ lovdogListaNodos::lovdogListaNodos(const lovdogListaNodos& lln){
   this->tagged          = lln.tagged;
   this->soloAdyacencias = lln.soloAdyacencias;
   this->x               = new float[this->dimensiones * this->tamanno];
+  this->m=0;
   this->Adyacencias     = new float[this->tamanno*this->tamanno];
   idx = 0; total        = this->tamanno * this->dimensiones;
   while(idx < total) { *(this->x+idx) = *(lln.x+idx); ++idx; };
@@ -387,6 +392,7 @@ void lovdogListaNodos::penalizacionMatriz(void){
   size_t idx,total;
   float sum;
   total = this->tamanno*this->tamanno;
+  this->m=
   sum=(float)(idx=0);
   while(idx<total) sum += (int)*(this->Adyacencias+(idx++)) << 1;
   idx=0;
@@ -396,6 +402,7 @@ void lovdogListaNodos::penalizacionMatriz(void){
 float* lovdogListaNodos::nodoEn(size_t idx)      const { return  (this->x+(idx*this->dimensiones)); }
 float* lovdogListaNodos::operator ()(size_t idx) const { return  (this->x+(idx*this->dimensiones)); }
 float  lovdogListaNodos::Xa(size_t idx)          const { return *(this->x+idx); }
+float  lovdogListaNodos::MaxPossible(void)       const { return   this->m;}
 float  lovdogListaNodos::operator [](size_t idx) const { return *(this->x+idx); }
 size_t lovdogListaNodos::dimensionPorNodo(void)  const { return dimensiones; }
 size_t lovdogListaNodos::cardinalidad(void)      const { return tamanno; }
@@ -755,7 +762,8 @@ void Geneticos::choqueGeneracionalElitista(Individuo* poblacion,Individuo* nPobl
   i=0; while(i<cantidadIndividuos) {*(poblacionMezclada+i) = *(poblacion+i); ++i;}
   i=0; while(i<cantidadHijos)      {*(poblacionMezclada+i+cantidadIndividuos) = *(nPoblacion+i); ++i;}
   Geneticos::elitismo(poblacionMezclada, Seleccionados, opciones);
-  i=0; while(i<cantidadIndividuos) { std::cout << *(poblacion+i); ++i; }
+  i=0; while(i<cantidadIndividuos) { *(poblacion+i) = *(poblacionMezclada+i); ++i; }
+  //i=0; while(i<cantidadIndividuos) { std::cout << *(poblacion+i); ++i; }
 }
 
 
