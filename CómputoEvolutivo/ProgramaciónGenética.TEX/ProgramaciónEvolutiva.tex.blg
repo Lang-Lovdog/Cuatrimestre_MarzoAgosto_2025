@@ -1,0 +1,5 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is 'ProgramaciónEvolutiva.tex.blg'
+[122] biber:340> INFO - === dom jun 29, 2025, 14:05:05
+[176] Utils.pm:410> ERROR - Cannot find 'ProgramaciÃ³nEvolutiva.tex.bcf'!
+[177] Biber.pm:136> INFO - ERRORS: 1

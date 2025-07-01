@@ -1,0 +1,99 @@
+%!TeX root = ProgramaciónEvolutiva.tex
+\justifying
+
+  \section*{Introduction}
+  \begin{frame}{Introduction}
+    \begin{blur}
+
+      \onslide<1,4>
+      Evolutionary programming is part of evolutionary algorithms.
+
+      \onslide<2,4>
+      The concept of EAs comes from the study of what's called
+      \textbf{complex adaptive systems}. 
+
+      \onslide<3,4>
+      Its first algorithmic implementation can be traced back to
+      Lawrence and David Fogel's work.
+
+    \end{blur}
+  \end{frame}
+
+
+  \begin{frame}{Basic evolutionary process}
+  \begin{blur}
+    \begin{itemize}
+      \item One or more populations of \textbf{individuals competing} for
+      limited resources.
+      \item The notions of \textbf{dynamically changing} populations due
+      to birth and death of individuals.
+      \item A concept of \textbf{fitness} which reflects the ability of
+      an individual to survive and reproduce.
+      \item A concept of \textbf{variational inheritance}: offspring
+      closely resemble their parents but are not identical.
+    \end{itemize}
+  \end{blur}
+  \end{frame}
+
+  \begin{frame}{}
+  \begin{blur}
+    \onslide<1,3>
+    Evolutionary algorithms are useful for problem solving due to its
+    \textit{complex adaptive behaviour} emulation. Not so different from
+    how humans search for solutions to any problem:
+
+    \onslide<2,3>
+    \begin{itemize}
+      \item Formulating solutions,
+      \item then \textbf{evaluating} them:
+      \item the best ones are used, the less useful ones are usually
+      \textbf{discarded} and
+      \item some of them are \textbf{\itshape mutated} or
+      \textbf{\itshape recombined} to create new ones, maybe better.
+    \end{itemize}
+  \end{blur}
+  \end{frame}
+
+  \begin{frame}{Evolutionary programming}
+  \begin{blur}
+    Fogel proposed modeling individuals as finite state machines.
+
+    Also, he proposed sexual and asexual reproduction of individuals
+    in the algorithm.
+
+    The program should start with a N number of initial individuals;
+    and the next generation is determined by combining new individuals
+    into a 2N population, raking them and selecting the best N
+    individuals.
+  \end{blur}
+  \end{frame}
+
+  \begin{frame}{Problem solving}
+  \begin{blur}
+    \onslide*<1> {
+        Since simple rules could demonstrate complex behaviour and some
+        sort of intelligent exploration in a space of possible solutions,
+        we can use EAs to solve problems.
+    }
+
+    \onslide*<2> {
+      Each problem should be modeled in order to find
+      \begin{itemize}
+        \item An individual definition that satifies the problem's
+        solution space characterization.
+        \item A fitness function that describes correctly our problem's
+        behaviour.
+        \item A \textbf{variation operator} that generates new
+        individuals from existing ones.
+        \item A \textbf{selection operator} that selects the best
+        individuals from the population.
+      \end{itemize}
+    }
+    \onslide*<3>{
+      This can be applied, for example , not only to simple problems (like
+      function maximization/minimization) but to more complex ones like
+      ANN's weights tuning, scheduling, energy consumption optimization, etc.
+    }
+  \end{blur}
+  \end{frame}
+

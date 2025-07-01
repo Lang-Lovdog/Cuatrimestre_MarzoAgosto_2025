@@ -1,0 +1,258 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{PEADNAS2003}{book}{}{}
+      \name{editor}{1}{}{%
+        {{hash=4897a62906c6facc4fd4677124000a74}{%
+           family={Board},
+           familyi={B\bibinitperiod},
+           given={Santa\bibnamedelimb Fe\bibnamedelimb Institute\bibnamedelima Editorial},
+           giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim I\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{4897a62906c6facc4fd4677124000a74}
+      \strng{fullhash}{4897a62906c6facc4fd4677124000a74}
+      \strng{fullhashraw}{4897a62906c6facc4fd4677124000a74}
+      \strng{bibnamehash}{4897a62906c6facc4fd4677124000a74}
+      \strng{editorbibnamehash}{4897a62906c6facc4fd4677124000a74}
+      \strng{editornamehash}{4897a62906c6facc4fd4677124000a74}
+      \strng{editorfullhash}{4897a62906c6facc4fd4677124000a74}
+      \strng{editorfullhashraw}{4897a62906c6facc4fd4677124000a74}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{title}{Perspectives on Adaptation in Natural and Artificial Systems}
+      \field{year}{2003}
+    \endentry
+    \entry{DEAPGENETIC}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=6dfd2bbe5823f02fe6a565eb3a35e326}{%
+           family={DEAP},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{6dfd2bbe5823f02fe6a565eb3a35e326}
+      \strng{fullhash}{6dfd2bbe5823f02fe6a565eb3a35e326}
+      \strng{fullhashraw}{6dfd2bbe5823f02fe6a565eb3a35e326}
+      \strng{bibnamehash}{6dfd2bbe5823f02fe6a565eb3a35e326}
+      \strng{authorbibnamehash}{6dfd2bbe5823f02fe6a565eb3a35e326}
+      \strng{authornamehash}{6dfd2bbe5823f02fe6a565eb3a35e326}
+      \strng{authorfullhash}{6dfd2bbe5823f02fe6a565eb3a35e326}
+      \strng{authorfullhashraw}{6dfd2bbe5823f02fe6a565eb3a35e326}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{DEAP Genetic Programming}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://deap.readthedocs.io/en/master/tutorials/advanced/gp.html
+      \endverb
+      \verb{url}
+      \verb https://deap.readthedocs.io/en/master/tutorials/advanced/gp.html
+      \endverb
+    \endentry
+    \entry{Eiben2015}{book}{}{}
+      \name{author}{2}{}{%
+        {{hash=37f918f86142087e36a5d91ce7026b2c}{%
+           family={Eiben},
+           familyi={E\bibinitperiod},
+           given={A.E.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e20acd00c580a24c04314a6ddc680a86}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={J.E.},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{fullhash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{fullhashraw}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{bibnamehash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{authorbibnamehash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{authornamehash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{authorfullhash}{aa9f836d8318138e1fb4ed8c5103a345}
+      \strng{authorfullhashraw}{aa9f836d8318138e1fb4ed8c5103a345}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783662448748}
+      \field{issn}{1619-7127}
+      \field{journaltitle}{Natural Computing Series}
+      \field{title}{Introduction to Evolutionary Computing}
+      \field{year}{2015}
+      \verb{doi}
+      \verb 10.1007/978-3-662-44874-8
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/978-3-662-44874-8
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-3-662-44874-8
+      \endverb
+    \endentry
+    \entry{ffmmdeap}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=28162aee95a6049ec8e6416ead35bec2}{%
+           family={Gagné},
+           familyi={G\bibinitperiod},
+           given={Félix-Antoine\bibnamedelimb Fortin;\bibnamedelimb François-Michel\bibnamedelimb De\bibnamedelimb Rainville;\bibnamedelimb Marc-André\bibnamedelimb Gardner;\bibnamedelimb Marc\bibnamedelimb Parizeau;\bibnamedelima Christian},
+           giveni={F\bibinithyphendelim A\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim F\bibinithyphendelim M\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim M\bibinithyphendelim A\bibinitperiod\bibinitdelim G\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Universit\´e Laval}%
+      }
+      \strng{namehash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{fullhash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{fullhashraw}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{bibnamehash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{authorbibnamehash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{authornamehash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{authorfullhash}{28162aee95a6049ec8e6416ead35bec2}
+      \strng{authorfullhashraw}{28162aee95a6049ec8e6416ead35bec2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{abstract}{DEAP is a novel evolutionary computation framework for rapid prototyping and testing of ideas. Its design departs from most other existing frameworks in that it seeks to make algorithms explicit and data structures transparent, as opposed to the more common black-box frameworks. Freely available with extensive documentation at http://deap.gel.ulaval.ca, DEAP is an open source project under an LGPL license.}
+      \field{edition}{13}
+      \field{journaltitle}{Journal of Machine Learning Research}
+      \field{number}{2171-2175}
+      \field{year}{2012}
+      \true{nocite}
+    \endentry
+    \entry{deapdocs}{online}{}{}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labeltitlesource}{title}
+      \field{title}{One Max Problem — DEAP 1.4.3 documentation}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://deap.readthedocs.io/en/master/examples/ga_onemax.html
+      \endverb
+      \verb{url}
+      \verb https://deap.readthedocs.io/en/master/examples/ga_onemax.html
+      \endverb
+    \endentry
+    \entry{pylab}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=c47f26246cc215ac638a1bb339873ef2}{%
+           family={PytLab},
+           familyi={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{c47f26246cc215ac638a1bb339873ef2}
+      \strng{fullhash}{c47f26246cc215ac638a1bb339873ef2}
+      \strng{fullhashraw}{c47f26246cc215ac638a1bb339873ef2}
+      \strng{bibnamehash}{c47f26246cc215ac638a1bb339873ef2}
+      \strng{authorbibnamehash}{c47f26246cc215ac638a1bb339873ef2}
+      \strng{authornamehash}{c47f26246cc215ac638a1bb339873ef2}
+      \strng{authorfullhash}{c47f26246cc215ac638a1bb339873ef2}
+      \strng{authorfullhashraw}{c47f26246cc215ac638a1bb339873ef2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{gaft github repository example}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://github.com/PytLab/gaft/blob/master/examples/ex01/ex01.py
+      \endverb
+      \verb{url}
+      \verb https://github.com/PytLab/gaft/blob/master/examples/ex01/ex01.py
+      \endverb
+    \endentry
+    \entry{nash51}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=a41a31693bcb7bc6670db7f977f7cae0}{%
+           family={Ramírez\bibnamedelima Guillermo},
+           familyi={R\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={García\bibnamedelimb Carlos\bibnamedelima Hugo},
+           giveni={G\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim H\bibinitperiod},
+           suffix={Trujillo-Romero\bibnamedelima Felipe},
+           suffixi={T\bibinithyphendelim R\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{a41a31693bcb7bc6670db7f977f7cae0}
+      \strng{fullhash}{a41a31693bcb7bc6670db7f977f7cae0}
+      \strng{fullhashraw}{a41a31693bcb7bc6670db7f977f7cae0}
+      \strng{bibnamehash}{a41a31693bcb7bc6670db7f977f7cae0}
+      \strng{authorbibnamehash}{a41a31693bcb7bc6670db7f977f7cae0}
+      \strng{authornamehash}{a41a31693bcb7bc6670db7f977f7cae0}
+      \strng{authorfullhash}{a41a31693bcb7bc6670db7f977f7cae0}
+      \strng{authorfullhashraw}{a41a31693bcb7bc6670db7f977f7cae0}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Congreso Internacional de Mecatrónica, Control e Inteligencia Artificial, UNAM}
+      \field{title}{Comparativa de frameworks para cómputo evolutivo implementados en Python}
+      \field{year}{2023}
+      \true{nocite}
+    \endentry
+    \entry{gaftdoc}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=d5da3fa9cf61cda07af2be04302c62b8}{%
+           family={Shao},
+           familyi={S\bibinitperiod},
+           given={Zhengjiang},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \strng{namehash}{d5da3fa9cf61cda07af2be04302c62b8}
+      \strng{fullhash}{d5da3fa9cf61cda07af2be04302c62b8}
+      \strng{fullhashraw}{d5da3fa9cf61cda07af2be04302c62b8}
+      \strng{bibnamehash}{d5da3fa9cf61cda07af2be04302c62b8}
+      \strng{authorbibnamehash}{d5da3fa9cf61cda07af2be04302c62b8}
+      \strng{authornamehash}{d5da3fa9cf61cda07af2be04302c62b8}
+      \strng{authorfullhash}{d5da3fa9cf61cda07af2be04302c62b8}
+      \strng{authorfullhashraw}{d5da3fa9cf61cda07af2be04302c62b8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{GAFT Documentation, Release GAFT}
+      \field{urlday}{29}
+      \field{urlmonth}{5}
+      \field{urlyear}{2025}
+      \field{year}{2018}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://gaft.readthedocs.io/_/downloads/en/latest/pdf/
+      \endverb
+      \verb{url}
+      \verb https://gaft.readthedocs.io/_/downloads/en/latest/pdf/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

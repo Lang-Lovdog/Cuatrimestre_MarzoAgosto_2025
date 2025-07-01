@@ -2,19 +2,36 @@
 \headcommand {\beamer@framepages {1}{1}}
 \headcommand {\beamer@sectionpages {1}{1}}
 \headcommand {\beamer@subsectionpages {1}{1}}
-\headcommand {\sectionentry {1}{Introduction}{2}{Introduction}{0}}
-\headcommand {\slideentry {1}{0}{1}{2/5}{}{0}}
-\headcommand {\beamer@framepages {2}{5}}
-\headcommand {\slideentry {1}{0}{2}{6/6}{}{0}}
-\headcommand {\beamer@framepages {6}{6}}
-\headcommand {\slideentry {1}{0}{3}{7/9}{}{0}}
-\headcommand {\beamer@framepages {7}{9}}
-\headcommand {\slideentry {1}{0}{4}{10/10}{}{0}}
+\headcommand {\sectionentry {1}{Evolutionary computing}{2}{Evolutionary computing}{0}}
+\headcommand {\slideentry {1}{0}{1}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\slideentry {1}{0}{2}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {1}{0}{3}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\slideentry {1}{0}{3}{4/5}{}{0}}
+\headcommand {\beamer@framepages {4}{5}}
+\headcommand {\slideentry {1}{0}{3}{4/6}{}{0}}
+\headcommand {\beamer@framepages {4}{6}}
+\headcommand {\slideentry {1}{0}{3}{4/7}{}{0}}
+\headcommand {\beamer@framepages {4}{7}}
+\headcommand {\slideentry {1}{0}{3}{4/8}{}{0}}
+\headcommand {\beamer@framepages {4}{8}}
+\headcommand {\slideentry {1}{0}{3}{4/9}{}{0}}
+\headcommand {\beamer@framepages {4}{9}}
+\headcommand {\slideentry {2}{0}{0}{10/10}{}{0}}
 \headcommand {\beamer@framepages {10}{10}}
-\headcommand {\slideentry {1}{0}{5}{11/13}{}{0}}
-\headcommand {\beamer@framepages {11}{13}}
+\headcommand {\beamer@sectionpages {2}{9}}
+\headcommand {\beamer@subsectionpages {2}{9}}
+\headcommand {\sectionentry {2}{Ejemplos}{10}{Ejemplos}{0}}
+\headcommand {\slideentry {2}{0}{0}{10/11}{}{0}}
+\headcommand {\beamer@framepages {10}{11}}
+\headcommand {\slideentry {2}{0}{1}{12/12}{}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {2}{0}{1}{12/13}{}{0}}
+\headcommand {\beamer@framepages {12}{13}}
 \headcommand {\beamer@partpages {1}{13}}
 \headcommand {\beamer@subsectionpages {2}{13}}
 \headcommand {\beamer@sectionpages {2}{13}}
 \headcommand {\beamer@documentpages {13}}
-\headcommand {\gdef \inserttotalframenumber {6}}
+\headcommand {\gdef \inserttotalframenumber {13}}

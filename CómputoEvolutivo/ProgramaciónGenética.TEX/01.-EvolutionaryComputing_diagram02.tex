@@ -1,0 +1,49 @@
+\begin{tikzpicture}[
+  node/.style={circle, draw, fill=blue!20, minimum size=8mm},
+  gen/.style={rectangle, draw, fill=gray!10, minimum width=2cm, minimum height=3cm},
+  arrow/.style={-Stealth, thick},
+  x=0.5cm,
+  y=0.5cm
+]
+
+% Function plot
+\draw[->] (-3,0) -- (3,0) node[right]{$x$};
+\draw[->] (0,-1) -- (0,5) node[above]{$f(x)=x^2 + x$};
+\draw[domain=-2:1.5, smooth, variable=\x, blue] plot ({\x}, {\x*\x + \x});
+
+% Optimal point
+\filldraw[red] (-0.5, {(-0.5)*(-0.5) + (-0.5)}) circle (2pt) node[below right]{Optimum ($x=-0.5$)};
+
+% Generations (Population evolution)
+\begin{scope}[yshift=-4cm]
+  % Generation 1 (Initial random population)
+  \node[gen] (G1) at (0,0) {Generation 1};
+  \foreach \i [evaluate={\x=rnd*3-1.5; \y=rnd*2;}] in {1,...,5} {
+      \node[node, above=5mm of G1, xshift=(\i-3)*7mm] (G1-\i) {$\x$};
+  }
+
+  % Generation 2 (After mutation/selection)
+  \node[gen, right=of G1] (G2) {Generation 2};
+  \foreach \i [evaluate={\x=rnd*2-0.8; \y=rnd*1.5;}] in {1,...,5} {
+      \node[node, above=5mm of G2, xshift=(\i-3)*7mm] (G2-\i) {$\x$};
+  }
+
+  % Generation 3 (Converging)
+  \node[gen, right=of G2] (G3) {Generation 3};
+  \foreach \i [evaluate={\x=rnd*0.6-0.5; \y=rnd*0.5;}] in {1,...,5} {
+      \node[node, above=5mm of G3, xshift=(\i-3)*7mm] (G3-\i) {$\x$};
+  }
+
+  % Arrows between generations
+  \draw[arrow] (G1) -- node[above]{Mutation + Selection} (G2);
+  \draw[arrow] (G2) -- node[above]{Mutation + Selection} (G3);
+\end{scope}
+
+% Legend
+\node[below left=0.5cm of G3, align=left] {
+  \textcolor{blue}{---} $f(x)=x^2 + x$ \\
+  \textcolor{red}{$\bullet$} Global minimum \\
+  Nodes: Candidate solutions ($x$ values)
+};
+\end{tikzpicture}
+

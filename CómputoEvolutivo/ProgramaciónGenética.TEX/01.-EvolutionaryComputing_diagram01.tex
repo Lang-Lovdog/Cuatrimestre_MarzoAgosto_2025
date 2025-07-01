@@ -1,0 +1,61 @@
+\begin{tikzpicture}[
+    grow=right, level distance=2cm,
+    level 1/.style={sibling distance=3cm},
+    level 2/.style={sibling distance=1.5cm},
+    node/.style={draw, rounded corners, fill=black!70, text=white, align=center},
+    op/.style={node, fill=cyan!50!black},
+    var/.style={node, fill=green!50!black},
+    const/.style={node, fill=red!50!black},
+    edge from parent/.style={draw, ->, >=Stealth, shorten >=1pt, cyan!50},
+    highlight/.style={edge from parent/.style={draw, ->, >=Stealth, shorten >=1pt, thick, yellow}}
+]
+
+% Initial population (two trees)
+\node[op] (root1) at (0,1) {$+$}
+    child { node[op] {$\times$}
+        child { node[var] {$x$} }
+        child { node[var] {$x$} }
+    }
+    child { node[var] {$x$} };
+\node[below=0.2cm of root1, white] {Initial Program: $x^2 + x$ (Target)};
+
+\node[op] (root2) at (0,-1) {$+$}
+    child { node[const] {$1$} }
+    child { node[op] {$\times$}
+        child { node[var] {$x$} }
+        child { node[const] {$2$} }
+    };
+\node[below=0.2cm of root2, white] {Candidate: $1 + 2x$ (Fitness: 4.2)};
+
+% Crossover/mutation arrows
+\draw[->, thick, yellow, dashed] (root1.south) .. controls +(down:0.5cm) and +(up:0.5cm) .. (root2.north)
+    node[midway, right, white] {Crossover};
+
+% Evolved population (after operations)
+\node[op] (root3) at (5,0) {$+$}
+    child { node[op] {$\times$}
+        child { node[var] {$x$} }
+        child { node[var] {$x$} }
+    }
+    child { node[op] {$\times$}
+        child { node[var] {$x$} }
+        child { node[const] {$0.8$} }
+    };
+\node[below=0.2cm of root3, white] {Evolved: $x^2 + 0.8x$ (Fitness: 0.1)};
+
+% Fitness curve (right side)
+\draw[->, white] (7,-2) -- (7,2) node[above, white] {Fitness};
+\draw[->, white] (7,-2) -- (10,-2) node[right, white] {Generations};
+\draw[cyan, thick] (7.5,-1.5) .. controls (8,0) and (9,0.5) .. (9.5,-1.8)
+    node[midway, above, white] {Convergence};
+
+% Legend
+\node[anchor=north east, white] at (10,2) {
+    \begin{tabular}{@{}l@{}l@{}}
+        \tikz\node[op, scale=0.7] {}; & Operator ($+$, $\times$) \\
+        \tikz\node[var, scale=0.7] {}; & Variable ($x$) \\
+        \tikz\node[const, scale=0.7] {}; & Constant \\
+        \textcolor{yellow}{---} & Crossover \\
+    \end{tabular}
+};
+\end{tikzpicture}

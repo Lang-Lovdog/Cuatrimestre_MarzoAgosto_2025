@@ -2,3 +2,9 @@ deap
 numpy
 matplotlib
 ipykernel
+pyyaml
+nbformat
+nbclient
+ipympl
+plotly
+seaborn

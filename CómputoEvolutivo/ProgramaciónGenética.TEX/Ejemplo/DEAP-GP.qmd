@@ -1,51 +1,207 @@
 ---
+title: Genetic Programming with DEAP
 format:
+    ipynb: default
+    pdf:
+        documentclass: article
+        pdf-engine: xelatex
+        number-sections: true
+        author: "Lang Lovdog Inu Oókami"
+        monofont: VictorMono Nerd Font
+        mainfont: QTBookmann
+        listings: true
+        papersize: letterpaper
+        include-in-header:
+           - text: |
+              \usepackage[vmargin=1.2in]{geometry}
+              \usepackage{darkmode}
+              \usepackage{fontspec}
+              \setmainfont{QTBookmann}
+              \setmonofont{VictorMono Nerd Font}
+              \enabledarkmode
+              \lstset{ 
+                language=python, % choose the language of the code
+                tabsize=4,      % sets default tabsize to 4 spaces
+                basicstyle=\ttfamily\footnotesize, % size of fonts
+                breaklines=true,   % sets automatic line breaking
+                breakatwhitespace=false, % sets if automatic breaks should only happen at whitespace
+                escapeinside={\%*}{*)}  % if you want to add LaTeX within your code
+              }
+              \IfDarkModeTF{%
+                \definecolor{accentcolor}{RGB}{10, 0, 15}%
+              }{%
+                \definecolor{accentcolor}{RGB}{0, 122, 93}%
+              }
+              \pagecolor{accentcolor}
+        fig-align: center
+        fig-format: pdf
     html:
-        code-fold: true
+        author: "Lang Lovdog Inu Oókami"
+        title-block-style: default
+        title-block-banner: true
+        code-fold: false
         code-line-numbers: true
-        theme: robot
+        fig-format: svg
+        theme: 
+           lux
+        toc: true
+        include-in-header:
+           - text: |
+                 <style>
+                       //#quarto-margin-sidebar, #toc-title{
+                       //    color: #ffffff !important;
+                       //}
+                       //.sidebar nav[role="doc-toc"] ul > li > a.active, .sidebar nav[role="doc-toc"] ul > li > ul > li > a.active {
+                       //    color: #88ffff !important;
+                       //}
+                       pre, code, kbd, samp {
+                           font-family: BigBlueTermPlus Nerd Font Propo !important;
+                           /*font-family: VictorMono Nerd Font !important;*/
+                       }
+                       //.anchored{
+                       //    color: #ff88ff;
+                       //}
+                       //pre code {
+                       //    color: #ffff45;
+                       //}
+                 </style>
+                 <!---script>
+                       // Set dark tag om header for dark theme bootstrap like
+                       document.querySelector('html').setAttribute('data-bs-theme', 'dark');
+                 </script--->
 ---
 
+Genetic programming is a strategy for creating programs that solve
+a specific problem using operations as the chromosomes and the full set of
+operations as the individuals.
+
+# The demo using DEAP
+
+Here are the requirements for our program, which mainly are DEEAP,
+matplotlib and numpy.
+
+
+```{python}
+!pip install -r requirements.txt &> /dev/null
+```
+
+Here the modules are imported
 
 ```{python}
 import operator
 import random
 from deap import algorithms, base, creator, tools, gp
 import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import rcParams
+import seaborn as sns
+
+# Setting matplotlib pyplot style to dark
+#plt.style.use('deepseek_lovdog_plasma')
+# Set the dark purplish Plasma theme
+sns.set_theme(
+    style="darkgrid",  # Dark background with grid
+    context="notebook",
+    font="sans-serif",
+    font_scale=1.1,
+    rc={
+        # Core colors
+        'axes.facecolor': '#1a0b2e',  # Deep purple background
+        'figure.facecolor': '#0d0518',  # Even darker figure bg
+        'grid.color': '#2a1a4a',  # Grid lines
+        'axes.edgecolor': '#6d3bb5',  # Axis spines
+        'xtick.color': '#b58ae6',  # Tick colors
+        'ytick.color': '#b58ae6',
+        
+        # Text
+        'text.color': '#e0d6ff',  # Off-white text
+        'axes.labelcolor': '#c9b8ff',
+        'axes.titlecolor': '#ffffff',
+        
+        # Lines
+        'lines.color': '#9d65ff',  # Vibrant purple
+        'lines.linewidth': 2.5,
+        
+        # Color cycle (custom Plasma-like palette)
+        'axes.prop_cycle': plt.cycler('color', [
+            '#9d65ff',  # Purple
+            '#ff6eae',  # Pink
+            '#6eff87',  # Mint
+            '#ffb86c',  # Orange
+            '#6cebff'   # Cyan
+        ])
+    }
+)
+
+# Optional: Improve font rendering
+rcParams['font.family'] = 'sans-serif'
+rcParams['font.sans-serif'] = ['Arial', 'DejaVu Sans', 'Helvetica']
+```
+
+# Target Function and error evaluation function
+\begin{equation}f(x) = x^2 + x\end{equation}
+
+```{python}
 # 1. Define the target function we want to approximate (e.g., x^2 + x)
+# And error function
 def target_func(x):
     return x**2 + x
 
-# 2. Create primitive set (building blocks)
-pset = gp.PrimitiveSet("MAIN", arity=1)  # 1 input variable (x)
-pset.addPrimitive(operator.add, 2, name="add")  # Addition
-pset.addPrimitive(operator.mul, 2, name="mul")  # Multiplication
-pset.addTerminal(1)                            # Constant 1
-pset.renameArguments(ARG0="x")                 # Rename input to 'x'
-
-# 3. Set up fitness and individual types
-creator.create("FitnessMin", base.Fitness, weights=(-1.0,))  # Minimize error
-creator.create("Individual", gp.PrimitiveTree, fitness=creator.FitnessMin)
-
-# 4. Initialize toolbox
-toolbox = base.Toolbox()
-toolbox.register("expr", gp.genHalfAndHalf, pset=pset, min_=1, max_=3)
-toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.expr)
-toolbox.register("population", tools.initRepeat, list, toolbox.individual)
-
-# 5. Define evaluation (mean squared error)
+# 2. Define evaluation (mean squared error)
 def evaluate(individual):
     func = gp.compile(individual, pset)
     points = [x/10.0 for x in range(-10, 11)]  # Test points from -1 to 1
     error = sum((func(x) - target_func(x))**2 for x in points)
     return error,
 
+x = [i/10.0 for i in range(-10, 11)]
+plt.plot(x, [target_func(xi) for xi in x])
+# legend and stuff
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("Target function")
+plt.show()
+```
+
+# Hyperparameters
+In this part the primitives are created
+with add and multiplication operations with a unique variable.
+
+```{python}
+# 3. Create primitive set (building blocks)
+pset = gp.PrimitiveSet("MAIN", arity=1)  # 1 input variable (x)
+pset.addPrimitive(operator.add, 2, name="add")  # Addition
+pset.addPrimitive(operator.mul, 2, name="mul")  # Multiplication
+pset.addTerminal(1)                             # Constant 1
+pset.renameArguments(ARG0="x")                  # Rename input to 'x'
+```
+
+Population options, minimum fitness and individual type
+
+```{python}
+# 5. Set up fitness and individual types
+creator.create("FitnessMin", base.Fitness, weights=(-1.0,))  # Minimize error
+creator.create("Individual", gp.PrimitiveTree, fitness=creator.FitnessMin)
+```
+
+Procedure definitions
+
+```{python}
+# 6. Initialize toolbox
+toolbox = base.Toolbox()
+toolbox.register("expr", gp.genHalfAndHalf, pset=pset, min_=1, max_=3)
+toolbox.register("individual", tools.initIterate, creator.Individual, toolbox.expr)
+toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 toolbox.register("evaluate", evaluate)
 toolbox.register("select", tools.selTournament, tournsize=3)
 toolbox.register("mate", gp.cxOnePoint)
 toolbox.register("mutate", gp.mutUniform, expr=toolbox.expr, pset=pset)
+```
 
-# 6. Run evolution
+# Running the evolution simulation
+
+```{python}
+# 7. Run evolution
 population = toolbox.population(n=50)
 hof = tools.HallOfFame(1)
 stats = tools.Statistics(lambda ind: ind.fitness.values)
@@ -56,8 +212,12 @@ result, log = algorithms.eaSimple(
     population, toolbox, cxpb=0.7, mutpb=0.2, ngen=10, 
     stats=stats, halloffame=hof, verbose=True
 )
+```
 
-# 7. Results
+# Results of the program
+
+```{python}
+# 8. Results
 best_expr = str(hof[0])  # String representation of the best tree
 print(f"\nBest expression: {best_expr}")
 
@@ -66,13 +226,68 @@ readable_expr = best_expr.replace("add", "+").replace("mul", "*")
 print(f"Human-readable: {readable_expr}")
 
 # Plot results
-import matplotlib.pyplot as plt
-x = [i/10.0 for i in range(-10, 11)]
 y_true = [target_func(xi) for xi in x]
 y_pred = [gp.compile(hof[0], pset)(xi) for xi in x]
 
-plt.plot(x, y_true, label="Target: $x^2 + x$")
-plt.plot(x, y_pred, "--", label=f"Evolved: {readable_expr}")
-plt.legend()
+## Interactive 3D plot separating target and evolved Function in Z axis
+fig = plt.figure()
+fig2 = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+# Plot functions
+ax.plot(x, y_true, zs=0, zdir='z', 
+        color='#9d65ff', linewidth=3, label="Target: $x^2 + x$")
+ax.plot(x, y_pred, '--', zs=1, zdir='z', 
+        color='#ff6eae', linewidth=3, label=f"Evolved: {readable_expr}")
+
+# Axis labels (smaller font, better padding)
+ax.set_xlabel("x", labelpad=12, fontsize=10, color='#c9b8ff')
+ax.set_ylabel("y", labelpad=12, fontsize=10, color='#c9b8ff')
+ax.set_zlabel("function", labelpad=12, fontsize=10, color='#c9b8ff')
+
+# Z-axis ticks (customized)
+ax.set_zticks([0, 1])
+ax.set_zticklabels(["Target", "Evolved"], fontsize=9, color='#e0d6ff')
+
+# Legend (moved outside plot)
+ax.legend(
+    loc='upper left',
+    bbox_to_anchor=(1.05, 1),  # Outside right
+    facecolor='#2a1a4a',
+    edgecolor='#6d3bb5',
+    fontsize=10,
+    labelcolor='linecolor'  # Matches line colors
+)
+
+# Viewing angle and grid
+ax.view_init(elev=25, azim=-45)  # Better perspective
+ax.grid(color='#2a1a4a', alpha=0.3, linewidth=0.5)
+
+# Customize panes (transparent with colored edges)
+ax.xaxis.pane.fill = False
+ax.yaxis.pane.fill = False
+ax.zaxis.pane.fill = False
+ax.xaxis.pane.set_edgecolor('#2a1a4a')
+ax.yaxis.pane.set_edgecolor('#2a1a4a')
+ax.zaxis.pane.set_edgecolor('#2a1a4a')
+
+
+#ax = fig.add_subplot(111, projection='3d')
+#
+#ax.plot(x, y_true, zs=0, zdir='z', label="Target: $x^2 + x$")
+#ax.plot(x, y_pred, '--', zs=1, zdir='z', label=f"Evolved: {readable_expr}")
+#ax.set_xlabel("x")
+#ax.set_ylabel("y")
+#ax.set_zlabel("function")
+### Set ticks in z [ Target, Evolved ]
+#ax.set_zticks([0, 1])
+#ax.set_zticklabels(["Target", "Evolved"])
+#ax.legend()
+
+## 2d plot
+
+ax2 = fig2.add_subplot(111)
+ax2.plot(x, y_true, label="Target: $x^2 + x$")
+ax2.plot(x, y_pred, "--", label=f"Evolved: {readable_expr}")
+ax2.legend()
 plt.show()
 ```

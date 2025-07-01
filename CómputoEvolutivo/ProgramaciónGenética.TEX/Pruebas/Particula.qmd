@@ -1,0 +1,25 @@
+---
+title: Particula
+output:
+  latex:
+    documentclass: standalone
+jupyter:
+  python3
+---
+
+
+```{python}
+class Particle:
+  def __init__(self, x0, v0):
+    self.x0 = x0
+    self.v0 = v0
+
+  def simulate(self, t):
+    return self.x0 + self.v0 * t
+
+  def __repr__(self):
+    return f'Particle(x0={self.x0}, v0={self.v0})'
+
+p = Particle(0, 10)
+print(p.simulate(10))
+```
