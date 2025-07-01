@@ -17,7 +17,7 @@ int main (int argc,char **argv){
   GetEdge(lImage,EdgeImage);
   lovdogEqualizeIt(lImage, lImage);
   GetEdge(lImage,EdgeEqualized, false);
-  showIt(EdgeImage,"Edge");
-  showIt(EdgeEqualized,"Equalized -> Edge");
-  cv::waitKey(0);
+  showIt(EdgeImage,"salida/"+std::string(argv[1])+"_Edge",false);
+  showIt(EdgeEqualized,"salida/"+std::string(argv[1])+"_Equalized - Edge",true);
+  //cv::waitKey(0);
 }

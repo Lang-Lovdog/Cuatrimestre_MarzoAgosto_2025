@@ -6,7 +6,7 @@
 #include <opencv2/imgproc.hpp>
 
 int GetEdge(const cv::Mat& lImage, cv::Mat& lImage_f, bool thres=true);
-void showIt(cv::Mat& matrix, std::string name);
+void showIt(cv::Mat& matrix, std::string name, bool save=false);
 int lovdogEqualizeIt(const cv::Mat& src, cv::Mat& dst);
 
 #endif /* ifndef __LOVDOG_DIBUJO__ */
