@@ -8,6 +8,8 @@
 
 #define coutSEPARATOR  std::cout<<std::endl; for(int i=0;i<12;++i) std::cout << "-"; std::cout<<std::endl;
 
+char lovdogGetImage(const std::string& file, cv::Mat& container);
+char lovdogInitMain(int argc, char** argv);
 int mainHolaMundo (int argc,char* argv[]);
 int MatBasics(void);
 int MatricOperations();
@@ -23,7 +25,8 @@ int frameROI(void);
 int mainHistograma(int argc, char** argv);
 int mainHistograma2(int argc, char** argv);
 int lovdog_Histograma(const char*, const cv::Mat&);
-int lovdog_HHistograma(const char*, const cv::Mat&);
+int lovdog_HHistograma(const char*, const cv::Mat&, bool shifted=false);
+int lovdog_HHistograma(const char*, const cv::Mat&, unsigned char colors, bool shifted=false);
 int lovdogImagen2Histograma(const char* title, const cv::Mat& src, bool std_cum, size_t height, size_t width);
 int lovdog_Histograma2(const char*, const cv::Mat&);
 

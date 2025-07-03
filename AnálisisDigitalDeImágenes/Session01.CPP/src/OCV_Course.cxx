@@ -10,6 +10,12 @@
 #include <cstdlib>
 #include <iostream>
 
+char lovdogGetImage(const std::string& file, cv::Mat& container){
+  container      = cv::imread(file,cv::IMREAD_COLOR_BGR);
+  if(container.empty()) { std::cout << "Image reading error"; return 0; }
+  return 1;
+}
+
 int mainHolaMundo (int argc,char* argv[]){
   if(argc<2) { std::cout << "Requires an argument (image)"; return 1; }
   std::cout << "Checking OpenCV installation in PC /opencv/ \n";
@@ -336,7 +342,7 @@ int lovdog_Histograma(const char* title, const cv::Mat& input){
   return 0;
 }
 
-int lovdog_HHistograma(const char* title, const cv::Mat& input){
+int lovdog_HHistograma(const char* title, const cv::Mat& input, bool shifted){
   if(input.channels() != 1){ std::cout << "One Channel Images Only Here" << std::endl; return 1;}
   int histSize = 180;
   int histWidth = 512, histHeight = 200;
@@ -360,13 +366,72 @@ int lovdog_HHistograma(const char* title, const cv::Mat& input){
   cv::Mat histogramaImg(histHeight, histWidth, CV_8UC3, colorBack);
   cv::cvtColor(histogramaImg, histogramaImg, cv::COLOR_BGR2HSV);
 
-  for( unsigned int i = 1 ; i < histSize ; ++i)
+  unsigned int i;
+  unsigned char k;
+  k= shifted? 180-15:0; i=0;
+  while(i < histSize) {
     line(
         histogramaImg,
-        cv::Point(binWidth*(i), histHeight - cvRound(Histograma.at<float>(i)) ),
+        cv::Point(binWidth*(i), histHeight - cvRound(Histograma.at<float>(k%180)) ),
         cv::Point(binWidth*(i), histHeight ),
-        colorBars+cv::Scalar(i,0,0), 2, 8, 0
+        colorBars+cv::Scalar(k%180,0,0), 2, 8, 0
     );
+    ++i; ++k;
+  }
+
+
+  cv::cvtColor(histogramaImg, histogramaImg, cv::COLOR_HSV2BGR);
+  cv::namedWindow(title,cv::WINDOW_NORMAL);
+  imshow(title,histogramaImg);
+  return 0;
+}
+
+int lovdog_HHistograma(const char* title, const cv::Mat& input, unsigned char colors, bool shifted){
+  if(input.channels() != 1){ std::cout << "One Channel Images Only Here" << std::endl; return 1;}
+  int histSize = 180;
+  int histWidth = 512, histHeight = 200;
+  cv::Scalar
+    colorBack(20,0,0),
+    colorBars(0,200,200),
+    colorLines(255,0,255)
+  ;
+
+  float range[] = {0.0, (float)histSize};
+  const float* histRange[] = { range };
+  cv::Mat Histograma;
+
+  cv::calcHist(&input, 1, 0, cv::Mat(), Histograma, 1, &histSize, histRange);
+  cv::normalize(Histograma, Histograma, 0, histHeight, cv::NORM_MINMAX);
+  std::cout << "Histogram Size" << Histograma.size();
+  std::cout << " that is " << Histograma.rows << " rows, "
+            << Histograma.cols << " columns. ";
+
+  int binWidth = cvRound((double) histWidth/histSize);
+  cv::Mat histogramaImg(histHeight, histWidth, CV_8UC3, colorBack);
+
+  unsigned int i;
+  unsigned char k,n;
+  unsigned char barColor;
+  if(colors%3){
+    cv::cvtColor(histogramaImg, histogramaImg, cv::COLOR_BGR2HSV);
+    k= shifted? 180-15:0; i=0; binWidth = 180/colors; n=180;
+  }else{
+    cv::cvtColor(histogramaImg, histogramaImg, cv::COLOR_BGR2HSV_FULL);
+    k= shifted? 256-21:0; i=0; binWidth = 256/colors; n=255;
+  }
+
+  while(i < histSize) {
+    for(int r=barColor=0; r < binWidth; ++r) barColor+=r+k%n;
+    barColor/=binWidth;
+    line(
+        histogramaImg,
+        cv::Point(binWidth*(i), histHeight - cvRound(Histograma.at<float>(k%180)) ),
+        cv::Point(binWidth*(i)+binWidth, histHeight ),
+        colorBars+cv::Scalar(barColor,0,0), 2, 8, 0
+    );
+    ++i; ++k;
+  }
+
 
   cv::cvtColor(histogramaImg, histogramaImg, cv::COLOR_HSV2BGR);
   cv::namedWindow(title,cv::WINDOW_NORMAL);
@@ -778,7 +843,7 @@ int lovdogHSV (int argc,char* argv[]){
 
   //cv::namedWindow("Input image", cv::WINDOW_NORMAL);
   //cv::namedWindow("HSV", cv::WINDOW_NORMAL);
-  cv::namedWindow("H", cv::WINDOW_NORMAL);
+  //cv::namedWindow("H", cv::WINDOW_NORMAL);
   //cv::namedWindow("S", cv::WINDOW_NORMAL);
   //cv::namedWindow("V", cv::WINDOW_NORMAL);
 
@@ -793,11 +858,13 @@ int lovdogHSV (int argc,char* argv[]){
   cv::split(hsv, canal);
   //imshow("Input image", Input);
   //imshow("HSV", hsv);
-  imshow("H", canal[0]*255/180);
+  //imshow("H", canal[0]*255/180);
   //imshow("S", canal[1]);
   //imshow("V", canal[2]);
 
   lovdog_HHistograma("H hist", canal[0]); 
+  lovdog_HHistograma("H hist shifted", canal[0], true); 
+  lovdog_HHistograma("H hist colors shifted", canal[0], 6,true); 
 
   cv::waitKey(0);
   return 0;
