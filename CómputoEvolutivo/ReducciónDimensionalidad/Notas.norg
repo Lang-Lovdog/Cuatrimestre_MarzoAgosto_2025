@@ -1,0 +1,27 @@
+@document.meta
+title: Notas
+description: 
+authors: 
+categories: 
+created: 2025-07-24T14:31:44-0600
+updated: 2025-07-24T14:31:44-0600
+version: 1.1.1
+@end
+
+* En este documento se describirá parte de los detalles encontrados durante el análisis de los archivos (dataset) de radar.
+  Lo primero importante es que cada una de las columnas de la base de datos parece no tener una característica asociada a ellos.
+  Observé si la primera fila contenía algún valor numérico con un patrón reconocible sin éxito.
+  Lo más cercano a una característica se encuentra en la última columna, la cual contiene valores de clasificación.
+  La primera fila también cuenta con una etiqueta en esa columna, por lo que considero que la tabla ofrecida no tiene cabecera.
+  Agrego artificialmente una cabecera con el fin de poder realizar un análisis más sencillo utilizando visidata, especialmente, la última columna.
+
+  Al realizar un histograma de dicha columna me pude dar cuenta de que dicha columna contiene únicamente 2 posibles valores R | M.
+  A continuación el histograma de dicha columna (visiidata):
+
+  @code csv
+  category  ,  count  ,  percent  ,  histogram
+  M         ,    111  ,    53.37  ,  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  R         ,     97  ,    46.63  ,  ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  @end
+
+  Esta categoría la convertiré en un campo de valor numérico que vaya de 0 a 1. Como todo clasificador suele realizar esta distinción dicotómica sobre clases linealmente separables y, asumiendo que el dataset es linealmente separable, este cambio permite facilitar el proceso de clasificación, asignando un valor numérico a una variable categórica.
