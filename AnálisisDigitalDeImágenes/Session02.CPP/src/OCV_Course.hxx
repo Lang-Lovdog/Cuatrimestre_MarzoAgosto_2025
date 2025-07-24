@@ -1,14 +1,15 @@
 #ifndef OCVCOURSE_LOVDOG
 #define OCVCOURSE_LOVDOG
 #include <iostream>
-#include <opencv2/core.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/opencv.hpp>
-#include <opencv2/highgui.hpp>
+#include <core.hpp>
+#include <imgproc.hpp>
+#include <opencv.hpp>
+#include <highgui.hpp>
 
 #define coutSEPARATOR  std::cout<<std::endl; for(int i=0;i<12;++i) std::cout << "-"; std::cout<<std::endl;
 
 char lovdogGetImage(const std::string& file, cv::Mat& container);
+void showIt(cv::Mat& matrix, std::string name, bool save);
 char lovdogInitMain(int argc, char** argv);
 int mainHolaMundo (int argc,char* argv[]);
 int MatBasics(void);

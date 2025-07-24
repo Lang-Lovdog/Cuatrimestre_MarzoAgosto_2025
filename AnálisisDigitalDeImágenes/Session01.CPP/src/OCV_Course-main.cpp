@@ -1,6 +1,4 @@
 #include <iostream>
-#include <highgui.hpp>
-#include <core.hpp>
 #include "OCV_Course.hxx"
 
 int main (int argc, char* argv[]){

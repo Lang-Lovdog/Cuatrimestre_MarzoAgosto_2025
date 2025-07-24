@@ -1,11 +1,17 @@
 #include "OCV_Course.hxx"
-#include <opencv2/core.hpp>
-#include <opencv2/highgui.hpp>
+#include "core.hpp"
+#include "highgui.hpp"
+#include "imgcodecs.hpp"
+#include "imgproc.hpp"
+#include "opencv2/core/base.hpp"
+#include "opencv2/core/hal/interface.h"
+#include "opencv2/core/mat.hpp"
+#include "opencv2/core/types.hpp"
 #include <cstdlib>
 #include <iostream>
 
 char lovdogGetImage(const std::string& file, cv::Mat& container){
-  container      = cv::imread(file,cv::IMREAD_COLOR);
+  container      = cv::imread(file,cv::IMREAD_COLOR_BGR);
   if(container.empty()) { std::cout << "Image reading error"; return 0; }
   return 1;
 }
@@ -24,12 +30,12 @@ int mainHolaMundo (int argc,char* argv[]){
   Input.copyTo(InputCopy);
 
 
-  cv::imshow("Input image"                           , Input);
-  cv::imshow("Input image 2 (The Clone Attack)"      , InputClone);
-  cv::imshow("Input image 3 (The Rising of the Copy)", InputCopy);
+  imshow("Input image"                           , Input);
+  imshow("Input image 2 (The Clone Attack)"      , InputClone);
+  imshow("Input image 3 (The Rising of the Copy)", InputCopy);
 
 
-  cv::imwrite("FotoRobadaUwU.png",InputCopy);
+  imwrite("FotoRobadaUwU.png",InputCopy);
 
   cv::waitKey(0);
   return 0;
@@ -841,7 +847,7 @@ int lovdogHSV (int argc,char* argv[]){
   //cv::namedWindow("S", cv::WINDOW_NORMAL);
   //cv::namedWindow("V", cv::WINDOW_NORMAL);
 
-  Input      = cv::imread(argv[1],cv::IMREAD_COLOR);
+  Input      = cv::imread(argv[1],cv::IMREAD_COLOR_BGR);
 
   if(Input.empty()) { std::cout << "Image reading error"; return 1; }
 

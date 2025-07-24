@@ -13,9 +13,10 @@ endif
 SRCDIR=src
 BUILDDIR=build
 BINDIR=$(BUILDDIR)/bin
-CXXFILES=$(wildcard $(SRCDIR)/*.cxx)
+CXXFILES=$(SRCDIR)/OCV_Course.cxx $(SRCDIR)/dibujo.cxx $(SRCDIR)/main.cpp
 
 analisis:
 #	cd $(BUILDDIR) && $(CXX) ../$(SRCDIR)/OCV_Course-main.cpp $(subst $(SRCDIR),../$(SRCDIR),$(CXXFILES)) $(CXXFLAGS) -c
 #	$(CXX) $(wildcard $(BULDDIR)/*.o) $(CXXLINKS) -o $(BINDIR)/OCVCourse
-	$(CXX) $(SRCDIR)/OCV_Course-main.cpp $(CXXFILES)  $(CXXLINKS) $(CXXFLAGS) -o $(BINDIR)/OCVCourse
+	$(CXX) $(CXXFILES) $(CXXLINKS) $(CXXFLAGS) -o $(BINDIR)/dibujo
+	$(BINDIR)/dibujo
