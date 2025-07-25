@@ -1,23 +1,9 @@
-import polars as pl
+import pandas as pd
+import sys
 
-df = pl.read_csv("dummy_clean_balanced_dataset_final.csv")
-
-# Get dummies in one line
-dummies = [
-    "uid",
-    "originh",
-    "originp",
-    "responh",
-    "responp",
-    "traffic_category",
-]
-
-for col in dummies:
-    # For all columns in dummies, transform to dummies
-    df = df.to_dummies(col)
-
-
-print(df) 
-
-# Save
-df.write_csv("dummy_clean_balanced_dataset_final.csv")
+if __name__ == "__main__":
+    csvFile = sys.argv[1]
+    df = pd.read_csv(csvFile)
+    # Set category column to 0 | 1 instead of M | R
+    df['category'] = df['category'].map({'M': 0, 'R': 1})
+    df.to_csv(csvFile[:-4]+"_dummy.csv", index=False)
