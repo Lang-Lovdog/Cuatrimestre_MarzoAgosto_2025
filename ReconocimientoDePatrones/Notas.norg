@@ -14,3 +14,29 @@
   
   En este supuesto, persiste un problema que puede tropezar el resultado probabilístico. Para evitarlo, se procede a aplicar logaritmos en las probabilidades.
   $\frac{argmax}{k\in {1,...,k}} log\left(P(A_{k})\right) \sum_{i=1}^{n} log\left(P(B_{i}|A_{k})\right)$
+
+<<<
+
+* Métricas de evaluación del desempeño
+  Matriz de confusión clasifica las predicciones a traves de
+** True Positive
+** True Negative
+** False Postive
+** False Negative
+
+* Exactitud (accuracy)
+* Precisión (precision)
+* Sensibilidad  (Tasa de verdaderos positivo)
+* Especificidad (Tasa de falsos positivos)
+* Puntaje F1
+  Preferente al tener una base desbalanceada.
+* Curvas ROC
+  Eje X: Especificidad
+  Eje Y: Sensibilidad
+  Esta curva debe estar por encima de la diagonal principal.
+
+  En python existe una biblioteca que permite calcularla
+  {https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html}[ROC Curve SCIKit-Learn]
+  
+  El área bajo dicha curva es un indicador de sensibilidad del clasificador.
+  Aquí se obtiene desde el inicio hasta el punto /threshold/.

@@ -1,0 +1,57 @@
+@document.meta
+title: Notas
+description: 
+authors: 
+categories: 
+created: 2025-08-03T03:21:28-0600
+updated: 2025-08-03T03:21:28-0600
+version: 1.1.1
+@end
+
+En este documento intentaré detallar un análisis del código para
+extracción de características (textura) en imágenes. Con la finalidad de
+crear mi código y entender qué se está realizando en el proceso.
+
+A este punto tengo 3 tareas atrasadas y un proyecto que no he entregado.
+
+- ( ) Práctica: Clasificación de cerámicos
+-- (!) Ejercicio práctico: Extracción de características. GLCM y GLRL
+-- (!) Ejercicio práctico: Cálculo de características LBP
+-- (!) Ejercicio práctico: Cálculo de características por SDH
+
+Es preciso poder ofrecer una correcta implementación de estos,  y para
+ello, tendré que analizar bastante código. Para formular un buen análisis
+de código, pondré a lo largo del texto, los /snippets/ y sus respectivas
+descripciones. En python numpy los operadores aritméticos operan /elementwise/.
+
+* Cálculo de matrices de co-ocurrencia en niveles de gris y características.
+  Primero, el programa comienza declarando una lista vacía.
+  @code python
+  encabezados = []
+  @end
+
+  A partir de ahí comienzan a definirse las funciones que darán las
+  características. Son tres funciones en total las que calculan una
+  característica y otra más que sería la función principal de esta sección.
+  Cada una de las tres funciones, recibe como argumento la glcm previamente
+  calculada.
+
+** Calculate entropy
+   Esta función recibe una glcm, la normaliza (matriz de probabilidades).
+   Luego realiza la siguiente operación para cada pixel $p$ de la GLCM
+   $|P_{entropy} = p*\log_2(p)|$
+   @code python
+     glcm_norm = glcm / np.sum(glcm)
+     entropy = -np.sum(glcm_norm * np.log2(glcm_norm + 1e-12))
+   @end
+** Calculate variance
+   Esta función es ligeramente más compleja que la anterior.
+   Al igual que con la función de entropía, se recibe una glcm, se normaliza
+   y se calcula el valor.
+   Primero, se calcula la media de la glcm. Luego, a partir de la media, se
+   calcula la varianza.
+   @code python
+     glcm_norm = glcm / np.sum(glcm)
+     mean = np.sum(glcm_norm * np.arange(glcm.shape[0])[:, None])
+     variance = np.sum(glcm_norm * (np.arange(glcm.shape[0])[:, None] - mean) ** 2)
+   @end
