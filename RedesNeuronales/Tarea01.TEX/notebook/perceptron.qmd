@@ -2,7 +2,6 @@
 title: "Perceptron implementation"
 execute:
    enabled: true
-   python: 'C:/Users/Lang Lovdog/AppData/Local/Programs/Python/Python311/python.exe'
 format:
    pdf:
      title: Brief history of neural networks and a perceptron implementation
@@ -43,15 +42,19 @@ I'll use numpy as a very common package used for scientific computation,
 matplotlib for data visualization.
 
 ```{python}
+#| output: false
 !pip install matplotlib
 ```
 ```{python}
+#| output: false
 !pip install pandas
 ```
 ```{python}
+#| output: false
 !pip install scikit-learn
 ```
 ```{python}
+#| output: false
 import numpy as np
 from sklearn.datasets import make_blobs
 import matplotlib.pyplot as plt
@@ -181,4 +184,11 @@ plt.colorbar(label="Classes")
 plt.show()
 ```
 
-# Conclusiones
+# Conclusion
+
+Perceptron was the first approach to modern neural networks which came from
+neuroscience intents to understand brain cells and how they work. This is an
+actual advance in the field of Artificial Intelligence; however, a perceptron
+is not quite sufficient enough to be used in complex applications, but linearly
+separable problems can be solved with it. But being a good starting point for
+more complex implementations.

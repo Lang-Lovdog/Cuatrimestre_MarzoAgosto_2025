@@ -1,0 +1,38 @@
+\begin{tikzpicture}[
+    neuron/.style={circle, draw, thick, minimum size=8mm},
+    input/.style={neuron, fill=green!30},
+    hidden/.style={neuron, fill=blue!30},
+    output/.style={neuron, fill=red!30},
+    layer-label/.style={text width=2cm, midway, font=\small},
+    weight/.style={sloped, font=\tiny, above},
+    >=Stealth
+]
+
+% 入力層
+\node[input] (x1) at (0,0) {$x_1$};
+\node[input] (x2) at (0,-1) {$x_2$};
+\node[input] (x3) at (0,-2) {$x_3$};
+\node[align=center] at (-1,-1) {Input\\Layer};
+
+% 隠れ層
+\node[hidden] (h1) at (2.5, 0.5) {$h_1$};
+\node[hidden] (h2) at (2.5, -0.5) {$h_2$};
+\node[hidden] (h3) at (2.5, -1.5) {$h_3$};
+\node[hidden] (h4) at (2.5, -2.5) {$h_4$};
+\node at (2.5, 1.2) {Hidden Layer};
+
+% 出力層
+\node[output] (y1) at (5, -0.5) {$y_1$};
+\node[output] (y2) at (5, -2.0) {$y_2$};
+\node[align=center] at (6.5, -1) {Output\\Layer};
+
+% 接続 + 重み表示
+\foreach \x in {x1,x2,x3}
+    \foreach \h in {h1,h2,h3,h4}
+        \draw[->] (\x) -- (\h);
+
+\foreach \h in {h1,h2,h3,h4}
+    \foreach \y in {y1,y2}
+        \draw[->] (\h) -- (\y);
+
+\end{tikzpicture}

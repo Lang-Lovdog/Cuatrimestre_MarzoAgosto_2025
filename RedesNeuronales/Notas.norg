@@ -1,0 +1,48 @@
+* Redes neuronales convolucionales
+  - Forman una estructura jerárquica
+  - Realizan extracción de características
+  - Presentan cierta tolerancia a la deformación
+  - Inspirado por el modelo jerárquico propuesto por Hubel & Wiesel (1959)
+  - Las primeras CNN son
+  -- Neocognitrón (1980)
+     Se considera la primera CNN. Fue desarrollada por Fukushima (1980). Fue originalmente utilizada
+     para el reconocimiento de dígitos, pero no era entrenada. Era una red profunda de 10 capas.
+     Es un modelo definido por los neurocientíficos.
+     Entrada -> Extracción de contraste -> Extracción de bordes -> Reconocimiento
+  -- Creceptrón (1992)
+     Red autoorganizativa que crecía adaptativamente, la primera CNN que incorporó el _MAX Pooling_
+  -- LeNet-5 (1998)
+     Desarrollada por LeCun. Utilizada para el reconocimiento de dígitos. Fue una de las primeraas CNNs en ser entrenadas.
+     Incorporaba _Average pooling_. Era una red profunda de hasta 8 capas. Utilizaba funciones d'activación *tanh* y *RBF*
+** Células LGN
+   - LGN (Núcleo Geniculado Lateral), es una estructura del tálamo. Se considera el procesador primario de la
+     información proveniente de la retina.
+   - El LGN contiene células (neuronas) que responden selectivamente a puntos luminosos de diferentes tamaños y
+     posiciones en la retina. Este comportamiento se explica por su campo receptivo, el cual es circular con
+     una región excitatriz.
+     Su Función es similar a una diferencia de gaussianas
+** Células Ganglionares
+   - Conectan la retina con los centros de procesamiento visual.
+   - Existen 2 tipos de células ganglionares en la retina:
+   -- Magnocelulares. Conectadas a los bastones de la retina.
+   -- Parvocelulares. Conectadas a los conos de la retina.
+   Su Función es similar a una diferencia de gaussianas
+** Curva de sensibilidad al contraste
+   Campbell y Robson (1968) propusieron la idea de que los patrones espaciales son analizados
+   en términos de sus componentes frecuenciales espaciales y detectados por canales espacio-frecuenciales
+   del sistema visual.
+
+   Se descubrió que la respuesta de algunas células simples es similar a un filtro pasabanda.
+
+   La teoría del análisis frecuencial espacial establece que el sistema visual efectúa el análisis de
+   Fourier de la escena visual.
+
+   .image img/sensibilidad-al-contraste-2236192471.jpg
+   {img/sensibilidad-al-contraste-2236192471.jpg}[Ver imagen]
+
+** Hubel & Wiesel
+   Se realizó un un estudio sobre el comportamiento del reconocimiento visual.
+   Se descubrió que habían neuronas (células simples) que responden a la posición y forma de los objetos.
+   
+   .image ./img/HubelWieselExperiment.png
+   {./img/HubelWieselExperiment.png}[Ver imagen]

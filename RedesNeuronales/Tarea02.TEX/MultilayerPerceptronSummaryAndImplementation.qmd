@@ -1,0 +1,73 @@
+---
+title: "Multilayer Perceptron Summary and Implementation"
+execute:
+   enabled: true
+format:
+   pdf:
+     title: Multilayer Perceptron Summary and Implementation
+     author: Brandon Marquez Salazar
+     pdf-engine: pdflatex
+     documentclass: IEEEtran
+     number-sections: true
+     bibliography: bibliography.bib
+     bibliographystyle: ieee
+     nocite: |
+      @*
+     cite-method: biblatex
+     include-in-header:
+       - text: |
+           \usepackage{dirtytalk}
+           \usepackage{tikz}
+           \usetikzlibrary{positioning}
+           \tikzset{
+             x=2.8em,
+             y=2.8em,
+           }
+           \input{Macros}
+jupyter: redesneuronales
+---
+
+# Introduction
+
+A perceptron is a simple neuron which computes a value and thresholds it
+through an activation function. This neuron has the ability to learn
+from any given input and it's expected output using a simple iterative process
+of training. This training process alters  the coefficients of a weighed
+symbolic vector, which weights are used to compute a desired output and the
+values of the vector variables are the given inputs.
+This approach came from mathematical interpretation a brain cell's behavior,
+and its _tout seule_ implementation is limited to linearly separable problems.
+
+
+# Artificial Neural Network and Multilayer Perceptron
+
+An artificial neural network, ANN, is an elements net. Those elements
+(neurons) which are connected one to each other. Those nodes are organized
+in layers. There are three main types of layers:
+
+  * Input layer: This layer is the one that receives the input data.
+  * Hidden layer: The output of the neurons in this layer is not visible.
+  * Output layer: This layer outputs the final values.
+
+A **Multilayer Perceptron** MLP  is a static artificial neural network
+architecture where each node in a layer is connected to every node in the next
+layer.
+
+```{=latex}
+\begin{center}
+\input{./MLP_TIKZ_Diag}
+\end{center}
+```
+
+# Backpropagation Algorithm
+
+Backpropagation is an algorithm used to train an ANN, this algorithm is a
+generalization of the gradient descent algorithm following the steps below:
+
+  1. Initialize the weights of the network at small random values.
+  2. Forward computation $\forall i$-th training pair ($x_i$, $o_i$)
+     * $\forall n$-th neuron and each $k$-th neuron input, compute the input and output
+       $$v_{nk};\; o_{nk} = f(v_{nk})$$
+  3. Backward computation start computing from output layer
+     * $\forall n$-th neuron and each $k$-th neuron input, update weights
+       $$w_{nk} = w_{nk} + \Delta w_{nk} $$
