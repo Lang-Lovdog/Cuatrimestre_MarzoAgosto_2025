@@ -10,10 +10,13 @@
   Para obtener la probabilidad conjunta crea una expresión más compleja.
   Para evitar la complejidad de la probabilidad conjunta, se consideran como independientes todos los elementos de B.
   Finalmente se obtiene:
-  $\frac{argmax}{k\in {1,...,k}} P(A_{k}) \prod_{i=1}^{n} P(B_{i}|A_{k})$
+  $|\frac{argmax}{k\in {1,...,k}} P(A_{k}) \prod_{i=1}^{n} P(B_{i}|A_{k})|$
   
   En este supuesto, persiste un problema que puede tropezar el resultado probabilístico. Para evitarlo, se procede a aplicar logaritmos en las probabilidades.
-  $\frac{argmax}{k\in {1,...,k}} log\left(P(A_{k})\right) \sum_{i=1}^{n} log\left(P(B_{i}|A_{k})\right)$
+  $|\frac{argmax}{k\in {1,...,k}} log\left(P(A_{k})\right) \sum_{i=1}^{n} log\left(P(B_{i}|A_{k})\right)|$
+  @math
+  \frac{argmax}{k\in {1,...,k}} log\left(P(A_{k})\right) \sum_{i=1}^{n} log\left(P(B_{i}|A_{k})\right)
+  @end
 
 <<<
 
