@@ -6,7 +6,8 @@ int mainMomentos(int argc, char** argv){
   Contornos contornos;
   MomentsVector mv; // vector de momentos de los contornos
   Centros centroides;
-  blurX=blurY=12;
+  double Hu[7];
+  blurX=blurY=28;
   if (argc<2) { 
     std::cout << "Usage " << argv[0]
               << " <image> "
@@ -31,6 +32,19 @@ int mainMomentos(int argc, char** argv){
   lovdogMomentos(contornos, mv);
   lovdogCentroides(mv, centroides);
 
+  cv::HuMoments(mv[0], Hu);
+  // Compute log of hu moments
+  for(size_t i=0; i<7; ++i) Hu[i] = -1 * std::copysign(1.0, Hu[i])*std::log10(std::abs(Hu[i]));
+  for(size_t i=0; i<7; ++i)
+    std::cout << "Hu[" << i << "] = " << Hu[i] << std::endl;
+
+  lovdogMomentos(lImageT, mv);
+  cv::HuMoments(mv[0], Hu);
+  // Compute log of hu moments
+  for(size_t i=0; i<7; ++i) Hu[i] = -1 * std::copysign(1.0, Hu[i])*std::log10(std::abs(Hu[i]));
+  for(size_t i=0; i<7; ++i)
+    std::cout << "Hu[" << i << "] = " << Hu[i] << std::endl;
+
   printCentroides(centroides, mv, contornos);
 
   lImageC = cv::Mat::zeros(lImageT.size(), CV_8UC3);
@@ -49,6 +63,12 @@ int drawCentroid(const Centros& centroides, const Contornos& src, cv::Mat& dstIm
     cv::drawContours(dstImg,src,(int)i,color,1);
     cv::circle(dstImg, centroides[i], 4, color, -1);
   }
+  return 0;
+}
+
+int lovdogMomentos(const Contornos& src, MomentsVector& mv){
+  for(size_t i=0; i<src.size(); ++i)
+    mv.push_back(cv::moments(src[i]));
   return 0;
 }
 

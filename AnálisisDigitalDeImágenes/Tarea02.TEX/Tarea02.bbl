@@ -1,0 +1,82 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{Reinhard2001}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=512140f720214efaa61c7e115ad4c039}{%
+           family={Reinhard},
+           familyi={R\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d3e0f7c35d3329546dfa3b706883c8c2}{%
+           family={Adhikhmin},
+           familyi={A\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a2bedc97c1b7f676e800f400d64b0ae1}{%
+           family={Gooch},
+           familyi={G\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+        {{hash=3c89077739642dded8827c92df58be60}{%
+           family={Shirley},
+           familyi={S\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers (IEEE)}%
+      }
+      \strng{namehash}{499b125c0b979a148c7bfb60d8424393}
+      \strng{fullhash}{d1eef0fcf046d71abec006110a66dc60}
+      \strng{fullhashraw}{d1eef0fcf046d71abec006110a66dc60}
+      \strng{bibnamehash}{499b125c0b979a148c7bfb60d8424393}
+      \strng{authorbibnamehash}{499b125c0b979a148c7bfb60d8424393}
+      \strng{authornamehash}{499b125c0b979a148c7bfb60d8424393}
+      \strng{authorfullhash}{d1eef0fcf046d71abec006110a66dc60}
+      \strng{authorfullhashraw}{d1eef0fcf046d71abec006110a66dc60}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0272-1716}
+      \field{journaltitle}{IEEE Computer Graphics and Applications}
+      \field{number}{4}
+      \field{title}{Color transfer between images}
+      \field{volume}{21}
+      \field{year}{2001}
+      \field{pages}{34\bibrangedash 41}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/38.946629
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1109/38.946629
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1109/38.946629
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

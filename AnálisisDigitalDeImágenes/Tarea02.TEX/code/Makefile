@@ -19,3 +19,6 @@ analisis:
 #	cd $(BUILDDIR) && $(CXX) ../$(SRCDIR)/OCV_Course-main.cpp $(subst $(SRCDIR),../$(SRCDIR),$(CXXFILES)) $(CXXFLAGS) -c
 #	$(CXX) $(wildcard $(BULDDIR)/*.o) $(CXXLINKS) -o $(BINDIR)/OCVCourse
 	$(CXX) $(SRCDIR)/OCV_main.cpp $(CXXFILES)  $(CXXLINKS) $(CXXFLAGS) -o $(BINDIR)/Tarea02
+
+takahiro:
+	$(CXX) $(SRCDIR)/takahiro_colortransfer.cpp $(CXXLINKS) $(CXXFLAGS) -o $(BINDIR)/Tarea02
