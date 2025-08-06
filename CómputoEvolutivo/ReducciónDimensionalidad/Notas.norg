@@ -25,3 +25,29 @@ version: 1.1.1
   @end
 
   Esta categoría la convertiré en un campo de valor numérico que vaya de 0 a 1. Como todo clasificador suele realizar esta distinción dicotómica sobre clases linealmente separables y, asumiendo que el dataset es linealmente separable, este cambio permite facilitar el proceso de clasificación, asignando un valor numérico a una variable categórica.
+  
+<<<
+25/07/2025
+* El día de hoy, durante la clase de Cómputo Evolutivo
+  Tenemos algunos puntos importantes a considerar:
+  ~ Que el dataset no sea trivialmente separable.
+  ~ Las formas en que las bases de datos se puedan caracterizar.
+  ~ Las relaciones entre elementos de ciertas clases.
+  ~ Las formas de graficar los datos es importante.
+  ~ Se puede realizar un «clustering», finalmente comparando con el dataset original con la finalidad de identificar o descartar la trivialidad del problema.
+
+* Uso de programación genética para la clasificación de elementos.
+  La primera cuestión es la siguiente. ¿Cómo relacionar el dataset con el fin de obtener individuos adaptados a la tarea de clasificar elementos?
+  Sabemos que tenemos una cantidad N de características y una cantidad C de clases. Tenemos un individuo que evolucionará para ofrecernos una función y una función de umbral.
+
+  En principio mi hipótesis es que, la función y el proceso que se lleva a cabo es muy similar a la de las redes neuronales. Esto, por supuesto implica lo siguiente:
+  - Una función que de una salida
+  - La salida es evaluada por una función de umbral
+  - La entrada es un conjunto de características
+  - Existe un cierto nivel de error de clasificación
+
+  Es posible que los elementos aquí descritos no parezcan tener relación alguna real con la GP, pero el concepto aplicado sería el siguiente:
+  - Los individuos reciben un vector de características simbólico
+  - Cada individuo evaluará su desempeño sustituyendo los elementos simbólicos por los valores encontrados en la base de datos (elementos de entrenamiento)
+  - Una función fitness similar a una función de activación de un perceptrón se encargará de evaluar el error de clasificación del individuo.
+  - Los individuos evolucionarán hasta encontrar una función que permita clasificar correctamente la mayoría de los elementos de entrenamiento.

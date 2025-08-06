@@ -1,0 +1,39 @@
+---
+title: "Reducción de Dimensionalidad"
+author: "Marquez Salazar Brandon"
+format: html
+---
+
+
+Instalación de dependencias:
+```
+!pip install -r requirements.txt
+```
+
+Cargamos el csv
+```{python}
+import pandas as pd
+df = pd.read_csv('./transformed_data.csv')
+print(df)
+```
+Como se sabe (análisis con visidata), se pudo notar que existe una única variable categórica no numérica «target» y contiene dos posibles valores: «Graduate» | «Dropout».
+Por lo tanto, esa columna será redefinida como una variable booleana cuyo significado Graduate = 1 y Dropout = 0.
+
+```{python}
+categoricalColumn = "target"
+Values = {
+  "Graduate": 1,
+  "Dropout": 0
+}
+df[categoricalColumn] = df[categoricalColumn].map(Values)
+print(df)
+```
+
+Después de esto, se considera separar la columna «target» del resto, con el fin de obtener un conjunto de valores de entrada y sus respectivas salidas.
+
+```{python}
+X = df.drop(categoricalColumn, axis=1)
+Y = df[categoricalColumn]
+print(X)
+print(Y)
+```
