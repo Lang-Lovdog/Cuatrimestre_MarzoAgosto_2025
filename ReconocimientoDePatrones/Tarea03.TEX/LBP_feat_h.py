@@ -3,7 +3,6 @@ import json
 import numpy as np
 import pandas as pd
 import cv2 as cv
-import imageio as io
 from skimage.feature import local_binary_pattern
 from skimage.feature import graycomatrix, graycoprops
 
