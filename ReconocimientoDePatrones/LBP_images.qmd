@@ -1,0 +1,111 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.17.2
+  kernelspec:
+    display_name: nn
+    language: python
+    name: python3
+---
+
+Tarea 2: Cálculo de características en imágenes Local Binary Pattern
+Utiliza una ventana de 3x3 para calcular las imágenes LBP de las cuatro categorías de fallas de cerámicos compartidas. 
+
+Calcular las características estadísticas; media, varianza, correlación, contraste, homogeneidad, para 12 diferentes tamaños de ventana comenzando por tamaño 3,5.7,...,25. Usa cada tamaño de ventana para realizar el calculo de la característica y el valor por cada ventana se colocara en una imagen nueva que contendrá la característica calculada para toda la imagen LBP. Por ejemplo: suponga que la imagen original del cerámico es de 200x200 pixeles, entonces la imagen LBP tendrá un tamaño final de 199x199 y al calcular las características para una ventana de 5x5, la característica de media de la imagen LBP, será de 197x197, porque al ir recorriendo la ventana sobre la imagen LBP esta perderá las ultimas dos columnas y renglones.
+
+Entregables: Anexa el código que lee cada una de las imágenes, genera las imágenes LBP y calcula las características solicitadas. Acomodar las imágenes de características en un solo archivo .csv, no olvides hacer una sola columna, cada una de las imágenes características.   
+
+```{python}
+import numpy as np
+import pandas as pd
+import cv2
+import imageio as io 
+import seaborn as sns
+import os 
+from skimage.feature import local_binary_pattern
+from skimage.feature import graycomatrix, graycoprops
+from tqdm import tqdm
+```
+
+```{python}
+#parametros lbp 
+radio = 1
+n_puntos = 8*radio
+METHOD  = 'uniform'
+tam_ventana = [3,5,7,9,11,13,15,17,19,21,23,25] #3x3
+#tam_ventana = [3,5] #3x3
+#len(tam_ventana)
+```
+
+```{python}
+def calc_lbp(img_gray):
+    return local_binary_pattern(img_gray, n_puntos, radio, METHOD).astype(np.uint8)
+
+def extraer_caracteristicas(lbp_img, tam_vent):
+    pad = tam_vent // 2
+    h, w = lbp_img.shape
+    resultado = []
+
+    for y in range(pad, h - pad):
+        for x in range(pad, w - pad):
+            ventana = lbp_img[y - pad: y + pad + 1, x - pad: x + pad + 1]
+            media = np.mean(ventana)
+            var = np.var(ventana)
+            glcm = graycomatrix(ventana, [1], [0], levels=59, symmetric=True, normed=True)
+            correlacion = graycoprops(glcm, 'correlation')[0, 0]
+            contraste = graycoprops(glcm, 'contrast')[0, 0]
+            homogeneidad = graycoprops(glcm, 'homogeneity')[0, 0]
+
+            resultado.append({
+                'media': media,
+                'varianza': var,
+                'correlacion': correlacion,
+                'contraste': contraste,
+                'homogeneidad': homogeneidad
+            })
+    return resultado
+
+            
+```
+
+```{python}
+#process all the images
+carpeta = "../Tarea1/dataset_ceramicos_recortes"
+columnas_csv = []
+filas = []
+
+for root, dirs, files in os.walk(carpeta):
+    for file in tqdm(files):
+        if file.endswith(".tif") and "Falla" in file:
+            ruta = os.path.join(root, file)
+            img = cv2.imread(ruta, cv2.IMREAD_GRAYSCALE)
+            lbp = calc_lbp(img)
+            clase = os.path.basename(os.path.dirname(root))
+
+            for size in tam_ventana:
+                caracteristicas_ventanas = extraer_caracteristicas(lbp, size)
+                for c in caracteristicas_ventanas:
+                    fila = {
+                        "Nombre_Imagen": file,
+                        "media": c['media'],
+                        "varianza": c['varianza'],
+                        "correlacion": c['correlacion'],
+                        "contraste": c['contraste'],
+                        "homogeneidad": c['homogeneidad'],
+                        "ventana": size,
+                        "Clase": clase
+                    }
+                    filas.append(fila)
+
+
+df = pd.DataFrame(filas)
+os.makedirs("Tarea2", exist_ok=True)
+df.to_csv("Tarea2/caracteristicas_lbp_por_ventana.csv", index=False)
+print("Archivo CSV creado con una fila por ventana.")
+```
+
+

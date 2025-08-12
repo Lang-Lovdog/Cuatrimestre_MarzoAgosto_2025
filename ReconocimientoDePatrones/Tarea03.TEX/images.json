@@ -1,0 +1,21 @@
+{
+  "csv": "CaracterizaciónLBP.csv",
+  "samples": [
+    {
+      "class": "Sano",
+      "path": "../imagenes/Cropped/Clase1-Sano/"
+    },
+    {
+      "class": "Err1",
+      "path": "../imagenes/Cropped/Clase2-Err1/"
+    },
+    {
+      "class": "Err2",
+      "path": "../imagenes/Cropped/Clase3-Err2/"
+    },
+    {
+      "class": "Err3",
+      "path": "../imagenes/Cropped/Clase4-Err3/"
+    }
+  ]
+}

@@ -173,7 +173,7 @@ namespace lovdog{
   void exportGallery(Gallery& gallery, std::string namePrefix, std::string suffix, std::string extension){
     int image=0;
     while((size_t)image < gallery.size())
-      cv::imwrite(namePrefix+std::to_string(gallery.size())+suffix+"."+extension, gallery[image++]);
+      cv::imwrite(namePrefix+std::to_string(image)+suffix+"."+extension, gallery[image++]);
   }
 
 

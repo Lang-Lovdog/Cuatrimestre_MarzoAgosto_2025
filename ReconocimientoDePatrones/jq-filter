@@ -1,0 +1,21 @@
+# JQ filter: press <CR> to execute it
+
+.samples[0]={
+  "class": "Sano",
+  "path": "../imagenes/Cropped/Clase1-Sano/"
+}
+
+.samples[1]={
+  "class": "Err1",
+  "path": "./imagenes/Cropped/Clase2-Err1/"
+}
+
+.samples[2]={
+  "class": "Err2",
+  "path": "./imagenes/Cropped/Clase3-Err2/"
+}
+
+.samples[3]={
+  "class": "Err3",
+  "path": "./imagenes/Cropped/Clase4-Err3/"
+}
