@@ -7,4 +7,4 @@ container.defineLBParameters(windowSize=[x for x in np.arange(3,26,2)])
 container.getImages()
 container.computeLBP()
 
-sdhf.computeSDHFromLBP(container).to_csv(container.csvName)
+sdhf.computeSDHFromLBP(container).to_csv(container.csvName, index=False)
