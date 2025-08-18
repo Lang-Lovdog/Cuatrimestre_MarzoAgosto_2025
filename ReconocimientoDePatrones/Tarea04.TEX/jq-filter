@@ -1,0 +1,3 @@
+# JQ filter: press <CR> to execute it (different queries should be separated by a blank line)
+
+.csv="CaracterizaciónSDH.csv"
