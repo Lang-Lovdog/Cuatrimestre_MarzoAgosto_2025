@@ -1,0 +1,42 @@
+---
+title: Feature and model selection using EDAs approach
+author: Brandon Marquez-Salazar
+format:
+  pdf:
+    pdf-engine: xelatex
+    documentclass: IEEEtran
+    include-in-header:
+      - text: |
+          \usepackage{polyglossia}
+          \setmainlanguage{english}
+          \usepackage{fontspec}
+          \setmainfont{QTBookmann}
+  html:
+    toc: true
+    theme: cosmo
+execute:
+  eval: false
+---
+
+# Abstract
+
+
+# Introduction
+
+
+# Related works
+
+
+# Methods and materials
+
+
+# Experiments and results
+
+
+# Discussion
+
+
+# Conclusion
+
+
+# References
