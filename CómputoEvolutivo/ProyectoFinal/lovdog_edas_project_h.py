@@ -2,6 +2,7 @@
 ### Mathématiques
 import pandas as pd # type: ignore
 import numpy as np # type: ignore
+import os
 ### Visualisation
 #import seaborn as sns # type: ignore
 import matplotlib.pyplot as plt # type: ignore
@@ -16,6 +17,7 @@ from sklearn.svm import SVC # type: ignore
 from sklearn.neighbors import KNeighborsClassifier # type: ignore
 from sklearn.linear_model import LogisticRegression # type: ignore
 #### Métriques
+from sklearn.metrics import cross_val_score # type: ignore
 from sklearn.metrics import accuracy_score # type: ignore
 from sklearn.metrics import f1_score # type: ignore
 from sklearn.metrics import confusion_matrix # type: ignore
@@ -199,7 +201,8 @@ class dimensionalityReduction:
         targetName="target"
     ):
         self.loadDataset(dataset, targetName)
-        self.models = models if type(models) is list else [models]
+        self.model_paths = models if type(models) is list else [models]
+        self.models = []
         self.EDAS_Config = {
             "experiment_id": eID,
             "num_generations": nGenerations,
@@ -210,7 +213,24 @@ class dimensionalityReduction:
             "random_state": randomState,
             "classifier_name": classifierName
         }
-        pass
+
+
+    @staticmethod
+    def eda_evalfunc(self, model, individual):
+        return 
+
+    def loadModel(self, path=None, append=False):
+        if path is not None:
+            if append:
+                self.model_paths=self.model_paths.append(path)
+            else:
+                self.model_paths= path if type(path) is list else [path]
+
+            if os.path.isdir(path):
+                for file in os.listdir(path):
+                    self.models.append(joblib.load(f"{path}/{file}"))
+            else:
+                self.models.append(joblib.load(path))
 
     def loadDataset(self, dataset, targetName="target", test_size=0.2):
         if type(dataset) is str:
