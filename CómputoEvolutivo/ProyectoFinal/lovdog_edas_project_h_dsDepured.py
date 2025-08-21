@@ -70,6 +70,7 @@ class ModelSelection:
                 # Regularization
                 'clf__C': [ i*0.001 for i in range(1, 100, 2) ],
                 'clf__penalty': [ 'elasticnet', 'l2' ],
+                'clf__l1_ratio': [ i*0.01 for i in range(0, 100, 1) ],
                 # Saga is the only solver that can handle elasticnet
                 'clf__solver': [ 'saga' ],
             },

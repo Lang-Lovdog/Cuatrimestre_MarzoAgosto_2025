@@ -22,6 +22,7 @@ def main():
     # Get and display results
     summary_df = model_selector.getSummary()
     model_selector.saveSummary()
+    model_selector.saveConfusionMatrix()
     print("Grid Search Results:")
     print(summary_df)
 
@@ -47,6 +48,7 @@ def main():
     # Step 4: Get and analyze results
     results_df = eda.get_results_dataframe()
     final_results = eda.get_final_results()
+    results_df.to_csv("feature_selection_results.csv", index=False)
     
     print("\nFeature Selection Results:")
     print(f"Best fitness: {final_results['best_fitness']:.4f}")
