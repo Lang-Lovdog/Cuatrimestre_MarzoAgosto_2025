@@ -1,6 +1,7 @@
 ---
 title: Feature and model selection using EDAs approach
 author: Brandon Marquez-Salazar
+bibliography: References.bib
 format:
   pdf:
     pdf-engine: xelatex
@@ -11,6 +12,7 @@ format:
           \setmainlanguage{english}
           \usepackage{fontspec}
           \setmainfont{QTBookmann}
+    cite-method: biblatex
   html:
     toc: true
     theme: cosmo
@@ -19,7 +21,15 @@ execute:
 ---
 
 # Abstract
-
+There are several problems when handling large feature vectors for classification. Most commonly found is
+computational resources consumption. Sometimes those features are redundant and can be reduced
+getting similar results with fewer descriptors, reducing classification complexity, computational
+resource consumption and training time.
+On the other hand, it's well known that different classifiers have different definitions,
+leading to a variety of results from poor to highly precise.
+In this experiment two approaches were tested for a dataset which describes a scholar desertion
+study giving a set of features which will be reduced. Using GRID method to select the best models
+and EDAs for dimensionality reduction.
 
 # Introduction
 
