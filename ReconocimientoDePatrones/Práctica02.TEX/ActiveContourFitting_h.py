@@ -8,7 +8,13 @@ from skimage.segmentation import active_contour
 
 class ActiveContourFitting:
 
-    def __init__(self, videoDir=None, init=None, imgextension=None, alpha=None, beta=None, gamma=None, gSigma=None, w_line=None, w_edge=None):
+    def __init__(
+            self,
+            videoDir=None, init=None, imgextension=None,
+            alpha=None, beta=None, gamma=None,
+            gSigma=None, w_line=None, w_edge=None,
+            snakeIterations=10
+    ):
         self.videoDir="./Amoeba-moving-Timelapse_frames/"
         self.imgextension=".ppm"
 
@@ -18,6 +24,8 @@ class ActiveContourFitting:
         self.beta   =10    if beta   is None else beta
         self.gamma  =0.001 if gamma  is None else gamma
         self.g_sigma=3     if gSigma is None else gSigma
+
+        self.snakeIterations=snakeIterations
 
         self.s = np.linspace(0, 2 * np.pi, 400)
         self.r = 100 + 100 * np.sin(self.s)
@@ -119,19 +127,19 @@ class ActiveContourFitting:
         if init is not None:
             self.init=init
         self.acvideo=[]
-        init=self.init
+        snake=self.init
         for img in self.video:
-            snake = active_contour(
-                gaussian(img, sigma=self.g_sigma, preserve_range=False),
-                init,
-                alpha=self.alpha,
-                beta =self.beta,
-                gamma=self.gamma,
-                w_line=self.w_line,
-                w_edge=self.w_edge
-            )
+            for i in range(self.snakeIterations):
+                snake = active_contour(
+                    gaussian(img, sigma=self.g_sigma, preserve_range=False),
+                    snake,
+                    alpha=self.alpha,
+                    beta =self.beta,
+                    gamma=self.gamma,
+                    w_line=self.w_line,
+                    w_edge=self.w_edge
+                )
             self.acvideo.append(snake)
-            init=snake
 
     def showActiveContourFitting(self):
         fig, ax = plt.subplots(figsize=(7, 7))
