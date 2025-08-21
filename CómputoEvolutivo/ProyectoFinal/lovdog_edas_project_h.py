@@ -24,8 +24,11 @@ from sklearn.metrics import confusion_matrix # type: ignore
 from sklearn.metrics import ConfusionMatrixDisplay # type: ignore
 ### Temps (pour random_state)
 import time # type: ignore
-
+## Model import/export
 import joblib # type: ignore
+# DEAP for EDAs
+from deap import base, creator, tools  # type: ignore
+
 
 
 _ModelSelectionClassesNames_ : list =[]
@@ -209,15 +212,118 @@ class dimensionalityReduction:
             "population_size": pSize,
             "subset_size_range": ssSizeRange,
             "elite_fraction": eliteFraction,
-            "mutation_rate": mRate,
+
             "random_state": randomState,
             "classifier_name": classifierName
         }
+        self.data   : pd.DataFrame = None
+        self.target : pd.DataFrame = None
 
+    def _setup_deap(self):
+        """
+        Sets up DEAP creator classes and toolbox with registered operators.
+        """
+        # Create Fitness and Individual classes
+        creator.create("FitnessMax", base.Fitness, weights=(1.0,))
+        creator.create("Individual", list, fitness=creator.FitnessMax)
+        
+        self.toolbox = base.Toolbox()
+        
+        # Attribute generator: 0 or 1 with probability
+        # We can use random.randint for binary attributes
+        self.toolbox.register("attr_bool", random.randint, 0, 1)
+        
+        # Individual generator: create individual of length n_features
+        self.toolbox.register("individual", tools.initRepeat, 
+                             creator.Individual, self.toolbox.attr_bool, 
+                             n=self.n_features)
+        
+        # Population generator: create list of individuals
+        self.toolbox.register("population", tools.initRepeat, list, 
+                             self.toolbox.individual)
+        
+        # Register the evaluation function with our data and models
+        self.toolbox.register("evaluate", self._evaluate_individual)
+        
+        # Register selection method (elite selection based on elite_fraction)
+        # tools.selBest will select the top n individuals
+        elite_size = int(self.EDAS_Config["population_size"] * 
+                        self.EDAS_Config["elite_fraction"])
+        self.toolbox.register("select", tools.selBest, k=elite_size)
 
-    @staticmethod
+    def _evaluate_individual(self, individual):
+        """
+        Evaluate an individual's fitness using all loaded models.
+        """
+        # Convert to tuple for caching
+        ind_tuple = tuple(individual)
+        if ind_tuple in self.cache:
+            return self.cache[ind_tuple]
+        
+        # Convert individual to boolean mask
+        mask = np.array(individual, dtype=bool)
+        
+        # Check if any features are selected
+        if not np.any(mask):
+            fitness = (0.0,)
+            self.cache[ind_tuple] = fitness
+            return fitness
+        
+        # Apply feature selection
+        selected_features = self.data.columns[mask]
+        X_subset = self.data[selected_features]
+        
+        # Evaluate using all models and aggregate scores
+        scores = []
+        for model in self.models:
+            try:
+                score = cross_val_score(model, X_subset, self.target, 
+                                      cv=3, scoring='accuracy').mean()
+                scores.append(score)
+            except Exception as e:
+                print(f"Error evaluating model: {e}")
+                scores.append(0.0)
+        
+        # Use average score across all models as fitness
+        fitness = (np.mean(scores),)
+        self.cache[ind_tuple] = fitness
+        return fitness
+
     def eda_evalfunc(self, model, individual):
-        return 
+        """
+        Evaluates a feature subset individual.
+        
+        Args:
+            individual (list): A binary list of length n_features. 1 means select the feature.
+            X (pd.DataFrame): The complete DataFrame of features.
+            y (pd.Series): The complete target Series.
+            model: The pre-trained scikit-learn model.
+            
+        Returns:
+            tuple: A tuple containing the fitness score (e.g., accuracy).
+        """
+        
+        # 1. Convert the individual to a boolean mask
+        #    individual is a list of 0s and 1s from DEAP
+        mask = np.array(individual, dtype=bool)
+        
+        # 2. Check if any feature is selected. Avoid errors with zero features.
+        if not np.any(mask):
+            return 0.0, # Return a terrible fitness if no features are selected
+        
+        # 3. Apply the mask to get the selected feature names
+        #    This gets the column names where the mask is True
+        selected_features = self.data.columns[mask]
+        
+        # 4. Create the subset DataFrame with only the selected features
+        X_subset = self.data[selected_features]
+        
+        # 5. Evaluate the model using cross-validation on the ENTIRE dataset (X_subset, y)
+        #    This trains and validates on all data, which is correct for feature selection
+        #    with a fixed model.
+        score = cross_val_score(model, X_subset, self.target, cv=8, scoring='accuracy').mean()
+        
+        return score
 
     def loadModel(self, path=None, append=False):
         if path is not None:
@@ -226,11 +332,26 @@ class dimensionalityReduction:
             else:
                 self.model_paths= path if type(path) is list else [path]
 
-            if os.path.isdir(path):
-                for file in os.listdir(path):
-                    self.models.append(joblib.load(f"{path}/{file}"))
-            else:
-                self.models.append(joblib.load(path))
+            if os.path.isdir(path) and type(path) is str:
+                self.models=[
+                    joblib.load(f"{path}/{file}")
+                    for file in os.listdir(path)
+                ]
+            if os.path.isdir(path) and type(path) is list:
+                for dir in path:
+                    self.models=[
+                        joblib.load(f"{dir}/{file}")
+                        for file in os.listdir(dir)
+                    ]
+            elif type(path) is list and not os.path.isdir(path[0]):
+                self.models=[
+                    joblib.load(file)
+                    for file in path
+                ]
+            elif not os.path.isdir(path) and type(path) is str:
+                self.models=[
+                    joblib.load(path)
+                ]
 
     def loadDataset(self, dataset, targetName="target", test_size=0.2):
         if type(dataset) is str:
@@ -239,10 +360,3 @@ class dimensionalityReduction:
             df = dataset
         self.data = df.drop(targetName, axis=1)
         self.target = df[targetName]
-        self.trainingData['x'], self.testData['x'],  \
-        self.trainingData['y'], self.testData['y'] = \
-            train_test_split(
-                self.data, self.target,
-                test_size=test_size,
-                random_state=np.floor(time.time()).astype(int)%4294967296
-            )

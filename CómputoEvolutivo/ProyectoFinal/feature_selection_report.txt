@@ -1,0 +1,30 @@
+==================================================
+FEATURE SELECTION EDA - FINAL REPORT
+==================================================
+
+Experiment ID: feature_selection_exp
+Best Fitness Score: 0.8670
+Number of Selected Features: 17
+Total Generations: 50
+Population Size: 100
+Models Used: Pipeline, Pipeline, Pipeline, Pipeline
+
+SELECTED FEATURES:
+------------------------------
+ 1. feature_1
+ 2. feature_2
+ 3. feature_6
+ 4. feature_7
+ 5. feature_8
+ 6. feature_11
+ 7. feature_12
+ 8. feature_15
+ 9. feature_16
+10. feature_18
+11. feature_19
+12. feature_24
+13. feature_28
+14. feature_29
+15. feature_30
+16. feature_31
+17. feature_34
