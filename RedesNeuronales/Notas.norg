@@ -38,7 +38,9 @@
    Fourier de la escena visual.
 
    .image img/sensibilidad-al-contraste-2236192471.jpg
-   {img/sensibilidad-al-contraste-2236192471.jpg}[Ver imagen]
+   {./img/sensibilidad-al-contraste-2236192471.jpg}[Ver imagen]
+
+   $|\sum_{n=1}^N|$
 
 ** Hubel & Wiesel
    Se realizó un un estudio sobre el comportamiento del reconocimiento visual.

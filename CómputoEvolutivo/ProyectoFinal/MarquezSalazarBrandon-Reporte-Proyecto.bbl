@@ -1,0 +1,639 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global/global}
+  \entry{AutoMLBook2019}{book}{}{}
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/978-3-030-05318-5
+    \endverb
+    \field{isbn}{9783030053185}
+    \field{issn}{2520-1328}
+    \field{title}{Automated Machine Learning: Methods, Systems, Challenges}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/978-3-030-05318-5
+    \endverb
+    \field{journaltitle}{The Springer Series on Challenges in Machine Learning}
+    \field{year}{2019}
+  \endentry
+
+  \entry{https://doi.org/10.24432/c5mc89}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=VRMVM}{%
+         family={Valentim\bibnamedelima Realinho},
+         familyi={V\bibinitperiod\bibinitdelim R\bibinitperiod},
+         given={Mónica Vieira\bibnamedelima Martins},
+         giveni={M\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {UCI Machine Learning Repository}%
+    }
+    \strng{namehash}{VRMVM1}
+    \strng{fullhash}{VRMVM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.24432/C5MC89
+    \endverb
+    \field{title}{Predict Students' Dropout and Academic Success}
+    \verb{url}
+    \verb https://archive.ics.uci.edu/dataset/697
+    \endverb
+    \field{year}{2021}
+  \endentry
+
+  \entry{article/2024_Anderson_Thomas_Adelusi_Joshua}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=AT}{%
+         family={Anderson},
+         familyi={A\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=AJ}{%
+         family={Adelusi},
+         familyi={A\bibinitperiod},
+         given={Joshua},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ATAJ1}
+    \strng{fullhash}{ATAJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Data Cleaning and Preprocessing for Noisy Datasets: Techniques, Challenges, and Solutions}
+    \field{month}{10}
+    \field{year}{2024}
+  \endentry
+
+  \entry{NoFreeLunch6795940}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=WDH}{%
+         family={Wolpert},
+         familyi={W\bibinitperiod},
+         given={David\bibnamedelima H.},
+         giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WDH1}
+    \strng{fullhash}{WDH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1162/neco.1996.8.7.1341
+    \endverb
+    \field{number}{7}
+    \field{pages}{1341\bibrangedash 1390}
+    \field{title}{The Lack of A Priori Distinctions Between Learning Algorithms}
+    \field{volume}{8}
+    \field{journaltitle}{Neural Computation}
+    \field{year}{1996}
+  \endentry
+
+  \entry{9780691652214_Richard-E.-Bellman}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=BRE}{%
+         family={Bellman},
+         familyi={B\bibinitperiod},
+         given={Richard\bibnamedelima E.},
+         giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Princeton University Press}%
+    }
+    \strng{namehash}{BRE1}
+    \strng{fullhash}{BRE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Adaptive Control Processes: A Guided Tour}
+    \field{year}{1961}
+  \endentry
+
+  \entry{AutoMLBook-CASH2019}{book}{}{}
+    \list{publisher}{1}{%
+      {Springer International Publishing}%
+    }
+    \field{labeltitlesource}{title}
+    \field{chapter}{4.3}
+    \verb{doi}
+    \verb 10.1007/978-3-030-05318-5
+    \endverb
+    \field{isbn}{9783030053185}
+    \field{issn}{2520-1328}
+    \field{title}{Automated Machine Learning: Methods, Systems, Challenges}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/978-3-030-05318-5
+    \endverb
+    \field{journaltitle}{The Springer Series on Challenges in Machine Learning}
+    \field{year}{2019}
+  \endentry
+
+  \entry{sklearn_10.5555/1953048.2078195}{article}{}{}
+    \name{author}{16}{}{%
+      {{hash=PF}{%
+         family={Pedregosa},
+         familyi={P\bibinitperiod},
+         given={Fabian},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=VG}{%
+         family={Varoquaux},
+         familyi={V\bibinitperiod},
+         given={Ga\"{e}l},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gramfort},
+         familyi={G\bibinitperiod},
+         given={Alexandre},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MV}{%
+         family={Michel},
+         familyi={M\bibinitperiod},
+         given={Vincent},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=TB}{%
+         family={Thirion},
+         familyi={T\bibinitperiod},
+         given={Bertrand},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=GO}{%
+         family={Grisel},
+         familyi={G\bibinitperiod},
+         given={Olivier},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Blondel},
+         familyi={B\bibinitperiod},
+         given={Mathieu},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PP}{%
+         family={Prettenhofer},
+         familyi={P\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=WR}{%
+         family={Weiss},
+         familyi={W\bibinitperiod},
+         given={Ron},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=DV}{%
+         family={Dubourg},
+         familyi={D\bibinitperiod},
+         given={Vincent},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=VJ}{%
+         family={Vanderplas},
+         familyi={V\bibinitperiod},
+         given={Jake},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Passos},
+         familyi={P\bibinitperiod},
+         given={Alexandre},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=CD}{%
+         family={Cournapeau},
+         familyi={C\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Brucher},
+         familyi={B\bibinitperiod},
+         given={Matthieu},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Perrot},
+         familyi={P\bibinitperiod},
+         given={Matthieu},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=DE}{%
+         family={Duchesnay},
+         familyi={D\bibinitperiod},
+         given={\'{E}douard},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {JMLR.org}%
+    }
+    \strng{namehash}{PF+1}
+    \strng{fullhash}{PFVGGAMVTBGOBMPPWRDVVJPACDBMPMDE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    Scikit-learn is a Python module integrating a wide range of state-of-the-art machine learning algorithms for medium-scale supervised and unsupervised problems. This package focuses on bringing machine learning to non-specialists using a general-purpose high-level language. Emphasis is put on ease of use, performance, documentation, and API consistency. It has minimal dependencies and is distributed under the simplified BSD license, encouraging its use in both academic and commercial settings. Source code, binaries, and documentation can be downloaded from http://scikit-learn.sourceforge.net.%
+    }
+    \field{issn}{1532-4435}
+    \field{number}{null}
+    \field{pages}{2825–2830}
+    \field{title}{Scikit-learn: Machine Learning in Python}
+    \field{volume}{12}
+    \field{journaltitle}{J. Mach. Learn. Res.}
+    \field{month}{11}
+    \field{year}{2011}
+  \endentry
+
+  \entry{RobFeatSelSaeys2008}{inbook}{}{}
+    \name{author}{3}{}{%
+      {{hash=SY}{%
+         family={Saeys},
+         familyi={S\bibinitperiod},
+         given={Yvan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=AT}{%
+         family={Abeel},
+         familyi={A\bibinitperiod},
+         given={Thomas},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=VdPY}{%
+         prefix={Van\bibnamedelima de},
+         prefixi={V\bibinitperiod\bibinitdelim d\bibinitperiod},
+         family={Peer},
+         familyi={P\bibinitperiod},
+         given={Yves},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{SY+1}
+    \strng{fullhash}{SYATPYVd1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Machine Learning and Knowledge Discovery in Databases}
+    \verb{doi}
+    \verb 10.1007/978-3-540-87481-2_21
+    \endverb
+    \field{isbn}{9783540874812}
+    \field{issn}{1611-3349}
+    \field{pages}{313–325}
+    \field{title}{Robust Feature Selection Using Ensemble Feature Selection Techniques}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/978-3-540-87481-2_21
+    \endverb
+    \field{year}{2008}
+  \endentry
+
+  \entry{KOHAVI1997273}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=KR}{%
+         family={Kohavi},
+         familyi={K\bibinitperiod},
+         given={Ron},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=JGH}{%
+         family={John},
+         familyi={J\bibinitperiod},
+         given={George\bibnamedelima H.},
+         giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \keyw{Classification, Feature selection, Wrapper, Filter}
+    \strng{namehash}{KRJGH1}
+    \strng{fullhash}{KRJGH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    In the feature subset selection problem, a learning algorithm is faced with the problem of selecting a relevant subset of features upon which to focus its attention, while ignoring the rest. To achieve the best possible performance with a particular learning algorithm on a particular training set, a feature subset selection method should consider how the algorithm and the training set interact. We explore the relation between optimal feature subset selection and relevance. Our wrapper method searches for an optimal feature subset tailored to a particular algorithm and a domain. We study the strengths and weaknesses of the wrapper approach and show a series of improved designs. We compare the wrapper approach to induction without feature subset selection and to Relief, a filter approach to feature subset selection. Significant improvement in accuracy is achieved for some datasets for the two families of induction algorithms used: decision trees and Naive-Bayes.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/S0004-3702(97)00043-X
+    \endverb
+    \field{issn}{0004-3702}
+    \field{note}{Relevance}
+    \field{number}{1}
+    \field{pages}{273\bibrangedash 324}
+    \field{title}{Wrappers for feature subset selection}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S000437029700043X
+    \endverb
+    \field{volume}{97}
+    \field{journaltitle}{Artificial Intelligence}
+    \field{year}{1997}
+  \endentry
+
+  \entry{Panthong2015}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=PR}{%
+         family={Panthong},
+         familyi={P\bibinitperiod},
+         given={Rattanawadee},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=SA}{%
+         family={Srivihok},
+         familyi={S\bibinitperiod},
+         given={Anongnart},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier BV}%
+    }
+    \strng{namehash}{PRSA1}
+    \strng{fullhash}{PRSA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/j.procs.2015.12.117
+    \endverb
+    \field{issn}{1877-0509}
+    \field{pages}{162–169}
+    \field{title}{Wrapper Feature Subset Selection for Dimension Reduction Based on Ensemble Learning Algorithm}
+    \verb{url}
+    \verb http://dx.doi.org/10.1016/j.procs.2015.12.117
+    \endverb
+    \field{volume}{72}
+    \field{journaltitle}{Procedia Computer Science}
+    \field{year}{2015}
+  \endentry
+
+  \entry{WrappedBased-RapidImage5256251}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=DSS}{%
+         family={Durbha},
+         familyi={D\bibinitperiod},
+         given={Surya\bibnamedelima S.},
+         giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=KRL}{%
+         family={King},
+         familyi={K\bibinitperiod},
+         given={Roger\bibnamedelima L.},
+         giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod},
+      }}%
+      {{hash=YNH}{%
+         family={Younan},
+         familyi={Y\bibinitperiod},
+         given={Nicolas\bibnamedelima H.},
+         giveni={N\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \keyw{Remote sensing;Genetic algorithms;Predictive models;Image retrieval;Image sensors;Sea measurements;Principal component analysis;Senior members;Information retrieval;Support vector machine classification;Coastal disasters;feature selection;genetic algorithms (GAs);rapid image information mining (RIIM);wrapper-based approaches}
+    \strng{namehash}{DSS+1}
+    \strng{fullhash}{DSSKRLYNH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1109/LGRS.2009.2028585
+    \endverb
+    \field{number}{1}
+    \field{pages}{43\bibrangedash 47}
+    \field{title}{Wrapper-Based Feature Subset Selection for Rapid Image Information Mining}
+    \field{volume}{7}
+    \field{journaltitle}{IEEE Geoscience and Remote Sensing Letters}
+    \field{year}{2010}
+  \endentry
+
+  \entry{Choi2011}{article}{}{}
+    \name{author}{4}{}{%
+      {{hash=CH}{%
+         family={Choi},
+         familyi={C\bibinitperiod},
+         given={Hosik},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=YD}{%
+         family={Yeo},
+         familyi={Y\bibinitperiod},
+         given={Donghwa},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Kwon},
+         familyi={K\bibinitperiod},
+         given={Sunghoon},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KY}{%
+         family={Kim},
+         familyi={K\bibinitperiod},
+         given={Yongdai},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Elsevier BV}%
+    }
+    \strng{namehash}{CH+1}
+    \strng{fullhash}{CHYDKSKY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/j.csda.2010.12.001
+    \endverb
+    \field{issn}{0167-9473}
+    \field{number}{5}
+    \field{pages}{1897–1908}
+    \field{title}{Gene selection and prediction for cancer classification using support vector machines with a reject option}
+    \verb{url}
+    \verb http://dx.doi.org/10.1016/j.csda.2010.12.001
+    \endverb
+    \field{volume}{55}
+    \field{journaltitle}{Computational Statistics \& Data Analysis}
+    \field{month}{05}
+    \field{year}{2011}
+  \endentry
+
+  \entry{Mhlenbein1996}{inbook}{}{}
+    \name{author}{2}{}{%
+      {{hash=MH}{%
+         family={M\"{u}hlenbein},
+         familyi={M\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=PG}{%
+         family={Paaß},
+         familyi={P\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer Berlin Heidelberg}%
+    }
+    \strng{namehash}{MHPG1}
+    \strng{fullhash}{MHPG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Parallel Problem Solving from Nature — PPSN IV}
+    \verb{doi}
+    \verb 10.1007/3-540-61723-x_982
+    \endverb
+    \field{isbn}{9783540706687}
+    \field{issn}{1611-3349}
+    \field{pages}{178–187}
+    \field{title}{From recombination of genes to the estimation of distributions I. Binary parameters}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/3-540-61723-X_982
+    \endverb
+    \field{year}{1996}
+  \endentry
+
+  \entry{EDAsPL2002}{book}{}{}
+    \list{publisher}{1}{%
+      {Springer US}%
+    }
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/978-1-4615-1539-5
+    \endverb
+    \field{isbn}{9781461515395}
+    \field{issn}{1568-2587}
+    \field{title}{Estimation of Distribution Algorithms}
+    \verb{url}
+    \verb http://dx.doi.org/10.1007/978-1-4615-1539-5
+    \endverb
+    \field{journaltitle}{Genetic Algorithms and Evolutionary Computation}
+    \field{year}{2002}
+  \endentry
+
+  \entry{10.5555/2955491.2955545}{inproceedings}{}{}
+    \name{author}{1}{}{%
+      {{hash=CPE}{%
+         family={Cant\'{u}-Paz},
+         familyi={C\bibinithyphendelim P\bibinitperiod},
+         given={Erick},
+         giveni={E\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Morgan Kaufmann Publishers Inc.}%
+    }
+    \strng{namehash}{CPE1}
+    \strng{fullhash}{CPE1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    This paper describes the application of four evolutionary algorithms to the selection of feature subsets for classification problems. Besides of a simple genetic algorithm (GA), the paper considers three estimation of distribution algorithms (EDAs): a compact GA, an extended compact GA, and the Bayesian Optimization Algorithm. The objective is to determine if the EDAs present advantages over the simple GA in terms of accuracy or speed in this problem. The experiments used a Naive Bayes classifier and public-domain and artificial data sets. All the algorithms found feature subsets that resulted in higher accuracies than using all the features. However, in contrast with other studies, we did not find evidence to support or reject the use of EDAs for this problem.%
+    }
+    \field{booktitle}{Proceedings of the 4th Annual Conference on Genetic and Evolutionary Computation}
+    \field{isbn}{1558608788}
+    \field{pages}{303–310}
+    \field{series}{GECCO'02}
+    \field{title}{Feature subset selection by estimation of distribution algorithms}
+    \list{location}{1}{%
+      {New York City, New York}%
+    }
+    \field{year}{2002}
+    \warn{\item Can't use 'location' + 'address'}
+  \endentry
+
+  \entry{QUEMY2020101483}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=QA}{%
+         family={Quemy},
+         familyi={Q\bibinitperiod},
+         given={Alexandre},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \keyw{Data pipelines, Hyperparameter tuning, AutoML, CASH}
+    \strng{namehash}{QA1}
+    \strng{fullhash}{QA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    Machine learning techniques play a preponderant role in dealing with massive amount of data and are employed in almost every possible domain. Building a high quality machine learning model to be deployed in production is a challenging task, from both, the subject matter experts and the machine learning practitioners. For a broader adoption and scalability of machine learning systems, the construction and configuration of machine learning workflow need to gain in automation. In the last few years, several techniques have been developed in this direction, known as AutoML. In this paper, we present a two-stage optimization process to build data pipelines and configure machine learning algorithms. First, we study the impact of data pipelines compared to algorithm configuration in order to show the importance of data preprocessing over hyperparameter tuning. The second part presents policies to efficiently allocate search time between data pipeline construction and algorithm configuration. Those policies are agnostic from the metaoptimizer. Last, we present a metric to determine if a data pipeline is specific or independent from the algorithm, enabling fine-grain pipeline pruning and meta-learning for the coldstart problem.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1016/j.is.2019.101483
+    \endverb
+    \field{issn}{0306-4379}
+    \field{pages}{101483}
+    \field{title}{Two-stage optimization for machine learning workflow}
+    \verb{url}
+    \verb https://www.sciencedirect.com/science/article/pii/S0306437919305356
+    \endverb
+    \field{volume}{92}
+    \field{journaltitle}{Information Systems}
+    \field{year}{2020}
+  \endentry
+
+  \entry{deap_2012}{inproceedings}{}{}
+    \name{author}{5}{}{%
+      {{hash=DRFM}{%
+         family={De\bibnamedelima Rainville},
+         familyi={D\bibinitperiod\bibinitdelim R\bibinitperiod},
+         given={François-Michel},
+         giveni={F\bibinithyphendelim M\bibinitperiod},
+      }}%
+      {{hash=FFA}{%
+         family={Fortin},
+         familyi={F\bibinitperiod},
+         given={Félix-Antoine},
+         giveni={F\bibinithyphendelim A\bibinitperiod},
+      }}%
+      {{hash=GMA}{%
+         family={Gardner},
+         familyi={G\bibinitperiod},
+         given={Marc-André},
+         giveni={M\bibinithyphendelim A\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Parizeau},
+         familyi={P\bibinitperiod},
+         given={Marc},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GC}{%
+         family={Gagné},
+         familyi={G\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DRFM+1}
+    \strng{fullhash}{DRFMFFAGMAPMGC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1145/2330784.2330799
+    \endverb
+    \field{pages}{85\bibrangedash 92}
+    \field{title}{DEAP: A Python framework for Evolutionary Algorithms}
+    \field{journaltitle}{GECCO'12 - Proceedings of the 14th International Conference on Genetic and Evolutionary Computation Companion}
+    \field{month}{07}
+    \field{year}{2012}
+  \endentry
+\enddatalist
+\endinput

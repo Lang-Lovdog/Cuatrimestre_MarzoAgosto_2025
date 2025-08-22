@@ -1,0 +1,134 @@
+%! TeX program = pdflatex
+%! TeX TS-program = pdflatex
+
+\documentclass[10pt]{IEEEtran}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{fontenc}
+\usepackage{dirtytalk}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tikz}
+\usepackage{varwidth}
+\usepackage{csquotes}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usetikzlibrary{positioning}
+\usepackage{biblatex}
+\addbibresource{bibl.bib}
+%% Add latin special characters for lstlisting
+\lstset{literate={á}{{\'a}}1 {é}{{\'e}}1 {ñ}{{\~n}}1}
+\tikzset{
+  x=1em,
+  y=1em,
+}
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  showstringspaces=false,
+  commentstyle=\itshape,
+  keywordstyle=\bfseries\color{cyan},
+  stringstyle=\ttfamily,
+  language=C,
+  tabsize=2,
+  breaklines=true,
+  breakatwhitespace=true,
+  escapeinside={\%*}{*)},
+  morekeywords={
+    cv,
+    filter2D,
+    abs,
+    NORM_MINMAX,
+    CV_8UC1,
+    THRESH_BINARY,
+    threshold,
+    Point,
+    BORDER_DEFAULT,
+    normalize,
+    equalizeHist
+  },
+}
+
+\graphicspath{{code/res/}}
+
+\title{Clasificación utilizando momentos de Hu}
+
+\author{ Brandon Marquez Salazar }
+
+\begin{document}
+  \maketitle
+  \section{Introducción}
+
+  \section{Materiales y métodos}
+  El programa se realizará utilizando el lenguaje C++ y la biblioteca OpenCV para la manipulación de gráficos.
+  El algoritmo de transferencia de color utilizado fue desarrollado en \cite{Reinhard2001}.
+  Se utilizarán imágees umbralizadas con formas que serán clasificadas según una tabla de características dada.
+
+  \section{Objetivos}
+  El objetivo es la correcta clasificación de las imágenes t1 y t2 utilizandos los momentos de invariantes de Hu,
+  y comparándolos con los valores dentro de una tabla de características.
+  
+  \begin{table}[htpb]
+    \centering
+    \caption{Prototipos de clase para seis formas}
+    \label{tab:prototipos}
+  
+    \begin{tabular}{ c l l l l l l l }
+      id &    H0  &   H1   &   H2   &   H3   &   H4    &   H5   &   H6    \\
+      1: &  0.49  &  2.00  &  1.96  & 3.79   & 6.82    &  4.95  & -6.80   \\
+      2: &  0.22  &  0.49  &  2.51  &  3.05  &  5.92   &  3.59  & -6.05   \\
+      3: &  0.55  &  3.08  &  4.90  &  5.35  & -10.64  &  6.90  & -10.61  \\
+      4: &  0.44  &  1.55  &  2.52  &  3.76  &  7.21   &  4.96  &  6.95   \\
+      5: &  0.42  &  1.40  &  2.72  &  4.13  &  7.55   &  4.84  &  9.07   \\ 
+      6: &  0.46  &  1.74  &  1.89  &  2.59  & -4.88   & -3.49  & -5.15   \\
+    \end{tabular}
+  \end{table}
+
+  \section{Procedimiento}
+  Sea $c$ una clase de la tabla de prototipos e $i$ una imagen a clasificar, entonces tenemos que la similitud
+  $S_{c,i}$ se calcula obteniendo la distancia entre el momento $m$ de la imagen $i$ y el prototipo $c$.
+  Cabe indicar que para una $S_{c,i}$ menor, se considera una mayor similitud.
+
+  \begin{equation}
+  \begin{aligned}
+    S_{c,i} = \sum_{m=0}^{6} {|H_{c,m} - H_{i,m}|}
+  \end{aligned}
+  \end{equation}
+
+  \includegraphics[width=0.4\linewidth]{t1.jpg}
+  \includegraphics[width=0.4\linewidth]{t2.jpg}
+
+  \section{Resultados}
+  Se obtuvo que las imágenes t1 y t2 son de las clase 6.
+  %% Write output as format of code
+  \begin{lstlisting}[language=C]
+Imagen t1
+Similitud listada a la clase del contorno 1 (valor más pequeño, similitud mayor):
+S[1] = 36.5689
+S[2] = 33.5491
+S[3] = 38.2513
+S[4] = 24.7376
+S[5] = 27.6618
+S[6] = 14.5171
+Clase más similiar: 6
+
+Imagen t2
+Similitud listada a la clase del contorno 1 (valor más pequeño, similitud mayor):
+S[1] = 52.0064
+S[2] = 50.9664
+S[3] = 37.4832
+S[4] = 38.6264
+S[5] = 36.3264
+S[6] = 31.7764
+  \end{lstlisting}
+
+  \section{Conclusiones}
+  Los momentos de Hu parecen haber clasificado de la misma forma dos diferentes
+  imágenes, es importante resaltar la necesidad de comprender que los prototipos
+  mostrados no tienen mayor contexto que la tabla, por lo que únicamente podemos
+  quedarnos con los valores numéricos.
+
+  También debe considerarse un error al tratar los momentos de Hu al definir la
+  ecuación de error o al implementarla.
+
+  \printbibliography
+\end{document}

@@ -1,0 +1,4 @@
+* SDH
+  Los histogramas de sumas y diferencias son histogramas unidimensionales.
+  Se usan para representar la distribución de las sumas y diferencias de niveles de gris de una imagen.
+  Se calcula de manera similar a la GLCM

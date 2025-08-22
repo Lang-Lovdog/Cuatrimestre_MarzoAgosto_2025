@@ -1,0 +1,16 @@
+* GLCM
+  Las matrices de co-occurrencia de niveles de gris son histogramas bidimensionales.
+  Registran la ocurrencia simultánea de intensidades de pares de píxeles ubicados en una separación en particular (distancia, ángulo).
+  La matriz de coocurrencia de niveles de gris suele presentarse en valores discretos dentro del rango de 0 a 255.
+  Para normalizar esta matriz, se busca una función de densidad de probabilidad. Por lo tanto $| GLCM_{NORM} = \frac{GLCM}{\sum_{0}^{N} P_i} |$, donde $N$ es la cantidad de píxeles de la GLCM.
+* Propiedades de las GLCM
+  Son 14 propiedades que forman un vector de características que describe la textura de la imagen.
+  - Segundo Momento Angular
+  - Correlación
+  - Contraste
+  - Energía
+  - Entropía
+  - Homogeneidad
+  - ...
+
+  [Apuntes]{:AnálisisImágenes:}

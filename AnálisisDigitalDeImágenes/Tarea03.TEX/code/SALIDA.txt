@@ -1,0 +1,64 @@
+Similitud listada a la clase del contorno 1 (valor más pequeño, similitud mayor):
+S[1] = 36.5689
+S[2] = 33.5491
+S[3] = 38.2513
+S[4] = 24.7376
+S[5] = 27.6618
+S[6] = 14.5171
+Clase más similiar: 6
+Similitud listada a la clase del contorno 1 (valor más pequeño, similitud mayor):
+S[1] = 52.0064
+S[2] = 50.9664
+S[3] = 37.4832
+S[4] = 38.6264
+S[5] = 36.3264
+S[6] = 31.7764
+Clase más similiar: 6
+Similitud listada a la clase del contorno 1 (valor más pequeño, similitud mayor):
+S[1] = 5.66267
+S[2] = 10.6427
+S[3] = 26.2869
+S[4] = 18.9827
+S[5] = 20.4827
+S[6] = 29.0127
+Clase más similiar: 1
+Similitud listada a la clase del contorno 2 (valor más pequeño, similitud mayor):
+S[1] = 43.7979
+S[2] = 49.2379
+S[3] = 42.5515
+S[4] = 71.2379
+S[5] = 74.6779
+S[6] = 50.2179
+Clase más similiar: 3
+Similitud listada a la clase del contorno 3 (valor más pequeño, similitud mayor):
+S[1] = 94.0405
+S[2] = 98.4405
+S[3] = 79.4127
+S[4] = 108.101
+S[5] = 109.241
+S[6] = 80.2305
+Clase más similiar: 3
+Similitud listada a la clase del contorno 4 (valor más pequeño, similitud mayor):
+S[1] = 236.691
+S[2] = 244.571
+S[3] = 236.382
+S[4] = 236.571
+S[5] = 234.971
+S[6] = 242.931
+Clase más similiar: 5
+Similitud listada a la clase del contorno 5 (valor más pequeño, similitud mayor):
+S[1] = 239.898
+S[2] = 247.679
+S[3] = 266.037
+S[4] = 252.579
+S[5] = 254.058
+S[6] = 264.737
+Clase más similiar: 1
+Similitud listada a la clase del contorno 6 (valor más pequeño, similitud mayor):
+S[1] = 265.43
+S[2] = 272.059
+S[3] = 318.719
+S[4] = 263.011
+S[5] = 266.359
+S[6] = 292.585
+Clase más similiar: 4

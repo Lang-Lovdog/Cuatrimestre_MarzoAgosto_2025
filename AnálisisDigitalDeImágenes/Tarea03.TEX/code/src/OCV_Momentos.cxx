@@ -72,12 +72,6 @@ int lovdogMomentos(const Contornos& src, MomentsVector& mv){
   return 0;
 }
 
-//int lovdogMomentos(const Contornos& src, MomentsVector& mv){
-//  for(size_t i=0; i<src.size(); ++i)
-//    mv.push_back(cv::moments(src[i]));
-//  return 0;
-//}
-
 int lovdogCentroides(const MomentsVector& mv, Centros& centroides){
   for(size_t i=0; i< mv.size(); ++i)
     centroides.push_back(cv::Point(
