@@ -18,6 +18,8 @@ format:
        - text: |
            \usepackage{dirtytalk}
            \usepackage{tikz}
+           \usepackage{listings}
+           \lstset{basicstyle=\ttfamily\tiny, breaklines=true}
            \usetikzlibrary{positioning}
            \tikzset{
              x=2.8em,
@@ -68,6 +70,306 @@ generalization of the gradient descent algorithm following the steps below:
   2. Forward computation $\forall i$-th training pair ($x_i$, $o_i$)
      * $\forall n$-th neuron and each $k$-th neuron input, compute the input and output
        $$v_{nk};\; o_{nk} = f(v_{nk})$$
-  3. Backward computation start computing from output layer
-     * $\forall n$-th neuron and each $k$-th neuron input, update weights
-       $$w_{nk} = w_{nk} + \Delta w_{nk} $$
+  3. Backward computation start computing from output layer ($L-th$ layer)
+     * $\forall n$-th neuron at each $l-th$ layer, compute the error and 
+       delta at the moment $t-th$
+     $$\delta_{n}^{L}(t) = e_n^{L}(t)\cdot f'(v_{n}^{L}(t))$$
+     $$\delta_{n}^{l-1}(t) = e_n^{l-1}(t) f'(v_{n}^{l-1}(t))$$
+     Where the error $e$ at layer $L$ and $l-1$ is defined by
+     $$ e^L_n(t) = y^L_n(t) - o^L_n(t) $$
+     $$ e^{l-1}_n(t) = \sum_{m=0}^{m_l} \delta_m^l(t) w_{mn}^l(t) $$
+  4. Weight update
+     * $\forall n$-th neuron at each $r-th$ layer, update weights at the moment $t-th$
+       $$w_{n}^r(t+1) = w_{n}^r(t) + \Delta w_{n}^r(t) $$
+       Considering that
+       $$ \Delta w_{nk}^r = -\mu \sum_{i=0}^N \delta_n^l(i) y^{l-1}(i) $$
+
+# MLP Implementation
+
+In this section, a MLP will be implemented as a class in Python.
+
+## Installing and importing the required modules
+For this implementation it's necessary to use the following modules:
+numpy for numerical operations, and matlplotlib for data visualization
+and scikit-learn for MLP implementation.
+```{python}
+#| output: false
+!pip install numpy
+!pip install matplotlib
+!pip install scikit-learn
+```
+
+```{python}
+#| output: false
+import numpy as np
+import matplotlib.pyplot as plt
+import random as rd
+## From scikit-learn, it's
+# necessary to import the MLPClassifier class.
+from sklearn.neural_network import MLPClassifier
+## For MLP performance evaluation
+from sklearn.model_selection \
+  import train_test_split
+from sklearn.model_selection \
+  import cross_val_score
+from sklearn.model_selection \
+  import StratifiedKFold
+from sklearn.metrics         \
+  import accuracy_score
+from sklearn.metrics         \
+  import confusion_matrix, ConfusionMatrixDisplay
+from sklearn.metrics         \
+  import classification_report
+## For datasets
+from sklearn.datasets        \
+  import load_iris
+from sklearn.datasets        \
+  import load_breast_cancer
+from sklearn.datasets        \
+  import load_wine
+from sklearn.datasets        \
+  import load_digits
+from sklearn.model_selection \
+  import train_test_split
+from sklearn.preprocessing   \
+  import StandardScaler
+
+# Load datasets (to choose one)
+def load_dataset(dataset_name='iris'):
+    """Load a sklearn dataset and return X, y"""
+    if dataset_name == 'iris':
+        data = load_iris()
+    elif dataset_name == 'cancer':
+        data = load_breast_cancer()
+    elif dataset_name == 'wine':
+        data = load_wine()
+    elif dataset_name == 'digits':
+        data = load_digits()
+    else:
+        raise ValueError(
+          "Choose: 'iris', 'cancer', 'wine', or 'digits'"
+        )
+    return data.data, data.target
+```
+
+
+## Defining the MLP class
+```{python}
+class LovdogMLP:
+    def __init__(
+      self, layer_sizes=(10, 5),
+      max_iter=1000, learning_rate=0.0001):
+        ### Simple MLP class with sigmoid
+        # activation function
+        self.learning_rate = learning_rate
+        self.layer_sizes = layer_sizes
+        self.max_iter = max_iter
+        self.model = None
+        self.training_loss = []
+        self.x = None
+        self.y = None
+        self.xTest = None
+        self.yTest = None
+        self.xTrain = None
+        self.yTrain = None
+
+    def setDataset(self, x, y):
+        scaler = StandardScaler()
+        self.x = scaler.fit_transform(x)
+        self.y = y
+        self.xTrain, self.xTest, \
+        self.yTrain, self.yTest = \
+          train_test_split(
+            self.x,
+            self.y,
+            test_size=0.2
+          )
+        return self
+
+        
+    def create_model(self):
+        # Create the Model
+        self.model = MLPClassifier(
+            hidden_layer_sizes=self.layer_sizes,
+            activation='logistic',
+            max_iter=self.max_iter,
+            alpha=self.learning_rate,
+            random_state=rd.randint(0, 1000),
+            verbose=False
+        )
+        return self
+    
+    def train(self):
+        if self.model is None:
+            self.create_model()
+        
+        # Train and capture loss curve
+        self.model.fit(self.xTrain, self.yTrain)
+        self.training_loss =   \
+          self.model.loss_curve_
+        
+        return self.training_loss
+    
+    def predict(self, x):
+        if self.model is None:
+            raise ValueError(
+            "Model not trained yet. " +\
+            "Call train() first.")
+        return self.model.predict(x)
+    
+    def get_accuracy(self):
+        predictions = self.predict(self.xTest)
+        accuracy = np.mean(predictions == self.yTest)
+        return accuracy
+    
+    def plot_training_loss(self,
+      figsize=(8, 6), cmap="blues"):
+        if not self.training_loss:
+            print("No training data available")
+            return
+        colors = plt.get_cmap(cmap)\
+          (np.linspace(
+            0, 1, len(self.training_loss)
+          ))
+
+        plt.figure(figsize=figsize)
+        plt.plot(self.training_loss,
+          label='Training Loss',
+          color=colors[0])
+        plt.xlabel('Iteration')
+        plt.ylabel('Loss')
+        plt.title(
+          f'MLP Training Loss (Layers: ' +
+          f'{self.layer_sizes})')
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+
+    def plot_confusion_matrix(self,
+      figsize=(8, 6), cmap="Blues"):
+        if self.model is None:
+            raise ValueError("Model not trained yet")
+        
+        y_pred = self.model.predict(self.xTest)
+        cm = confusion_matrix(self.yTest, y_pred)
+        
+        fig, ax = plt.subplots(figsize=figsize)
+        ConfusionMatrixDisplay(cm)\
+          .plot(ax=ax, cmap=cmap)
+        ax.set_title(
+          f"Confusion Matrix - MLP {self.layer_sizes}")
+        plt.show()
+
+    
+```
+
+## Definitions of different MLPs
+Here 4 different MLPs will be implemented each one with 3, 4, 5 and 6 layers.
+All of them will be used to try to emulate logic gates functionalities.
+
+```{python}
+mlp_of = {
+  "3": LovdogMLP(layer_sizes=(20,10,10)      ,
+      max_iter=1000),
+  "4": LovdogMLP(layer_sizes=(20,20,20,10)   ,
+      max_iter=1000),
+  "5": LovdogMLP(layer_sizes=(20,40,40,20,10),
+      max_iter=1000),
+  "6": LovdogMLP(layer_sizes=(20,60,40,40,20),
+      max_iter=1000)
+}
+## Color for each MLP and plette for plots and matrices
+cmpl = {
+  "3":  "viridis" ,
+  "4":  "magma" ,
+  "5":  "plasma" ,
+  "6":  "inferno" 
+}
+```
+
+## Testing the MLPs
+Now the MLPs will be tested to see if they can work with sklearn datasets.
+
+### Iris Dataset
+
+```{python}
+#| warning: false
+dataset = {
+  "x": load_dataset("iris")[0],
+  "y": load_dataset("iris")[1]
+}
+for mlp in mlp_of:
+    mlp_of[mlp].setDataset(
+      dataset["x"], dataset["y"])
+    mlp_of[mlp].train()
+    print(f"Accuracy for {mlp} layers:"+
+      f" {mlp_of[mlp].get_accuracy()}")
+    mlp_of[mlp].plot_training_loss(cmap=cmpl[mlp])
+    mlp_of[mlp].plot_confusion_matrix(cmap=cmpl[mlp])
+    # Print Separator
+    print("-"*40, end="\n\n")
+```
+
+### Cancer Dataset
+
+```{python}
+#| warning: false
+dataset = {
+  "x": load_dataset("cancer")[0],
+  "y": load_dataset("cancer")[1]
+}
+for mlp in mlp_of:
+    mlp_of[mlp].setDataset(
+      dataset["x"], dataset["y"])
+    mlp_of[mlp].train()
+    print(f"Accuracy for {mlp} layers:"+
+      f" {mlp_of[mlp].get_accuracy()}")
+    mlp_of[mlp].plot_training_loss(cmap=cmpl[mlp])
+    mlp_of[mlp].plot_confusion_matrix(cmap=cmpl[mlp])
+    print("-"*40, end="\n\n")
+```
+
+### Wine Dataset
+
+```{python}
+#| warning: false
+dataset = {
+  "x": load_dataset("wine")[0],
+  "y": load_dataset("wine")[1]
+}
+for mlp in mlp_of:
+    mlp_of[mlp].setDataset(
+      dataset["x"], dataset["y"])
+    mlp_of[mlp].train()
+    print(f"Accuracy for {mlp} layers:"+
+      f" {mlp_of[mlp].get_accuracy()}")
+    mlp_of[mlp].plot_training_loss(cmap=cmpl[mlp])
+    mlp_of[mlp].plot_confusion_matrix(cmap=cmpl[mlp])
+    print("-"*40, end="\n\n")
+```
+
+### Digits Dataset
+
+```{python}
+#| warning: false
+dataset = {
+  "x": load_dataset("digits")[0],
+  "y": load_dataset("digits")[1]
+}
+for mlp in mlp_of:
+    mlp_of[mlp].setDataset(
+      dataset["x"], dataset["y"])
+    mlp_of[mlp].train()
+    print(f"Accuracy for {mlp} layers:"+
+      f" {mlp_of[mlp].get_accuracy()}")
+    mlp_of[mlp].plot_training_loss(cmap=cmpl[mlp])
+    mlp_of[mlp].plot_confusion_matrix(cmap=cmpl[mlp])
+    print("-"*40, end="\n\n")
+```
+
+# Conclusions
+As seen above, multilayer perceptrons has been able to classify
+almost all the datasets. Depending on the perceptron size, and
+per layer number of neurons, the accuracy will be different.
+In some cases, the performance could be better, in other
+cases, as in the 4 layers one, it could be worse.
