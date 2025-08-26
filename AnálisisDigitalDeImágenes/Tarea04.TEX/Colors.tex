@@ -1,0 +1,51 @@
+\usepackage{xcolor}
+
+% Define colors based on your lang_quiet.vim scheme
+\definecolor{quietNormal}     {RGB}  {187 , 187 , 187}        % #bbbbbb
+\definecolor{quietComment}    {RGB}  {112 , 112 , 112}        % #707070
+\definecolor{quietConstant}   {RGB}  {128 , 207 ,  63}        % #80cf3f
+\definecolor{quietStatement}  {RGB}  { 37 , 204 ,   0}        % #25cc00
+\definecolor{quietType}       {RGB}  {  0 , 204 , 155}        % #00cc9b
+\definecolor{quietPreProc}    {RGB}  {175 , 187 ,   0}        % #afbb00
+\definecolor{quietIdentifier} {RGB}  {255 , 255 , 175}        % #ffffaf
+\definecolor{quietSpecial}    {RGB}  {218 , 218 , 218}        % #dadada
+\definecolor{quietTodo}       {RGB}  {  0 , 255 , 175}        % #00ffaf
+\definecolor{quietError}      {RGB}  {255 ,   0 ,   0}        % #ff0000
+\definecolor{quietBackground} {RGB}  {40 ,   30 ,  65}        % #000000
+
+% Define listing style
+\lstdefinestyle{langquiet}{
+%    backgroundcolor=\color{quietBackground},
+    basicstyle=\ttfamily\color{quietNormal},
+    commentstyle=\color{quietComment}\bfseries,
+    keywordstyle=\color{quietStatement},
+    stringstyle=\color{quietConstant},
+    identifierstyle=\color{quietIdentifier},
+    emphstyle=\color{quietPreProc},
+    morecomment=[s][\color{quietTodo}\bfseries]{/*!}{*/}, % for todo comments
+    numbers=left,
+    numberstyle=\tiny\color{quietComment},
+    numbersep=5pt,
+    frame=single,
+    framerule=0.5pt,
+    rulecolor=\color{quietSpecial},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    captionpos=b,
+    linewidth=\textwidth
+}
+
+% Additional C/C++ specific keywords
+\lstset{
+    style=langquiet,
+    language=C++,
+    morekeywords={constexpr, noexcept, override, final, nullptr, auto, decltype},
+    morecomment=[l][\color{quietComment}\bfseries]{//},
+    morestring=[b]",
+    morestring=[b]'
+}
+

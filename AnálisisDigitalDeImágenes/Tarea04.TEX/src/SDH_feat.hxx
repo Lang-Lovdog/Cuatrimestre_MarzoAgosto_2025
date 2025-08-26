@@ -22,6 +22,8 @@ namespace lovdog{
         ANGLE_135=135,
         ANGLE_180=180
       ;
+      bool logOn;
+      char verbose;
       static constexpr uint ANGLE[5] = {ANGLE_0, ANGLE_45, ANGLE_90, ANGLE_135, ANGLE_180};
       static const int
         DIFF=0,
@@ -64,6 +66,8 @@ namespace lovdog{
         mean
       ;
       void set(int d, uint angle);
+      double  set(const int which_one, int index, double value);
+      double  setRel(const int which_one, int index, double value);
       double* at(const int which_one, int index);
       double* atRel(const int which_one, size_t index);
       void toCSV(std::string filename, unsigned int HEADER=0, bool append=false, std::string name="SDH");
@@ -74,9 +78,9 @@ namespace lovdog{
       void computeFeatures(void);
       static int getSDH(const cv::Mat& src, SDH& sdh);
       static void computeFeatures(SDH& sdh);
-      static void toCSV(std::vector<SDH>& sdh, std::string filename, unsigned int HEADER=0);
-      static void toCSV_WriteHeader(std::string filename, unsigned int HEADER=0);
-      void printFeatures(void);
+      static void toCSV(std::vector<SDH>& sdh, std::string filename, unsigned int HEADER=SDH::ALL);
+      static void toCSV_WriteHeader(std::string filename, unsigned int HEADER=SDH::ALL);
+      void printFeatures(unsigned int HEADER=SDH::ALL);
 
     private:
       double
@@ -85,6 +89,8 @@ namespace lovdog{
         Hist[2][511]
       ;
       static std::vector<SDH> _Lovdog_SDH_Features_Objects_;
+      void incrementHist(int which_one, int index, double step=1);
+      void decrementHist(int which_one, int index, double step=1);
   };
   typedef std::vector<SDH> SDHs;
 

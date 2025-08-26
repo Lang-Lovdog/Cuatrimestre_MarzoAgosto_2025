@@ -1,0 +1,245 @@
+%!TeX root = MarquezSalazarBrandon-Tarea04-Reporte.tex
+\subsection{Features extraction using the SDH algorithm}
+The program was made to receive an image and compute each of the
+eight SDH histograms from it.
+
+In this section, the program as simple as it can be due to OOP
+paradigm, it's presented (only main function):
+
+\begin{file}[SDHmain.cpp]
+  \begin{lstlisting}[language=C]
+int main(int argc, char** argv){
+  cv::Mat src; lovdogGetImage(argv[1], src);
+  cv::cvtColor(src, src, cv::COLOR_BGR2GRAY);
+
+  lovdog::SDH sdh(src);
+
+  sdh.verbose = 1;
+  uint ds[2] = {1,2} ;
+  uint the_d, the_angle,
+       mask =
+          lovdog::SDH::HOMOGENEITY |
+          lovdog::SDH::ENERGY      |
+          lovdog::SDH::ENTROPY     |
+          lovdog::SDH::MEAN        |
+          lovdog::SDH::CONTRAST
+         ;
+
+  int the_err;
+
+  std::string csvout =
+    std::string("out/Features")+
+    // Get only basename of file
+    std::string(argv[1])
+      .substr(std::string(argv[1])
+      .find_last_of("/\\") + 1) +
+    std::string(".csv");
+  std::cout << "csvout: " << csvout << std::endl;
+
+  lovdog::SDH::toCSV_WriteHeader(csvout, mask);
+
+  the_d = the_angle = 0;
+  while(the_d < 2){
+    while(the_angle < 4){
+      if((the_err=sdh.getSDH(ds[the_d], lovdog::SDH::ANGLE[the_angle]))){
+        std::cout << "Error in getSDH, err: " << the_err << std::endl;
+        ++the_angle;
+        continue;
+      }
+      sdh.computeFeatures();
+      // Print all features
+      //sdh.printFeatures(mask); std::cout <<  std::endl;
+      sdh.toCSV(csvout, mask, true, argv[1]);
+      the_angle++;
+    }
+    the_angle = 0;
+    the_d++;
+  }
+
+  return 0;
+}
+  \end{lstlisting}
+\end{file}
+
+\subsection{Results}
+
+\subsubsection{SDH features with a pairs with d=1}
+This program will receive each image and will export a different csv for each one.
+And the results are show in the next tables.
+
+% Table for (d, θ) = (1, 0°)
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|| l | c | c | c | c | c ||}
+    \hline
+    \hline
+    \textbf{Image} & \textbf{Mean} & \textbf{Contrast} & \textbf{Homogeneity} & \textbf{Energy} & \textbf{Entropy} \\
+    \hline
+    \hline
+    Solid.png & 153.0000 & 0.0000 & 1.0000 & 1.0000 & -0.0000 \\
+    \hline
+    Bus.jpeg & 66.5493 & 57.8704 & 0.3818 & 0.0005 & 3.7026 \\
+    \hline
+    Sunset-cirro.jpeg & 102.3420 & 20.4588 & 0.5373 & 0.0007 & 3.5669 \\
+    \hline
+    Natur-police.jpeg & 79.0921 & 504.7280 & 0.2564 & 0.0002 & 4.2844 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{SDH features with a pair of ($d$, $\theta$) = (1, 0°).}
+\end{table}
+
+% Table for (d, θ) = (1, 45°)
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|| l | c | c | c | c | c ||}
+    \hline
+    \hline
+    \textbf{Image} & \textbf{Mean} & \textbf{Contrast} & \textbf{Homogeneity} & \textbf{Energy} & \textbf{Entropy} \\
+    \hline
+    \hline
+    Solid.png & 153.0000 & 0.0000 & 1.0000 & 1.0000 & -0.0000 \\
+    \hline
+    Bus.jpeg & 66.5503 & 136.8360 & 0.2921 & 0.0003 & 3.8736 \\
+    \hline
+    Sunset-cirro.jpeg & 102.3370 & 94.5174 & 0.3715 & 0.0004 & 3.8852 \\
+    \hline
+    Natur-police.jpeg & 79.1390 & 731.6960 & 0.2086 & 0.0001 & 4.4068 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{SDH features with a pair of ($d$, $\theta$) = (1, 45°).}
+\end{table}
+\vfill
+% Table for (d, θ) = (1, 90°)
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|| l | c | c | c | c | c ||}
+    \hline
+    \hline
+    \textbf{Image} & \textbf{Mean} & \textbf{Contrast} & \textbf{Homogeneity} & \textbf{Energy} & \textbf{Entropy} \\
+    \hline
+    \hline
+    Solid.png & 153.0000 & 0.0000 & 1.0000 & 1.0000 & -0.0000 \\
+    \hline
+    Bus.jpeg & 66.5524 & 82.5273 & 0.3741 & 0.0005 & 3.7241 \\
+    \hline
+    Sunset-cirro.jpeg & 102.3220 & 82.0923 & 0.4180 & 0.0004 & 3.8148 \\
+    \hline
+    Natur-police.jpeg & 79.1420 & 552.9490 & 0.2457 & 0.0002 & 4.3244 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{SDH features with a pair of ($d$, $\theta$) = (1, 90°).}
+\end{table}
+
+% Table for (d, θ) = (1, 135°)
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|| l | c | c | c | c | c ||}
+    \hline
+    \hline
+    \textbf{Image} & \textbf{Mean} & \textbf{Contrast} & \textbf{Homogeneity} & \textbf{Energy} & \textbf{Entropy} \\
+    \hline
+    \hline
+    Solid.png & 153.0000 & 0.0000 & 1.0000 & 1.0000 & -0.0000 \\
+    \hline
+    Bus.jpeg & 66.5503 & 112.7550 & 0.2980 & 0.0003 & 3.8535 \\
+    \hline
+    Sunset-cirro.jpeg & 102.3370 & 95.7842 & 0.3672 & 0.0003 & 3.8897 \\
+    \hline
+    Natur-police.jpeg & 79.1390 & 779.7240 & 0.2083 & 0.0001 & 4.4171 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{SDH features with a pair of ($d$, $\theta$) = (1, 135°).}
+\end{table}
+
+\subsubsection{SDH features with a pair of $d$=2}
+% Table for (d, θ) = (2, 0°)
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|| l | c | c | c | c | c ||}
+    \hline
+    \hline
+    \textbf{Image} & \textbf{Mean} & \textbf{Contrast} & \textbf{Homogeneity} & \textbf{Energy} & \textbf{Entropy} \\
+    \hline
+    \hline
+    Solid.png & 153.0000 & 0.0000 & 1.0000 & 1.0000 & -0.0000 \\
+    \hline
+    Bus.jpeg & 66.5473 & 149.4110 & 0.2793 & 0.0003 & 3.8871 \\
+    \hline
+    Sunset-cirro.jpeg & 102.3570 & 42.9679 & 0.3993 & 0.0004 & 3.7914 \\
+    \hline
+    Natur-police.jpeg & 79.0884 & 834.9240 & 0.1998 & 0.0001 & 4.4174 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{SDH features with a pair of ($d$, $\theta$) = (2, 0°).}
+\end{table}
+
+% Table for (d, θ) = (2, 45°)
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|| l | c | c | c | c | c ||}
+    \hline
+    \hline
+    \textbf{Image} & \textbf{Mean} & \textbf{Contrast} & \textbf{Homogeneity} & \textbf{Energy} & \textbf{Entropy} \\
+    \hline
+    \hline
+    Solid.png & 153.0000 & 0.0000 & 1.0000 & 1.0000 & -0.0000 \\
+    \hline
+    Bus.jpeg & 66.5494 & 358.2190 & 0.2170 & 0.0002 & 4.0445 \\
+    \hline
+    Sunset-cirro.jpeg & 102.3460 & 166.8680 & 0.2779 & 0.0002 & 4.0828 \\
+    \hline
+    Natur-police.jpeg & 79.1831 & 1070.4500 & 0.1666 & 0.0001 & 4.5035 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{SDH features with a pair of ($d$, $\theta$) = (2, 45°).}
+\end{table}
+
+% Table for (d, θ) = (2, 90°)
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|| l | c | c | c | c | c ||}
+    \hline
+    \hline
+    \textbf{Image} & \textbf{Mean} & \textbf{Contrast} & \textbf{Homogeneity} & \textbf{Energy} & \textbf{Entropy} \\
+    \hline
+    \hline
+    Solid.png & 153.0000 & 0.0000 & 1.0000 & 1.0000 & -0.0000 \\
+    \hline
+    Bus.jpeg & 66.5536 & 235.5320 & 0.2593 & 0.0003 & 3.9400 \\
+    \hline
+    Sunset-cirro.jpeg & 102.3160 & 148.7230 & 0.3068 & 0.0003 & 4.0359 \\
+    \hline
+    Natur-police.jpeg & 79.1898 & 918.4460 & 0.1945 & 0.0001 & 4.4575 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{SDH features with a pair of ($d$, $\theta$) = (2, 90°).}
+\end{table}
+
+% Table for (d, θ) = (2, 135°)
+\begin{table}[!h]
+  \centering
+  \begin{tabular}{|| l | c | c | c | c | c ||}
+    \hline
+    \hline
+    \textbf{Image} & \textbf{Mean} & \textbf{Contrast} & \textbf{Homogeneity} & \textbf{Energy} & \textbf{Entropy} \\
+    \hline
+    \hline
+    Solid.png & 153.0000 & 0.0000 & 1.0000 & 1.0000 & -0.0000 \\
+    \hline
+    Bus.jpeg & 66.5495 & 292.1720 & 0.2243 & 0.0002 & 4.0146 \\
+    \hline
+    Sunset-cirro.jpeg & 102.3460 & 167.1190 & 0.2732 & 0.0002 & 4.0880 \\
+    \hline
+    Natur-police.jpeg & 79.1831 & 1111.9100 & 0.1675 & 0.0001 & 4.5102 \\
+    \hline
+    \hline
+  \end{tabular}
+  \caption{SDH features with a pair of ($d$, $\theta$) = (2, 135°).}
+\end{table}

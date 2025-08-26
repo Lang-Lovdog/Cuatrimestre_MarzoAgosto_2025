@@ -1,0 +1,41 @@
+%!TeX root = MarquezSalazarBrandon-Tarea04-Reporte.tex
+%!TeX program = pdflatex
+\documentclass[10pt]{article}
+\input{structure.tex}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\usepackage{dirtytalk}
+\usepackage{subcaption}
+\usepackage[backend=bibtex, style=ieee]{biblatex}
+\lstset{
+    showspaces=false,
+    showtabs=false,
+    breaklines=true,
+    showstringspaces=false,
+    breakatwhitespace=true,
+    escapeinside={(*@}{@*)},
+    frame=l,
+    basicstyle=\ttfamily\tiny,
+    captionpos=b
+}
+\input{NegativeColors.tex}
+\pgfplotsset{compat=1.18}
+\bibliography{References}
+
+\author{%
+Brandon Marquez Salazar
+}
+\title{%
+  Sum and difference histograms
+}
+\date{%
+  Universidad de Guanajuato - August 23rd, 2022
+}
+
+\begin{document}
+  \maketitle
+  \include{02.-Exercise1}
+  \include{03.-Exercise2}
+  \include{04.-Exercise3}
+  \include{05.-Exercise4}
+\end{document}

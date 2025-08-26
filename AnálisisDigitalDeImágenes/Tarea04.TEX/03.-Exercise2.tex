@@ -1,0 +1,215 @@
+%!TeX root = MarquezSalazarBrandon-Tarea04-Reporte.tex
+\section{ Implementation of the SDH algorithm}
+
+
+For this experiment, it was implemented a class \textbf{SDH},
+which uses some of the \textbf{OpenCV} library functions.
+The purpose is to compute texture properties from an image,
+for specific $d$ and $\theta$ 
+
+First, of all, the library includes to assure all it needs to
+work properly.
+
+\begin{file}[SDH\_feat.hxx]
+  \begin{lstlisting}[language=C]
+#ifndef __LOVDOG_SDH_FEAT_HXX__
+#define __LOVDOG_SDH_FEAT_HXX__
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/core.hpp>
+#include <vector>
+#include <string>
+  \end{lstlisting}
+\end{file}
+
+Now, the class \textbf{SDH} was declared inside a namespace
+(\textbf{lovdog}) with the following attributes:
+
+\subsection{Public attributes}
+As a class, it's needed to define some public attributes and
+methods to be accesible to the user.
+
+\subsubsection{Static constants}
+Static constants for angle and histogram index.
+\begin{file}[SDH\_feat.hxx]
+  \begin{lstlisting}[language=C]
+      static const uint
+        ANGLE_0=0,
+        ANGLE_45=45,
+        ANGLE_90=90,
+        ANGLE_135=135,
+        ANGLE_180=180
+      ;
+      static constexpr uint ANGLE[5] = {
+        ANGLE_0,
+        ANGLE_45,
+        ANGLE_90,
+        ANGLE_135,
+        ANGLE_180
+      };
+      static const int
+        DIFF=0,
+        SUM=1
+      ;
+  \end{lstlisting}
+\end{file}
+
+\subsubsection{Control variables and macros} \label{control_variables}
+Within the class, is also available some header macros for
+visualization and exports. And two control variables for log and
+verbosity.
+\begin{file}[SDH\_feat.hxx]
+  \begin{lstlisting}[language=C]
+      bool logOn;
+      char verbose;
+      static const uint
+        ALL            = ~0,
+        _MEAN_DIFF     = 0b000000000001,
+        _MEAN_SUM      = 0b000000000010,
+        _VARIANCE_DIFF = 0b000000000100,
+        _VARIANCE_SUM  = 0b000000001000,
+        CORRELATION    = 0b000000010000,
+        CONTRAST       = 0b000000100000,
+        HOMOGENEITY    = 0b000001000000,
+        SHADOWNESS     = 0b000010000000,
+        PROMINENCE     = 0b000100000000,
+        ENERGY         = 0b001000000000,
+        ENTROPY        = 0b010000000000,
+        MEAN           = 0b100000000000
+      ;
+  \end{lstlisting}
+\end{file}
+
+Some attributes for features and histograms.
+\begin{file}[SDH\_feat.hxx]
+  \begin{lstlisting}[language=C]
+      cv::Mat src;
+      uint
+        d,
+        angle
+      ;
+      int
+        dx,
+        dy
+      ;
+      double
+        _mean[2],
+        _variance[2],
+        correlation,
+        contrast,
+        homogeneity,
+        shadowness,
+        prominence,
+        energy,
+        entropy,
+        mean
+      ;
+  \end{lstlisting}
+\end{file}
+\subsection{Private attributes}
+There are few private attributes for the class,
+which are the histograms array and two pointers to each
+histogram.
+\begin{file}[SDH\_feat.hxx]
+  \begin{lstlisting}[language=C]
+      double
+       *sumHist,
+       *diffHist,
+        Hist[2][511]
+      ;
+  \end{lstlisting}
+\end{file}
+
+
+\subsection{Public methods}
+The class \textbf{SDH} has public methods for access, ($d$, $\theta$) definition
+and some other utilities most for the internal use of the class, but still public.
+Most of them are overloaded, but the most important ones are the following:
+
+\begin{file}[SDH\_feat.hxx]
+  \begin{lstlisting}[language=C]
+      SDH(const cv::Mat& src);
+      void set(int d, uint angle);
+      double  set(const int which_one, int index, double value);
+      double* at(const int which_one, int index);
+      double* atRel(const int which_one, size_t index);
+      void toCSV(std::string filename, unsigned int HEADER=0, bool append=false, std::string name="SDH");
+      static int getSDH(const cv::Mat& src, SDH& sdh);
+      static void computeFeatures(SDH& sdh);
+      static void toCSV(std::vector<SDH>& sdh, std::string filename, unsigned int HEADER=SDH::ALL);
+      static void toCSV_WriteHeader(std::string filename, unsigned int HEADER=SDH::ALL);
+      void printFeatures(unsigned int HEADER=SDH::ALL);
+  \end{lstlisting}
+\end{file}
+
+\subsubsection{The constructor}
+There are other constructors, but here, the used in this experiment
+initializes the class with a given image.
+By default, the ($d$, $\theta$) pair is set to (1,0).
+ 
+\subsubsection{The set method}
+The \textbf{set} method is intended to change the value of a given
+bin of any histogram.
+
+\subsubsection{The at method}
+The \textbf{at} method is intended to return a pointer to the element
+at the $index$ position of any histogram. Index ranges are from $0$ to $510$
+for \texttt{SDH::SUM}, and from $-255$ to $255$ for \texttt{SDH::DIFF}.
+
+\subsubsection{The atRel method}
+The \textbf{atRel} method is intended to return a pointer to the element
+at the $index$ position of any histogram, but relative to the $0$
+index used in C\/C\+\+. In other words, both \texttt{SDH::DIFF} and 
+\texttt{SDH::SUM} start at 0.
+
+\subsubsection{The getSDH method}
+Here, the process of computing the SDH occurs, with a window-focused approach.
+This function computes two submatrices which will be Op1 and Op2,
+and then computes it's sum and difference matrices.
+
+This method is overloaded allowing it to be called from the object with no
+arguments or with the facility to set the ($d$, $\theta$) pair before
+processing the image.
+
+With logOn=true, it exports to csv the SDH histograms, normalized and
+unnormalized.
+
+\subsubsection{The computeFeatures method}
+This method is where all the features are computed from the SDH histograms,
+there's an overload for it to be called from the object with no arguments.
+
+The most important, is that it's needed to be called to compute the features
+after the SDH has been computed.
+
+It's separate from the \texttt{getSDH} method because it's better having
+step by step each process.
+
+\subsubsection{The printFeatures method}
+The \textbf{printFeatures} method is intended to print the features
+of a \texttt{SDH} object, can be used with the macros described in 
+\ref{control_variables}
+
+\subsubsection{The toCSV and toCSV\_WriteHeader methods}
+The \textbf{toCSV} method is intended to write the features of a
+\texttt{SDH} object to a CSV file. Can be used with the macros described in
+\ref{control_variables}
+
+toCSV\_WriteHeaderC method is intended to write the header of a CSV
+file with the features of a \texttt{SDH} object, then the user may just
+append the features to the file if there are many \texttt{SDH} objects
+or they're within a loop.
+
+\subsection{Private methods}
+\begin{file}[SDH\_feat.hxx]
+  \begin{lstlisting}[language=C]
+      void incrementHist(int which_one, int index, double step=1);
+      void decrementHist(int which_one, int index, double step=1);
+  \end{lstlisting}
+\end{file}
+
+\subsubsection{The incrementHist and decrementHist methods}
+The \textbf{incrementHist} and \textbf{decrementHist} methods are
+intended to increment or decrement a bin of any histogram. The user can specify
+the step (by default, 1). The indexes here are the same as the \texttt{at}
+method, from $0$ to $510$ for \texttt{SDH::SUM}, and from $-255$ to $255$
+for \texttt{SDH::DIFF}.
