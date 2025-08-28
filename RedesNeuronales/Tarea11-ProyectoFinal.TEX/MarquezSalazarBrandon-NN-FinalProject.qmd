@@ -214,11 +214,12 @@ model's reconstruction performance, mitigating the variance from a single random
 
 # Results
 
-In this section, the results of the experiments are presented and discussed.
+After running the experiments, the resulting metric were collected and compared
+between the CPU and GPU configurations.
 
-
-## Computational Efficiency
-The results for computational efficiency are shown in Table I.
+For the results for computational efficiency are shown in Table I,
+as it can be clearly noted, the GPU performance is faster than the CPU;
+regarding the Loss measures demonstrate a slightly better performance from the CPU.
 
 \begin{table}[h]
 \centering
@@ -289,13 +290,51 @@ Epoch & Device & Time (s) & Loss & Recon. Loss & Val Loss \\
 \end{tabular}
 \end{table}
 
-## Analysis of Reconstruction and Generation
 
-## Latent Space Analysis
+It can be seen (in Figures 1 and 2) that the model was able to reconstruct at least 5 of the 10 sampless
+on the first run (CPU). And at least 4 of the 10 samples on the second run (GPU).
 
-## Validation through K-Fold Cross-Validation
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\linewidth]{./Reconstruction-CPU.png}
+\caption{Reconstructed and Generated Digits - First Run}
+\includegraphics[width=0.8\linewidth]{./Reconstruction-GPU.png}
+\caption{Reconstructed and Generated Digits - Second Run}
+\end{figure}
 
-## References
+And the distribution made by the ANN (in Figures 3 and 4) made by the CPU, even being the same
+process and dataset, was better that than the GPU despite being slower.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\linewidth]{./2DLatentSpace-CPU.png}
+\caption{Latent Space - CPU}
+\includegraphics[width=0.8\linewidth]{./2DLatentSpace-GPU.png}
+\caption{Latent Space - GPU}
+\end{figure}
+
+Also, in the figures 5 and 6, the loss of the model is presented, and its clear
+that the CPU converges faster than the GPU.
+
+\begin{figure}[!ht]
+\centering
+\includegraphics[width=0.8\linewidth]{./ValidationTrainingLoss-CPU.png}
+\caption{Loss - CPU}
+\includegraphics[width=0.8\linewidth]{./ValidationTrainingLoss-GPU.png}
+\caption{Loss - GPU}
+\end{figure}
+
+# Conclusions
+
+As seen in the results, even with faster computation time, the GPU wasn't able
+to enhance the CPU results. However, obtained results are not decisive
+due to lack of repetitions. Further comparisons are planned.
+Also, the general performance of the model is quite good.
+
+Looking at the GPU performance, it can be good to test in more epochs and see the behaviour
+in further trainings, which, can lead to new results and more favorable for the GPU. 
+
+# References
 
 ::: {#refs}
 :::
