@@ -1,0 +1,41 @@
+\makeatletter
+\DeclareRobustCommand{\cvdots}{%
+  \vbox{
+    \baselineskip3.7\p@\lineskiplimit\z@
+    \kern-\p@
+    \hbox{.}\hbox{.}\hbox{.}
+  }}
+\makeatother
+
+\DeclareMathOperator{\sign}{sign}
+
+%%% TikZ for neuron model
+\tikzstyle{ninput}    =[circle,    draw, minimum size =01.7em,  color=BlueGreen,inner sep=0pt]
+\tikzstyle{neuron}    =[circle,    draw, minimum size =01.7em,  color=BrickRed, inner sep=0pt]
+\tikzstyle{actfun}    =[rectangle, draw, minimum size =01.7em,  color=Violet,   inner sep=0pt,
+                                         minimum width=03.4em]  
+
+\usetikzlibrary{
+  arrows.meta,      % 箭头形状
+  shapes.geometric, % 几何形状
+  chains,           % 链式布局
+  calc,             % 坐标计算
+}
+%%% FLOWCHART ELEMENTS
+\usepackage{tikz-flowchart}
+\tikzstyle{fc start}=[
+  base,
+  circle,
+  minimum size=1em,
+  fill=Black,
+  inner sep=0
+]
+%%% FLOWCHART ELEMENTS
+
+\tikzset{signfn/.pic={
+  \draw (-1.0,-0.5) --
+        ( 0.0,-0.5) --
+        ( 0.0, 0.0) --
+        ( 0.0, 0.5) --
+        ( 1.0, 0.5);
+}}
