@@ -1,0 +1,55 @@
+---
+title: "Convolutional ANNs"
+execute:
+   enabled: false
+#   include: false
+#   enabled: true
+   warning: false
+   output: false
+   error: false
+monofont: "BigBlueTermPlus Nerd Font Mono"
+monofontoptions:
+   - Scale=0.60
+#format: ipynb
+format:
+   pdf:
+     title: Convolutional ANNs
+     author: Brandon Marquez Salazar
+     pdf-engine: xelatex
+     documentclass: IEEEtran
+     number-sections: true
+     bibliography: bibliography.bib
+     bibliographystyle: ieee
+     cite-method: biblatex
+     nocite: | 
+      @*
+     include-in-header:
+       - text: |
+           \usepackage{dirtytalk}
+           \usepackage{tikz}
+           \usepackage{listings}
+           \lstset{basicstyle=\ttfamily\tiny, breaklines=true}
+           \usetikzlibrary{positioning}
+           \tikzset{
+             x=2.8em,
+             y=2.8em,
+           }
+           \input{Macros}
+jupyter: redesneuronales
+---
+
+# Introduction
+
+*(The "Why": 2-3 paragraphs. State the problem, its importance, and the purpose of this summary.)*
+
+# Core Concepts and Methods
+
+
+# Applications and Discussion
+
+*(The "So What": 1-2 paragraphs. Where are these methods applied? What are the current challenges or trade-offs? This is critical for a good grade.)*
+
+# Conclusion
+
+*(Synthesize the main points. Restate the most important takeaway. "The choice between Method A and Method B often depends on computational budget and dataset size...")*
+

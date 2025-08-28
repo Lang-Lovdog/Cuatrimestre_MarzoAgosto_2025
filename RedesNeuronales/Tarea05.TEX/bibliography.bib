@@ -1,0 +1,69 @@
+@article{Bartlett1998,
+  title = {The sample complexity of pattern classification with neural networks: the size of the weights is more important than the size of the network},
+  volume = {44},
+  ISSN = {0018-9448},
+  url = {http://dx.doi.org/10.1109/18.661502},
+  DOI = {10.1109/18.661502},
+  number = {2},
+  journal = {IEEE Transactions on Information Theory},
+  publisher = {Institute of Electrical and Electronics Engineers (IEEE)},
+  author = {Bartlett,  P.L.},
+  year = {1998},
+  month = mar,
+  pages = {525–536}
+}
+
+@inproceedings{10.5555/2987061.2987082,
+  author = {Hassibi, Babak and Stork, David G.},
+  title = {Second order derivatives for network pruning: optimal brain surgeon},
+  year = {1992},
+  isbn = {1558602747},
+  publisher = {Morgan Kaufmann Publishers Inc.},
+  address = {San Francisco, CA, USA},
+  abstract = {We investigate the use of information from all second order derivatives of the error function to perform network pruning (i.e., removing unimportant weights from a trained network) in order to improve generalization, simplify networks, reduce hardware or storage requirements, increase the speed of further training, and in some cases enable rule extraction. Our method, Optimal Brain Surgeon (OBS), is Significantly better than magnitude-based methods and Optimal Brain Damage [Le Cun, Denker and Solla, 1990], which often remove the wrong weights. OBS permits the pruning of more weights than other methods (for the same error on the training set), and thus yields better generalization on test data. Crucial to OBS is a recursion relation for calculating the inverse Hessian matrix H-1 from training data and structural information of the net. OBS permits a 90\%, a 76\%, and a 62\% reduction in weights over backpropagation with weight decay on three benchmark MONK's problems [Thrun et al., 1991]. Of OBS, Optimal Brain Damage, and magnitude-based methods, only OBS deletes the correct weights from a trained XOR network in every case. Finally, whereas Sejnowski and Rosenberg [1987] used 18,000 weights in their NETtalk network, we used OBS to prune a network to just 1560 weights, yielding better generalization.},
+  booktitle = {Proceedings of the 6th International Conference on Neural Information Processing Systems},
+  pages = {164–171},
+  numpages = {8},
+  location = {Denver, Colorado},
+  series = {NIPS'92}
+}
+
+@article{10.1162/neco.1995.7.1.108,
+    author = {Bishop, Chris M.},
+    title = {Training with Noise is Equivalent to Tikhonov Regularization},
+    journal = {Neural Computation},
+    volume = {7},
+    number = {1},
+    pages = {108-116},
+    year = {1995},
+    month = {01},
+    abstract = {It is well known that the addition of noise to the input data of a neural network during training can, in some circumstances, lead to significant improvements in generalization performance. Previous work has shown that such training with noise is equivalent to a form of regularization in which an extra term is added to the error function. However, the regularization term, which involves second derivatives of the error function, is not bounded below, and so can lead to difficulties if used directly in a learning algorithm based on error minimization. In this paper we show that for the purposes of network training, the regularization term can be reduced to a positive semi-definite form that involves only first derivatives of the network mapping. For a sum-of-squares error function, the regularization term belongs to the class of generalized Tikhonov regularizers. Direct minimization of the regularized error function provides a practical alternative to training with noise.},
+    issn = {0899-7667},
+    doi = {10.1162/neco.1995.7.1.108},
+    url = {https://doi.org/10.1162/neco.1995.7.1.108},
+    eprint = {https://direct.mit.edu/neco/article-pdf/7/1/108/812990/neco.1995.7.1.108.pdf},
+}
+
+@article{JMLR:v15:srivastava14a,
+  author  = {Nitish Srivastava and Geoffrey Hinton and Alex Krizhevsky and Ilya Sutskever and Ruslan Salakhutdinov},
+  title   = {Dropout: A Simple Way to Prevent Neural Networks from Overfitting},
+  journal = {Journal of Machine Learning Research},
+  year    = {2014},
+  volume  = {15},
+  number  = {56},
+  pages   = {1929--1958},
+  url     = {http://jmlr.org/papers/v15/srivastava14a.html}
+}
+
+@inproceedings{10.5555/3045118.3045167,
+  author = {Ioffe, Sergey and Szegedy, Christian},
+  title = {Batch normalization: accelerating deep network training by reducing internal covariate shift},
+  year = {2015},
+  publisher = {JMLR.org},
+  abstract = {Training Deep Neural Networks is complicated by the fact that the distribution of each layer's inputs changes during training, as the parameters of the previous layers change. This slows down the training by requiring lower learning rates and careful parameter initialization, and makes it notoriously hard to train models with saturating nonlinearities. We refer to this phenomenon as internal covariate shift, and address the problem by normalizing layer inputs. Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch Normalization allows us to use much higher learning rates and be less careful about initialization, and in some cases eliminates the need for Dropout. Applied to a state-of-the-art image classification model, Batch Normalization achieves the same accuracy with 14 times fewer training steps, and beats the original model by a significant margin. Using an ensemble of batch-normalized networks, we improve upon the best published result on ImageNet classification: reaching 4.82\% top-5 test error, exceeding the accuracy of human raters.},
+  booktitle = {Proceedings of the 32nd International Conference on International Conference on Machine Learning - Volume 37},
+  pages = {448–456},
+  numpages = {9},
+  location = {Lille, France},
+  series = {ICML'15}
+}
