@@ -1,0 +1,53 @@
+@document.meta
+title: Notes
+description: 
+authors: lang_lovdog
+categories: 
+created: 2025-08-28T22:43:13-0600
+updated: 2025-08-29T02:01:07-0600
+version: 1.1.1
+@end
+
+Here are some notes for this document
+
+* The json file
+  The most important part of this project is a json file
+  which should point the paths for files or directories
+  that will be used.
+  In there, the data should be as follws:
+  @code json
+  {
+    "csv": "Features_Table.csv",
+    {
+      "class": "Class_01",
+      "path" : "path/to/Class_01",
+      "extra": { ... }
+    },
+    {
+      "class": "Class 02",
+      "path" : "path/to/Class_02",
+      "extra": { ... }
+    },
+  }
+  @end
+  The loaded file will be parsed into any of the lovdog
+  pattern recognition classes.
+  The extra is an optional field which will have important
+  information, such as:
+  - The format of the input data:
+   - One-dimentional array
+  -- Two-dimentional array
+  -- Mime type
+  - If one-dimentional array, the actual shape of the array:
+  -- cols
+  -- rows
+  - If mime type, the file type and, if needed, custom read function
+
+  Everyone will be, at the end, output a numpy array just as
+  any imread function from skimage or opencv.
+
+** Current implementation
+   This approach will have the needed extra parsing
+   at today Friday - 29/08/2025 at 01:55:49
+
+   Only will be implemented the extra for 1d array.
