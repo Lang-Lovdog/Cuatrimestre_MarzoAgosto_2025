@@ -1,0 +1,101 @@
+\frametitle{Model selection for classification}
+    For this, the approach given was Grid Search Cross Validation (GSCV)
+    provided by scikit-learn library.
+    Here, the main parameters used were:
+    % Block 1: Core Classifiers
+    \begin{table}[htbp]
+      \centering
+      \caption{Block 1: Core classifiers and their hyperparameter search grids.}
+      \label{tab:block1}
+      \begin{tabular}{@{}l L l@{}}
+      \toprule
+      \textbf{Classifier} & \textbf{Hyperparameters} & \textbf{Search Values} \\
+      \midrule
+      Decision Tree & max\_depth & [3, 5, 7, 10] \\
+      & min\_samples\_split & [2, 5, 10] \\
+      & criterion & ['gini', 'entropy'] \\
+      \midrule
+      Random Forest & n\_estimators & [50, 100, 200] \\
+      & max\_depth & [3, 5, 7, 10] \\
+      & min\_samples\_split & [2, 5, 10] \\
+      \midrule
+      KNN Coarse & n\_neighbors & [10, 30, 50, 70, 90] \\
+      & weights & ['uniform', 'distance'] \\
+      \midrule
+      AdaBoost & n\_estimators & [50, 100, 200] \\
+      & learning\_rate & [0.01, 0.1, 1.0] \\
+      \bottomrule
+      \end{tabular}
+    \end{table}
+
+    % Block 2: KNN Variants
+    \begin{table}[htbp]
+      \centering
+      \caption{Block 2: K-Nearest Neighbors variants and their hyperparameter search grids.}
+      \label{tab:block2}
+      \begin{tabular}{@{}l L l@{}}
+      \toprule
+      \textbf{Classifier} & \textbf{Hyperparameters} & \textbf{Search Values} \\
+      \midrule
+      KNN Fine & n\_neighbors & [1, 2, 3] \\
+      & weights & ['uniform', 'distance'] \\
+      \midrule
+      KNN Minkowski & n\_neighbors & [5, 10, 15] \\
+      & p (Minkowski param.) & [1, 2, 3] \\
+      & weights & ['uniform', 'distance'] \\
+      \midrule
+      KNN Weighted & n\_neighbors & [5, 10, 15] \\
+      & weights & ['distance'] \\
+      \midrule
+      KNN Medium & n\_neighbors & [10, 15, 20, 25] \\
+      & weights & ['uniform', 'distance'] \\
+      \bottomrule
+      \end{tabular}
+    \end{table}
+
+    % Block 3: Probabilistic Classifiers
+    \begin{table}[htbp]
+      \centering
+      \caption{Block 3: Probabilistic classifiers and their hyperparameter search grids.}
+      \label{tab:block3}
+      \begin{tabular}{@{}l L l@{}}
+      \toprule
+      \textbf{Classifier} & \textbf{Hyperparameters} & \textbf{Search Values} \\
+      \midrule
+      Naive Bayes (Gaussian) & var\_smoothing & [$1\times10^{-9}$, $1\times10^{-8}$, $1\times10^{-7}$, $1\times10^{-6}$] \\
+      \midrule
+      LDA & solver & ['svd', 'lsqr', 'eigen'] \\
+      & shrinkage & ['auto', 0.1, 0.5, 0.9] \\
+      \midrule
+      KNN Cosine & n\_neighbors & [5, 10, 15] \\
+      & weights & ['uniform', 'distance'] \\
+      \bottomrule
+      \end{tabular}
+    \end{table}
+
+    % Block 4: SVM Classifiers
+    \begin{table}[htbp]
+      \centering
+      \caption{Block 4: Support Vector Machine classifiers and their hyperparameter search grids.}
+      \label{tab:block4}
+      \begin{tabular}{@{}l L l@{}}
+      \toprule
+      \textbf{Classifier} & \textbf{Hyperparameters} & \textbf{Search Values} \\
+      \midrule
+      Linear SVM & C (Regularization) & [0.1, 1, 10, 100] \\
+                 & kernel & ['linear'] \\
+      \midrule
+      Quadratic SVM & C (Regularization) & [0.1, 1, 10] \\
+                    & degree & [2] \\
+                    & gamma & ['scale', 'auto'] \\
+      \midrule
+      Cubic SVM & C (Regularization) & [0.1, 1, 10] \\
+                & degree & [3] \\
+                & gamma & ['scale', 'auto'] \\
+      \midrule
+      Fifth SVM & C (Regularization) & [0.1, 1, 10] \\
+                & degree & [5] \\
+                & gamma & ['scale', 'auto'] \\
+      \bottomrule
+      \end{tabular}
+    \end{table}

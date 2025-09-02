@@ -4,7 +4,7 @@ description:
 authors: lang_lovdog
 categories: 
 created: 2025-08-28T22:43:13-0600
-updated: 2025-08-29T02:01:07-0600
+updated: 2025-08-31T14:53:40-0600
 version: 1.1.1
 @end
 
@@ -35,19 +35,25 @@ Here are some notes for this document
   The extra is an optional field which will have important
   information, such as:
   - The format of the input data:
-   - One-dimentional array
+  -- One-dimentional array
+  --- Acutal array
+  --- Encoded matrix
   -- Two-dimentional array
+  --- Divided Array
+  --- Multiple array registers
+  --- Encoded matrix
   -- Mime type
-  - If one-dimentional array, the actual shape of the array:
-  -- cols
-  -- rows
-  - If mime type, the file type and, if needed, custom read function
+  --- Image
+  --- Video
+  --- Audio
 
   Everyone will be, at the end, output a numpy array just as
   any imread function from skimage or opencv.
 
-** Current implementation
-   This approach will have the needed extra parsing
-   at today Friday - 29/08/2025 at 01:55:49
+* Test Files
+  Here, the files are stored in the following structure:
+  @code plantuml
+  @startuml
 
-   Only will be implemented the extra for 1d array.
+  @enduml
+  @end

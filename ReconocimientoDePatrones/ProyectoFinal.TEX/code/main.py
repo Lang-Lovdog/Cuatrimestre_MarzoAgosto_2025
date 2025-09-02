@@ -1,21 +1,24 @@
 # main.py
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-#from sklearn.naive_bayes import KernelNB  # Note: KernelNB might not be available in all sklearn versions
+from   sklearn.tree                  import DecisionTreeClassifier                  #type: ignore
+from   sklearn.ensemble              import AdaBoostClassifier                      #type: ignore
+from   sklearn.naive_bayes           import GaussianNB                              #type: ignore
+from   sklearn.discriminant_analysis import LinearDiscriminantAnalysis              #type: ignore
+#from sklearn.naive_bayes            import KernelNB                                 #type: ignore
+# Note: KernelNB might not be available in all sklearn versions
 # Alternative for Kernel Naive Bayes if not available:
-from sklearn.naive_bayes import GaussianNB as KernelNB  # Fallback
-from sklearn.svm import SVC
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from LovdogModelSelection import ModelSelection
-from LovdogPatternRecognition import LovdogDataFrames
-from LBP_feat_h import LBPFeatures
-import numpy as np
-import os
-import pandas as pd
+#from   sklearn.naive_bayes           import GaussianNB                  as KernelNB #type: ignore # Fallback
+from   sklearn.svm                   import SVC                                     #type: ignore
+from   sklearn.neighbors             import KNeighborsClassifier                    #type: ignore
+from   sklearn.linear_model          import LogisticRegression                      #type: ignore
+from   sklearn.ensemble              import RandomForestClassifier                  #type: ignore
+# Lovdog  Utils
+from   LovdogData                    import load_file_with_extra                    #type: ignore
+from   LovdogMS                      import ModelSelection                          #type: ignore
+from   LovdogDF                      import LovdogDataFrames                        #type: ignore
+from   LovdogLBP                     import LBPFeatures                             #type: ignore
+import numpy                                                            as np       #type: ignore
+import pandas                                                           as pd       #type: ignore
+import os                                                                           #type: ignore
 ###############
 ###############
 ###############
@@ -102,6 +105,7 @@ def process_classifier_block(block_name, experiment_name, X, y,
     
     return model_selector, metrics_df
 
+
 def get_classifier_blocks():
     """
     Return all four classifier blocks with their respective classifiers and parameters.
@@ -174,7 +178,7 @@ def get_classifier_blocks():
     block3 = {
         'classifiers': {
             'Naive_Bayes_Gaussian': GaussianNB(),
-            'Naive_Bayes_Kernel': KernelNB(),
+#            'Naive_Bayes_Kernel': KernelNB(),
             'LDA': LinearDiscriminantAnalysis(),
             'KNN_Cosine':    KNeighborsClassifier(metric='cosine')
         },
@@ -182,10 +186,10 @@ def get_classifier_blocks():
             'Naive_Bayes_Gaussian': {
                 'clf__var_smoothing': [1e-9, 1e-8, 1e-7, 1e-6]
             },
-            'Naive_Bayes_Kernel': {
-                # KernelNB might not have many parameters
-                'clf__kernel': ['gaussian', 'tophat', 'epanechnikov'] if hasattr(KernelNB, 'kernel') else {}
-            },
+#            'Naive_Bayes_Kernel': {
+#                # KernelNB might not have many parameters
+#                'clf__kernel': ['gaussian', 'tophat', 'epanechnikov'] if hasattr(KernelNB, 'kernel') else []
+#            },
             'LDA': {
                 'clf__solver': ['svd', 'lsqr', 'eigen'],
                 'clf__shrinkage': ['auto', 0.1, 0.5, 0.9]
@@ -235,86 +239,40 @@ def get_classifier_blocks():
         'Block4_SVM_Variants': block4
     }
 
-def FinalStart():
-    # 1. Load and preprocess data
-    print("=" * 60)
-    print("PATTERN RECOGNITION PROJECT - MAIN EXECUTION")
-    print("=" * 60)
-    
-    # Load and balance data for both experiments
-    data_loader_i, X_i, y_i = load_and_preprocess_data("config_experiment_i.json", "Experiment_I")
-    data_loader_ii, X_ii, y_ii = load_and_preprocess_data("config_experiment_ii.json", "Experiment_II")
-    
-    # 2. Get all classifier blocks
-    classifier_blocks = get_classifier_blocks()
-    
-    # 3. Process all blocks for both experiments
-    all_results = {}
-    
-    # Process Experiment I
-    print("\n" + "=" * 60)
-    print("PROCESSING EXPERIMENT I")
-    print("=" * 60)
-    
-    for block_name, block_config in classifier_blocks.items():
-        model_selector, metrics_df = process_classifier_block(
-            block_name=block_name,
-            experiment_name="Experiment_I",
-            X=X_i,
-            y=y_i,
-            classifiers_dict=block_config['classifiers'],
-            grid_params_dict=block_config['grid_params']
-        )
-        all_results[f"{block_name}_Experiment_I"] = {
-            'model_selector': model_selector,
-            'metrics_df': metrics_df
-        }
-    
-    # Process Experiment II
-    print("\n" + "=" * 60)
-    print("PROCESSING EXPERIMENT II")
-    print("=" * 60)
-    
-    for block_name, block_config in classifier_blocks.items():
-        model_selector, metrics_df = process_classifier_block(
-            block_name=block_name,
-            experiment_name="Experiment_II",
-            X=X_ii,
-            y=y_ii,
-            classifiers_dict=block_config['classifiers'],
-            grid_params_dict=block_config['grid_params']
-        )
-        all_results[f"{block_name}_Experiment_II"] = {
-            'model_selector': model_selector,
-            'metrics_df': metrics_df
-        }
-    
-    # 4. Generate final summary report
-    generate_final_summary(all_results)
-    
-    print("\nAnalysis complete! All results saved.")
 
 def load_and_preprocess_data(config_path, experiment_name):
     """Load and preprocess data for an experiment"""
     print(f"\nLoading and balancing {experiment_name} data...")
+
+    ## Create feature Matrix directory
+    fm_dir = "feature_matrices"
+    if not os.path.exists(fm_dir):
+        os.makedirs(fm_dir)
     
-    data_loader = LovdogDataFrames(config_path)
+    data_loader = LovdogDataFrames(config_path, load_file_with_extra)
     
     # Balance at the frame level (BEFORE feature extraction)
+    print(f"   Total samples before balancing: {data_loader.get_total_samples()}")
     data_loader.balance_frames(method='undersample', random_state=42)
-    
     print(f"   Total samples after balancing: {data_loader.get_total_samples()}")
     
     # Extract LBP features
     lbp_extractor = LBPFeatures(data_loader)
+    lbp_extractor.set_parameters(window_size=-1)
     lbp_extractor.compute_lbp_from_data_loader()
     lbp_extractor.compute_features_from_lbp()
-    X, y = lbp_extractor.get_ml_data()
+    lbp_extractor.save_to_csv(csv_path=f"{fm_dir}/{experiment_name}.csv")
+    try:
+        X, y = lbp_extractor.get_ml_data()
+    except Exception as e:
+        print(f"Error: {e}")
+        return None
     
     print(f"   {experiment_name} Features shape: {X.shape}")
     print(f"   Class distribution: {pd.Series(y).value_counts().to_dict()}")
     
     return data_loader, X, y
+
 
 def generate_final_summary(all_results):
     """Generate a comprehensive summary report"""
@@ -351,6 +309,73 @@ def generate_final_summary(all_results):
     print(f"   Accuracy: {best_overall['Accuracy']:.4f}")
     print(f"   F1-Score: {best_overall['F1_Score']:.4f}")
     print(f"   AUC: {best_overall['AUC_Score']}")
+
+
+
+
+def FinalStart():
+    # 1. Load and preprocess data
+    print("=" * 60)
+    print("PATTERN RECOGNITION PROJECT - MAIN EXECUTION")
+    print("=" * 60)
+    
+    # Load and balance data for both experiments
+    data_loader_i,  X_i, y_i   = load_and_preprocess_data("data/config_experiment_i.json" , "Experiment_I")
+    data_loader_ii, X_ii, y_ii = load_and_preprocess_data("data/config_experiment_ii.json", "Experiment_II")
+    
+    # 2. Get all classifier blocks
+    classifier_blocks = get_classifier_blocks()
+    
+    # 3. Process all blocks for both experiments
+    all_results = {}
+    
+    # Process Experiment I
+    print("\n" + "=" * 60)
+    print("PROCESSING EXPERIMENT I")
+    print("=" * 60)
+    
+    for block_name, block_config in classifier_blocks.items():
+        print(f"Processing {block_name} block...")
+        model_selector, metrics_df = process_classifier_block(
+            block_name=block_name,
+            experiment_name="Experiment_I",
+            X=X_i,
+            y=y_i,
+            classifiers_dict=block_config['classifiers'],
+            grid_params_dict=block_config['grid_params']
+        )
+        print(f"Done with {block_name} block.")
+        all_results[f"{block_name}_Experiment_I"] = {
+            'model_selector': model_selector,
+            'metrics_df': metrics_df
+        }
+    
+    # Process Experiment II
+    print("\n" + "=" * 60)
+    print("PROCESSING EXPERIMENT II")
+    print("=" * 60)
+    
+    for block_name, block_config in classifier_blocks.items():
+        print(f"Processing {block_name} block...")
+        model_selector, metrics_df = process_classifier_block(
+            block_name=block_name,
+            experiment_name="Experiment_II",
+            X=X_ii,
+            y=y_ii,
+            classifiers_dict=block_config['classifiers'],
+            grid_params_dict=block_config['grid_params']
+        )
+        print(f"Done with {block_name} block.")
+        all_results[f"{block_name}_Experiment_II"] = {
+            'model_selector': model_selector,
+            'metrics_df': metrics_df
+        }
+    
+    # 4. Generate final summary report
+    generate_final_summary(all_results)
+    
+    print("\nAnalysis complete! All results saved.")
+
 
 if __name__ == "__main__":
     FinalStart()
