@@ -1,0 +1,61 @@
+=== Activation Function Experiment ===
+Training with sigmoid activation...
+sigmoid: Accuracy=0.9770, Time=71.33s
+Training with relu activation...
+relu: Accuracy=0.9906, Time=63.95s
+Training with leaky_relu activation...
+leaky_relu: Accuracy=0.9880, Time=64.50s
+Training with elu activation...
+elu: Accuracy=0.9877, Time=66.38s
+
+=== Dropout Regularization Experiment ===
+Training with dropout rate 0.0...
+Dropout 0.0: Accuracy=0.9893, Time=68.69s
+Training with dropout rate 0.2...
+Dropout 0.2: Accuracy=0.9901, Time=76.11s
+Training with dropout rate 0.4...
+Dropout 0.4: Accuracy=0.9870, Time=73.88s
+Training with dropout rate 0.5...
+Dropout 0.5: Accuracy=0.9836, Time=73.90s
+
+=== Batch Size and Device Experiment ===
+Training with batch size 32 on /GPU:0...
+Device /GPU:0, Batch 32: Accuracy=0.9888, Time=72.19s
+Training with batch size 64 on /GPU:0...
+Device /GPU:0, Batch 64: Accuracy=0.9853, Time=42.68s
+Training with batch size 128 on /GPU:0...
+Device /GPU:0, Batch 128: Accuracy=0.9848, Time=27.91s
+Training with batch size 256 on /GPU:0...
+Device /GPU:0, Batch 256: Accuracy=0.9819, Time=22.06s
+Training with batch size 32 on /CPU:0...
+Device /CPU:0, Batch 32: Accuracy=0.9885, Time=75.88s
+Training with batch size 64 on /CPU:0...
+Device /CPU:0, Batch 64: Accuracy=0.9882, Time=42.04s
+Training with batch size 128 on /CPU:0...
+Device /CPU:0, Batch 128: Accuracy=0.9881, Time=30.67s
+Training with batch size 256 on /CPU:0...
+Device /CPU:0, Batch 256: Accuracy=0.9828, Time=22.09s
+
+=== SUMMARY ===
+
+Activation Functions:
+sigmoid: Accuracy=0.9770, Time=71.33s
+relu: Accuracy=0.9906, Time=63.95s
+leaky_relu: Accuracy=0.9880, Time=64.50s
+elu: Accuracy=0.9877, Time=66.38s
+
+Dropout Rates:
+Rate 0.0: Accuracy=0.9893, Time=68.69s
+Rate 0.2: Accuracy=0.9901, Time=76.11s
+Rate 0.4: Accuracy=0.9870, Time=73.88s
+Rate 0.5: Accuracy=0.9836, Time=73.90s
+
+Batch Sizes and Devices:
+Device /GPU:0, Batch 32: Accuracy=0.9888, Time=72.19s
+Device /GPU:0, Batch 64: Accuracy=0.9853, Time=42.68s
+Device /GPU:0, Batch 128: Accuracy=0.9848, Time=27.91s
+Device /GPU:0, Batch 256: Accuracy=0.9819, Time=22.06s
+Device /CPU:0, Batch 32: Accuracy=0.9885, Time=75.88s
+Device /CPU:0, Batch 64: Accuracy=0.9882, Time=42.04s
+Device /CPU:0, Batch 128: Accuracy=0.9881, Time=30.67s
+Device /CPU:0, Batch 256: Accuracy=0.9828, Time=22.09s

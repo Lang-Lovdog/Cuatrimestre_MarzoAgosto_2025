@@ -280,7 +280,8 @@ history_dict = {}
 ## Training process
 
 ```{python}
-epochs = 15
+#| output: true
+epochs = 2000
 batch_size = 128
 
 
@@ -319,19 +320,22 @@ for name, model in models_dict.items():
 ` `
 ```{python}
 #| output: true
+plt.figure(figsize=(6, 7))
 for name, history in history_dict.items():
     plt.plot(history.history['accuracy'],
              label=f'{name} (Train)',
              linestyle='--',
-             alpha=0.8
+             alpha=0.8,
+             linewidth=1
     )
     plt.plot(history.history['val_accuracy'],
              label=f'{name} (Test)',
-             linewidth=2
+             linewidth=1
     )
 plt.title('Model Accuracy on Iris Dataset')
 plt.ylabel('Accuracy')
 plt.xlabel('Epoch')
+plt.ylim(0.6, 1.2)
 plt.legend(loc='lower right')
 plt.grid(True, alpha=0.3)
 plt.show()
@@ -341,12 +345,21 @@ plt.show()
 ` `
 ```{python}
 #| output: true
+plt.figure(figsize=(6, 7))
 for name, history in history_dict.items():
-    plt.plot(history.history['loss'], label=f'{name} (Train)', linestyle='--', alpha=0.8)
-    plt.plot(history.history['val_loss'], label=f'{name} (Test)', linewidth=2)
+    plt.plot(history.history['loss'],
+             label=f'{name} (Train)',
+             linestyle='--', alpha=0.8,
+             linewidth=1
+    )
+    plt.plot(history.history['val_loss'],
+             label=f'{name} (Test)',
+             linewidth=1
+    )
 plt.title('Model Loss on Iris Dataset')
 plt.ylabel('Loss')
 plt.xlabel('Epoch')
+plt.ylim(-0.2, 0.6)
 plt.legend(loc='upper right')
 plt.grid(True, alpha=0.3)
 
@@ -365,3 +378,13 @@ for name, model in models_dict.items():
 ```
 
 
+# Conclusions
+Within this experiment, we can observe the different behaviours from different regularization
+methods applied to a simple ANN, using the iris dataset.
+
+The effectiveness of a regularization method usually depends on it's definition. And the most effective,
+leaving a good training timing without overfitting, for this particular experiment, were the Dropout and
+BatchNorm methods.
+
+
+# References

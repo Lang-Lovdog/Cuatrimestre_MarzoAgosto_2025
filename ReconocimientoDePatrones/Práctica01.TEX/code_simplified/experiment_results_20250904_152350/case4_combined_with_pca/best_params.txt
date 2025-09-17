@@ -1,0 +1,3 @@
+Best Model: RandomForest
+Best Parameters: {'clf__max_depth': None, 'clf__min_samples_split': 4, 'clf__n_estimators': 100}
+Test Accuracy: 0.7500

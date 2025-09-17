@@ -1,0 +1,222 @@
+Traceback (most recent call last):
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/run_all_experiments.py", line 35, in run_experiment
+    result = module.mainCase1()
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case1_glcm.py", line 78, in mainCase1
+    return experiment.run_complete()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case1_glcm.py", line 31, in run_complete
+    X, y = self.run()
+           ~~~~~~~~^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/base_experiment.py", line 115, in run
+    X, y = self.extract_features(data_dict)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case1_glcm.py", line 27, in extract_features
+    return extractor.fit_transform(data_dict)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/LovdogGLCM.py", line 35, in fit_transform
+    self.X_features_ = np.vstack(X_list)
+                       ~~~~~~~~~^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/venv/lib/python3.13/site-packages/numpy/_core/shape_base.py", line 292, in vstack
+    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: need at least one array to concatenate
+Traceback (most recent call last):
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/run_all_experiments.py", line 37, in run_experiment
+    result = module.mainCase2()
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case2_glr.py", line 73, in mainCase2
+    return experiment.run_complete()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case2_glr.py", line 26, in run_complete
+    X, y = self.run()
+           ~~~~~~~~^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/base_experiment.py", line 115, in run
+    X, y = self.extract_features(data_dict)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case2_glr.py", line 22, in extract_features
+    return extractor.fit_transform(data_dict)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/LovdogGLRL.py", line 32, in fit_transform
+    self.X_features_ = np.vstack(X_list)
+                       ~~~~~~~~~^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/venv/lib/python3.13/site-packages/numpy/_core/shape_base.py", line 292, in vstack
+    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: need at least one array to concatenate
+Traceback (most recent call last):
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/run_all_experiments.py", line 26, in run_experiment
+    spec.loader.exec_module(module)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 1026, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case3_sdh.py", line 2, in <module>
+    from .base_experiment import BaseExperiment
+ImportError: attempted relative import with no known parent package
+Traceback (most recent call last):
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/run_all_experiments.py", line 41, in run_experiment
+    result = module.mainCase4()
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case4_combined.py", line 85, in mainCase4
+    return experiment.run_complete()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case4_combined.py", line 40, in run_complete
+    X, y = self.run()
+           ~~~~~~~~^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/base_experiment.py", line 115, in run
+    X, y = self.extract_features(data_dict)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case4_combined.py", line 26, in extract_features
+    X_glcm, y_glcm = glcm_exp.extract_features(data_dict)
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case1_glcm.py", line 27, in extract_features
+    return extractor.fit_transform(data_dict)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/LovdogGLCM.py", line 35, in fit_transform
+    self.X_features_ = np.vstack(X_list)
+                       ~~~~~~~~~^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/venv/lib/python3.13/site-packages/numpy/_core/shape_base.py", line 292, in vstack
+    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: need at least one array to concatenate
+Traceback (most recent call last):
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case5_best_lda.py", line 25, in find_best_case
+    case1_results = pd.read_csv("results/experiments/case1_glcm_results.csv")
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/venv/lib/python3.13/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+        handle,
+    ...<3 lines>...
+        newline="",
+    )
+FileNotFoundError: [Errno 2] No such file or directory: 'results/experiments/case1_glcm_results.csv'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/run_all_experiments.py", line 43, in run_experiment
+    result = module.mainCase5()
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case5_best_lda.py", line 97, in mainCase5
+    return experiment.run_complete()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case5_best_lda.py", line 56, in run_complete
+    best_case_name, best_accuracy, case_id = self.find_best_case()
+                                             ~~~~~~~~~~~~~~~~~~~^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case5_best_lda.py", line 38, in find_best_case
+    _, _, case1_results = Case1GLCMExperiment().run_complete()
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case1_glcm.py", line 31, in run_complete
+    X, y = self.run()
+           ~~~~~~~~^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/base_experiment.py", line 115, in run
+    X, y = self.extract_features(data_dict)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/experiments/case1_glcm.py", line 27, in extract_features
+    return extractor.fit_transform(data_dict)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/LovdogGLCM.py", line 35, in fit_transform
+    self.X_features_ = np.vstack(X_list)
+                       ~~~~~~~~~^^^^^^^^
+  File "/home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/venv/lib/python3.13/site-packages/numpy/_core/shape_base.py", line 292, in vstack
+    return _nx.concatenate(arrs, 0, dtype=dtype, casting=casting)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: need at least one array to concatenate
+
+================================================================================
+STARTING CASE 1
+================================================================================
+
+============================================================
+RUNNING EXPERIMENT: Case1_GLCM
+============================================================
+Loading data from: /home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/imagenes/images.json
+[INFO] Loading data for class: sano
+[INFO] Loading data for class: error1
+[INFO] Loading data for class: error2
+[INFO] Loading data for class: error3
+✓ Data loaded successfully
+Extracting GLCM features...
+Extracting GLCM features for sano (0 images)...
+Extracting GLCM features for error1 (0 images)...
+Extracting GLCM features for error2 (0 images)...
+Extracting GLCM features for error3 (0 images)...
+❌ Error running Case 1: need at least one array to concatenate
+
+================================================================================
+STARTING CASE 2
+================================================================================
+
+============================================================
+RUNNING EXPERIMENT: Case2_GLR
+============================================================
+Loading data from: /home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/imagenes/images.json
+[INFO] Loading data for class: sano
+[INFO] Loading data for class: error1
+[INFO] Loading data for class: error2
+[INFO] Loading data for class: error3
+✓ Data loaded successfully
+Extracting GLR features...
+Extracting GLR features for sano (0 images)...
+Extracting GLR features for error1 (0 images)...
+Extracting GLR features for error2 (0 images)...
+Extracting GLR features for error3 (0 images)...
+❌ Error running Case 2: need at least one array to concatenate
+❌ Error running Case 3: attempted relative import with no known parent package
+
+================================================================================
+STARTING CASE 4
+================================================================================
+
+============================================================
+RUNNING EXPERIMENT: Case4_Combined
+============================================================
+Loading data from: /home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/imagenes/images.json
+[INFO] Loading data for class: sano
+[INFO] Loading data for class: error1
+[INFO] Loading data for class: error2
+[INFO] Loading data for class: error3
+✓ Data loaded successfully
+Extracting GLCM features...
+Extracting GLCM features for sano (0 images)...
+Extracting GLCM features for error1 (0 images)...
+Extracting GLCM features for error2 (0 images)...
+Extracting GLCM features for error3 (0 images)...
+❌ Error running Case 4: need at least one array to concatenate
+
+================================================================================
+STARTING CASE 5
+================================================================================
+Previous case results not found. Running all cases...
+
+============================================================
+RUNNING EXPERIMENT: Case1_GLCM
+============================================================
+Loading data from: /home/lang_lovdog/Documentos/ACAD/MAESTRÍA/Cuatrimestre_MarzoAgosto_2025/ReconocimientoDePatrones/Práctica01.TEX/code/res/imagenes/images.json
+[INFO] Loading data for class: sano
+[INFO] Loading data for class: error1
+[INFO] Loading data for class: error2
+[INFO] Loading data for class: error3
+✓ Data loaded successfully
+Extracting GLCM features...
+Extracting GLCM features for sano (0 images)...
+Extracting GLCM features for error1 (0 images)...
+Extracting GLCM features for error2 (0 images)...
+Extracting GLCM features for error3 (0 images)...
+❌ Error running Case 5: need at least one array to concatenate
+
+================================================================================
+ALL EXPERIMENTS COMPLETED
+================================================================================

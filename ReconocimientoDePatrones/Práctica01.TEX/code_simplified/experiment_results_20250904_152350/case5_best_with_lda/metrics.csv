@@ -1,0 +1,2 @@
+Classifier,Accuracy,Precision,Recall,F1_Score,AUC_Score,CV_Score,Best_Params,Supports_Probability
+RandomForest,0.8125,0.8041666666666667,0.8125,0.8025793650793651,0.9641927083333334,0.8128205128205128,"{'clf__max_depth': 10, 'clf__min_samples_split': 4, 'clf__n_estimators': 50}",True

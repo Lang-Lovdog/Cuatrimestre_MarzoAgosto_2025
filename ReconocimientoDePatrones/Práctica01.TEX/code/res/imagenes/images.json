@@ -1,0 +1,35 @@
+{
+  "csv": "Features_Table.csv",
+  "clase1_sano": {
+    "class": "sano",
+    "path": ["res/imagenes/clase1_sano"],
+    "extra": {
+      "type": "image",
+      "format": "png"
+    }
+  },
+  "Clase2-Err1": {
+    "class": "error1", 
+    "path": ["res/imagenes/Clase2-Err1"],
+    "extra": {
+      "type": "image",
+      "format": "png"
+    }
+  },
+  "Clase3Err2": {
+    "class": "error2",
+    "path": ["res/imagenes/Clase3Err2"],
+    "extra": {
+      "type": "image", 
+      "format": "png"
+    }
+  },
+  "Clase4-Err3": {
+    "class": "error3",
+    "path": ["res/imagenes/Clase4-Err3"],
+    "extra": {
+      "type": "image",
+      "format": "png"
+    }
+  }
+}

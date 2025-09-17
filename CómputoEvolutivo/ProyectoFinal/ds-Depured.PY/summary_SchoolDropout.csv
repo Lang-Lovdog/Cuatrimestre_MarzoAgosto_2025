@@ -1,0 +1,5 @@
+tag,best_accuracy,best_f1_macro,best_model,best_estimator,score
+RandomForest,0.8867070815181664,0.8867070815181664,"{'clf__max_depth': 29, 'clf__min_samples_split': 6, 'clf__n_estimators': 35}","Pipeline(steps=[('scaler', StandardScaler()),
+                ('clf',
+                 RandomForestClassifier(max_depth=29, min_samples_split=6,
+                                        n_estimators=35))])",0.8936003755280864

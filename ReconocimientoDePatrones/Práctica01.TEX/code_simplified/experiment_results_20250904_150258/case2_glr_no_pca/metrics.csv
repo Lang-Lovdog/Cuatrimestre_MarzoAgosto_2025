@@ -1,0 +1,5 @@
+Classifier,Accuracy,Precision,Recall,F1_Score,AUC_Score,CV_Score,Best_Params,Supports_Probability
+SVC,0.0625,0.03125,0.0625,0.041666666666666664,N/A,0.26410256410256416,"{'clf__C': 10, 'clf__gamma': 'scale', 'clf__kernel': 'linear'}",False
+KNeighbors,0.625,0.6583333333333333,0.625,0.6103174603174603,0.7786458333333333,0.75,"{'clf__n_neighbors': 3, 'clf__weights': 'distance'}",True
+RandomForest,0.625,0.625,0.625,0.6142857142857143,0.8079427083333335,0.7974358974358975,"{'clf__max_depth': None, 'clf__min_samples_split': 2, 'clf__n_estimators': 100}",True
+LogisticRegression,0.125,0.3333333333333333,0.125,0.17142857142857143,0.46484375,0.3756410256410257,"{'clf__C': 10, 'clf__penalty': 'l2', 'clf__solver': 'liblinear'}",True

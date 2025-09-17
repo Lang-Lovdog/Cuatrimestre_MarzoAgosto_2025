@@ -1,0 +1,42 @@
+.
+├── features
+├── LovdogData.py
+├── LovdogDF.py
+├── LovdogFeatureBase.py
+├── LovdogGLCM.py
+├── LovdogGLRL.py
+├── LovdogLBP.py
+├── LovdogMS.py
+├── LovdogSDH.py
+├── main.py
+├── models
+├── plots
+├── res
+│   ├── analyze_results.py
+│   ├── experiments
+│   │   ├── base_experiment.py
+│   │   ├── case1_glcm.py
+│   │   ├── case2_glr.py
+│   │   ├── case3_sdh.py
+│   │   ├── case4_combined.py
+│   │   ├── case5_best_lda.py
+│   │   └── __init__.py
+│   ├── imagenes
+│   │   ├── clase1_sano
+│   │   ├── Clase2-Err1
+│   │   ├── Clase3Err2
+│   │   ├── Clase4-Err3
+│   │   └── Cropped
+│   │       ├── Clase1-Sano
+│   │       ├── Clase2-Err1
+│   │       ├── Clase3-Err2
+│   │       └── Clase4-Err3
+│   ├── __init__.py
+│   ├── run_all_experiments.py
+│   └── utils
+│       ├── __init__.py
+│       └── reporting.py
+├── results
+└── test_images.py
+
+18 directories, 22 files

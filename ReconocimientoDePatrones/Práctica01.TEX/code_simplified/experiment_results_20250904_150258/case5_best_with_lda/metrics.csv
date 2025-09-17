@@ -1,0 +1,2 @@
+Classifier,Accuracy,Precision,Recall,F1_Score,AUC_Score,CV_Score,Best_Params,Supports_Probability
+KNeighbors,0.8125,0.8333333333333333,0.8125,0.8071428571428572,0.9869791666666666,0.8602564102564104,"{'clf__n_neighbors': 5, 'clf__weights': 'distance'}",True

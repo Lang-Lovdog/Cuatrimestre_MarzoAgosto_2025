@@ -1,0 +1,15 @@
+[0] Config.pm:328> INFO - This is Biber 2.21
+[0] Config.pm:331> INFO - Logfile is 'MarquezSalazarBrandon-ProyectoFinal.blg'
+[60] biber:342> INFO - === Thu Sep  4, 2025, 09:37:11
+[76] Biber.pm:421> INFO - Reading 'MarquezSalazarBrandon-ProyectoFinal.bcf'
+[126] Biber.pm:999> INFO - Using all citekeys in bib section 0
+[139] Biber.pm:4487> INFO - Processing section 0
+[149] Biber.pm:4678> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[151] bibtex.pm:1713> INFO - LaTeX decoding ...
+[161] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
+[272] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[272] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[272] Biber.pm:4307> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[272] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[284] bbl.pm:676> INFO - Writing 'MarquezSalazarBrandon-ProyectoFinal.bbl' with encoding 'UTF-8'
+[290] bbl.pm:779> INFO - Output to MarquezSalazarBrandon-ProyectoFinal.bbl

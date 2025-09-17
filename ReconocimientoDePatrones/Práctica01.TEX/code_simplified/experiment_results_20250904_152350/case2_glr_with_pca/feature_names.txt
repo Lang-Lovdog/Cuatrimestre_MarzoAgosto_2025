@@ -1,0 +1,15 @@
+glrl_d0_SRE
+glrl_d0_LRE
+glrl_d0_GLNU
+glrl_d0_RLN
+glrl_d0_RP
+glrl_d45_SRE
+glrl_d45_LRE
+glrl_d45_GLNU
+glrl_d45_RLN
+glrl_d45_RP
+glrl_d90_SRE
+glrl_d90_LRE
+glrl_d90_GLNU
+glrl_d90_RLN
+glrl_d90_RP

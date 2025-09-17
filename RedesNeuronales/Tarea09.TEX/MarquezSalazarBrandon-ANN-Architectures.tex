@@ -1,0 +1,207 @@
+%!TEX TS-program = xelatex
+
+\documentclass[journal]{IEEEtran}
+
+% Essential packages for XeLaTeX
+\usepackage{fontspec} % Critical for XeLaTeX
+\usepackage{microtype} % Improves typography
+
+% Language setup
+\usepackage{polyglossia}
+\setmainlanguage{english}
+
+% IEEE-specific math and symbol packages (CRITICAL)
+\usepackage{amsmath}
+\usepackage{amssymb} % Defines \mathbb
+\usepackage{bm}
+
+% Graphics and formatting
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\usepackage{xcolor}
+
+% Hyperlinks and PDF metadata (LOAD LAST)
+\usepackage[colorlinks=true, allcolors=blue, pdfencoding=auto]{hyperref}
+
+% Intelligent XeLaTeX-specific settings for better hyphenation
+\XeTeXlinebreaklocale "en"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+
+
+\title{Theoretical Foundations of Image-to-Image Translation: \\ Pix2Pix and CycleGAN Architectures}
+\author{
+\IEEEauthorblockN{Brandon Marquez Salazar}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+ Image-to-image translation is a fundamental task in computer vision that
+ aims to learn a mapping between different visual domains. This paper
+ provides a theoretical analysis of two pioneering Generative Adversarial
+ Network (GAN)-based architectures for this task: Pix2Pix and CycleGAN.
+ While Pix2Pix is founded on a supervised framework requiring paired
+ training data, CycleGAN introduces the principle of cycle-consistency,
+ enabling learning from unpaired datasets. This work dissects the core
+ theoretical principles, adversarial and consistency losses, and network
+ architectures that define each model. The analysis highlights their
+ inherent advantages, limitations, and theoretical applications, serving
+ as a foundational guide for selecting the appropriate architecture based
+ on data constraints and problem domain.
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+
+ Generative Adversarial Networks (GANs), image-to-image translation,
+ Pix2Pix, CycleGAN, deep learning, computer vision.
+
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+ A central challenge in computer vision is learning a mapping that can
+ translate an image from one representation to another, a task known as
+ image-to-image translation. Applications range from style transfer and
+ photo generation from sketches to domain adaptation in medical imaging
+ \cite{Isola2017}.
+
+ Two landmark architectures that have significantly advanced this field
+ are Pix2Pix \cite{Isola2017} and CycleGAN \cite{Zhu2017}. Both are built
+ upon the framework of Generative Adversarial Networks (GANs) but diverge
+ critically in their data requirements and underlying theoretical
+ constraints. Pix2Pix operates in a supervised setting, requiring aligned
+ image pairs, whereas CycleGAN leverages a novel cycle-consistency loss to
+ learn from unpaired data. This paper presents a theoretical comparison of
+ these two architectures, focusing on their foundational principles,
+ objective functions, and network designs to inform their appropriate
+ application.
+
+\section{Theoretical Framework}
+
+ The common theoretical foundation for both models is the Generative
+ Adversarial Network (GAN) framework \cite{Goodfellow2014}. A GAN consists
+ of a generator $G$ and a discriminator $D$ engaged in a two-player
+ minimax game. The generator aims to produce synthetic data that is
+ indistinguishable from real data, while the discriminator learns to
+ differentiate between real and generated samples.
+
+\subsection{Pix2Pix: Conditional Adversarial Networks}
+
+ The Pix2Pix architecture \cite{Isola2017} is formulated as a conditional
+ GAN (cGAN). It learns a mapping from an input image $x$ to an output
+ image $y$, denoted as $G: x \rightarrow y$. This training paradigm
+ \textbf{requires a dataset of aligned pairs} $\{(x_i, y_i)\}$.
+
+The objective function of Pix2Pix combines a conditional adversarial loss with a traditional reconstruction loss, typically L1 distance:
+
+\begin{equation}
+\mathcal{L}_{cGAN}(G, D) = \mathbb{E}_{x,y}[\log D(x, y)] + \mathbb{E}_{x}[\log (1 - D(x, G(x)))]
+\end{equation}
+\begin{equation}
+\mathcal{L}_{L1}(G) = \mathbb{E}_{x,y}[\|y - G(x)\|_1]
+\end{equation}
+The final objective is:
+\begin{equation}
+G^* = \arg \min_G \max_D \mathcal{L}_{cGAN}(G, D) + \lambda \mathcal{L}_{L1}(G)
+\end{equation}
+
+The adversarial loss encourages the generation of perceptually realistic images, while the L1 loss enforces low-frequency correctness and sharpness by minimizing the pixel-wise distance between the generated image $G(x)$ and the target $y$.
+
+\subsection{CycleGAN: Cycle-Consistent Adversarial Networks}
+
+ CycleGAN \cite{Zhu2017} addresses the major limitation of requiring
+ paired data. It learns two mapping functions simultaneously: $G:
+ X \rightarrow Y$ and $F: Y \rightarrow X$, between two unpaired domains
+ $X$ and $Y$. It employs two generators ($G$, $F$) and two corresponding
+ discriminators ($D_X$, $D_Y$).
+
+ Its core theoretical innovation is the introduction of
+ a \textbf{cycle-consistency loss}. This loss acts as a powerful
+ regularization term, enforcing that translating an image from one domain
+ to the other and back again should reconstruct the original image:
+
+\begin{align}
+\mathcal{L}_{cyc}(G, F) &= \mathbb{E}_{x \sim p_{data}(x)}[\|F(G(x)) - x\|_1] \\
+&+ \mathbb{E}_{y \sim p_{data}(y)}[\|G(F(y)) - y\|_1]
+\end{align}
+
+ The full objective combines adversarial losses for both mappings with the
+ cycle-consistency loss:
+
+\begin{equation}
+  \resizebox{\columnwidth}{!}{$
+    \mathcal{L}_{CycleGAN} = \mathcal{L}_{GAN}(G, D_Y, X, Y) + \mathcal{L}_{GAN}(F, D_X, Y, X) + \lambda \mathcal{L}_{cyc}(G, F)
+  $}
+\end{equation}
+ 
+ This cycle-constrained architecture enables the model to learn meaningful
+ correspondences between domains without explicit pairwise supervision.
+
+\section{Experimental Part}
+
+\begin{center}
+\colorbox{red!50}{
+  The experimental part will be put into an adjoint pdf.
+}
+\end{center}
+
+\section{Architectural Components}
+
+\subsection{Generator Architectures}
+
+ Both models commonly use an encoder-decoder structure. Pix2Pix
+ popularized the use of a \textbf{U-Net} \cite{Ronneberger2015} as the
+ generator $G$. Its skip connections between the encoder and decoder are
+ crucial for preserving low-level details from the input image to the
+ output. CycleGAN often uses a generator with residual blocks to
+ facilitate the learning of deeper mappings without gradient degradation.
+
+\subsection{Discriminator Architectures}
+
+ Both architectures typically employ a \textbf{PatchGAN} discriminator.
+ Instead of classifying an entire image as real or fake, the PatchGAN
+ classifier operates on patches of the image, outputting a matrix of
+ probabilities. This design focuses on modeling high-frequency structure
+ and penalizes artifacts at the scale of these patches, making it highly
+ effective for capturing texture and style.
+
+\section{Conclusion}
+
+ The theoretical frameworks of Pix2Pix and CycleGAN represent two powerful
+ but distinct paradigms for image-to-image translation. Pix2Pix provides
+ a straightforward, supervised approach that excels when paired data is
+ available, leveraging a combination of adversarial and L1 loss for
+ high-fidelity results. In contrast, CycleGAN offers a groundbreaking
+ unsupervised solution, using cycle-consistency as an inductive bias to
+ learn from unpaired datasets, albeit with a more complex training
+ dynamics.
+
+ The choice between these architectures is fundamentally dictated by the
+ nature of the available training data. This theoretical analysis provides
+ the foundation for understanding their operational principles, enabling
+ informed selection and implementation for various applications in
+ computer vision and beyond.
+
+\section*{References}
+\begin{thebibliography}{00}
+
+\bibitem{Isola2017} 
+P. Isola, J.-Y. Zhu, T. Zhou, and A. A. Efros, ``Image-to-image translation with conditional adversarial networks,'' in \emph{Proc. IEEE Conf. Comput. Vis. Pattern Recognit. (CVPR)}, 2017, pp. 1125--1134.
+
+\bibitem{Zhu2017}
+J.-Y. Zhu, T. Park, P. Isola, and A. A. Efros, ``Unpaired image-to-image translation using cycle-consistent adversarial networks,'' in \emph{Proc. IEEE Int. Conf. Comput. Vis. (ICCV)}, 2017, pp. 2223--2232.
+
+\bibitem{Goodfellow2014}
+I. Goodfellow et al., ``Generative adversarial nets,'' in \emph{Adv. Neural Inf. Process. Syst.}, vol. 27, 2014.
+
+\bibitem{Ronneberger2015}
+O. Ronneberger, P. Fischer, and T. Brox, ``U-Net: Convolutional networks for biomedical image segmentation,'' in \emph{Proc. Int. Conf. Med. Image Comput. Comput.-Assist. Intervent. (MICCAI)}, 2015, pp. 234--241.
+
+\end{thebibliography}
+
+\end{document}

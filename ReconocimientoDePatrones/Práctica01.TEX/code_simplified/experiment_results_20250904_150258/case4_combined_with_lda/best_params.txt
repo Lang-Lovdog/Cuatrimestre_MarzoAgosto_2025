@@ -1,0 +1,3 @@
+Best Model: KNeighbors
+Best Parameters: {'clf__n_neighbors': 7, 'clf__weights': 'distance'}
+Test Accuracy: 0.6250

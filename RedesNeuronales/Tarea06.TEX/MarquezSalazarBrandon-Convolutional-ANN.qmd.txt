@@ -1,0 +1,449 @@
+---
+title: "Convolutional ANNs"
+execute:
+   enabled: false
+#   include: false
+#   enabled: true
+   warning: false
+   output: false
+   error: false
+monofont: "BigBlueTermPlus Nerd Font Mono"
+monofontoptions:
+   - Scale=0.60
+#format: ipynb
+format:
+   pdf:
+     title: Convolutional ANNs
+     author: Brandon Marquez Salazar
+     pdf-engine: xelatex
+     documentclass: IEEEtran
+     documentclassoptions: journal
+     number-sections: true
+     bibliography: bibliography.bib
+     bibliographystyle: ieee
+#     cite-method: biblatex
+     nocite: | 
+      @*
+     include-in-header:
+       - text: |
+           \usepackage{dirtytalk}
+           \usepackage{tikz}
+           \usepackage{listings}
+           \usepackage{amsmath}
+           \usepackage{graphicx}
+           \usepackage{array}
+           \usepackage{booktabs}
+           \usepackage{caption}
+           \usepackage{hyperref}
+           \usepackage{multirow}
+           \usepackage{xcolor}
+           \usepackage{float}
+           \lstset{basicstyle=\ttfamily\tiny, breaklines=true}
+           \usetikzlibrary{positioning}
+           \tikzset{
+             x=2.8em,
+             y=2.8em,
+           }
+           \input{Macros}
+jupyter: redesneuronales
+---
+
+\begin{abstract}
+
+ Convolutional Neural Networks (CNNs) represent a class of deep learning
+ models that have revolutionized various computer vision tasks and
+ demonstrated remarkable performance across diverse domains. This overview
+ examines CNN architecture fundamentals, key components, applications,
+ challenges, and implementation considerations.
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+
+ Convolutional neural networks, deep learning, computer vision, image
+ classification, feature extraction, deep learning architecture.
+
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+ Convolutional Neural Networks have revolutionized the field of computer
+ vision, achieving remarkable performance in image classification, object
+ detection, and pattern recognition tasks. The fundamental architecture of
+ CNNs draws inspiration from the biological visual processing system
+ discovered by Hubel and Wiesel \cite{hubel1962receptive}, whose
+ groundbreaking work revealed the hierarchical organization of the visual
+ cortex in mammals.
+
+ The historical development of CNNs represents a fascinating convergence
+ of neuroscience, computer science, and mathematics. From the early
+ Neocognitron model \cite{fukushima1980neocognitron} to modern
+ architectures like ResNet and EfficientNet, CNNs have evolved to become
+ increasingly sophisticated while maintaining their core principle of
+ hierarchical feature extraction through convolutional operations.
+
+ This paper provides a comprehensive overview of CNN architectures,
+ beginning with their neurophysiological foundations and tracing their
+ development through key innovations. We additionally present experimental
+ results from implementing the LeNet-5 architecture with various
+ activation functions and regularization techniques, analyzing both
+ performance metrics and computational efficiency.
+
+\section{Historical Development}
+
+\subsection{Neurophysiological Foundations: Hubel and Wiesel's Model}
+
+ The conceptual foundation for CNNs emerged from the neurophysiological
+ research of David Hubel and Torsten Wiesel in the 1950s and 1960s
+ \cite{hubel1962receptive}. Their pioneering work on the cat visual cortex
+ revealed a hierarchical organization of neurons specialized for detecting
+ increasingly complex visual patterns.
+
+Hubel and Wiesel identified three main types of cells in the visual cortex:
+
+\begin{itemize}
+  \item \textbf{Simple cells}: Respond to edges at specific orientations and positions
+  \item \textbf{Complex cells}: Respond to edges at specific orientations but with positional invariance
+  \item \textbf{Hypercomplex cells}: Respond to more complex patterns including corners and angles
+\end{itemize}
+
+ This hierarchical organization, where simple features are combined into
+ increasingly complex representations, directly inspired the architectural
+ principles of modern CNNs. The convolutional layers in CNNs emulate the
+ response properties of simple cells, while pooling operations provide
+ translation invariance similar to complex cells.
+
+\subsection{Neocognitron: The First Computational Implementation}
+
+ Fukushima's Neocognitron \cite{fukushima1980neocognitron}, introduced in
+ 1980, represented the first computational model inspired by Hubel and
+ Wiesel's findings. This hierarchical multilayered network could recognize
+ visual patterns through two primary types of layers:
+
+\begin{itemize}
+  \item \textbf{S-cells}: Feature extraction cells resembling simple cells
+  \item \textbf{C-cells}: Positional tolerance cells resembling complex cells
+\end{itemize}
+
+The Neocognitron introduced several key concepts that would become fundamental to CNNs:
+\begin{itemize}
+  \item Local receptive fields
+  \item Weight sharing
+  \item Hierarchical feature extraction
+  \item Gradual increase in feature complexity
+\end{itemize}
+
+ Despite its innovative design, the Neocognitron faced practical
+ limitations due to computational constraints of the era and lacked an
+ efficient training algorithm.
+
+\subsection{Cresceptron: Advancing the Architecture}
+
+ The Cresceptron \cite{weng1992cresceptron}, developed by Weng et al. in
+ 1992, extended the Neocognitron concept with several important
+ advancements:
+
+\begin{itemize}
+  \item On-line incremental learning capability
+  \item Ability to handle complex natural backgrounds
+  \item Multi-resolution processing
+  \item Automatic feature discovery without pre-specification
+\end{itemize}
+
+ The Cresceptron represented a significant step toward practical
+ application of hierarchical visual processing models, though it still
+ preceded the widespread adoption of backpropagation for training deep
+ networks.
+
+\subsection{LeNet-5: The Modern Foundation}
+
+ LeCun et al. introduced LeNet-5 \cite{lecun1998gradient} in 1998, which
+ established the fundamental architecture that would define modern CNNs.
+ LeNet-5 achieved groundbreaking performance on handwritten digit
+ recognition using several key innovations:
+
+\begin{itemize}
+  \item Gradient-based learning via backpropagation
+  \item End-to-end training of all layers
+  \item Strategic combination of convolutional layers, pooling layers, and fully connected layers
+\end{itemize}
+
+The LeNet-5 architecture, illustrated in Table~\ref{tab:lenet5}, became the blueprint for subsequent CNN developments.
+
+\begin{table}[h]
+  \centering
+  \caption{LeNet-5 Architecture Specifications}
+  \label{tab:lenet5}
+  \begin{tabular}{>{\raggedright}p{0.25\columnwidth}>{\raggedright}p{0.3\columnwidth}>{\raggedright}p{0.3\columnwidth}}
+      \toprule
+      \textbf{Layer Type} & \textbf{Parameters} & \textbf{Activation Size} \\
+      \midrule
+      Input           & $32×32×1 $  & 32×32×1  \\
+      Convolution     & $6\@5×5  $  & 28×28×6  \\
+      Avg Pooling     & $2×2     $  & 14×14×6  \\
+      Convolution     & $16\@5×5 $  & 10×10×16 \\
+      Avg Pooling     & $2×2     $  & 5×5×16   \\
+      Fully Connected & 120 units & 120        \\
+      Fully Connected & 84 units  & 84         \\
+      Output          & 10 units  & 10         \\
+      \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{AlexNet: The Deep Learning Breakthrough}
+
+ The AlexNet architecture \cite{krizhevsky2012imagenet}, introduced by
+ Krizhevsky et al. in 2012, marked a watershed moment in deep learning.
+ Winning the ImageNet competition by a significant margin, AlexNet
+ demonstrated the power of deep CNNs for large-scale visual recognition
+ tasks.
+
+Key innovations in AlexNet included:
+\begin{itemize}
+  \item Use of ReLU activation functions for faster training
+  \item Implementation of dropout regularization to reduce overfitting
+  \item Utilization of GPU acceleration for practical training times
+  \item Overlapping pooling operations
+  \item Local response normalization
+\end{itemize}
+
+ AlexNet's success catalyzed the deep learning revolution, inspiring rapid
+ development of increasingly sophisticated architectures.
+
+\section{Experimental Methodology}
+
+\subsection{LeNet-5 Implementation}
+
+```{python}
+
+import tensorflow as tf
+import numpy as np
+import time
+from tensorflow.keras.datasets import mnist
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, AveragePooling2D, Flatten, Dense
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.utils import to_categorical
+
+# Load and preprocess MNIST dataset
+def load_data():
+    (x_train, y_train), (x_test, y_test) = mnist.load_data()
+    
+    # Reshape and normalize
+    x_train = x_train.reshape(x_train.shape[0], 28, 28, 1).astype('float32') / 255
+    x_test = x_test.reshape(x_test.shape[0], 28, 28, 1).astype('float32') / 255
+    
+    # One-hot encode labels
+    y_train = to_categorical(y_train, 10)
+    y_test = to_categorical(y_test, 10)
+    
+    return (x_train, y_train), (x_test, y_test)
+
+# Build LeNet-5 model with configurable activation and dropout
+def build_lenet5(activation='sigmoid', dropout_rate=0.0):
+    model = Sequential()
+    
+    # First convolutional block
+    model.add(Conv2D(6, (5, 5), activation=activation,
+        input_shape=(28, 28, 1), padding='same'))
+    model.add(AveragePooling2D(pool_size=(2, 2)))
+    
+    # Second convolutional block
+    model.add(Conv2D(16, (5, 5), activation=activation))
+    model.add(AveragePooling2D(pool_size=(2, 2)))
+    
+    # Fully connected layers
+    model.add(Flatten())
+    model.add(Dense(120, activation=activation))
+    model.add(Dense(84, activation=activation))
+    
+    # Output layer
+    model.add(Dense(10, activation='softmax'))
+    
+    # Compile model
+    model.compile(
+        optimizer=Adam(learning_rate=0.001),
+        loss='categorical_crossentropy',
+        metrics=['accuracy']
+    )
+    
+    return model
+
+# Train and evaluate model
+def train_model(model, x_train, y_train,
+          x_test, y_test, batch_size=128, epochs=10):
+    start_time = time.time()
+    
+    history = model.fit(
+        x_train, y_train,
+        batch_size=batch_size,
+        epochs=epochs,
+        verbose=0,
+        validation_data=(x_test, y_test)
+    )
+    
+    training_time = time.time() - start_time
+    
+    # Evaluate on test set
+    test_loss, test_accuracy = model.evaluate(x_test, y_test, verbose=0)
+    
+    return test_accuracy, training_time, history
+
+# Experiment with different activation functions
+def activation_experiment():
+    (x_train, y_train), (x_test, y_test) = load_data()
+    
+    activations = ['sigmoid', 'relu', 'leaky_relu', 'elu']
+    results = {}
+    
+    for activation in activations:
+        print(f"Training with {activation} activation...")
+        
+        model = build_lenet5(activation=activation)
+        accuracy, training_time, _ = train_model(model,
+          x_train, y_train, x_test, y_test)
+        
+        results[activation] = {
+            'accuracy': accuracy,
+            'training_time': training_time
+        }
+        
+        print(f"{activation}: Accuracy={accuracy:.4f},
+          Time={training_time:.2f}s")
+    
+    return results
+
+# Experiment with different dropout rates
+def dropout_experiment():
+    (x_train, y_train), (x_test, y_test) = load_data()
+    
+    dropout_rates = [0.0, 0.2, 0.4, 0.5]
+    results = {}
+    
+    for rate in dropout_rates:
+        print(f"Training with dropout rate {rate}...")
+        
+        model = build_lenet5_dropout(dropout_rate=rate)
+        accuracy, training_time, _ = train_model(model,
+          x_train, y_train, x_test, y_test)
+        
+        results[rate] = {
+            'accuracy': accuracy,
+            'training_time': training_time
+        }
+        
+        print(f"Dropout {rate}: Accuracy={accuracy:.4f},
+              Time={training_time:.2f}s")
+    
+    return results
+
+# Build LeNet-5 with dropout
+def build_lenet5_dropout(activation='relu', dropout_rate=0.0):
+    model = Sequential()
+    
+    # First convolutional block
+    model.add(Conv2D(6, (5, 5), activation=activation,
+      input_shape=(28, 28, 1), padding='same'))
+    model.add(AveragePooling2D(pool_size=(2, 2)))
+    if dropout_rate > 0:
+        model.add(tf.keras.layers.Dropout(dropout_rate))
+    
+    # Second convolutional block
+    model.add(Conv2D(16, (5, 5), activation=activation))
+    model.add(AveragePooling2D(pool_size=(2, 2)))
+    if dropout_rate > 0:
+        model.add(tf.keras.layers.Dropout(dropout_rate))
+    
+    # Fully connected layers
+    model.add(Flatten())
+    model.add(Dense(120, activation=activation))
+    if dropout_rate > 0:
+        model.add(tf.keras.layers.Dropout(dropout_rate))
+        
+    model.add(Dense(84, activation=activation))
+    if dropout_rate > 0:
+        model.add(tf.keras.layers.Dropout(dropout_rate))
+    
+    # Output layer
+    model.add(Dense(10, activation='softmax'))
+    
+    # Compile model
+    model.compile(
+        optimizer=Adam(learning_rate=0.001),
+        loss='categorical_crossentropy',
+        metrics=['accuracy']
+    )
+    
+    return model
+
+# Experiment with different batch sizes and GPU vs CPU
+def batch_size_experiment():
+    (x_train, y_train), (x_test, y_test) = load_data()
+    
+    batch_sizes = [32, 64, 128, 256]
+    devices = ['/GPU:0', '/CPU:0']
+    results = {}
+    
+    for device in devices:
+        results[device] = {}
+        
+        for batch_size in batch_sizes:
+            print(f"Training with batch size {batch_size} on {device}...")
+            
+            # Set device
+            with tf.device(device):
+                model = build_lenet5(activation='relu')
+                
+                start_time = time.time()
+                model.fit(
+                    x_train, y_train,
+                    batch_size=batch_size,
+                    epochs=5,  # Fewer epochs for this experiment
+                    verbose=0
+                )
+                training_time = time.time() - start_time
+                
+                # Evaluate
+                test_loss, test_accuracy = model.evaluate(x_test, y_test, verbose=0)
+                
+                results[device][batch_size] = {
+                    'accuracy': test_accuracy,
+                    'training_time': training_time
+                }
+                
+                print(f"Device {device}, Batch {batch_size}:"
+                      f"Accuracy={test_accuracy:.4f}, Time={training_time:.2f}s")
+    
+    return results
+
+# Main execution
+if __name__ == "__main__":
+    print("=== Activation Function Experiment ===")
+    activation_results = activation_experiment()
+    
+    print("\n=== Dropout Regularization Experiment ===")
+    dropout_results = dropout_experiment()
+    
+    print("\n=== Batch Size and Device Experiment ===")
+    batch_results = batch_size_experiment()
+    
+    # Print summary
+    print("\n=== SUMMARY ===")
+    
+    print("\nActivation Functions:")
+    for activation, metrics in activation_results.items():
+        print(f"{activation}: Accuracy={metrics['accuracy']:.4f},"+
+              f"Time={metrics['training_time']:.2f}s")
+    
+    print("\nDropout Rates:")
+    for rate, metrics in dropout_results.items():
+        print(f"Rate {rate}: Accuracy={metrics['accuracy']:.4f},"+
+              f"Time={metrics['training_time']:.2f}s")
+    
+    print("\nBatch Sizes and Devices:")
+    for device, batches in batch_results.items():
+        for batch_size, metrics in batches.items():
+            print(f"Device {device}, Batch {batch_size}:"+
+                  f"Accuracy={metrics['accuracy']:.4f},"+
+                  f"Time={metrics['training_time']:.2f}s")
+```

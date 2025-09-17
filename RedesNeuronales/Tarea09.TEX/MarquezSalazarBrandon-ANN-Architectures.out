@@ -1,0 +1,10 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Theoretical\040Framework}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Pix2Pix:\040Conditional\040Adversarial\040Networks}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{CycleGAN:\040Cycle-Consistent\040Adversarial\040Networks}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Experimental\040Part}{}% 5
+\BOOKMARK [1][-]{section.4}{Architectural\040Components}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Generator\040Architectures}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.2}{Discriminator\040Architectures}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 9
+\BOOKMARK [1][-]{section*.2}{References}{}% 10
